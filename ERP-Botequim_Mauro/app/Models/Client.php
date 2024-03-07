@@ -9,8 +9,10 @@ class Client extends Model
 {
     use HasFactory;
 
+    //*Nome da tabela 
     protected $table ='Clients';
 
+    //*Inicio das colunas da tabela cliente
     protected $fillable =[
         'Name_client','Surname','Age','Household'
     ];
