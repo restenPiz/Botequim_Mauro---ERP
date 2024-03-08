@@ -94,7 +94,7 @@
             </div><!-- /.form-group -->
             <!-- .form-group -->
             <div class="form-group">
-                <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
+                <button class="btn btn-lg btn-primary btn-block" type="submit" name="submit">Entrar</button>
             </div><!-- /.form-group -->
             <!-- .form-group -->
             <div class="form-group text-center">
