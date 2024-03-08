@@ -11,7 +11,7 @@
         "laravel/sanctum": "^3.3",
         "laravel/tinker": "^2.8",
         "realrashid/sweet-alert": "^7.1",
-        "santigarcor/laratrust": "*"
+        "santigarcor/laratrust": "^8.2"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
