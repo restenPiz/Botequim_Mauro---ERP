@@ -81,14 +81,14 @@
             <!-- .form-group -->
             <div class="form-group">
                 <div class="form-label-group">
-                    <input type="text" id="inputUser" class="form-control" placeholder="Nome de Usuario" autofocus="">
+                    <input type="text" id="inputUser" name="email" class="form-control" placeholder="Nome de Usuario" autofocus="">
                     <label for="inputUser">Nome do Usuario</label>
                 </div>
             </div><!-- /.form-group -->
             <!-- .form-group -->
             <div class="form-group">
                 <div class="form-label-group">
-                    <input type="password" id="inputPassword" class="form-control" placeholder="Senha"> <label
+                    <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Senha"> <label
                         for="inputPassword">Senha</label>
                 </div>
             </div><!-- /.form-group -->
@@ -103,11 +103,6 @@
                         class="custom-control-label" for="remember-me">Lembre-me</label>
                 </div>
             </div><!-- /.form-group -->
-            <!-- recovery links -->
-            {{--<div class="text-center pt-3">
-                <a href="auth-recovery-username.html" class="link">Forgot Username?</a> <span class="mx-2">·</span>
-                <a href="auth-recovery-password.html" class="link">Forgot Password?</a>
-            </div><!-- /recovery links -->---}}
         </form><!-- /.auth-form -->
         <!-- copyright -->
         <footer class="auth-footer"> © 2024 Todos os direitos reservados. <a href="#">Privacidade</a> e <a

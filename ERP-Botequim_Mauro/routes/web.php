@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 //*Inicio das rotas do sistema
+
 Route::get('/', function () {
     return view('auth.login');
 });
