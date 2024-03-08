@@ -73,7 +73,7 @@
                     </g>
                 </svg> <span class="sr-only">Sign In</span>
             </h1>
-            <p> Don't have a account? <a href="auth-signup.html">Create One</a>
+            {{--<p> Don't have a account? <a href="auth-signup.html">Create One</a>--}}
             </p>
         </header><!-- form -->
         <form class="auth-form" method="POST" action="{{ route('login') }}">
@@ -81,37 +81,37 @@
             <!-- .form-group -->
             <div class="form-group">
                 <div class="form-label-group">
-                    <input type="text" id="inputUser" class="form-control" placeholder="Username" autofocus="">
-                    <label for="inputUser">Username</label>
+                    <input type="text" id="inputUser" class="form-control" placeholder="Nome de Usuario" autofocus="">
+                    <label for="inputUser">Nome do Usuario</label>
                 </div>
             </div><!-- /.form-group -->
             <!-- .form-group -->
             <div class="form-group">
                 <div class="form-label-group">
-                    <input type="password" id="inputPassword" class="form-control" placeholder="Password"> <label
-                        for="inputPassword">Password</label>
+                    <input type="password" id="inputPassword" class="form-control" placeholder="Senha"> <label
+                        for="inputPassword">Senha</label>
                 </div>
             </div><!-- /.form-group -->
             <!-- .form-group -->
             <div class="form-group">
-                <button class="btn btn-lg btn-primary btn-block" type="submit">Sign In</button>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
             </div><!-- /.form-group -->
             <!-- .form-group -->
             <div class="form-group text-center">
                 <div class="custom-control custom-control-inline custom-checkbox">
                     <input type="checkbox" class="custom-control-input" id="remember-me"> <label
-                        class="custom-control-label" for="remember-me">Keep me sign in</label>
+                        class="custom-control-label" for="remember-me">Lembre-me</label>
                 </div>
             </div><!-- /.form-group -->
             <!-- recovery links -->
-            <div class="text-center pt-3">
+            {{--<div class="text-center pt-3">
                 <a href="auth-recovery-username.html" class="link">Forgot Username?</a> <span class="mx-2">·</span>
                 <a href="auth-recovery-password.html" class="link">Forgot Password?</a>
-            </div><!-- /recovery links -->
+            </div><!-- /recovery links -->---}}
         </form><!-- /.auth-form -->
         <!-- copyright -->
-        <footer class="auth-footer"> © 2018 All Rights Reserved. <a href="#">Privacy</a> and <a
-                href="#">Terms</a>
+        <footer class="auth-footer"> © 2024 Todos os direitos reservados. <a href="#">Privacidade</a> e <a
+                href="#">Termos</a>
         </footer>
     </main><!-- /.auth -->
     <!-- BEGIN BASE JS -->
@@ -121,10 +121,6 @@
     <!-- BEGIN PLUGINS JS -->
     <script src="assets/vendor/particles.js/particles.js"></script>
     <script>
-        /**
-         * Keep in mind that your scripts may not always be executed after the theme is completely ready,
-         * you might need to observe the `theme:load` event to make sure your scripts are executed after the theme is ready.
-         */
         $(document).on('theme:init', () => {
             /* particlesJS.load(@dom-id, @path-json, @callback (optional)); */
             particlesJS.load('auth-header', 'assets/javascript/pages/particles.json');
@@ -144,9 +140,6 @@
         gtag('config', 'UA-116692175-1');
     </script>
 </body>
-
-<!-- Mirrored from uselooper.com/auth-signin-v1.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 03 Jan 2024 10:59:41 GMT -->
-
 </html>
 
 {{-- -
