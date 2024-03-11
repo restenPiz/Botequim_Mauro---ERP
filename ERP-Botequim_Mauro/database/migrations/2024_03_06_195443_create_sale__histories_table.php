@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('sale__histories', function (Blueprint $table) {
             $table->id();
+            $table->string('Product_price');
+
+            //*Inicio da chave estrangeira
+            $table->integer('Id_stock')->unsigned();
+            $table->foreign('Id_stock')->references('id')->on('stocks');
+
             $table->timestamps();
         });
     }
