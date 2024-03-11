@@ -9,7 +9,7 @@ class ProductRequest extends Model
 {
     use HasFactory;
 
-    protected $table='productrequests';
+    protected $table='product_requests';
 
     protected $fillable=['Id_product','Id_request'];
 
