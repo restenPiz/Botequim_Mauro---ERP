@@ -130,8 +130,6 @@
                     </g>
                 </svg> <span class="sr-only">Sign Up</span>
             </h1>
-            <p> Already have an account? please <a href="auth-signin-v1.html">Sign In</a>
-            </p>
         </header><!-- form -->
         <form class="auth-form">
             <!-- .form-group -->
