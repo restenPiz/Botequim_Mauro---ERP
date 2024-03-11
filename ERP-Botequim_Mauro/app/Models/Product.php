@@ -22,4 +22,9 @@ class Product extends Model
     {
         return $this->hasMany(Category::class);   
     }
+    //*Metodo responsavel por encontrar o nome da categoria
+    public function name($id)
+    {
+        return Category::find($id)->Category_name;
+    }
 }
