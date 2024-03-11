@@ -14,7 +14,7 @@ class Product extends Model
 
     //*Inicio das colunas da tabela de productos
     protected $fillable =[
-        'Product_name','Price','Quantity','Barcode','Sale_price','Empty_date','Id_category'
+        'Product_name','Price','Quantity','Barcode','Sale_price','Expiry_date','Entry_date','Id_category'
     ];
 
     //*Inicio dos relacionamentos entre as tabelas
