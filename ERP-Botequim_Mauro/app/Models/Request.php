@@ -24,4 +24,9 @@ class Request extends Model
         return $this->hasMany(Paid_Credit::class);   
     }
 
+    //*Inicio do metodo responsavel por retornar o nome do cliente
+    public function name($id)
+    {
+        return Client::find($id)->Name_client;
+    }
 }
