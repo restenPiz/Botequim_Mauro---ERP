@@ -42,6 +42,9 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
+        //*Inicio do metodo que atribui as roles para o administrador
+        $user->attachRole('admin');
+
         event(new Registered($user));
 
         Auth::login($user);
