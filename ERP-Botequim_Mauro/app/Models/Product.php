@@ -16,4 +16,10 @@ class Product extends Model
     protected $fillable =[
         'Product_name','Price','Quantity','Barcode','Sale_price','Empty_date','Id_category'
     ];
+
+    //*Inicio dos relacionamentos entre as tabelas
+    public function users()
+    {
+        return $this->hasMany(User::class);   
+    }
 }
