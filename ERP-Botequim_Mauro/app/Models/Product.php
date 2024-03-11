@@ -20,6 +20,6 @@ class Product extends Model
     //*Inicio dos relacionamentos entre as tabelas
     public function users()
     {
-        return $this->hasMany(User::class);   
+        return $this->hasMany(Category::class);   
     }
 }
