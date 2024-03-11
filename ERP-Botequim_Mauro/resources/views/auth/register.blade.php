@@ -140,26 +140,26 @@
             <!-- .form-group -->
             <div class="form-group">
                 <div class="form-label-group">
-                    <input type="text" id="inputEmail" class="form-control" placeholder="Nome" name="Name" required=""
+                    <input type="text" id="inputEmail" class="form-control" placeholder="Nome" name="name" required=""
                         autofocus=""> <label for="inputEmail">Nome</label>
                 </div>
             </div><!-- /.form-group -->
             <div class="form-group">
                 <div class="form-label-group">
-                    <input type="email" id="inputEmail" class="form-control" name="Email" placeholder="Email" required=""
+                    <input type="email" id="inputEmail" class="form-control" name="Email" placeholder="email" required=""
                         autofocus=""> <label for="inputEmail">Email</label>
                 </div>
             </div><!-- /.form-group -->
             <!-- .form-group -->
             <div class="form-group">
                 <div class="form-label-group">
-                    <input type="password" id="inputPassword" class="form-control" name="Password" placeholder="Password"
+                    <input type="password" id="inputPassword" class="form-control" name="Password" placeholder="password"
                         required=""> <label for="inputPassword">Password</label>
                 </div>
             </div><!-- /.form-group -->
             <div class="form-group">
                 <div class="form-label-group">
-                    <input type="password" id="inputPassword" class="form-control" name="Password_confirmation" placeholder="Password"
+                    <input type="password" id="inputPassword" class="form-control" name="password_confirmation" placeholder="Password"
                         required=""> <label for="inputPassword">Password de Confirmacao</label>
                 </div>
             </div><!-- /.form-group -->
