@@ -81,14 +81,14 @@
             <!-- .form-group -->
             <div class="form-group">
                 <div class="form-label-group">
-                    <input type="text" id="inputUser" name="email" class="form-control" placeholder="Nome de Usuario" autofocus="">
+                    <input type="text" id="inputUser" name="email"  :value="old('email')" class="form-control" placeholder="Nome de Usuario" autofocus="">
                     <label for="inputUser">Nome do Usuario</label>
                 </div>
             </div><!-- /.form-group -->
             <!-- .form-group -->
             <div class="form-group">
                 <div class="form-label-group">
-                    <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Senha"> <label
+                    <input type="password"  for="password" :value="__('Password')" name="password" id="inputPassword" class="form-control" placeholder="Senha"> <label
                         for="inputPassword">Senha</label>
                 </div>
             </div><!-- /.form-group -->
@@ -99,7 +99,7 @@
             <!-- .form-group -->
             <div class="form-group text-center">
                 <div class="custom-control custom-control-inline custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="remember-me"> <label
+                    <input id="remember_me" type="checkbox" type="checkbox" class="custom-control-input" name="remember"> <label
                         class="custom-control-label" for="remember-me">Lembre-me</label>
                 </div>
             </div><!-- /.form-group -->
