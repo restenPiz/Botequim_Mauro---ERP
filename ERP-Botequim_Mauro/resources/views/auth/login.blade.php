@@ -104,6 +104,11 @@
                         name="remember"> <label class="custom-control-label" for="remember-me">Lembre-me</label>
                 </div>
             </div><!-- /.form-group -->
+
+            {{--Inicio do link de registro--}}
+            <a href="{{route('sign-out')}}">Registre-se</a>
+            {{--Fim do link de registro--}}
+
         </form><!-- /.auth-form -->
         <!-- copyright -->
         <footer class="auth-footer"> © 2024 Todos os direitos reservados. <a href="#">Privacidade</a> e <a
