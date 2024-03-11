@@ -162,10 +162,6 @@
     <!-- BEGIN PLUGINS JS -->
     <script src="assets/vendor/particles.js/particles.js"></script>
     <script>
-      /**
-       * Keep in mind that your scripts may not always be executed after the theme is completely ready,
-       * you might need to observe the `theme:load` event to make sure your scripts are executed after the theme is ready.
-       */
       $(document).on('theme:init', () =>
       {
         /* particlesJS.load(@dom-id, @path-json, @callback (optional)); */
@@ -187,6 +183,4 @@
       gtag('config', 'UA-116692175-1');
     </script>
   </body>
-
-<!-- Mirrored from uselooper.com/auth-signup.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 03 Jan 2024 11:00:27 GMT -->
 </html>
