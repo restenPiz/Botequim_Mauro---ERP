@@ -13,6 +13,16 @@ return new class extends Migration
     {
         Schema::create('sales', function (Blueprint $table) {
             $table->id();
+            $table->string('Product_type');
+            $table->string('Total_price');
+
+            //*Inicio das chaves estrangeiras
+            $table->integer('Id_stock')->unsigned();
+            $table->foreign('Id_stock')->references('id')->on('stocks');
+
+            $table->integer('Id_payment')->unsigned();
+            $table->foreign('Id_payment')->references('id')->on('payments');
+
             $table->timestamps();
         });
     }

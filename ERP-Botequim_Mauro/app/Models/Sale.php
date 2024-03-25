@@ -12,7 +12,7 @@ class Sale extends Model
     protected $table='sales';
 
     protected $fillable = [
-        
+        'Product_type','Total_price','Id_payment','Id_stock'
     ];
 
 }
