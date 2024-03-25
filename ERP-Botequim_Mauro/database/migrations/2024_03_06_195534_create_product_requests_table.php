@@ -11,6 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
+
+        //*Inicio da tabela intermediaria
         Schema::create('product_requests', function (Blueprint $table) {
             $table->id();
 
