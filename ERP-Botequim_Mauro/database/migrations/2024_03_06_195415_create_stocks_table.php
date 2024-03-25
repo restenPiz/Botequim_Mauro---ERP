@@ -13,6 +13,17 @@ return new class extends Migration
     {
         Schema::create('stocks', function (Blueprint $table) {
             $table->id();
+            $table->string('Quantity');
+            $table->string('Barcode');
+            $table->string('Price');
+            $table->string('Expiry_date');
+            $table->string('Entry_date');
+            $table->string('Stock_code');
+
+            //*Inicio da chave 
+            $table->integer('Id_product')->unsigned();
+            $table->foreign('Id_product')->references('id')->on('products');
+
             $table->timestamps();
         });
     }
