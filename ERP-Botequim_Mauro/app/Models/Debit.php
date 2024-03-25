@@ -21,4 +21,15 @@ class Debit extends Model
         'Id_client',
         'Id_request',
     ];
+
+    //*Inicio dos relacionamentos das chaves estrangeiras
+    public function clients()
+    {
+        return $this->hasMany(Client::class);   
+    }
+    //*Metodo responsavel por encontrar o nome da categoria
+    public function name($id)
+    {
+        return Client::find($id)->Name_client;
+    }
 }
