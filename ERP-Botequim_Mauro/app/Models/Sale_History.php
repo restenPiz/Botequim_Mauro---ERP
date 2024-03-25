@@ -18,4 +18,10 @@ class Sale_History extends Model
     {
         return $this->hasMany(Stock::class);   
     }
+
+    //*Metodo responsavel por retornar o codigo do stock
+    public function name($id)
+    {
+        return Stock::find($id)->Stock_code;
+    }
 }
