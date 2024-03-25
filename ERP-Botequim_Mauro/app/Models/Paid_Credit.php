@@ -14,4 +14,14 @@ class Paid_Credit extends Model
     protected $fillable=[
         'Credit_value','Total_balance','Date','Id_client'
     ];
+
+    //*Inicio dos links de chave estrangeira
+    public function clients()
+    {
+        return $this->hasMany(Client::class);   
+    }
+    public function name($id)
+    {
+        return Client::find($id)->Name_client;
+    }
 }

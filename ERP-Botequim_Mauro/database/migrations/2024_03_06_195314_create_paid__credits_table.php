@@ -13,6 +13,14 @@ return new class extends Migration
     {
         Schema::create('paid__credits', function (Blueprint $table) {
             $table->id();
+            $table->string('Credit_value');
+            $table->string('Total_balance');
+            $table->string('Date');
+
+            //*Inicio da chave estrangeira
+            $table->integer('Id_client')->unsigned();
+            $table->foreign('Id_client')->references('id')->on('clients');
+
             $table->timestamps();
         });
     }
