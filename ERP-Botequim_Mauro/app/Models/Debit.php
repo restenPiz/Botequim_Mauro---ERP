@@ -9,7 +9,7 @@ class Debit extends Model
 {
     use HasFactory;
 
-    protected $table = 'Debits';
+    protected $table = 'debits';
 
     protected $fillable = [
         'Client_name',
