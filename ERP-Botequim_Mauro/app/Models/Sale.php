@@ -15,4 +15,17 @@ class Sale extends Model
         'Product_type','Total_price','Id_payment','Id_stock'
     ];
 
+    //*Inicio das chaves estrangeiras
+    public function stocks()
+    {
+        return $this->hasMany(Stock::class);   
+    }
+    public function payments()
+    {
+        return $this->hasMany(Payment::class);
+    }
+    public function name($id)
+    {
+        return Payment::find($id)->Name_payment;
+    }
 }
