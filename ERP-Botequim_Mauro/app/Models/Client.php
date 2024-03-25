@@ -10,7 +10,7 @@ class Client extends Model
     use HasFactory;
 
     //*Nome da tabela 
-    protected $table ='Clients';
+    protected $table ='clients';
 
     //*Inicio das colunas da tabela cliente
     protected $fillable =[

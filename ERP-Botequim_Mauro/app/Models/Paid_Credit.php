@@ -9,7 +9,7 @@ class Paid_Credit extends Model
 {
     use HasFactory;
 
-    protected $table='Paid_credits';
+    protected $table='paid__credits';
 
     protected $fillable=[
         'Credit_value','Total_balance','Date','Id_client'
