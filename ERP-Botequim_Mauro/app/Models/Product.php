@@ -18,7 +18,7 @@ class Product extends Model
     ];
 
     //*Inicio dos relacionamentos entre as tabelas
-    public function users()
+    public function categories()
     {
         return $this->hasMany(Category::class);   
     }
