@@ -20,7 +20,7 @@ class Product extends Model
     //*Inicio dos relacionamentos entre as tabelas
     public function categories()
     {
-        return $this->hasMany(Category::class);   
+        return $this->belongsTo(Category::class);   
     }
     //*Metodo responsavel por encontrar o nome da categoria
     public function name($id)
