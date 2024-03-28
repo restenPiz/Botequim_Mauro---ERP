@@ -9,7 +9,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('Paid__credits', function (Blueprint $table) {
-            
+            $table->unsignedBigInteger('Id_client')->unsigned();
+            $table->foreign('Id_client')->references('id')->on('clients');
         });
     }
 
