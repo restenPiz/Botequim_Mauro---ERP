@@ -18,19 +18,6 @@ return new class extends Migration
             $table->string('Quantity');
             $table->time('Request_time');
             $table->date('Request_date');
-            
-            //*Inicio das chaves estrangeiras
-        /*    Schema::table('clients', function (Blueprint $table) {
-                $table->foreignId('Id_client')->constrained(
-                    table: 'clients', indexName: 'id'
-                );
-            });
-            Schema::table('paid__credits', function (Blueprint $table) {
-                $table->foreignId('Id_paid_credit')->constrained(
-                    table: 'paid__credits', indexName: 'id'
-                );
-            });
-        */
             $table->timestamps();
         });
     }
