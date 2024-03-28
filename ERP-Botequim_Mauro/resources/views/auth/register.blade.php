@@ -78,7 +78,7 @@
                 </svg> <span class="sr-only">Registre-se</span>
             </h1>
         </header><!-- form -->
-        <form class="auth-form" method="POST" action="{{ route('register') }}">
+        <form class="auth-form" method="post" action="{{ route('register') }}">
             @csrf
             <!-- .form-group -->
             <div class="form-group">
