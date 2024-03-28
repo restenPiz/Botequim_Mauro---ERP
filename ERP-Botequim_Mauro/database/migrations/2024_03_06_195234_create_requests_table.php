@@ -19,13 +19,14 @@ return new class extends Migration
             $table->time('Request_time');
             $table->date('Request_date');
             
-            //*Inicio das chaves estrangeiras
-            $table->unsignedBigInteger('Id_client')->unsigned();
-            $table->foreign('Id_client')->references('id')->on('clients');
+            Schema::table('clients', function (Blueprint $table) {            
+                $table->foreign('Id_client')->references('id')->on('clients');
+            });
 
-            $table->unsignedBigInteger('Id_paid_credit')->unsigned();
-            $table->foreign('Id_paid_credit')->references('id')->on('paid_credits');
-            
+            Schema::table('paid_credits', function (Blueprint $table) {
+                $table->foreign('Id_paid_credit')->references('id')->on('paid_credits');
+            });
+
             $table->timestamps();
         });
     }
