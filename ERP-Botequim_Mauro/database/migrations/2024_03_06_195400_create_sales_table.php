@@ -17,10 +17,10 @@ return new class extends Migration
             $table->string('Total_price');
 
             //*Inicio das chaves estrangeiras
-            $table->integer('Id_stock')->unsigned();
+            $table->unsignedBigInteger('Id_stock')->unsigned();
             $table->foreign('Id_stock')->references('id')->on('stocks');
 
-            $table->integer('Id_payment')->unsigned();
+            $table->unsignedBigInteger('Id_payment')->unsigned();
             $table->foreign('Id_payment')->references('id')->on('payments');
 
             $table->timestamps();

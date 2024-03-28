@@ -17,10 +17,10 @@ return new class extends Migration
             $table->id();
 
             //*Inicio das chaves estrangeiras
-            $table->integer('Id_product')->unsigned();
+            $table->unsignedBigInteger('Id_product')->unsigned();
             $table->foreign('Id_product')->references('id')->on('products');
             
-            $table->integer('Id_request')->unsigned();
+            $table->unsignedBigInteger('Id_request')->unsigned();
             $table->foreign('Id_request')->references('id')->on('requests');
 
             $table->timestamps();

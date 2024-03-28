@@ -20,10 +20,10 @@ return new class extends Migration
             $table->date('Request_date');
             
             //*Inicio das chaves estrangeiras
-            $table->integer('Id_client')->unsigned();
+            $table->unsignedBigInteger('Id_client')->unsigned();
             $table->foreign('Id_client')->references('id')->on('clients');
 
-            $table->integer('Id_paid_credit')->unsigned();
+            $table->unsignedBigInteger('Id_paid_credit')->unsigned();
             $table->foreign('Id_paid_credit')->references('id')->on('paid_credits');
             
             $table->timestamps();

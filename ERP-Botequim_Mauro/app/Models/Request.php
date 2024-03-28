@@ -17,11 +17,11 @@ class Request extends Model
     //*Inicio dos relacionamentos das chaves estrangeiras
     public function clients()
     {
-        return $this->hasMany(Client::class);   
+        return $this->belongsTo(Client::class, 'Id_client', 'id');
     }
     public function paid_credits()
     {
-        return $this->hasMany(Paid_Credit::class);   
+        return $this->belongsTo(Paid_Credit::class, 'Id_paid_credit', 'id');
     }
 
     //*Inicio do metodo responsavel por retornar o nome do cliente

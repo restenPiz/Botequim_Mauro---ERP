@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('Date');
 
             //*Inicio da chave estrangeira
-            $table->integer('Id_client')->unsigned();
+            $table->unsignedBigInteger('Id_client')->unsigned();
             $table->foreign('Id_client')->references('id')->on('clients');
 
             $table->timestamps();
