@@ -16,9 +16,9 @@ class Product extends Model
     ];
 
     //*Inicio dos relacionamentos entre as tabelas
-    public function categories()
+    public function category()
     {
-        return $this->belongsTo(Category::class);   
+        return $this->belongsTo(Category::class, 'Id_category', 'id');
     }
     //*Metodo responsavel por encontrar o nome da categoria
     public function name($id)
