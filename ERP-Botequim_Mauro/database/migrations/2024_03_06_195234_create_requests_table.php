@@ -19,12 +19,16 @@ return new class extends Migration
             $table->time('Request_time');
             $table->date('Request_date');
             
-            Schema::table('clients', function (Blueprint $table) {            
-                $table->foreign('Id_client')->references('id')->on('clients');
+            //*Inicio das chaves estrangeiras
+            Schema::table('clients', function (Blueprint $table) {
+                $table->foreignId('Id_client')->constrained(
+                    table: 'clients', indexName: 'id'
+                );
             });
-
             Schema::table('paid_credits', function (Blueprint $table) {
-                $table->foreign('Id_paid_credit')->references('id')->on('paid_credits');
+                $table->foreignId('Id_paid_credit')->constrained(
+                    table: 'paid_credits', indexName: 'id'
+                );
             });
 
             $table->timestamps();
