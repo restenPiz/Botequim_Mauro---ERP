@@ -108,7 +108,7 @@
             </div><!-- /.form-group -->
             <!-- .form-group -->
             <div class="form-group">
-                <button class="btn btn-lg btn-primary btn-block" type="submit">Registre-se</button>
+                <button class="btn btn-lg btn-primary btn-block" name="submit" type="submit">Registre-se</button>
             </div>
             <!-- recovery links -->
         </form><!-- /.auth-form -->
