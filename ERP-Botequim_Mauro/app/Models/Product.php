@@ -8,8 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     use HasFactory;
-
-    //*Nome da tabela 
     protected $table ='products';
 
     //*Inicio das colunas da tabela de productos
