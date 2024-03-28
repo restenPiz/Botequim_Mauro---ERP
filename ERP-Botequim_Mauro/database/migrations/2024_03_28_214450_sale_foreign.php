@@ -1,0 +1,26 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    public function up(): void
+    {
+        Schema::table('saless', function (Blueprint $table) {
+            $table->unsignedBigInteger('Id_stock')->unsigned();
+            $table->foreign('Id_stock')->references('id')->on('stocks');
+
+            $table->unsignedBigInteger('Id_payment')->unsigned();
+            $table->foreign('Id_payment')->references('id')->on('payments');
+        });
+    }
+
+    public function down(): void
+    {
+        Schema::table('saless', function (Blueprint $table) {
+            //
+        });
+    }
+};
