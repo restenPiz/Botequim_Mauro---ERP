@@ -8,7 +8,7 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::table('saless', function (Blueprint $table) {
+        Schema::table('sales', function (Blueprint $table) {
             $table->unsignedBigInteger('Id_stock')->unsigned();
             $table->foreign('Id_stock')->references('id')->on('stocks');
 
@@ -19,7 +19,7 @@ return new class extends Migration
 
     public function down(): void
     {
-        Schema::table('saless', function (Blueprint $table) {
+        Schema::table('sales', function (Blueprint $table) {
             //
         });
     }
