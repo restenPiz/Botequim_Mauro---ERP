@@ -19,9 +19,9 @@ return new class extends Migration
             $table->date('Entry_date');
 
             //*Inicio da coluna contendo a chave estrangeiraa
-            $table->unsignedBigInteger('Id_category');
+        /*    $table->unsignedBigInteger('Id_category');
             $table->foreign('Id_category')->references('id')->on('categories');
-
+        */
             $table->timestamps();
         });
     }

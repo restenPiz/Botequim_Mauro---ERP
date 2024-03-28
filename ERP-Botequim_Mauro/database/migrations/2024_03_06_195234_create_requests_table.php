@@ -20,17 +20,17 @@ return new class extends Migration
             $table->date('Request_date');
             
             //*Inicio das chaves estrangeiras
-            Schema::table('clients', function (Blueprint $table) {
+        /*    Schema::table('clients', function (Blueprint $table) {
                 $table->foreignId('Id_client')->constrained(
                     table: 'clients', indexName: 'id'
                 );
             });
-            Schema::table('paid_credits', function (Blueprint $table) {
+            Schema::table('paid__credits', function (Blueprint $table) {
                 $table->foreignId('Id_paid_credit')->constrained(
-                    table: 'paid_credits', indexName: 'id'
+                    table: 'paid__credits', indexName: 'id'
                 );
             });
-
+        */
             $table->timestamps();
         });
     }

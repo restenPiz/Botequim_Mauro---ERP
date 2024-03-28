@@ -21,9 +21,9 @@ return new class extends Migration
             $table->string('Stock_code');
 
             //*Inicio da chave 
-            $table->unsignedBigInteger('Id_product')->unsigned();
+        /*    $table->unsignedBigInteger('Id_product')->unsigned();
             $table->foreign('Id_product')->references('id')->on('products');
-
+        */
             $table->timestamps();
         });
     }
