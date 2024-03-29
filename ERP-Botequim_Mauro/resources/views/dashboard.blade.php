@@ -465,15 +465,14 @@
                         <header class="page-title-bar">
                             <div class="d-flex flex-column flex-md-row">
                                 <p class="lead">
-                                    <span class="font-weight-bold">Hi, Beni.</span> <span
-                                        class="d-block text-muted">Here’s what’s happening with your business
-                                        today.</span>
+                                    <span class="font-weight-bold">Bem Vindo, {{Auth::user()->name}}.</span> <span
+                                        class="d-block text-muted">Desfrute desse magnifico sistema!</span>
                                 </p>
                                 <div class="ml-auto">
                                     <!-- .dropdown -->
                                     <div class="dropdown">
                                         <button class="btn btn-secondary" data-toggle="dropdown" aria-haspopup="true"
-                                            aria-expanded="false"><span>This Week</span> <i
+                                            aria-expanded="false"><span>Esta Semana</span> <i
                                                 class="fa fa-fw fa-caret-down"></i></button> <!-- .dropdown-menu -->
                                         <div
                                             class="dropdown-menu dropdown-menu-right dropdown-menu-md stop-propagation">
@@ -549,7 +548,7 @@
                                                 <!-- .metric -->
                                                 <a href="user-teams.html"
                                                     class="metric metric-bordered align-items-center">
-                                                    <h2 class="metric-label"> Teams </h2>
+                                                    <h2 class="metric-label"> Usuarios </h2>
                                                     <p class="metric-value h3">
                                                         <sub><i class="oi oi-people"></i></sub> <span
                                                             class="value">8</span>
@@ -561,7 +560,7 @@
                                                 <!-- .metric -->
                                                 <a href="user-projects.html"
                                                     class="metric metric-bordered align-items-center">
-                                                    <h2 class="metric-label"> Projects </h2>
+                                                    <h2 class="metric-label"> Productos </h2>
                                                     <p class="metric-value h3">
                                                         <sub><i class="oi oi-fork"></i></sub> <span
                                                             class="value">12</span>
@@ -573,7 +572,7 @@
                                                 <!-- .metric -->
                                                 <a href="user-tasks.html"
                                                     class="metric metric-bordered align-items-center">
-                                                    <h2 class="metric-label"> Active Tasks </h2>
+                                                    <h2 class="metric-label"> Dividas </h2>
                                                     <p class="metric-value h3">
                                                         <sub><i class="fa fa-tasks"></i></sub> <span
                                                             class="value">64</span>
@@ -587,8 +586,7 @@
                                         <a href="user-tasks.html" class="metric metric-bordered">
                                             <div class="metric-badge">
                                                 <span class="badge badge-lg badge-success"><span
-                                                        class="oi oi-media-record pulse mr-1"></span> ONGOING
-                                                    TASKS</span>
+                                                        class="oi oi-media-record pulse mr-1"></span> Pedidos</span>
                                             </div>
                                             <p class="metric-value h3">
                                                 <sub><i class="oi oi-timer"></i></sub> <span class="value">8</span>
