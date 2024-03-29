@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><!-- End Required meta tags -->
     <!-- Begin SEO tag -->
-    <title> Dashboard | Looper - Bootstrap 4 Admin Theme </title>
+    <title> ERP - Botequim Mauro</title>
     <meta property="og:title" content="Dashboard">
     <meta name="author" content="Beni Arisandi">
     <meta property="og:locale" content="en_US">
