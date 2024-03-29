@@ -848,21 +848,7 @@
                     </div><!-- /.page-inner -->
                 </div><!-- /.page -->
             </div><!-- .app-footer -->
-            <footer class="app-footer">
-                {{--<ul class="list-inline">
-                    <li class="list-inline-item">
-                        <a class="text-muted" href="#">Support</a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a class="text-muted" href="#">Help Center</a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a class="text-muted" href="#">Privacy</a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a class="text-muted" href="#">Terms of Service</a>
-                    </li>
-                </ul>--}}
+            <footer class="app-footer" style="margin-top:-5rem">
                 <div class="copyright"> Copyright © 2024. Todos direitos reservados. </div>
             </footer><!-- /.app-footer -->
             <!-- /.wrapper -->
