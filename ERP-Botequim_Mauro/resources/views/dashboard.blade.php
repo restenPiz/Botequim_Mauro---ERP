@@ -311,7 +311,7 @@
                             <div class="dropdown-menu">
                                 <div class="dropdown-arrow d-lg-none" x-arrow=""></div>
                                 <div class="dropdown-arrow ml-3 d-none d-lg-block"></div>
-                                <h6 class="dropdown-header d-none d-md-block d-lg-none"> Beni Arisandi </h6><a
+                                <h6 class="dropdown-header d-none d-md-block d-lg-none"> {{Auth::user()->name}} </h6><a
                                     class="dropdown-item" href="user-profile.html"><span
                                         class="dropdown-icon oi oi-person"></span> Perfil</a> <a
                                     class="dropdown-item" href="auth-signin-v1.html"><span
@@ -334,7 +334,7 @@
                         data-target="#dropdown-aside"><span class="user-avatar user-avatar-lg"><img
                                 src="assets/images/avatars/profile.jpg" alt=""></span> <span
                             class="account-icon"><span class="fa fa-caret-down fa-lg"></span></span> <span
-                            class="account-summary"><span class="account-name">Beni Arisandi</span> <span
+                            class="account-summary"><span class="account-name">{{Auth::user()->name}}</span> <span
                                 class="account-description">Marketing Manager</span></span></button>
                     <!-- /.btn-account -->
                     <!-- .dropdown-aside -->
