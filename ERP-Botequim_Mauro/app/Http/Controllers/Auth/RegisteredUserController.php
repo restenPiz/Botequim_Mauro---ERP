@@ -35,7 +35,7 @@ class RegisteredUserController extends Controller
         ]);
 
         //*Inicio do metodo que atribui as roles para o administrador
-        $user->attachRole('admin');
+        $user->addRole('admin');
 
         event(new Registered($user));
 

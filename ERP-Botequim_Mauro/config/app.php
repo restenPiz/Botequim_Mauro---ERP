@@ -42,6 +42,7 @@ return [
 
         //*Inicio do import dos alertas do realrashid
         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
+        Laratrust\LaratrustServiceProvider::class,
     ])->toArray(),
 
 
@@ -50,6 +51,7 @@ return [
         
         //*Inicio da extensao do RealRashid Alert
         'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
+        'Laratrust'   => Laratrust\LaratrustFacade::class,
 
     ])->toArray(),
 

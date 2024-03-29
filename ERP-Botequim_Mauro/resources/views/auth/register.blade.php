@@ -89,14 +89,14 @@
             </div><!-- /.form-group -->
             <div class="form-group">
                 <div class="form-label-group">
-                    <input type="email" id="inputEmail" class="form-control" name="Email" placeholder="email" required=""
+                    <input type="email" id="inputEmail" class="form-control" name="email" placeholder="email" required=""
                         autofocus=""> <label for="inputEmail">Email</label>
                 </div>
             </div><!-- /.form-group -->
             <!-- .form-group -->
             <div class="form-group">
                 <div class="form-label-group">
-                    <input type="password" id="inputPassword" class="form-control" name="Password" placeholder="password"
+                    <input type="password" id="inputPassword" class="form-control" name="password" placeholder="password"
                         required=""> <label for="inputPassword">Password</label>
                 </div>
             </div><!-- /.form-group -->
