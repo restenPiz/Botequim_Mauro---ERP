@@ -305,9 +305,7 @@
                             <button class="btn-account" type="button" data-toggle="dropdown" aria-haspopup="true"
                                 aria-expanded="false"><span class="user-avatar user-avatar-md"><img
                                         src="assets/images/avatars/profile.jpg" alt=""></span> <span
-                                    class="account-summary pr-lg-4 d-none d-lg-block"><span class="account-name">Beni
-                                        Arisandi</span> <span class="account-description">Marketing
-                                        Manager</span></span></button> <!-- .dropdown-menu -->
+                                    class="account-summary pr-lg-4 d-none d-lg-block"><span class="account-name">{{Auth::user()->name}}</span> <span class="account-description">Administrador</span></span></button> <!-- .dropdown-menu -->
                             <div class="dropdown-menu">
                                 <div class="dropdown-arrow d-lg-none" x-arrow=""></div>
                                 <div class="dropdown-arrow ml-3 d-none d-lg-block"></div>
@@ -362,7 +360,7 @@
                             </li><!-- /.menu-item -->
                             <!-- .menu-item -->
                             <li class="menu-item has-child">
-                                <a href="#" class="menu-link"><span class="menu-icon far fa-file"></span> <span
+                                <a href="#" class="menu-link"><span class="menu-icon far fa-user"></span> <span
                                         class="menu-text">Usuarios</span> {{--<span
                                         class="badge badge-warning">New</span>--}}</a> <!-- child menu -->
                                 <ul class="menu">
@@ -376,7 +374,7 @@
                             </li><!-- /.menu-item -->
                             <!-- .menu-item -->
                             <li class="menu-item has-child">
-                                <a href="#" class="menu-link"><span class="menu-icon far fa-file"></span> <span
+                                <a href="#" class="menu-link"><span class="menu-icon far fa-list"></span> <span
                                         class="menu-text">Categorias</span> {{--<span
                                         class="badge badge-warning">New</span>--}}</a> <!-- child menu -->
                                 <ul class="menu">
