@@ -374,7 +374,7 @@
                             </li><!-- /.menu-item -->
                             <!-- .menu-item -->
                             <li class="menu-item has-child">
-                                <a href="#" class="menu-link"><span class="menu-icon far fa-list"></span> <span
+                                <a href="#" class="menu-link"><span class="menu-icon oi oi-puzzle-piece"></span> <span
                                         class="menu-text">Categorias</span> {{--<span
                                         class="badge badge-warning">New</span>--}}</a> <!-- child menu -->
                                 <ul class="menu">
@@ -387,7 +387,7 @@
                                 </ul><!-- /child menu -->
                             </li><!-- /.menu-item --><!-- .menu-item -->
                             <li class="menu-item has-child">
-                                <a href="#" class="menu-link"><span class="menu-icon far fa-file"></span> <span
+                                <a href="#" class="menu-link"><span class="menu-icon oi oi-browser"></span> <span
                                         class="menu-text">Evento</span> {{--<span
                                         class="badge badge-warning">New</span>--}}</a> <!-- child menu -->
                                 <ul class="menu">
@@ -400,7 +400,7 @@
                                 </ul><!-- /child menu -->
                             </li><!-- /.menu-item --><!-- .menu-item -->
                             <li class="menu-item has-child">
-                                <a href="#" class="menu-link"><span class="menu-icon far fa-file"></span> <span
+                                <a href="#" class="menu-link"><span class="menu-icon oi oi-pencil"></span> <span
                                         class="menu-text">Dividas</span> {{--<span
                                         class="badge badge-warning">New</span>--}}</a> <!-- child menu -->
                                 <ul class="menu">
@@ -412,11 +412,24 @@
                                     </li>
                                 </ul><!-- /child menu -->
                             </li>
+                            <li class="menu-item has-child">
+                                <a href="#" class="menu-link"><span class="menu-icon far fa-file"></span> <span
+                                        class="menu-text">Pedidos</span> {{--<span
+                                        class="badge badge-warning">New</span>--}}</a> <!-- child menu -->
+                                <ul class="menu">
+                                    <li class="menu-item">
+                                        <a href="page-clients.html" class="menu-link">Adicionar Pedido</a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a href="page-teams.html" class="menu-link">Todos Pedidos</a>
+                                    </li>
+                                </ul><!-- /child menu -->
+                            </li>
                             <!-- .menu-header -->
                             <li class="menu-header">Stock </li><!-- /.menu-header -->
                             <!-- .menu-item -->
                             <li class="menu-item has-child">
-                                <a href="#" class="menu-link"><span class="menu-icon far fa-file"></span> <span
+                                <a href="#" class="menu-link"><span class="menu-icon fas fa-table"></span> <span
                                         class="menu-text">Producto</span> {{--<span
                                         class="badge badge-warning">New</span>--}}</a> <!-- child menu -->
                                 <ul class="menu">
@@ -429,7 +442,7 @@
                                 </ul><!-- /child menu -->
                             </li><!-- /.menu-item --><!-- .menu-item -->
                             <li class="menu-item has-child">
-                                <a href="#" class="menu-link"><span class="menu-icon far fa-file"></span> <span
+                                <a href="#" class="menu-link"><span class="menu-icon oi oi-list-rich"></span> <span
                                         class="menu-text">Stock</span> {{--<span
                                         class="badge badge-warning">New</span>--}}</a> <!-- child menu -->
                                 <ul class="menu">
