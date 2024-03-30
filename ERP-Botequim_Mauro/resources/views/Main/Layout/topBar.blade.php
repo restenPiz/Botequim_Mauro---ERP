@@ -315,7 +315,7 @@
                                 <h6 class="dropdown-header d-none d-md-block d-lg-none"> {{ Auth::user()->name }} </h6>
                                 <a class="dropdown-item" href="user-profile.html"><span
                                         class="dropdown-icon oi oi-person"></span> Perfil</a> <a class="dropdown-item"
-                                    href="auth-signin-v1.html"><span
+                                    href="{{route('logout')}}"><span
                                         class="dropdown-icon oi oi-account-logout"></span> Sair do Sistema</a>
                                 <div class="dropdown-divider"></div><a class="dropdown-item" href="#">Central
                                     de Ajuda</a>
@@ -345,7 +345,7 @@
                         <div class="pb-3">
                             <a class="dropdown-item" href="user-profile.html"><span
                                     class="dropdown-icon oi oi-person"></span> Perfil</a> <a class="dropdown-item"
-                                href="auth-signin-v1.html"><span class="dropdown-icon oi oi-account-logout"></span>
+                                href="{{route('logout')}}"><span class="dropdown-icon oi oi-account-logout"></span>
                                 Sair do Sistema</a>
                             <div class="dropdown-divider"></div><a class="dropdown-item" href="#">Central de
                                 Ajuda</a>
