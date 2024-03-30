@@ -1,4 +1,4 @@
-@extends('Main.Admin.Layout.topBar')
+@extends('Main.Layout.topBar')
 @section('content')
 
     <main class="app-main">
