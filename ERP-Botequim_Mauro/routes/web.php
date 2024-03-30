@@ -14,14 +14,13 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::middleware('auth')->group(function () {
+//?Inicio das rotas da parte de admin
+Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function() {
+
+    //?Inicio das rotas da parte de perfil
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
-
-//?Inicio das rotas da parte de admin
-Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function() {
 
     //?Inicio das rotas do usuario
     Route::get('/addUser', [userController::class, 'addUser'])->name('addUser');
