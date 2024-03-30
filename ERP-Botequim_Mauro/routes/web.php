@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\userController;
 
 //*Inicio das rotas do sistema
 
@@ -21,6 +22,12 @@ Route::middleware('auth')->group(function () {
 
 //?Inicio das rotas da parte de admin
 Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function() {
+
+    //?Inicio das rotas do usuario
+    Route::get('/addUser', [userController::class, 'addUser'])->name('addUser');
+    Route::get('/allUser', [userController::class, 'allUser'])->name('allUser');
+    Route::get('/updateUser', [userController::class, 'updateUser'])->name('updateUser');
+    Route::get('/deleteUser', [userController::class, 'deleteUser'])->name('deleteUser');
 
 });
 //?Fim das rotas da parte de admin
