@@ -92,7 +92,7 @@
                                     class="hamburger-inner"></span></span></button> <!-- /toggle menu -->
                     </div><!-- /.top-bar-item -->
 
-                    {{--Inicio da classe dos icones acima--}}
+                    {{-- Inicio da classe dos icones acima --}}
                     <div class="top-bar-item top-bar-item-right px-0 d-none d-sm-flex">
                         <!-- .nav -->
                         <ul class="header-nav nav">
@@ -305,16 +305,20 @@
                             <button class="btn-account" type="button" data-toggle="dropdown" aria-haspopup="true"
                                 aria-expanded="false"><span class="user-avatar user-avatar-md"><img
                                         src="assets/images/avatars/profile.jpg" alt=""></span> <span
-                                    class="account-summary pr-lg-4 d-none d-lg-block"><span class="account-name">{{Auth::user()->name}}</span> <span class="account-description">Administrador</span></span></button> <!-- .dropdown-menu -->
+                                    class="account-summary pr-lg-4 d-none d-lg-block"><span
+                                        class="account-name">{{ Auth::user()->name }}</span> <span
+                                        class="account-description">Administrador</span></span></button>
+                            <!-- .dropdown-menu -->
                             <div class="dropdown-menu">
                                 <div class="dropdown-arrow d-lg-none" x-arrow=""></div>
                                 <div class="dropdown-arrow ml-3 d-none d-lg-block"></div>
-                                <h6 class="dropdown-header d-none d-md-block d-lg-none"> {{Auth::user()->name}} </h6><a
-                                    class="dropdown-item" href="user-profile.html"><span
-                                        class="dropdown-icon oi oi-person"></span> Perfil</a> <a
-                                    class="dropdown-item" href="auth-signin-v1.html"><span
+                                <h6 class="dropdown-header d-none d-md-block d-lg-none"> {{ Auth::user()->name }} </h6>
+                                <a class="dropdown-item" href="user-profile.html"><span
+                                        class="dropdown-icon oi oi-person"></span> Perfil</a> <a class="dropdown-item"
+                                    href="auth-signin-v1.html"><span
                                         class="dropdown-icon oi oi-account-logout"></span> Sair do Sistema</a>
-                                <div class="dropdown-divider"></div><a class="dropdown-item" href="#">Central de Ajuda</a> 
+                                <div class="dropdown-divider"></div><a class="dropdown-item" href="#">Central
+                                    de Ajuda</a>
                             </div><!-- /.dropdown-menu -->
                         </div><!-- /.btn-account -->
                     </div><!-- /.top-bar-item -->
@@ -332,7 +336,7 @@
                         data-target="#dropdown-aside"><span class="user-avatar user-avatar-lg"><img
                                 src="assets/images/avatars/profile.jpg" alt=""></span> <span
                             class="account-icon"><span class="fa fa-caret-down fa-lg"></span></span> <span
-                            class="account-summary"><span class="account-name">{{Auth::user()->name}}</span> <span
+                            class="account-summary"><span class="account-name">{{ Auth::user()->name }}</span> <span
                                 class="account-description">Administrador</span></span></button>
                     <!-- /.btn-account -->
                     <!-- .dropdown-aside -->
@@ -343,7 +347,8 @@
                                     class="dropdown-icon oi oi-person"></span> Perfil</a> <a class="dropdown-item"
                                 href="auth-signin-v1.html"><span class="dropdown-icon oi oi-account-logout"></span>
                                 Sair do Sistema</a>
-                            <div class="dropdown-divider"></div><a class="dropdown-item" href="#">Central de Ajuda</a> 
+                            <div class="dropdown-divider"></div><a class="dropdown-item" href="#">Central de
+                                Ajuda</a>
                         </div><!-- /dropdown-items -->
                     </div><!-- /.dropdown-aside -->
                 </header><!-- /.aside-header -->
@@ -351,7 +356,7 @@
                 <div class="aside-menu overflow-hidden">
                     <!-- .stacked-menu -->
                     <nav id="stacked-menu" class="stacked-menu">
-                        {{--Inicio do menu navbar--}}
+                        {{-- Inicio do menu navbar --}}
                         <ul class="menu">
                             <!-- .menu-item -->
                             <li class="menu-item has-active">
@@ -361,8 +366,8 @@
                             <!-- .menu-item -->
                             <li class="menu-item has-child">
                                 <a href="#" class="menu-link"><span class="menu-icon far fa-user"></span> <span
-                                        class="menu-text">Usuarios</span> {{--<span
-                                        class="badge badge-warning">New</span>--}}</a> <!-- child menu -->
+                                        class="menu-text">Usuarios</span> {{-- <span
+                                        class="badge badge-warning">New</span> --}}</a> <!-- child menu -->
                                 <ul class="menu">
                                     <li class="menu-item">
                                         <a href="page-clients.html" class="menu-link">Adicionar Usuarios</a>
@@ -374,9 +379,11 @@
                             </li><!-- /.menu-item -->
                             <!-- .menu-item -->
                             <li class="menu-item has-child">
-                                <a href="#" class="menu-link"><span class="menu-icon oi oi-puzzle-piece"></span> <span
-                                        class="menu-text">Categorias</span> {{--<span
-                                        class="badge badge-warning">New</span>--}}</a> <!-- child menu -->
+                                <a href="#" class="menu-link"><span
+                                        class="menu-icon oi oi-puzzle-piece"></span> <span
+                                        class="menu-text">Categorias</span> {{-- <span
+                                        class="badge badge-warning">New</span> --}}</a>
+                                <!-- child menu -->
                                 <ul class="menu">
                                     <li class="menu-item">
                                         <a href="page-clients.html" class="menu-link">Adicionar Categorias</a>
@@ -387,9 +394,9 @@
                                 </ul><!-- /child menu -->
                             </li><!-- /.menu-item --><!-- .menu-item -->
                             <li class="menu-item has-child">
-                                <a href="#" class="menu-link"><span class="menu-icon oi oi-browser"></span> <span
-                                        class="menu-text">Evento</span> {{--<span
-                                        class="badge badge-warning">New</span>--}}</a> <!-- child menu -->
+                                <a href="#" class="menu-link"><span class="menu-icon oi oi-browser"></span>
+                                    <span class="menu-text">Evento</span> {{-- <span
+                                        class="badge badge-warning">New</span> --}}</a> <!-- child menu -->
                                 <ul class="menu">
                                     <li class="menu-item">
                                         <a href="page-clients.html" class="menu-link">Adicionar Evento</a>
@@ -400,9 +407,10 @@
                                 </ul><!-- /child menu -->
                             </li><!-- /.menu-item --><!-- .menu-item -->
                             <li class="menu-item has-child">
-                                <a href="#" class="menu-link"><span class="menu-icon oi oi-pencil"></span> <span
-                                        class="menu-text">Dividas</span> {{--<span
-                                        class="badge badge-warning">New</span>--}}</a> <!-- child menu -->
+                                <a href="#" class="menu-link"><span class="menu-icon oi oi-pencil"></span>
+                                    <span class="menu-text">Dividas</span> {{-- <span
+                                        class="badge badge-warning">New</span> --}}</a>
+                                <!-- child menu -->
                                 <ul class="menu">
                                     <li class="menu-item">
                                         <a href="page-clients.html" class="menu-link">Adicionar Dividas</a>
@@ -414,8 +422,8 @@
                             </li>
                             <li class="menu-item has-child">
                                 <a href="#" class="menu-link"><span class="menu-icon far fa-file"></span> <span
-                                        class="menu-text">Pedidos</span> {{--<span
-                                        class="badge badge-warning">New</span>--}}</a> <!-- child menu -->
+                                        class="menu-text">Pedidos</span> {{-- <span
+                                        class="badge badge-warning">New</span> --}}</a> <!-- child menu -->
                                 <ul class="menu">
                                     <li class="menu-item">
                                         <a href="page-clients.html" class="menu-link">Adicionar Pedido</a>
@@ -429,9 +437,10 @@
                             <li class="menu-header">Stock </li><!-- /.menu-header -->
                             <!-- .menu-item -->
                             <li class="menu-item has-child">
-                                <a href="#" class="menu-link"><span class="menu-icon fas fa-table"></span> <span
-                                        class="menu-text">Producto</span> {{--<span
-                                        class="badge badge-warning">New</span>--}}</a> <!-- child menu -->
+                                <a href="#" class="menu-link"><span class="menu-icon fas fa-table"></span>
+                                    <span class="menu-text">Producto</span> {{-- <span
+                                        class="badge badge-warning">New</span> --}}</a>
+                                <!-- child menu -->
                                 <ul class="menu">
                                     <li class="menu-item">
                                         <a href="page-clients.html" class="menu-link">Adicionar Producto</a>
@@ -442,9 +451,9 @@
                                 </ul><!-- /child menu -->
                             </li><!-- /.menu-item --><!-- .menu-item -->
                             <li class="menu-item has-child">
-                                <a href="#" class="menu-link"><span class="menu-icon oi oi-list-rich"></span> <span
-                                        class="menu-text">Stock</span> {{--<span
-                                        class="badge badge-warning">New</span>--}}</a> <!-- child menu -->
+                                <a href="#" class="menu-link"><span class="menu-icon oi oi-list-rich"></span>
+                                    <span class="menu-text">Stock</span> {{-- <span
+                                        class="badge badge-warning">New</span> --}}</a> <!-- child menu -->
                                 <ul class="menu">
                                     <li class="menu-item">
                                         <a href="page-clients.html" class="menu-link">Adicionar Stock</a>
@@ -467,11 +476,11 @@
         <!-- .app-main -->
 
 
-        {{--Inicio do conteudo principal do sistema--}}
+        {{-- Inicio do conteudo principal do sistema --}}
 
         @yield('content')
 
-        {{--Fim do MainContent--}}
+        {{-- Fim do MainContent --}}
 
     </div><!-- /.app -->
     <!-- BEGIN BASE JS -->
