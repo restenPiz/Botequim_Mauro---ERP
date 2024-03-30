@@ -509,6 +509,11 @@
         gtag('js', new Date());
         gtag('config', 'UA-116692175-1');
     </script>
+
+    {{-- Inicio do link de sweetAlerta --}}
+    @include('sweetalert::alert')
+    {{-- Fim do link do sweetAlerta --}}
+
 </body>
 
 </html>
