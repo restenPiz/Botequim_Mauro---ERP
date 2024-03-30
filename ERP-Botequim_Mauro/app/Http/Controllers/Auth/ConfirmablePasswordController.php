@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
 use Illuminate\View\View;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class ConfirmablePasswordController extends Controller
 {
@@ -29,12 +30,17 @@ class ConfirmablePasswordController extends Controller
             'email' => $request->user()->email,
             'password' => $request->password,
         ])) {
+
+            Alert::error('Falha ao logar no sistema!');
+
             throw ValidationException::withMessages([
                 'password' => __('auth.password'),
             ]);
         }
 
         $request->session()->put('auth.password_confirmed_at', time());
+
+        Alert::success('Logado com sucesso!');
 
         return redirect()->intended(RouteServiceProvider::HOME);
     }
