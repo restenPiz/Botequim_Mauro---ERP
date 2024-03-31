@@ -370,10 +370,10 @@
                                         class="badge badge-warning">New</span> --}}</a> <!-- child menu -->
                                 <ul class="menu">
                                     <li class="menu-item">
-                                        <a href="page-clients.html" class="menu-link">Adicionar Usuarios</a>
+                                        <a href="{{route('addUser')}}" class="menu-link">Adicionar Usuarios</a>
                                     </li>
                                     <li class="menu-item">
-                                        <a href="page-teams.html" class="menu-link">Todos Usuarios</a>
+                                        <a href="{{route('allUser')}}" class="menu-link">Todos Usuarios</a>
                                     </li>
                                 </ul><!-- /child menu -->
                             </li><!-- /.menu-item -->
