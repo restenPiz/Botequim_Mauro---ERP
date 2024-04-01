@@ -15,11 +15,11 @@ class userController extends Controller
     {
         return view('Main.Admin.allUser');
     }
-    public function updateUser()
+    public function updateUser($id)
     {
 
     }
-    public function deleteUser()
+    public function deleteUser($id)
     {
         
     }
