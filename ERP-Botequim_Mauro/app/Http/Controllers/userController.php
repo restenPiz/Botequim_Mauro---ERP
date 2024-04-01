@@ -9,11 +9,11 @@ class userController extends Controller
     //?Inicio dos metodos de controlador
     public function addUser()
     {
-        return view('Main.Admin.addUser');
+        return view('Admin.addUser');
     }
     public function allUser()
     {
-        return view('Main.Admin.allUser');
+        return view('Admin.allUser');
     }
     public function updateUser($id)
     {

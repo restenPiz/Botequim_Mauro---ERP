@@ -1,4 +1,4 @@
-@extends('Main.Layout.top')
+@extends('Layout.top')
 @section('content')
 
     {{--Inicio da parte contendo o conteudo dos usuarios--}}
