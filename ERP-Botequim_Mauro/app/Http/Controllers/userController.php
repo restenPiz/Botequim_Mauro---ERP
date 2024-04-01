@@ -40,6 +40,39 @@ class userController extends Controller
     
                 return redirect()->back();
             }
+            else if(Request::input('User_type') == 'Stock_manager')
+            {
+                $user = User::create([
+                    'name' => $request->name,
+                    'email' => $request->email,
+                    'surname' => $request->surname,
+                    'User_type' => $request->userType,
+                    'password' => Hash::make($request->password),
+                ]);
+    
+                //*Atribuindo a role para o pastor quando for adicionado
+                $user->attachRole('stock_manager');
+    
+                Alert::success('Adicionado', 'O usuario gestor de stock foi adicionado com sucesso!');
+    
+                return redirect()->back();    
+            }
+            else
+            {
+                $user = User::create([
+                    'name' => $request->name,
+                    'email' => $request->email,
+                    'surname' => $request->surname,
+                    'User_type' => $request->userType,
+                    'password' => Hash::make($request->password),
+                ]);
+    
+                $user->attachRole('accountant');
+    
+                Alert::success('Adicionado', 'O usuario contabilista foi adicionado com sucesso!');
+    
+                return redirect()->back();
+            }
         }
         else
         {
