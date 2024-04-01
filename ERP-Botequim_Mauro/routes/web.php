@@ -27,6 +27,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function() {
     Route::get('/allUser', [userController::class, 'allUser'])->name('allUser');
     Route::get('/updateUser', [userController::class, 'updateUser'])->name('updateUser');
     Route::get('/deleteUser', [userController::class, 'deleteUser'])->name('deleteUser');
+    Route::post('/storeUser', [userController::class, 'storeUser'])->name('storeUser');
 
 });
 //?Fim das rotas da parte de admin
