@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\userController;
+use App\Http\Controllers\eventController;
 
 //*Inicio das rotas do sistema
 
@@ -28,6 +29,14 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function() {
     Route::get('/updateUser', [userController::class, 'updateUser'])->name('updateUser');
     Route::get('/deleteUser', [userController::class, 'deleteUser'])->name('deleteUser');
     Route::post('/storeUser', [userController::class, 'storeUser'])->name('storeUser');
+
+    //?Inicio das rotas de evento
+    Route::get('/addEvent', [eventController::class, 'addEvent'])->name('addEvent');
+    Route::get('/allEvent', [eventController::class, 'allEvent'])->name('allEvent');
+    Route::get('/updateEvent', [eventController::class, 'updateEvent'])->name('updateEvent');
+    Route::get('/deleteEvent', [eventController::class, 'deleteEvent'])->name('deleteEvent');
+    Route::post('/storeEvent', [eventController::class, 'storeEvent'])->name('storeEvent');
+
 
 });
 //?Fim das rotas da parte de admin
