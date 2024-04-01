@@ -40,7 +40,7 @@
                                             </div><!-- /form column -->
                                             <!-- form column -->
                                             <div class="col-md-6 mb-3">
-                                                <label for="input02">Numero de Intervenientes</label> <input type="date"
+                                                <label for="input02">Numero de Intervenientes</label> <input type="text"
                                                     class="form-control" id="input02"  name="Number_of_person" required="">
                                             </div><!-- /form column -->
                                         </div>

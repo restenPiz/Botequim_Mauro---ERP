@@ -378,28 +378,13 @@
                                 </ul><!-- /child menu -->
                             </li><!-- /.menu-item -->
                             <!-- .menu-item -->
-                            <li class="menu-item has-child">
-                                <a href="#" class="menu-link"><span
-                                        class="menu-icon oi oi-puzzle-piece"></span> <span
-                                        class="menu-text">Categorias</span> {{-- <span
-                                        class="badge badge-warning">New</span> --}}</a>
-                                <!-- child menu -->
-                                <ul class="menu">
-                                    <li class="menu-item">
-                                        <a href="page-clients.html" class="menu-link">Adicionar Categorias</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="page-teams.html" class="menu-link">Verificar Categorias</a>
-                                    </li>
-                                </ul><!-- /child menu -->
-                            </li><!-- /.menu-item --><!-- .menu-item -->
-                            <li class="menu-item has-child">
+                             <li class="menu-item has-child">
                                 <a href="#" class="menu-link"><span class="menu-icon oi oi-browser"></span>
                                     <span class="menu-text">Evento</span> {{-- <span
                                         class="badge badge-warning">New</span> --}}</a> <!-- child menu -->
                                 <ul class="menu">
                                     <li class="menu-item">
-                                        <a href="page-clients.html" class="menu-link">Adicionar Evento</a>
+                                        <a href="{{route('addEvent')}}" class="menu-link">Adicionar Evento</a>
                                     </li>
                                     <li class="menu-item">
                                         <a href="page-teams.html" class="menu-link">Todos Eventos</a>
@@ -463,6 +448,22 @@
                                     </li>
                                 </ul><!-- /child menu -->
                             </li>
+                            <li class="menu-item has-child">
+                                <a href="#" class="menu-link"><span
+                                        class="menu-icon oi oi-puzzle-piece"></span> <span
+                                        class="menu-text">Categorias</span> {{-- <span
+                                        class="badge badge-warning">New</span> --}}</a>
+                                <!-- child menu -->
+                                <ul class="menu">
+                                    <li class="menu-item">
+                                        <a href="page-clients.html" class="menu-link">Adicionar Categorias</a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a href="page-teams.html" class="menu-link">Verificar Categorias</a>
+                                    </li>
+                                </ul><!-- /child menu -->
+                            </li><!-- /.menu-item --><!-- .menu-item -->
+                           
                         </ul><!-- /.menu -->
                     </nav><!-- /.stacked-menu -->
                 </div><!-- /.aside-menu -->
