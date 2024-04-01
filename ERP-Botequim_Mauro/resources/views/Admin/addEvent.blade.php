@@ -44,6 +44,13 @@
                                                     class="form-control" id="input02"  name="Number_of_person" required="">
                                             </div><!-- /form column -->
                                         </div>
+                                        <div class="form-group">
+                                            <label>Status</label>
+                                            <select class="form-control" name="Status">
+                                                <option value="Activo">Activo</option>
+                                                <option value="Inactivo">Inactivo</option>
+                                            </select>
+                                        </div>
                                         <hr>
                                         <button type="submit"
                                                name="submit" class="btn btn-primary text-nowrap ml-auto">Adicionar Usuario</button>
