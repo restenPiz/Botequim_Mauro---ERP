@@ -16,7 +16,8 @@
                                 <h6 class="card-header"> Adicionar Usuarios </h6><!-- .card-body -->
                                 <div class="card-body">
                                     <!-- form -->
-                                    <form method="post">
+                                    <form method="post" action="{{route('storeUser')}}">
+                                        @csrf
                                         <!-- form row -->
                                         <div class="form-row">
                                             <!-- form column -->
