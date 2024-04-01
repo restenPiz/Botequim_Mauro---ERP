@@ -54,6 +54,7 @@
                                         <hr>
                                         <!-- .form-actions -->
                                         <div class="form-actions">
+                                            
                                             <!-- enable submit btn when user type their current password -->
                                             <input type="password" class="form-control mr-3" id="input06"
                                                 placeholder="Digite novamente a senha" name="password_confirmation" required=""> <button type="submit"
