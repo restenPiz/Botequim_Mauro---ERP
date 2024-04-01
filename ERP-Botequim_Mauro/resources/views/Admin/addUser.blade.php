@@ -57,7 +57,7 @@
                                             <!-- enable submit btn when user type their current password -->
                                             <input type="password" class="form-control mr-3" id="input06"
                                                 placeholder="Digite novamente a senha" required=""> <button type="submit"
-                                                class="btn btn-primary text-nowrap ml-auto">Adicionar Usuario</button>
+                                               name="submit" class="btn btn-primary text-nowrap ml-auto">Adicionar Usuario</button>
                                         </div><!-- /.form-actions -->
                                     </form><!-- /form -->
                                 </div><!-- /.card-body -->
