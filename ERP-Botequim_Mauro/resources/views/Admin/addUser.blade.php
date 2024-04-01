@@ -30,6 +30,16 @@
                                                     class="form-control" id="input02" value="Arisandi" required="">
                                             </div><!-- /form column -->
                                         </div><!-- /form row -->
+                                        {{--Inicio do input type select--}}
+                                        <div class="form-group">
+                                            <label>Tipo de Usuario</label>
+                                            <select class="form-control">
+                                                <option value="Atendente">Atendente</option>
+                                                <option value="Gestor de stock">Gestor de Stock</option>
+                                                <option value="Contabilista">Contabilista</option>
+                                            </select>
+                                        </div>
+                                        {{--Fim do input type select--}}
                                         <!-- .form-group -->
                                         <div class="form-group">
                                             <label for="input03">Email</label> <input type="email" class="form-control"
