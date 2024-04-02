@@ -19,7 +19,7 @@
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item active">
                                             <a href="#"><i
-                                                    class="breadcrumb-icon fa fa-angle-left mr-2"></i>Tables</a>
+                                                    class="breadcrumb-icon fa fa-angle-left mr-2"></i>Eventos</a>
                                         </li>
                                     </ol>
                                 </nav><!-- /.breadcrumb -->
@@ -28,16 +28,16 @@
                                         class="fa fa-plus"></span></button> <!-- /floating action -->
                                 <!-- title and toolbar -->
                                 <div class="d-md-flex align-items-md-start">
-                                    <h1 class="page-title mr-sm-auto"> Basic Table </h1><!-- .btn-toolbar -->
+                                    <h1 class="page-title mr-sm-auto"> Todos Eventos </h1><!-- .btn-toolbar -->
                                     <div class="btn-toolbar">
                                         <button type="button" class="btn btn-light"><i
                                                 class="oi oi-data-transfer-download"></i> <span
-                                                class="ml-1">Export</span></button> <button type="button"
+                                                class="ml-1">Exportar</span></button> <button type="button"
                                             class="btn btn-light"><i class="oi oi-data-transfer-upload"></i> <span
-                                                class="ml-1">Import</span></button>
+                                                class="ml-1">Importar</span></button>
                                         <div class="dropdown">
                                             <button type="button" class="btn btn-light"
-                                                data-toggle="dropdown"><span>More</span> <span
+                                                data-toggle="dropdown"><span>Mais</span> <span
                                                     class="fa fa-caret-down"></span></button>
                                             <div class="dropdown-menu dropdown-menu-right">
                                                 <div class="dropdown-arrow"></div><a href="#"
@@ -53,164 +53,225 @@
                                 </div><!-- /title and toolbar -->
                             </header><!-- /.page-title-bar -->
                             <!-- .page-section -->
-                            <div class="page-section">
-                                <!-- .card -->
-                                <div class="card card-fluid">
-                                    <!-- .card-header -->
-                                    <div class="card-header">
-                                        <!-- .nav-tabs -->
-                                        <ul class="nav nav-tabs card-header-tabs">
-                                            <li class="nav-item">
-                                                <a class="nav-link active show" data-toggle="tab" href="#tab1">All</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" data-toggle="tab" href="#tab2">Ongoing</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" data-toggle="tab" href="#tab3">Completed</a>
-                                            </li>
-                                        </ul><!-- /.nav-tabs -->
-                                    </div><!-- /.card-header -->
-                                    <!-- .card-body -->
-                                    <div class="card-body">
-                                        <!-- .form-group -->
-                                        <div class="form-group">
-                                            <!-- .input-group -->
-                                            <div class="input-group input-group-alt">
-                                                <!-- .input-group-prepend -->
-                                                <div class="input-group-prepend">
-                                                    <select class="custom-select">
-                                                        <option selected> Filter By </option>
-                                                        <option value="1"> Tags </option>
-                                                        <option value="2"> Vendor </option>
-                                                        <option value="3"> Variants </option>
-                                                        <option value="4"> Prices </option>
-                                                        <option value="5"> Sales </option>
-                                                    </select>
-                                                </div><!-- /.input-group-prepend -->
-                                                <!-- .input-group -->
-                                                <div class="input-group">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text"><span
-                                                                class="oi oi-magnifying-glass"></span></span>
-                                                    </div><input type="text" class="form-control"
-                                                        placeholder="Search record">
-                                                </div><!-- /.input-group -->
-                                            </div><!-- /.input-group -->
-                                        </div><!-- /.form-group -->
-                                        <!-- .table-responsive -->
-                                        <div class="text-muted"> Showing 1 to 10 of 1,000 entries </div>
-                                        <div class="table-responsive">
-                                            <!-- .table -->
-                                            <table class="table">
-                                                <!-- thead -->
-                                                <thead>
-                                                    <tr>
-                                                        <th colspan="2" style="min-width:320px">
-                                                            <div class="thead-dd dropdown">
-                                                                <span
-                                                                    class="custom-control custom-control-nolabel custom-checkbox"><input
-                                                                        type="checkbox" class="custom-control-input"
-                                                                        id="check-handle"> <label
-                                                                        class="custom-control-label"
-                                                                        for="check-handle"></label></span>
-                                                                <div class="thead-btn" role="button" data-toggle="dropdown"
-                                                                    aria-haspopup="true" aria-expanded="false">
-                                                                    <span class="fa fa-caret-down"></span>
-                                                                </div>
-                                                                <div class="dropdown-menu">
-                                                                    <div class="dropdown-arrow"></div><a
-                                                                        class="dropdown-item" href="#">Select all</a>
-                                                                    <a class="dropdown-item" href="#">Unselect
-                                                                        all</a>
-                                                                    <div class="dropdown-divider"></div><a
-                                                                        class="dropdown-item" href="#">Bulk
-                                                                        remove</a> <a class="dropdown-item"
-                                                                        href="#">Bulk edit</a> <a
-                                                                        class="dropdown-item" href="#">Separate
-                                                                        actions</a>
-                                                                </div>
-                                                            </div>
-                                                        </th>
-                                                        <th> Inventory </th>
-                                                        <th> Variants </th>
-                                                        <th> Prices </th>
-                                                        <th> Sales </th>
-                                                        <th style="width:100px; min-width:100px;"> &nbsp; </th>
-                                                    </tr>
-                                                </thead><!-- /thead -->
-                                                <!-- tbody -->
-                                                <tbody>
-                                                    <!-- tr -->
-                                                    <tr>
-                                                        <td class="align-middle col-checker">
-                                                            <div
-                                                                class="custom-control custom-control-nolabel custom-checkbox">
-                                                                <input type="checkbox" class="custom-control-input"
-                                                                    name="selectedRow[]" id="p3"> <label
-                                                                    class="custom-control-label" for="p3"></label>
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            <a href="#" class="tile tile-img mr-1"><img
-                                                                    class="img-fluid" src="assets/images/dummy/img-1.jpg"
-                                                                    alt="Card image cap"></a> <a href="#">Tomato -
-                                                                Green</a>
-                                                        </td>
-                                                        <td class="align-middle"> 329 </td>
-                                                        <td class="align-middle"> 4 </td>
-                                                        <td class="align-middle"> $31.70 </td>
-                                                        <td class="align-middle"> 796 </td>
-                                                        <td class="align-middle text-right">
-                                                            <a href="#" class="btn btn-sm btn-icon btn-secondary"><i
-                                                                    class="fa fa-pencil-alt"></i> <span
-                                                                    class="sr-only">Edit</span></a> <a href="#"
-                                                                class="btn btn-sm btn-icon btn-secondary"><i
-                                                                    class="far fa-trash-alt"></i> <span
-                                                                    class="sr-only">Remove</span></a>
-                                                        </td>
-                                                    </tr>
-                                                </tbody><!-- /tbody -->
-                                            </table><!-- /.table -->
-                                        </div><!-- /.table-responsive -->
-                                        <!-- .pagination -->
-                                        <ul class="pagination justify-content-center mt-4">
-                                            <li class="page-item disabled">
-                                                <a class="page-link" href="#" tabindex="-1"><i
-                                                        class="fa fa-lg fa-angle-left"></i></a>
-                                            </li>
-                                            <li class="page-item">
-                                                <a class="page-link" href="#">1</a>
-                                            </li>
-                                            <li class="page-item disabled">
-                                                <a class="page-link" href="#" tabindex="-1">...</a>
-                                            </li>
-                                            <li class="page-item">
-                                                <a class="page-link" href="#">13</a>
-                                            </li>
-                                            <li class="page-item active">
-                                                <a class="page-link" href="#">14</a>
-                                            </li>
-                                            <li class="page-item">
-                                                <a class="page-link" href="#">15</a>
-                                            </li>
-                                            <li class="page-item disabled">
-                                                <a class="page-link" href="#" tabindex="-1">...</a>
-                                            </li>
-                                            <li class="page-item">
-                                                <a class="page-link" href="#">24</a>
-                                            </li>
-                                            <li class="page-item">
-                                                <a class="page-link" href="#"><i
-                                                        class="fa fa-lg fa-angle-right"></i></a>
-                                            </li>
-                                        </ul><!-- /.pagination -->
-                                    </div><!-- /.card-body -->
-                                </div><!-- /.card -->
 
-                                {{-- Fim da tabela de todos eventos --}}
+                            {{-- Table section --}}
+                            <div class="card mt-4" style="margin-top:-4rem">
+                                <!-- .card-body -->
+                                <div class="card-body">
+                                    {{--<h2 class="card-title"> Contacts </h2><!-- .table-responsive -->--}}
+                                    <div class="table-responsive">
+                                        <table class="table table-hover" style="min-width: 678px">
+                                            <thead>
+                                                <tr>
+                                                    <th> Nome do Evento </th>
+                                                    <th> Data do Evento </th>
+                                                    <th> Horario do Evento </th>
+                                                    <th> Numero de Integrantes </th>
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach ($events as $event)
+                                                <tr>
+                                                    <td class="align-middle"> {{$event->Event_name}} </td>
+                                                    <td class="align-middle"> {{$event->Event_date}} </td>
+                                                    <td class="align-middle"> {{$event->Event_time}} </td>
+                                                    <td class="align-middle"> {{$event->Number_of_person}} </td>
+                                                    <td class="align-middle text-right">
+                                                        <button type="button" class="btn btn-sm btn-icon btn-secondary"
+                                                            data-toggle="modal" data-target="#clientNewModal"><i
+                                                                class="fa fa-pencil-alt"></i> <span
+                                                                class="sr-only">Edit</span></button> <button type="button"
+                                                            class="btn btn-sm btn-icon btn-secondary"><i
+                                                                class="far fa-trash-alt"></i> <span
+                                                                class="sr-only">Remove</span></button>
+                                                    </td>
+                                                </tr>
+                                                @endforeach
+                                            </tbody>
+                                            
+                                            <!-- .modal -->
+                                            <form id="clientNewForm" name="clientNewForm">
+                                                <div class="modal fade" id="clientNewModal" tabindex="-1" role="dialog"
+                                                    aria-labelledby="clientNewModalLabel" aria-hidden="true">
+                                                    <!-- .modal-dialog -->
+                                                    <div class="modal-dialog" role="document">
+                                                        <!-- .modal-content -->
+                                                        <div class="modal-content">
+                                                            <!-- .modal-header -->
+                                                            <div class="modal-header">
+                                                                <h6 id="clientNewModalLabel"
+                                                                    class="modal-title inline-editable">
+                                                                    <span class="sr-only">Client name</span> <input
+                                                                        type="text" class="form-control form-control-lg"
+                                                                        placeholder="E.g. Stilearning, Inc." required="">
+                                                                </h6>
+                                                            </div><!-- /.modal-header -->
+                                                            <!-- .modal-body -->
+                                                            <div class="modal-body">
+                                                                <!-- .form-row -->
+                                                                <div class="form-row">
+                                                                    <div class="col-md-12">
+                                                                        <div class="form-group">
+                                                                            <label for="cnContactName">Contact name</label>
+                                                                            <input type="text" id="cnContactName"
+                                                                                class="form-control">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-12">
+                                                                        <div class="form-group">
+                                                                            <label for="cnContactEmail">Contact
+                                                                                email</label> <input type="email"
+                                                                                id="cnContactEmail" class="form-control">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-12">
+                                                                        <div class="form-group">
+                                                                            <label for="cnStreet">Street</label> <input
+                                                                                type="text" id="cnStreet"
+                                                                                class="form-control">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <div class="form-group">
+                                                                            <label for="cnSuite">Suite</label> <input
+                                                                                type="text" id="cnSuite"
+                                                                                class="form-control">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <div class="form-group">
+                                                                            <label for="cnZip">Zip</label> <input
+                                                                                type="text" id="cnZip"
+                                                                                class="form-control">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <div class="form-group">
+                                                                            <label for="cnCountry">Country</label> <select
+                                                                                id="cnCountry"
+                                                                                class="custom-select d-block w-100">
+                                                                                <option value=""> Choose... </option>
+                                                                                <option> United States </option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <div class="form-group">
+                                                                            <label for="cnCity">City</label> <select
+                                                                                id="cnCity"
+                                                                                class="custom-select d-block w-100">
+                                                                                <option value=""> Choose... </option>
+                                                                                <option> San Francisco </option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                </div><!-- /.form-row -->
+                                                            </div><!-- /.modal-body -->
+                                                            <!-- .modal-footer -->
+                                                            <div class="modal-footer">
+                                                                <button type="submit"
+                                                                    class="btn btn-primary">Save</button> <button
+                                                                    type="button" class="btn btn-light"
+                                                                    data-dismiss="modal">Close</button>
+                                                            </div><!-- /.modal-footer -->
+                                                        </div><!-- /.modal-content -->
+                                                    </div><!-- /.modal-dialog -->
+                                                </div>
+                                            </form><!-- /.modal -->
+                                            <!-- .modal -->
+                                            <form id="clientBillingEditForm" name="clientBillingEditForm">
+                                                <div class="modal fade" id="clientBillingEditModal" tabindex="-1"
+                                                    role="dialog" aria-labelledby="clientBillingEditModalLabel"
+                                                    aria-hidden="true">
+                                                    <!-- .modal-dialog -->
+                                                    <div class="modal-dialog" role="document">
+                                                        <!-- .modal-content -->
+                                                        <div class="modal-content">
+                                                            <!-- .modal-header -->
+                                                            <div class="modal-header">
+                                                                <h6 id="clientBillingEditModalLabel"
+                                                                    class="modal-title inline-editable">
+                                                                    <span class="sr-only">Client name</span> <input
+                                                                        type="text"
+                                                                        class="form-control form-control-lg"
+                                                                        value="Zathunicon, Inc."
+                                                                        placeholder="E.g. Stilearning, Inc."
+                                                                        required="">
+                                                                </h6>
+                                                            </div><!-- /.modal-header -->
+                                                            <!-- .modal-body -->
+                                                            <div class="modal-body">
+                                                                <!-- .form-row -->
+                                                                <div class="form-row">
+                                                                    <div class="col-md-12">
+                                                                        <div class="form-group">
+                                                                            <label for="ceStreet">Street</label> <input
+                                                                                type="text" id="ceStreet"
+                                                                                class="form-control"
+                                                                                value="280 Suzanne Throughway">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <div class="form-group">
+                                                                            <label for="ceSuite">Suite</label> <input
+                                                                                type="text" id="ceSuite"
+                                                                                class="form-control" value="Breannabury">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <div class="form-group">
+                                                                            <label for="ceZip">Zip</label> <input
+                                                                                type="text" id="ceZip"
+                                                                                class="form-control" value="45801">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <div class="form-group">
+                                                                            <label for="ceCountry">Country</label> <select
+                                                                                id="ceCountry"
+                                                                                class="custom-select d-block w-100">
+                                                                                <option value=""> Choose... </option>
+                                                                                <option selected> United States </option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <div class="form-group">
+                                                                            <label for="ceCity">City</label> <select
+                                                                                id="ceCity"
+                                                                                class="custom-select d-block w-100">
+                                                                                <option value=""> Choose... </option>
+                                                                                <option selected> San Francisco </option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                </div><!-- /.form-row -->
+                                                            </div><!-- /.modal-body -->
+                                                            <!-- .modal-footer -->
+                                                            <div class="modal-footer">
+                                                                <button type="submit"
+                                                                    class="btn btn-primary">Save</button> <button
+                                                                    type="button" class="btn btn-light"
+                                                                    data-dismiss="modal">Close</button>
+                                                            </div><!-- /.modal-footer -->
+                                                        </div><!-- /.modal-content -->
+                                                    </div><!-- /.modal-dialog -->
+                                                </div>
+                                            </form><!-- /.modal -->
 
+                                            {{--Fim do formulario dos modais--}}
+                                        </table>
+                                    </div><!-- /.table-responsive -->
+                                </div><!-- /.card-body -->
+                                <!-- .card-footer -->
+                                <div class="card-footer">
+                                    <a href="#clientContactNewModal" class="card-footer-item" data-toggle="modal"><i
+                                            class="fa fa-plus-circle mr-1"></i> Adicionar Evento</a>
+                                </div><!-- /.card-footer -->
                             </div>
+                            {{-- End of table section --}}
+
                         </div>
                     </div>
                 </div>
