@@ -11,7 +11,17 @@ return [
             'payments' => 'c,r,u,d',
             'profile' => 'r,u',
         ],
-        'user' => [ 
+        'attendant' => [ 
+            'users' => 'r,u',
+            'payments' => 'r,u',
+            'profile' => 'r,u',
+        ],
+        'stock_manager' => [ 
+            'users' => 'r,u',
+            'payments' => 'r,u',
+            'profile' => 'r,u',
+        ],
+        'accountant' => [ 
             'users' => 'r,u',
             'payments' => 'r,u',
             'profile' => 'r,u',

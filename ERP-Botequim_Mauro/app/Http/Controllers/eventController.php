@@ -20,8 +20,6 @@ class eventController extends Controller
         $table->Event_date=Request::input('Event_date');
         $table->Event_time=Request::input('Event_time');
         $table->Number_of_person=Request::input('Number_of_person');
-        $table->Status=Request::input('Status');
-
         $table->save();
 
         Alert::success('Adicionado','O evento foi adicionado com sucesso!');

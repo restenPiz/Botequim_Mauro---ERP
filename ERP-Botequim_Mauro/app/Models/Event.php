@@ -11,5 +11,5 @@ class Event extends Model
 
     protected $table='events';
 
-    protected $fillable=['Event_name','Event_date','Event_time','Number_of_person','status'];
+    protected $fillable=['Event_name','Event_date','Event_time','Number_of_person'];
 }

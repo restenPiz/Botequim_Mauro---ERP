@@ -14,7 +14,7 @@ return new class extends Migration
             $table->date('Event_date');
             $table->time('Event_time');
             $table->string('Number_of_person');
-            //$table->timestamps();
+            $table->timestamps();
         });
     }
 
