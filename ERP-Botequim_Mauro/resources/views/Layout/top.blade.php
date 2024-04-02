@@ -387,7 +387,7 @@
                                         <a href="{{route('addEvent')}}" class="menu-link">Adicionar Evento</a>
                                     </li>
                                     <li class="menu-item">
-                                        <a href="page-teams.html" class="menu-link">Todos Eventos</a>
+                                        <a href="{{route('allEvent')}}" class="menu-link">Todos Eventos</a>
                                     </li>
                                 </ul><!-- /child menu -->
                             </li><!-- /.menu-item --><!-- .menu-item -->
