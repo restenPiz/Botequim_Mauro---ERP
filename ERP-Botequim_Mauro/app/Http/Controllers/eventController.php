@@ -30,6 +30,6 @@ class eventController extends Controller
     {
         $events=Event::all();
 
-        return view('Admin.allEvents',compact('events'));
+        return view('Admin.allEvent',compact('events'));
     }
 }
