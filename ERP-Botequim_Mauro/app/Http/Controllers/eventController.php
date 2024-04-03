@@ -32,4 +32,18 @@ class eventController extends Controller
 
         return view('Admin.allEvent',compact('events'));
     }
+    public function updateEvent($id)
+    {
+        $events=Event::findOrFail($id);
+
+        $events->Event_name=Request::input('Event_name');
+        $events->Event_date=Request::input('Event_date');
+        $events->Event_time=Request::input('Event_time');
+        $events->Number_of_person=Request::input('Number_of_person');
+        $events->save();
+
+        Alert::success('Actualizado!','O evento foi actualizado com sucesso!');
+
+        return back();
+    }
 }
