@@ -91,6 +91,10 @@
                                                         </td>
                                                     </tr>
 
+                                                    {{--Inicio do modal de eliminar--}}
+
+                                                    {{--Fim do modal de eliminar--}}
+
                                                     {{--Inicio do modal de edicao--}}
                                                     <div class="modal fade" id="clientNewModal{{ $event->id }}"
                                                         tabindex="-1" role="dialog" aria-labelledby="clientNewModalLabel"
