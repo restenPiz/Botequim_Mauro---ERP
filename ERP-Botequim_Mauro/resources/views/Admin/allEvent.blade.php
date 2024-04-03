@@ -63,6 +63,7 @@
                                         <table class="table table-hover" style="min-width: 678px">
                                             <thead>
                                                 <tr>
+                                                    <th>#</th>
                                                     <th> Nome do Evento </th>
                                                     <th> Data do Evento </th>
                                                     <th> Horario do Evento </th>
@@ -73,6 +74,7 @@
                                             <tbody>
                                                 @foreach ($events as $event)
                                                     <tr>
+                                                        <td class="align-middle"> {{ $event->id }} </td>
                                                         <td class="align-middle"> {{ $event->Event_name }} </td>
                                                         <td class="align-middle"> {{ $event->Event_date }} </td>
                                                         <td class="align-middle"> {{ $event->Event_time }} </td>
@@ -88,91 +90,90 @@
                                                                     class="sr-only">Remove</span></button>
                                                         </td>
                                                     </tr>
-                                                    <!-- .modal -->
-                                                    <form id="clientNewForm" name="clientNewForm">
-                                                        <div class="modal fade" id="clientNewModal{{ $event->id }}"
-                                                            tabindex="-1" role="dialog"
-                                                            aria-labelledby="clientNewModalLabel" aria-hidden="true">
-                                                            <!-- .modal-dialog -->
-                                                            <div class="modal-dialog" role="document">
-                                                                <!-- .modal-content -->
-                                                                <form action="{{ route('updateEvent',['id'=>$event->id]) }}" method="post">
-                                                                    @csrf
 
-                                                                    <div class="modal-content">
-                                                                        <!-- .modal-header -->
-                                                                        <div class="modal-header">
-                                                                            <h6 id="clientNewModalLabel"
-                                                                                class="modal-title inline-editable">
-                                                                                <span class="sr-only">Formulario de Actualizacao de Eventos</span>
-                                                                            </h6>
-                                                                        </div><!-- /.modal-header -->
-                                                                        <!-- .modal-body -->
-                                                                        <div class="modal-body">
-                                                                            <!-- .form-row -->
-                                                                            <div class="form-row">
-                                                                                <div class="col-md-12">
-                                                                                    <div class="form-group">
-                                                                                        <label for="cnContactName">Nome do
-                                                                                            Evento</label>
-                                                                                        <input type="text"
-                                                                                            id="cnContactName"
-                                                                                            class="form-control"
-                                                                                            name="Event_name"
-                                                                                            value="{{ $event->Event_name }}">
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="col-md-12">
-                                                                                    <div class="form-group">
-                                                                                        <label for="cnContactEmail">Data do
-                                                                                            Evento</label>
-                                                                                        <input type="date"
-                                                                                            id="cnContactName"
-                                                                                            class="form-control"
-                                                                                            name="Event_date"
-                                                                                            value="{{ $event->Event_date }}">
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="col-md-12">
-                                                                                    <div class="form-group">
-                                                                                        <label for="cnStreet">Horario do
-                                                                                            Evento</label>
-                                                                                        <input type="time"
-                                                                                            id="cnContactName"
-                                                                                            class="form-control"
-                                                                                            name="Event_time"
-                                                                                            value="{{ $event->Event_time }}">
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="col-md-12">
-                                                                                    <div class="form-group">
-                                                                                        <label for="cnSuite">Integrantes
-                                                                                            do Evento</label>
-                                                                                        <input type="text"
-                                                                                            id="cnContactName"
-                                                                                            class="form-control"
-                                                                                            name="Number_of_person"
-                                                                                            value="{{ $event->Number_of_person }}">
-                                                                                    </div>
-                                                                                </div>
-                                                                                <input type="hidden" name="id"
-                                                                                    value="{{ $event->id }}">
-                                                                            </div><!-- /.form-row -->
+                                                    {{--Inicio do modal de edicao--}}
+                                                    <div class="modal fade" id="clientNewModal{{ $event->id }}"
+                                                        tabindex="-1" role="dialog" aria-labelledby="clientNewModalLabel"
+                                                        aria-hidden="true">
+                                                        <!-- .modal-dialog -->
+                                                        <div class="modal-dialog" role="document">
+                                                            <!-- .modal-content -->
+                                                            <form action="{{ route('updateEvent', ['id' => $event->id]) }}"
+                                                                method="post">
+                                                                @csrf
 
-                                                                        </div><!-- /.modal-body -->
-                                                                        <!-- .modal-footer -->
-                                                                        <div class="modal-footer">
-                                                                            <button type="submit"
-                                                                                class="btn btn-primary">Actualizar
-                                                                                Evento</button>
-                                                                            <button type="button" class="btn btn-light"
-                                                                                data-dismiss="modal">Fechar</button>
-                                                                        </div><!-- /.modal-footer -->
-                                                                    </div><!-- /.modal-content -->
-                                                                </form>
-                                                            </div><!-- /.modal-dialog -->
-                                                        </div>
-                                                    </form><!-- /.modal -->
+                                                                <div class="modal-content">
+                                                                    <!-- .modal-header -->
+                                                                    <div class="modal-header">
+                                                                        <h6 id="clientNewModalLabel"
+                                                                            class="modal-title inline-editable">
+                                                                            <span class="sr-only">Formulario de Actualizacao
+                                                                                de Eventos</span>
+                                                                        </h6>
+                                                                    </div><!-- /.modal-header -->
+                                                                    <!-- .modal-body -->
+                                                                    <div class="modal-body">
+                                                                        <!-- .form-row -->
+                                                                        <div class="form-row">
+                                                                            <div class="col-md-12">
+                                                                                <div class="form-group">
+                                                                                    <label for="cnContactName">Nome do
+                                                                                        Evento</label>
+                                                                                    <input type="text" id="cnContactName"
+                                                                                        class="form-control"
+                                                                                        name="Event_name"
+                                                                                        value="{{ $event->Event_name }}">
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-12">
+                                                                                <div class="form-group">
+                                                                                    <label for="cnContactEmail">Data do
+                                                                                        Evento</label>
+                                                                                    <input type="date" id="cnContactName"
+                                                                                        class="form-control"
+                                                                                        name="Event_date"
+                                                                                        value="{{ $event->Event_date }}">
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-12">
+                                                                                <div class="form-group">
+                                                                                    <label for="cnStreet">Horario do
+                                                                                        Evento</label>
+                                                                                    <input type="time"
+                                                                                        id="cnContactName"
+                                                                                        class="form-control"
+                                                                                        name="Event_time"
+                                                                                        value="{{ $event->Event_time }}">
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-12">
+                                                                                <div class="form-group">
+                                                                                    <label for="cnSuite">Integrantes
+                                                                                        do Evento</label>
+                                                                                    <input type="text"
+                                                                                        id="cnContactName"
+                                                                                        class="form-control"
+                                                                                        name="Number_of_person"
+                                                                                        value="{{ $event->Number_of_person }}">
+                                                                                </div>
+                                                                            </div>
+                                                                            <input type="hidden" name="id"
+                                                                                value="{{ $event->id }}">
+                                                                        </div><!-- /.form-row -->
+
+                                                                    </div><!-- /.modal-body -->
+                                                                    <!-- .modal-footer -->
+                                                                    <div class="modal-footer">
+                                                                        <button type="submit" name="submit"
+                                                                            class="btn btn-primary">Actualizar
+                                                                            Evento</button>
+                                                                        <button type="button" class="btn btn-light"
+                                                                            data-dismiss="modal">Fechar</button>
+                                                                    </div><!-- /.modal-footer -->
+                                                                </div><!-- /.modal-content -->
+                                                            </form>
+                                                        </div><!-- /.modal-dialog -->
+                                                    </div>
                                                     {{-- Fim do formulario dos modais --}}
                                                 @endforeach
                                             </tbody>
