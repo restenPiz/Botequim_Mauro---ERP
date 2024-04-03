@@ -141,6 +141,7 @@
                                                                                             class="form-control" name="Number_of_person" value="{{$event->Number_of_person}}">
                                                                                     </div>
                                                                                 </div>
+                                                                                <input type="hidden" name="id" value="{{$event->id}}">
                                                                             </div><!-- /.form-row -->
                                                                         </form>
                                                                     </div><!-- /.modal-body -->
