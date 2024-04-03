@@ -103,81 +103,53 @@
                                                                             <span class="sr-only">Client name</span> <input
                                                                                 type="text"
                                                                                 class="form-control form-control-lg"
-                                                                                placeholder="E.g. Stilearning, Inc."
+                                                                                placeholder="Formulario de Edicao do Evento"
                                                                                 required="">
                                                                         </h6>
                                                                     </div><!-- /.modal-header -->
                                                                     <!-- .modal-body -->
                                                                     <div class="modal-body">
                                                                         <!-- .form-row -->
-                                                                        <div class="form-row">
-                                                                            <div class="col-md-12">
-                                                                                <div class="form-group">
-                                                                                    <label for="cnContactName">Contact
-                                                                                        name</label>
-                                                                                    <input type="text" id="cnContactName"
-                                                                                        class="form-control">
+                                                                        <form action="{{route('updateEvent')}}" method="post">
+                                                                            @csrf
+                                                                            <div class="form-row">
+                                                                                <div class="col-md-12">
+                                                                                    <div class="form-group">
+                                                                                        <label for="cnContactName">Nome do Evento</label>
+                                                                                        <input type="text" id="cnContactName"
+                                                                                            class="form-control" name="Event_name" value="{{$event->Event_name}}">
+                                                                                    </div>
                                                                                 </div>
-                                                                            </div>
-                                                                            <div class="col-md-12">
-                                                                                <div class="form-group">
-                                                                                    <label for="cnContactEmail">Contact
-                                                                                        email</label> <input type="email"
-                                                                                        id="cnContactEmail"
-                                                                                        class="form-control">
+                                                                                <div class="col-md-12">
+                                                                                    <div class="form-group">
+                                                                                        <label for="cnContactEmail">Data do Evento</label> 
+                                                                                        <input type="date" id="cnContactName"
+                                                                                            class="form-control" name="Event_date" value="{{$event->Event_date}}">
+                                                                                    </div>
                                                                                 </div>
-                                                                            </div>
-                                                                            <div class="col-md-12">
-                                                                                <div class="form-group">
-                                                                                    <label for="cnStreet">Street</label>
-                                                                                    <input type="text" id="cnStreet"
-                                                                                        class="form-control">
+                                                                                <div class="col-md-12">
+                                                                                    <div class="form-group">
+                                                                                        <label for="cnStreet">Horario do Evento</label>
+                                                                                        <input type="time" id="cnContactName"
+                                                                                            class="form-control" name="Event_time" value="{{$event->Event_time}}">
+                                                                                    </div>
                                                                                 </div>
-                                                                            </div>
-                                                                            <div class="col-md-6">
-                                                                                <div class="form-group">
-                                                                                    <label for="cnSuite">Suite</label>
-                                                                                    <input type="text" id="cnSuite"
-                                                                                        class="form-control">
+                                                                                <div class="col-md-12">
+                                                                                    <div class="form-group">
+                                                                                        <label for="cnSuite">Integrantes do Evento</label>
+                                                                                        <input type="text" id="cnContactName"
+                                                                                            class="form-control" name="Number_of_person" value="{{$event->Number_of_person}}">
+                                                                                    </div>
                                                                                 </div>
-                                                                            </div>
-                                                                            <div class="col-md-6">
-                                                                                <div class="form-group">
-                                                                                    <label for="cnZip">Zip</label>
-                                                                                    <input type="text" id="cnZip"
-                                                                                        class="form-control">
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="col-md-6">
-                                                                                <div class="form-group">
-                                                                                    <label for="cnCountry">Country</label>
-                                                                                    <select id="cnCountry"
-                                                                                        class="custom-select d-block w-100">
-                                                                                        <option value=""> Choose...
-                                                                                        </option>
-                                                                                        <option> United States </option>
-                                                                                    </select>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="col-md-6">
-                                                                                <div class="form-group">
-                                                                                    <label for="cnCity">City</label>
-                                                                                    <select id="cnCity"
-                                                                                        class="custom-select d-block w-100">
-                                                                                        <option value=""> Choose...
-                                                                                        </option>
-                                                                                        <option> San Francisco </option>
-                                                                                    </select>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div><!-- /.form-row -->
+                                                                            </div><!-- /.form-row -->
+                                                                        </form>
                                                                     </div><!-- /.modal-body -->
                                                                     <!-- .modal-footer -->
                                                                     <div class="modal-footer">
                                                                         <button type="submit"
-                                                                            class="btn btn-primary">Save</button> <button
+                                                                            class="btn btn-primary">Actualizar Evento</button> <button
                                                                             type="button" class="btn btn-light"
-                                                                            data-dismiss="modal">Close</button>
+                                                                            data-dismiss="modal">Fechar</button>
                                                                     </div><!-- /.modal-footer -->
                                                                 </div><!-- /.modal-content -->
                                                             </div><!-- /.modal-dialog -->
