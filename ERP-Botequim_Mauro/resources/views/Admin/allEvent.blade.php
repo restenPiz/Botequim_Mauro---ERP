@@ -58,7 +58,7 @@
                             <div class="card mt-4" style="margin-top:-4rem">
                                 <!-- .card-body -->
                                 <div class="card-body">
-                                    {{--<h2 class="card-title"> Contacts </h2><!-- .table-responsive -->--}}
+                                    {{-- <h2 class="card-title"> Contacts </h2><!-- .table-responsive --> --}}
                                     <div class="table-responsive">
                                         <table class="table table-hover" style="min-width: 678px">
                                             <thead>
@@ -72,195 +72,120 @@
                                             </thead>
                                             <tbody>
                                                 @foreach ($events as $event)
-                                                <tr>
-                                                    <td class="align-middle"> {{$event->Event_name}} </td>
-                                                    <td class="align-middle"> {{$event->Event_date}} </td>
-                                                    <td class="align-middle"> {{$event->Event_time}} </td>
-                                                    <td class="align-middle"> {{$event->Number_of_person}} </td>
-                                                    <td class="align-middle text-right">
-                                                        <button type="button" class="btn btn-sm btn-icon btn-secondary"
-                                                            data-toggle="modal" data-target="#clientNewModal"><i
-                                                                class="fa fa-pencil-alt"></i> <span
-                                                                class="sr-only">Edit</span></button> <button type="button"
-                                                            class="btn btn-sm btn-icon btn-secondary"><i
-                                                                class="far fa-trash-alt"></i> <span
-                                                                class="sr-only">Remove</span></button>
-                                                    </td>
-                                                </tr>
+                                                    <tr>
+                                                        <td class="align-middle"> {{ $event->Event_name }} </td>
+                                                        <td class="align-middle"> {{ $event->Event_date }} </td>
+                                                        <td class="align-middle"> {{ $event->Event_time }} </td>
+                                                        <td class="align-middle"> {{ $event->Number_of_person }} </td>
+                                                        <td class="align-middle text-right">
+                                                            <button type="button" class="btn btn-sm btn-icon btn-secondary"
+                                                                data-toggle="modal" data-target="#clientNewModal"><i
+                                                                    class="fa fa-pencil-alt"></i> <span
+                                                                    class="sr-only">Edit</span></button> <button
+                                                                type="button" class="btn btn-sm btn-icon btn-secondary"><i
+                                                                    class="far fa-trash-alt"></i> <span
+                                                                    class="sr-only">Remove</span></button>
+                                                        </td>
+                                                    </tr>
+                                                    <!-- .modal -->
+                                                    <form id="clientNewForm" name="clientNewForm">
+                                                        <div class="modal fade" id="clientNewModal" tabindex="-1"
+                                                            role="dialog" aria-labelledby="clientNewModalLabel"
+                                                            aria-hidden="true">
+                                                            <!-- .modal-dialog -->
+                                                            <div class="modal-dialog" role="document">
+                                                                <!-- .modal-content -->
+                                                                <div class="modal-content">
+                                                                    <!-- .modal-header -->
+                                                                    <div class="modal-header">
+                                                                        <h6 id="clientNewModalLabel"
+                                                                            class="modal-title inline-editable">
+                                                                            <span class="sr-only">Client name</span> <input
+                                                                                type="text"
+                                                                                class="form-control form-control-lg"
+                                                                                placeholder="E.g. Stilearning, Inc."
+                                                                                required="">
+                                                                        </h6>
+                                                                    </div><!-- /.modal-header -->
+                                                                    <!-- .modal-body -->
+                                                                    <div class="modal-body">
+                                                                        <!-- .form-row -->
+                                                                        <div class="form-row">
+                                                                            <div class="col-md-12">
+                                                                                <div class="form-group">
+                                                                                    <label for="cnContactName">Contact
+                                                                                        name</label>
+                                                                                    <input type="text" id="cnContactName"
+                                                                                        class="form-control">
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-12">
+                                                                                <div class="form-group">
+                                                                                    <label for="cnContactEmail">Contact
+                                                                                        email</label> <input type="email"
+                                                                                        id="cnContactEmail"
+                                                                                        class="form-control">
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-12">
+                                                                                <div class="form-group">
+                                                                                    <label for="cnStreet">Street</label>
+                                                                                    <input type="text" id="cnStreet"
+                                                                                        class="form-control">
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-6">
+                                                                                <div class="form-group">
+                                                                                    <label for="cnSuite">Suite</label>
+                                                                                    <input type="text" id="cnSuite"
+                                                                                        class="form-control">
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-6">
+                                                                                <div class="form-group">
+                                                                                    <label for="cnZip">Zip</label>
+                                                                                    <input type="text" id="cnZip"
+                                                                                        class="form-control">
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-6">
+                                                                                <div class="form-group">
+                                                                                    <label for="cnCountry">Country</label>
+                                                                                    <select id="cnCountry"
+                                                                                        class="custom-select d-block w-100">
+                                                                                        <option value=""> Choose...
+                                                                                        </option>
+                                                                                        <option> United States </option>
+                                                                                    </select>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-6">
+                                                                                <div class="form-group">
+                                                                                    <label for="cnCity">City</label>
+                                                                                    <select id="cnCity"
+                                                                                        class="custom-select d-block w-100">
+                                                                                        <option value=""> Choose...
+                                                                                        </option>
+                                                                                        <option> San Francisco </option>
+                                                                                    </select>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div><!-- /.form-row -->
+                                                                    </div><!-- /.modal-body -->
+                                                                    <!-- .modal-footer -->
+                                                                    <div class="modal-footer">
+                                                                        <button type="submit"
+                                                                            class="btn btn-primary">Save</button> <button
+                                                                            type="button" class="btn btn-light"
+                                                                            data-dismiss="modal">Close</button>
+                                                                    </div><!-- /.modal-footer -->
+                                                                </div><!-- /.modal-content -->
+                                                            </div><!-- /.modal-dialog -->
+                                                        </div>
+                                                    </form><!-- /.modal -->
+                                                    {{-- Fim do formulario dos modais --}}
                                                 @endforeach
                                             </tbody>
-                                            
-                                            <!-- .modal -->
-                                            <form id="clientNewForm" name="clientNewForm">
-                                                <div class="modal fade" id="clientNewModal" tabindex="-1" role="dialog"
-                                                    aria-labelledby="clientNewModalLabel" aria-hidden="true">
-                                                    <!-- .modal-dialog -->
-                                                    <div class="modal-dialog" role="document">
-                                                        <!-- .modal-content -->
-                                                        <div class="modal-content">
-                                                            <!-- .modal-header -->
-                                                            <div class="modal-header">
-                                                                <h6 id="clientNewModalLabel"
-                                                                    class="modal-title inline-editable">
-                                                                    <span class="sr-only">Client name</span> <input
-                                                                        type="text" class="form-control form-control-lg"
-                                                                        placeholder="E.g. Stilearning, Inc." required="">
-                                                                </h6>
-                                                            </div><!-- /.modal-header -->
-                                                            <!-- .modal-body -->
-                                                            <div class="modal-body">
-                                                                <!-- .form-row -->
-                                                                <div class="form-row">
-                                                                    <div class="col-md-12">
-                                                                        <div class="form-group">
-                                                                            <label for="cnContactName">Contact name</label>
-                                                                            <input type="text" id="cnContactName"
-                                                                                class="form-control">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-md-12">
-                                                                        <div class="form-group">
-                                                                            <label for="cnContactEmail">Contact
-                                                                                email</label> <input type="email"
-                                                                                id="cnContactEmail" class="form-control">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-md-12">
-                                                                        <div class="form-group">
-                                                                            <label for="cnStreet">Street</label> <input
-                                                                                type="text" id="cnStreet"
-                                                                                class="form-control">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-md-6">
-                                                                        <div class="form-group">
-                                                                            <label for="cnSuite">Suite</label> <input
-                                                                                type="text" id="cnSuite"
-                                                                                class="form-control">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-md-6">
-                                                                        <div class="form-group">
-                                                                            <label for="cnZip">Zip</label> <input
-                                                                                type="text" id="cnZip"
-                                                                                class="form-control">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-md-6">
-                                                                        <div class="form-group">
-                                                                            <label for="cnCountry">Country</label> <select
-                                                                                id="cnCountry"
-                                                                                class="custom-select d-block w-100">
-                                                                                <option value=""> Choose... </option>
-                                                                                <option> United States </option>
-                                                                            </select>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-md-6">
-                                                                        <div class="form-group">
-                                                                            <label for="cnCity">City</label> <select
-                                                                                id="cnCity"
-                                                                                class="custom-select d-block w-100">
-                                                                                <option value=""> Choose... </option>
-                                                                                <option> San Francisco </option>
-                                                                            </select>
-                                                                        </div>
-                                                                    </div>
-                                                                </div><!-- /.form-row -->
-                                                            </div><!-- /.modal-body -->
-                                                            <!-- .modal-footer -->
-                                                            <div class="modal-footer">
-                                                                <button type="submit"
-                                                                    class="btn btn-primary">Save</button> <button
-                                                                    type="button" class="btn btn-light"
-                                                                    data-dismiss="modal">Close</button>
-                                                            </div><!-- /.modal-footer -->
-                                                        </div><!-- /.modal-content -->
-                                                    </div><!-- /.modal-dialog -->
-                                                </div>
-                                            </form><!-- /.modal -->
-                                            <!-- .modal -->
-                                            <form id="clientBillingEditForm" name="clientBillingEditForm">
-                                                <div class="modal fade" id="clientBillingEditModal" tabindex="-1"
-                                                    role="dialog" aria-labelledby="clientBillingEditModalLabel"
-                                                    aria-hidden="true">
-                                                    <!-- .modal-dialog -->
-                                                    <div class="modal-dialog" role="document">
-                                                        <!-- .modal-content -->
-                                                        <div class="modal-content">
-                                                            <!-- .modal-header -->
-                                                            <div class="modal-header">
-                                                                <h6 id="clientBillingEditModalLabel"
-                                                                    class="modal-title inline-editable">
-                                                                    <span class="sr-only">Client name</span> <input
-                                                                        type="text"
-                                                                        class="form-control form-control-lg"
-                                                                        value="Zathunicon, Inc."
-                                                                        placeholder="E.g. Stilearning, Inc."
-                                                                        required="">
-                                                                </h6>
-                                                            </div><!-- /.modal-header -->
-                                                            <!-- .modal-body -->
-                                                            <div class="modal-body">
-                                                                <!-- .form-row -->
-                                                                <div class="form-row">
-                                                                    <div class="col-md-12">
-                                                                        <div class="form-group">
-                                                                            <label for="ceStreet">Street</label> <input
-                                                                                type="text" id="ceStreet"
-                                                                                class="form-control"
-                                                                                value="280 Suzanne Throughway">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-md-6">
-                                                                        <div class="form-group">
-                                                                            <label for="ceSuite">Suite</label> <input
-                                                                                type="text" id="ceSuite"
-                                                                                class="form-control" value="Breannabury">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-md-6">
-                                                                        <div class="form-group">
-                                                                            <label for="ceZip">Zip</label> <input
-                                                                                type="text" id="ceZip"
-                                                                                class="form-control" value="45801">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-md-6">
-                                                                        <div class="form-group">
-                                                                            <label for="ceCountry">Country</label> <select
-                                                                                id="ceCountry"
-                                                                                class="custom-select d-block w-100">
-                                                                                <option value=""> Choose... </option>
-                                                                                <option selected> United States </option>
-                                                                            </select>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-md-6">
-                                                                        <div class="form-group">
-                                                                            <label for="ceCity">City</label> <select
-                                                                                id="ceCity"
-                                                                                class="custom-select d-block w-100">
-                                                                                <option value=""> Choose... </option>
-                                                                                <option selected> San Francisco </option>
-                                                                            </select>
-                                                                        </div>
-                                                                    </div>
-                                                                </div><!-- /.form-row -->
-                                                            </div><!-- /.modal-body -->
-                                                            <!-- .modal-footer -->
-                                                            <div class="modal-footer">
-                                                                <button type="submit"
-                                                                    class="btn btn-primary">Save</button> <button
-                                                                    type="button" class="btn btn-light"
-                                                                    data-dismiss="modal">Close</button>
-                                                            </div><!-- /.modal-footer -->
-                                                        </div><!-- /.modal-content -->
-                                                    </div><!-- /.modal-dialog -->
-                                                </div>
-                                            </form><!-- /.modal -->
-
-                                            {{--Fim do formulario dos modais--}}
                                         </table>
                                     </div><!-- /.table-responsive -->
                                 </div><!-- /.card-body -->
