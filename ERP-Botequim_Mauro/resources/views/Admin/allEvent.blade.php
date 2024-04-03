@@ -96,7 +96,7 @@
                                                             <!-- .modal-dialog -->
                                                             <div class="modal-dialog" role="document">
                                                                 <!-- .modal-content -->
-                                                                <form action="{{ route('updateEvent') }}" method="post">
+                                                                <form action="{{ route('updateEvent',['id'=>$event->id]) }}" method="post">
                                                                     @csrf
 
                                                                     <div class="modal-content">
@@ -104,11 +104,7 @@
                                                                         <div class="modal-header">
                                                                             <h6 id="clientNewModalLabel"
                                                                                 class="modal-title inline-editable">
-                                                                                <span class="sr-only">Client name</span>
-                                                                                <input type="text"
-                                                                                    class="form-control form-control-lg"
-                                                                                    placeholder="Formulario de Edicao do Evento"
-                                                                                    required="">
+                                                                                <span class="sr-only">Formulario de Actualizacao de Eventos</span>
                                                                             </h6>
                                                                         </div><!-- /.modal-header -->
                                                                         <!-- .modal-body -->
