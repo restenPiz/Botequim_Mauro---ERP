@@ -46,4 +46,14 @@ class eventController extends Controller
 
         return back();
     }
+    public function deleteEvent($id)
+    {
+        $events=Event::findOrFail($id);
+
+        $events->delete();
+
+        Alert::success('Eliminado!','O evento foi eliminado com sucesso!');
+
+        return back();
+    }
 }

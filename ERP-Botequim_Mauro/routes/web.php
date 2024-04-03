@@ -34,7 +34,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function() {
     Route::get('/addEvent', [eventController::class, 'addEvent'])->name('addEvent');
     Route::get('/allEvent', [eventController::class, 'allEvent'])->name('allEvent');
     Route::post('/updateEvent/{id}', [eventController::class, 'updateEvent'])->name('updateEvent');
-    Route::get('/deleteEvent', [eventController::class, 'deleteEvent'])->name('deleteEvent');
+    Route::get('/deleteEvent/{id}', [eventController::class, 'deleteEvent'])->name('deleteEvent');
     Route::post('/storeEvent', [eventController::class, 'storeEvent'])->name('storeEvent');
 
 

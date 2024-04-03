@@ -96,7 +96,7 @@
                                                         tabindex="-1" aria-hidden="true">
                                                         <div class="modal-dialog modal-dialog-centered">
                                                             <div class="modal-content">
-                                                                <form action="{{route('deleteModal',['id'=>$event->id])}}" method="get">
+                                                                <form action="{{route('deleteEvent',['id'=>$event->id])}}" method="get">
                                                                     @csrf
                                                                     @method('DELETE')
                                                                     <div class="modal-body">
