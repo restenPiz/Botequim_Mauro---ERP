@@ -10,7 +10,7 @@ class categoriesController extends Controller
 {
     public function addCategories()
     {
-        return view('Admin.addCategories');
+        return view('Admin.addCategory');
     }
     public function allCategories()
     {
