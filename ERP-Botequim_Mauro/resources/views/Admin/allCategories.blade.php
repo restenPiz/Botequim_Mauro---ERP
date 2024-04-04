@@ -87,9 +87,8 @@
                                                     </tr>
 
                                                     {{--Inicio do Modal para adicao de eventos--}}
-                                                    <div class="modal fade" id="clientNew"
-                                                        tabindex="-1" role="dialog" aria-labelledby="clientNewModalLabel"
-                                                        aria-hidden="true">
+                                                    <div class="modal fade" id="clientNewModal" tabindex="-1" role="dialog" aria-labelledby="clientNewModalLabel"
+                                                    aria-hidden="true">
                                                         <!-- .modal-dialog -->
                                                         <div class="modal-dialog" role="document">
                                                             <!-- .modal-content -->
@@ -255,7 +254,7 @@
                                 </div><!-- /.card-body -->
                                 <!-- .card-footer -->
                                 <div class="card-footer">
-                                    <a href="#clientNew" class="card-footer-item" data-target="#clientNew" data-toggle="modal"><i
+                                    <a href="{{route('addCategory')}}" class="card-footer-item" data-toggle="modal" data-target="#clientNewModal"><i
                                             class="fa fa-plus-circle mr-1"></i> Adicionar Categoria</a>
                                 </div><!-- /.card-footer -->
                             </div>

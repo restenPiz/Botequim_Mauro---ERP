@@ -301,7 +301,7 @@
                                 </div><!-- /.card-body -->
                                 <!-- .card-footer -->
                                 <div class="card-footer">
-                                    <a href="#clientContactNewModal" class="card-footer-item" data-target="#clientNew" data-toggle="modal"><i
+                                    <a href="{{route('addEvent')}}" class="card-footer-item"><i
                                             class="fa fa-plus-circle mr-1"></i> Adicionar Evento</a>
                                 </div><!-- /.card-footer -->
                             </div>
