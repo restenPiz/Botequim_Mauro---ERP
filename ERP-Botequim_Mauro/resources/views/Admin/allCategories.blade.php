@@ -134,7 +134,7 @@
                                                                     <div class="modal-footer">
                                                                         <button type="submit" name="submit"
                                                                             class="btn btn-primary">Adicionar
-                                                                            Evento</button>
+                                                                            Categoria</button>
                                                                         <button type="button" class="btn btn-light"
                                                                             data-dismiss="modal">Fechar</button>
                                                                     </div><!-- /.modal-footer -->
@@ -150,7 +150,7 @@
                                                         tabindex="-1" aria-hidden="true">
                                                         <div class="modal-dialog modal-dialog-centered">
                                                             <div class="modal-content">
-                                                                <form action="{{route('deleteEvent',['id'=>$category->id])}}" method="get">
+                                                                <form action="{{route('deleteCategories',['id'=>$category->id])}}" method="get">
                                                                     @csrf
                                                                     @method('DELETE')
                                                                     <div class="modal-body">
@@ -163,7 +163,7 @@
                                                                             <div class="mt-4 pt-2 fs-15 mx-4 mx-sm-5">
                                                                                 <h4>Voce tem certeza ?</h4>
                                                                                 <p class="text-muted mx-4 mb-0">Voce pretende eliminar
-                                                                                 este comunicado ?</p>
+                                                                                 esta Categoria ?</p>
                                                                             </div>
                                                                         </div>
                                                                         <div class="d-flex gap-2 justify-content-center mt-4 mb-2">
@@ -187,7 +187,7 @@
                                                         <!-- .modal-dialog -->
                                                         <div class="modal-dialog" role="document">
                                                             <!-- .modal-content -->
-                                                            <form action="{{ route('updateEvent', ['id' => $category->id]) }}"
+                                                            <form action="{{ route('updateCategories', ['id' => $category->id]) }}"
                                                                 method="post">
                                                                 @csrf
 
@@ -204,48 +204,28 @@
                                                                     <div class="modal-body">
                                                                         <!-- .form-row -->
                                                                         <div class="form-row">
-                                                                            <div class="col-md-12">
-                                                                                <div class="form-group">
-                                                                                    <label for="cnContactName">Nome do
-                                                                                        Evento</label>
-                                                                                    <input type="text" id="cnContactName"
-                                                                                        class="form-control"
-                                                                                        name="Event_name"
-                                                                                        value="{{ $category->Event_name }}">
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="col-md-12">
-                                                                                <div class="form-group">
-                                                                                    <label for="cnContactEmail">Data do
-                                                                                        Evento</label>
-                                                                                    <input type="date" id="cnContactName"
-                                                                                        class="form-control"
-                                                                                        name="Event_date"
-                                                                                        value="{{ $category->Event_date }}">
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="col-md-12">
-                                                                                <div class="form-group">
-                                                                                    <label for="cnStreet">Horario do
-                                                                                        Evento</label>
-                                                                                    <input type="time"
-                                                                                        id="cnContactName"
-                                                                                        class="form-control"
-                                                                                        name="Event_time"
-                                                                                        value="{{ $category->Event_time }}">
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="col-md-12">
-                                                                                <div class="form-group">
-                                                                                    <label for="cnSuite">Integrantes
-                                                                                        do Evento</label>
-                                                                                    <input type="text"
-                                                                                        id="cnContactName"
-                                                                                        class="form-control"
-                                                                                        name="Number_of_person"
-                                                                                        value="{{ $category->Number_of_person }}">
-                                                                                </div>
-                                                                            </div>
+                                                                            <div class="modal-body">
+                                                                                <!-- .form-row -->
+                                                                                <div class="form-row">
+                                                                                    <div class="col-md-6">
+                                                                                        <div class="form-group">
+                                                                                            <label for="cnContactName">Nome da Categoria</label>
+                                                                                            <input type="text" id="cnContactName"
+                                                                                                class="form-control"
+                                                                                                name="Category_name"
+                                                                                                value="{{$category->Category_name}}">
+                                                                                        </div>
+                                                                                        <div class="form-group">
+                                                                                            <label for="cnContactEmail">Codigo da Categoria</label>
+                                                                                            <input type="text" id="cnContactName"
+                                                                                                class="form-control"
+                                                                                                name="Code" 
+                                                                                                value="{{$category->Code}}">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div><!-- /.form-row -->
+        
+                                                                            </div><!-- /.modal-body -->
                                                                             <input type="hidden" name="id"
                                                                                 value="{{ $category->id }}">
                                                                         </div><!-- /.form-row -->
@@ -255,7 +235,7 @@
                                                                     <div class="modal-footer">
                                                                         <button type="submit" name="submit"
                                                                             class="btn btn-primary">Actualizar
-                                                                            Evento</button>
+                                                                            Category</button>
                                                                         <button type="button" class="btn btn-light"
                                                                             data-dismiss="modal">Fechar</button>
                                                                     </div><!-- /.modal-footer -->
@@ -272,7 +252,7 @@
                                 <!-- .card-footer -->
                                 <div class="card-footer">
                                     <a href="#clientContactNewModal" class="card-footer-item" data-target="#clientNew" data-toggle="modal"><i
-                                            class="fa fa-plus-circle mr-1"></i> Adicionar Evento</a>
+                                            class="fa fa-plus-circle mr-1"></i> Adicionar Categoria</a>
                                 </div><!-- /.card-footer -->
                             </div>
                             {{-- End of table section --}}
