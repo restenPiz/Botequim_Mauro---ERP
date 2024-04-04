@@ -12,7 +12,9 @@ class Stock extends Model
     protected $table='stocks';
 
     protected $fillable=[
-        'Quantity','Barcode','Price','Expiry_date','Entry_date','Stock_code','Id_product'
+        'Quantity','Barcode','Price',
+        'Expiry_date','Entry_date',
+        'Stock_code','Id_product'
     ];
 
     //*Inicio das chaves estrangeiras
