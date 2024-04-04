@@ -14,17 +14,7 @@ class Stock extends Model
     protected $fillable=[
         'Quantity','Barcode','Price',
         'Expiry_date','Entry_date',
-        'Stock_code','Id_product'
+        'Stock_code'
     ];
-
-    //*Inicio das chaves estrangeiras
-    public function products()
-    {
-        return $this->hasMany(Product::class);
-    }
-    public function name($id)
-    {
-        return Product::find($id)->Product_name;
-    }
 
 }
