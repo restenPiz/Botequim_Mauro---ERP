@@ -53,7 +53,7 @@
                                 </div><!-- /title and toolbar -->
                             </header><!-- /.page-title-bar -->
                             <!-- .page-section -->
-z
+
                             {{-- Table section --}}
                             <div class="card mt-4" style="margin-top:-4rem">
                                 <!-- .card-body -->
@@ -65,121 +65,43 @@ z
                                                 <tr>
                                                     <th> Nome do Producto </th>
                                                     <th> Quantity </th>
-                                                    <th> Horario do Evento </th>
-                                                    <th> Numero de Integrantes </th>
+                                                    <th> Codigo de Barra </th>
+                                                    <th> Preco </th>
+                                                    <th> Data de Entrada </th>
+                                                    <th> Data de Validade </th>
+                                                    <th> Numero de Factura </th>
                                                     <th></th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach ($events as $event)
+                                                @foreach ($stocks as $stock)
                                                     <tr>
-                                                        <td class="align-middle"> {{ $event->id }} </td>
-                                                        <td class="align-middle"> {{ $event->Event_name }} </td>
-                                                        <td class="align-middle"> {{ $event->Event_date }} </td>
-                                                        <td class="align-middle"> {{ $event->Event_time }} </td>
-                                                        <td class="align-middle"> {{ $event->Number_of_person }} </td>
+                                                        <td class="align-middle"> {{ $stock->id }} </td>
+                                                        <td class="align-middle"> {{ $stock->Product_name }} </td>
+                                                        <td class="align-middle"> {{ $stock->Quantity }} </td>
+                                                        <td class="align-middle"> {{ $stock->Barcode }} </td>
+                                                        <td class="align-middle"> {{ $stock->Price }} </td>
+                                                        <td class="align-middle"> {{ $stock->Entry_date }} </td>
+                                                        <td class="align-middle"> {{ $stock->Expiry_date }} </td>
+                                                        <td class="align-middle"> {{ $stock->Invoice_number }} </td>
                                                         <td class="align-middle text-right">
                                                             <button type="button" class="btn btn-sm btn-icon btn-secondary"
                                                                 data-toggle="modal"
-                                                                data-target="#clientNewModal{{ $event->id }}"><i
+                                                                data-target="#clientNewModal{{ $stock->id }}"><i
                                                                     class="fa fa-pencil-alt"></i> <span
                                                                     class="sr-only">Edit</span></button> <button
                                                                 type="button" class="btn btn-sm btn-icon btn-secondary"><i
-                                                                    class="far fa-trash-alt" data-target="#deleteRecordModal{{ $event->id }}" data-toggle="modal"></i> <span
+                                                                    class="far fa-trash-alt" data-target="#deleteRecordModal{{ $stock->id }}" data-toggle="modal"></i> <span
                                                                     class="sr-only">Remove</span></button>
                                                         </td>
                                                     </tr>
 
-                                                    {{--Inicio do Modal para adicao de eventos--}}
-                                                    <div class="modal fade" id="clientNew"
-                                                        tabindex="-1" role="dialog" aria-labelledby="clientNewModalLabel"
-                                                        aria-hidden="true">
-                                                        <!-- .modal-dialog -->
-                                                        <div class="modal-dialog" role="document">
-                                                            <!-- .modal-content -->
-                                                            <form action="{{ route('storeEvent') }}"
-                                                                method="post">
-                                                                @csrf
-
-                                                                <div class="modal-content">
-                                                                    <!-- .modal-header -->
-                                                                    <div class="modal-header">
-                                                                        <h6 id="clientNewModalLabel"
-                                                                            class="modal-title inline-editable">
-                                                                            Formulario de Adicao
-                                                                                de Eventos
-                                                                        </h6>
-                                                                    </div><!-- /.modal-header -->
-                                                                    <!-- .modal-body -->
-                                                                    <div class="modal-body">
-                                                                        <!-- .form-row -->
-                                                                        <div class="form-row">
-                                                                            <div class="col-md-12">
-                                                                                <div class="form-group">
-                                                                                    <label for="cnContactName">Nome do
-                                                                                        Evento</label>
-                                                                                    <input type="text" id="cnContactName"
-                                                                                        class="form-control"
-                                                                                        name="Event_name"
-                                                                                        placeholder="Nome do Evento">
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="col-md-12">
-                                                                                <div class="form-group">
-                                                                                    <label for="cnContactEmail">Data do
-                                                                                        Evento</label>
-                                                                                    <input type="date" id="cnContactName"
-                                                                                        class="form-control"
-                                                                                        name="Event_date"
-                                                                                        value="">
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="col-md-12">
-                                                                                <div class="form-group">
-                                                                                    <label for="cnStreet">Horario do
-                                                                                        Evento</label>
-                                                                                    <input type="time"
-                                                                                        id="cnContactName"
-                                                                                        class="form-control"
-                                                                                        name="Event_time"
-                                                                                        value="">
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="col-md-12">
-                                                                                <div class="form-group">
-                                                                                    <label for="cnSuite">Integrantes
-                                                                                        do Evento</label>
-                                                                                    <input type="text"
-                                                                                        id="cnContactName"
-                                                                                        class="form-control"
-                                                                                        name="Number_of_person"
-                                                                                        placeholder="Numero de Integrantes">
-                                                                                </div>
-                                                                            </div>
-                                                                        </div><!-- /.form-row -->
-
-                                                                    </div><!-- /.modal-body -->
-                                                                    <!-- .modal-footer -->
-                                                                    <div class="modal-footer">
-                                                                        <button type="submit" name="submit"
-                                                                            class="btn btn-primary">Adicionar
-                                                                            Evento</button>
-                                                                        <button type="button" class="btn btn-light"
-                                                                            data-dismiss="modal">Fechar</button>
-                                                                    </div><!-- /.modal-footer -->
-                                                                </div><!-- /.modal-content -->
-                                                            </form>
-                                                        </div><!-- /.modal-dialog -->
-                                                    </div>
-                                                    
-                                                    {{--Fim do modal para adicao de eventos--}}
-
                                                     {{--Inicio do modal de eliminar--}}
-                                                    <div class="modal fade zoomIn" id="deleteRecordModal{{ $event->id }}"
+                                                    <div class="modal fade zoomIn" id="deleteRecordModal{{ $stock->id }}"
                                                         tabindex="-1" aria-hidden="true">
                                                         <div class="modal-dialog modal-dialog-centered">
                                                             <div class="modal-content">
-                                                                <form action="{{route('deleteEvent',['id'=>$event->id])}}" method="get">
+                                                                <form action="{{route('deleteStock',['id'=>$stock->id])}}" method="get">
                                                                     @csrf
                                                                     @method('DELETE')
                                                                     <div class="modal-body">
@@ -192,7 +114,7 @@ z
                                                                             <div class="mt-4 pt-2 fs-15 mx-4 mx-sm-5">
                                                                                 <h4>Voce tem certeza ?</h4>
                                                                                 <p class="text-muted mx-4 mb-0">Voce pretende eliminar
-                                                                                 este comunicado ?</p>
+                                                                                 este producto ?</p>
                                                                             </div>
                                                                         </div>
                                                                         <div class="d-flex gap-2 justify-content-center mt-4 mb-2">
@@ -210,13 +132,13 @@ z
                                                     {{--Fim do modal de eliminar--}}
 
                                                     {{--Inicio do modal de edicao--}}
-                                                    <div class="modal fade" id="clientNewModal{{ $event->id }}"
+                                                    <div class="modal fade" id="clientNewModal{{ $stock->id }}"
                                                         tabindex="-1" role="dialog" aria-labelledby="clientNewModalLabel"
                                                         aria-hidden="true">
                                                         <!-- .modal-dialog -->
                                                         <div class="modal-dialog" role="document">
                                                             <!-- .modal-content -->
-                                                            <form action="{{ route('updateEvent', ['id' => $event->id]) }}"
+                                                            <form action="{{ route('updateEvent', ['id' => $stock->id]) }}"
                                                                 method="post">
                                                                 @csrf
 
@@ -240,7 +162,7 @@ z
                                                                                     <input type="text" id="cnContactName"
                                                                                         class="form-control"
                                                                                         name="Event_name"
-                                                                                        value="{{ $event->Event_name }}">
+                                                                                        value="{{ $stock->Event_name }}">
                                                                                 </div>
                                                                             </div>
                                                                             <div class="col-md-12">
@@ -250,7 +172,7 @@ z
                                                                                     <input type="date" id="cnContactName"
                                                                                         class="form-control"
                                                                                         name="Event_date"
-                                                                                        value="{{ $event->Event_date }}">
+                                                                                        value="{{ $stock->Event_date }}">
                                                                                 </div>
                                                                             </div>
                                                                             <div class="col-md-12">
@@ -261,7 +183,7 @@ z
                                                                                         id="cnContactName"
                                                                                         class="form-control"
                                                                                         name="Event_time"
-                                                                                        value="{{ $event->Event_time }}">
+                                                                                        value="{{ $stock->Event_time }}">
                                                                                 </div>
                                                                             </div>
                                                                             <div class="col-md-12">
@@ -272,11 +194,11 @@ z
                                                                                         id="cnContactName"
                                                                                         class="form-control"
                                                                                         name="Number_of_person"
-                                                                                        value="{{ $event->Number_of_person }}">
+                                                                                        value="{{ $stock->Number_of_person }}">
                                                                                 </div>
                                                                             </div>
                                                                             <input type="hidden" name="id"
-                                                                                value="{{ $event->id }}">
+                                                                                value="{{ $stock->id }}">
                                                                         </div><!-- /.form-row -->
 
                                                                     </div><!-- /.modal-body -->
@@ -300,8 +222,8 @@ z
                                 </div><!-- /.card-body -->
                                 <!-- .card-footer -->
                                 <div class="card-footer">
-                                    <a href="{{route('addEvent')}}" class="card-footer-item"><i
-                                            class="fa fa-plus-circle mr-1"></i> Adicionar Evento</a>
+                                    <a href="{{route('addStock')}}" class="card-footer-item"><i
+                                            class="fa fa-plus-circle mr-1"></i> Adicionar Mercadoria</a>
                                 </div><!-- /.card-footer -->
                             </div>
                             {{-- End of table section --}}
