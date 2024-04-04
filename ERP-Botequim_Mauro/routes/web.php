@@ -4,6 +4,8 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\userController;
 use App\Http\Controllers\eventController;
+use App\Http\Controllers\categoriesController;
+use App\Http\Controllers\stockController;
 
 //*Inicio das rotas do sistema
 
@@ -38,7 +40,14 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function() {
     Route::post('/storeEvent', [eventController::class, 'storeEvent'])->name('storeEvent');
 
     //?Inicio das rotas de categoria
-    
+    Route::post('/storeCategories', [categoriesController::class, 'storeCategories'])->name('storeCategories');
+    Route::post('/allCategories', [categoriesController::class, 'allCategories'])->name('allCategories');
+    Route::post('/updateCategories', [categoriesController::class, 'updateCategories'])->name('updateCategories');
+    Route::post('/deleteCategories', [categoriesController::class, 'deleteCategories'])->name('deleteCategories');
+
+    //?Inicio das rotas da parte de stock de entrada e saida
+    Route::post('/storeEvent', [stockController::class, 'storeEvent'])->name('storeEvent');
+
 
 });
 //?Fim das rotas da parte de admin
