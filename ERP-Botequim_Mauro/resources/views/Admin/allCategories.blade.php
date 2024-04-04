@@ -9,7 +9,7 @@
                 <!-- grid row -->
                 <div class="row">
                     <!-- grid column -->
-                    <div class="col-lg-12">
+                    <div class="col-lg-6">
                         <div class="col">
 
                             {{-- Inicio da tabela de todos eventos --}}
@@ -29,7 +29,7 @@
                                 <!-- title and toolbar -->
                                 <div class="d-md-flex align-items-md-start">
                                     <h1 class="page-title mr-sm-auto"> Todas Categorias </h1><!-- .btn-toolbar -->
-                                    <div class="btn-toolbar">
+                                    {{--<div class="btn-toolbar">
                                         <button type="button" class="btn btn-light"><i
                                                 class="oi oi-data-transfer-download"></i> <span
                                                 class="ml-1" data-target="#clientNew" data-toggle="modal">Exportar</span></button> <button type="button"
@@ -47,7 +47,7 @@
                                                     class="dropdown-item">Share</a> 
                                             </div>
                                         </div>
-                                    </div><!-- /.btn-toolbar -->
+                                    </div>--}}
                                 </div><!-- /title and toolbar -->
                             </header><!-- /.page-title-bar -->
                             <!-- .page-section -->
@@ -62,7 +62,6 @@
                                         <table class="table table-hover" style="min-width: 678px">
                                             <thead>
                                                 <tr>
-                                                    <th>#</th>
                                                     <th> Nome da Categoria </th>
                                                     <th> Codigo </th>
                                                     <th></th>
@@ -71,7 +70,6 @@
                                             <tbody>
                                                 @foreach ($categories as $category)
                                                     <tr>
-                                                        <td class="align-middle"> {{ $category->id }} </td>
                                                         <td class="align-middle"> {{ $category->Category_name }} </td>
                                                         <td class="align-middle"> {{ $category->Code }} </td>
                                                         <td class="align-middle text-right">
@@ -253,15 +251,49 @@
                                     </div><!-- /.table-responsive -->
                                 </div><!-- /.card-body -->
                                 <!-- .card-footer -->
-                                <div class="card-footer">
+                                {{--<div class="card-footer">
                                     <a href="{{route('addCategories')}}" class="card-footer-item"><i
                                             class="fa fa-plus-circle mr-1"></i> Adicionar Categoria</a>
-                                </div><!-- /.card-footer -->
+                                </div><!-- /.card-footer -->--}}
                             </div>
                             {{-- End of table section --}}
 
                         </div>
                     </div>
+
+                    {{--Inicio da seccao do formulario de adicao de categorias--}}
+                    
+                    <div class="col-lg-6"><br><br><br><br><br>
+                        <div class="col">
+                            <!-- .card -->
+                            <div class="card card-fluid">
+                                <h6 class="card-header"> Adicionar Categoria </h6><!-- .card-body -->
+                                <div class="card-body">
+                                    <!-- form -->
+                                    <form method="post" action="{{route('storeCategories')}}">
+                                        @csrf
+                                        <!-- form row -->
+                                        <div class="form-row">
+                                            <!-- form column -->
+                                            <div class="col-md-6 mb-3">
+                                                <label for="input01">Nome da Categoria</label> <input type="text"
+                                                    class="form-control" id="input01" placeholder="Nome da Categoria" name="Category_name" required="">
+                                            </div><!-- /form column -->
+                                            <!-- form column -->
+                                            <div class="col-md-6 mb-3">
+                                                <label for="input02">Codigo</label> <input type="text"
+                                                class="form-control" placeholder="Codigo" id="input02" name="Code" required="">
+                                            </div><!-- /form column -->
+                                        </div>
+                                        <button type="submit"
+                                               name="submit" class="btn btn-primary text-nowrap ml-auto">Adicionar Categoria</button>
+                                    </form><!-- /form -->
+                                </div><!-- /.card-body -->
+                            </div><!-- /.card -->
+                        </div>
+                    </div>
+                    {{--Fim da seccao do formulario de adicao de categorias--}}
+
                 </div>
             </div>
     </main>

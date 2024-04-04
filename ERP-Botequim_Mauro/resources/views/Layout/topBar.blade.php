@@ -435,14 +435,14 @@
                             </li><!-- /.menu-item --><!-- .menu-item -->
                             <li class="menu-item has-child">
                                 <a href="#" class="menu-link"><span class="menu-icon oi oi-list-rich"></span>
-                                    <span class="menu-text">Stock</span> {{-- <span
+                                    <span class="menu-text">Mercadorias</span> {{-- <span
                                         class="badge badge-warning">New</span> --}}</a> <!-- child menu -->
                                 <ul class="menu">
                                     <li class="menu-item">
-                                        <a href="page-clients.html" class="menu-link">Adicionar Stock</a>
+                                        <a href="{{route('allStock')}}" class="menu-link">Adicionar Nova Mercadoria</a>
                                     </li>
                                     <li class="menu-item">
-                                        <a href="page-teams.html" class="menu-link">Verificar Stock</a>
+                                        <a href="{{route('allStock')}}" class="menu-link">Verificar Saidas de Mercadoria</a>
                                     </li>
                                 </ul><!-- /child menu -->
                             </li>

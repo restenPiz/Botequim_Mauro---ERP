@@ -425,7 +425,7 @@
                                 <!-- child menu -->
                                 <ul class="menu">
                                     <li class="menu-item">
-                                        <a href="page-clients.html" class="menu-link">Adicionar Producto</a>
+                                        <a href="allStock" class="menu-link">Adicionar Producto</a>
                                     </li>
                                     <li class="menu-item">
                                         <a href="page-teams.html" class="menu-link">Todos Productos</a>
