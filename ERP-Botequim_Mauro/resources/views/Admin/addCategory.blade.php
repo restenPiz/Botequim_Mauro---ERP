@@ -28,7 +28,7 @@
                                             <!-- form column -->
                                             <div class="col-md-6 mb-3">
                                                 <label for="input02">Codigo</label> <input type="text"
-                                                    class="form-control" id="input02" name="Code" required="">
+                                                class="form-control" placeholder="Codigo" id="input02" name="Code" required="">
                                             </div><!-- /form column -->
                                         </div>
                                         <button type="submit"

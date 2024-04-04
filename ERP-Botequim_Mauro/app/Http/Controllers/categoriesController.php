@@ -29,7 +29,7 @@ class categoriesController extends Controller
 
         Alert::success('Adicionado!','A sua categoria foi adicionada com sucesso!');
 
-        return back();
+        return redirect()->route('allCategories');
     }
     public function updateCategories($id)
     {
