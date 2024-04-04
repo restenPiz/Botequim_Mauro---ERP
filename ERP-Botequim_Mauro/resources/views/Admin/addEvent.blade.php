@@ -47,6 +47,8 @@
                                         <hr>
                                         <button type="submit"
                                                name="submit" class="btn btn-primary text-nowrap ml-auto">Adicionar Usuario</button>
+                                               <a href="{{route('allEvent')}}" type="button" class="btn btn-light"
+                                                                            data-dismiss="modal">Voltar</a>
                                     </form><!-- /form -->
                                 </div><!-- /.card-body -->
                             </div><!-- /.card -->
