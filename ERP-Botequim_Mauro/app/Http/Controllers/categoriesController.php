@@ -8,6 +8,10 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 class categoriesController extends Controller
 {
+    public function addCategories()
+    {
+        return view('Admin.addCategories');
+    }
     public function allCategories()
     {
         $categories=Category::all();
