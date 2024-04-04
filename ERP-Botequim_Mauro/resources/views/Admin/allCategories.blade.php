@@ -94,7 +94,7 @@
                                                         <!-- .modal-dialog -->
                                                         <div class="modal-dialog" role="document">
                                                             <!-- .modal-content -->
-                                                            <form action="{{ route('storeEvent') }}"
+                                                            <form action="{{ route('storeCategories') }}"
                                                                 method="post">
                                                                 @csrf
 
@@ -104,53 +104,27 @@
                                                                         <h6 id="clientNewModalLabel"
                                                                             class="modal-title inline-editable">
                                                                             Formulario de Adicao
-                                                                                de Eventos
+                                                                                de Categorias
                                                                         </h6>
                                                                     </div><!-- /.modal-header -->
                                                                     <!-- .modal-body -->
                                                                     <div class="modal-body">
                                                                         <!-- .form-row -->
                                                                         <div class="form-row">
-                                                                            <div class="col-md-12">
+                                                                            <div class="col-md-6">
                                                                                 <div class="form-group">
-                                                                                    <label for="cnContactName">Nome do
-                                                                                        Evento</label>
+                                                                                    <label for="cnContactName">Nome da Categoria</label>
                                                                                     <input type="text" id="cnContactName"
                                                                                         class="form-control"
-                                                                                        name="Event_name"
+                                                                                        name="Category_name"
                                                                                         placeholder="Nome do Evento">
                                                                                 </div>
-                                                                            </div>
-                                                                            <div class="col-md-12">
                                                                                 <div class="form-group">
-                                                                                    <label for="cnContactEmail">Data do
-                                                                                        Evento</label>
-                                                                                    <input type="date" id="cnContactName"
+                                                                                    <label for="cnContactEmail">Codigo da Categoria</label>
+                                                                                    <input type="text" id="cnContactName"
                                                                                         class="form-control"
-                                                                                        name="Event_date"
+                                                                                        name="Code" placeholder="Codigo da Categoria"
                                                                                         value="">
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="col-md-12">
-                                                                                <div class="form-group">
-                                                                                    <label for="cnStreet">Horario do
-                                                                                        Evento</label>
-                                                                                    <input type="time"
-                                                                                        id="cnContactName"
-                                                                                        class="form-control"
-                                                                                        name="Event_time"
-                                                                                        value="">
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="col-md-12">
-                                                                                <div class="form-group">
-                                                                                    <label for="cnSuite">Integrantes
-                                                                                        do Evento</label>
-                                                                                    <input type="text"
-                                                                                        id="cnContactName"
-                                                                                        class="form-control"
-                                                                                        name="Number_of_person"
-                                                                                        placeholder="Numero de Integrantes">
                                                                                 </div>
                                                                             </div>
                                                                         </div><!-- /.form-row -->
