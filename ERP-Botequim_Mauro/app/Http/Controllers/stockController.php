@@ -11,6 +11,6 @@ class stockController extends Controller
     {
         $stocks = Stock::all();
         
-        return view('Admin.allStock',compact('stocks'));
+        return view('Admin.allStock-in',compact('stocks'));
     }
 }
