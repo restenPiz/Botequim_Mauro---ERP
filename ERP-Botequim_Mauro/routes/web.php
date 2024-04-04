@@ -40,7 +40,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function() {
     Route::post('/storeEvent', [eventController::class, 'storeEvent'])->name('storeEvent');
 
     //?Inicio das rotas de categoria
-    Route::post('/addCategories', [categoriesController::class, 'addCategories'])->name('addCategories');
+    Route::get('/addCategories', [categoriesController::class, 'addCategories'])->name('addCategories');
     Route::post('/storeCategories', [categoriesController::class, 'storeCategories'])->name('storeCategories');
     Route::get('/allCategories', [categoriesController::class, 'allCategories'])->name('allCategories');
     Route::post('/updateCategories/{id}', [categoriesController::class, 'updateCategories'])->name('updateCategories');

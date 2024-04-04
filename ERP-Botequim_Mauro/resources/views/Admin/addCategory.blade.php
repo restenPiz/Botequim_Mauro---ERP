@@ -27,11 +27,10 @@
                                             </div><!-- /form column -->
                                             <!-- form column -->
                                             <div class="col-md-6 mb-3">
-                                                <label for="input02">Codigo</label> <input type="date"
+                                                <label for="input02">Codigo</label> <input type="text"
                                                     class="form-control" id="input02" name="Code" required="">
                                             </div><!-- /form column -->
                                         </div>
-                                        <hr>
                                         <button type="submit"
                                                name="submit" class="btn btn-primary text-nowrap ml-auto">Adicionar Categoria</button>
                                     </form><!-- /form -->

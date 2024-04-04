@@ -254,7 +254,7 @@
                                 </div><!-- /.card-body -->
                                 <!-- .card-footer -->
                                 <div class="card-footer">
-                                    <a href="{{route('addCategories')}}" class="card-footer-item" data-toggle="modal" data-target="#clientNewModal"><i
+                                    <a href="{{route('addCategories')}}" class="card-footer-item"><i
                                             class="fa fa-plus-circle mr-1"></i> Adicionar Categoria</a>
                                 </div><!-- /.card-footer -->
                             </div>
