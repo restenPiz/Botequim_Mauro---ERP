@@ -52,6 +52,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function() {
     Route::post('/updateStock/{id}', [stockController::class, 'updateStock'])->name('updateStock');
     Route::get('/deleteStock/{id}', [stockController::class, 'deleteStock'])->name('deleteStock');
 
+    //?Inicio das rotas da parte de productos
 
 });
 //?Fim das rotas da parte de admin
