@@ -37,6 +37,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function() {
     Route::get('/deleteEvent/{id}', [eventController::class, 'deleteEvent'])->name('deleteEvent');
     Route::post('/storeEvent', [eventController::class, 'storeEvent'])->name('storeEvent');
 
+    //?Inicio das rotas de categoria
+    
 
 });
 //?Fim das rotas da parte de admin

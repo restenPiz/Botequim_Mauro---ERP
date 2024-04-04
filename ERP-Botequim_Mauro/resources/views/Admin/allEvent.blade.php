@@ -91,6 +91,90 @@
                                                         </td>
                                                     </tr>
 
+                                                    {{--Inicio do Modal para adicao de eventos--}}
+                                                    <div class="modal fade" id="clientNew"
+                                                        tabindex="-1" role="dialog" aria-labelledby="clientNewModalLabel"
+                                                        aria-hidden="true">
+                                                        <!-- .modal-dialog -->
+                                                        <div class="modal-dialog" role="document">
+                                                            <!-- .modal-content -->
+                                                            <form action="{{ route('storeEvent') }}"
+                                                                method="post">
+                                                                @csrf
+
+                                                                <div class="modal-content">
+                                                                    <!-- .modal-header -->
+                                                                    <div class="modal-header">
+                                                                        <h6 id="clientNewModalLabel"
+                                                                            class="modal-title inline-editable">
+                                                                            Formulario de Adicao
+                                                                                de Eventos
+                                                                        </h6>
+                                                                    </div><!-- /.modal-header -->
+                                                                    <!-- .modal-body -->
+                                                                    <div class="modal-body">
+                                                                        <!-- .form-row -->
+                                                                        <div class="form-row">
+                                                                            <div class="col-md-12">
+                                                                                <div class="form-group">
+                                                                                    <label for="cnContactName">Nome do
+                                                                                        Evento</label>
+                                                                                    <input type="text" id="cnContactName"
+                                                                                        class="form-control"
+                                                                                        name="Event_name"
+                                                                                        placeholder="Nome do Evento">
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-12">
+                                                                                <div class="form-group">
+                                                                                    <label for="cnContactEmail">Data do
+                                                                                        Evento</label>
+                                                                                    <input type="date" id="cnContactName"
+                                                                                        class="form-control"
+                                                                                        name="Event_date"
+                                                                                        value="">
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-12">
+                                                                                <div class="form-group">
+                                                                                    <label for="cnStreet">Horario do
+                                                                                        Evento</label>
+                                                                                    <input type="time"
+                                                                                        id="cnContactName"
+                                                                                        class="form-control"
+                                                                                        name="Event_time"
+                                                                                        value="">
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-12">
+                                                                                <div class="form-group">
+                                                                                    <label for="cnSuite">Integrantes
+                                                                                        do Evento</label>
+                                                                                    <input type="text"
+                                                                                        id="cnContactName"
+                                                                                        class="form-control"
+                                                                                        name="Number_of_person"
+                                                                                        placeholder="Numero de Integrantes">
+                                                                                </div>
+                                                                            </div>
+                                                                        </div><!-- /.form-row -->
+
+                                                                    </div><!-- /.modal-body -->
+                                                                    <!-- .modal-footer -->
+                                                                    <div class="modal-footer">
+                                                                        <button type="submit" name="submit"
+                                                                            class="btn btn-primary">Adicionar
+                                                                            Evento</button>
+                                                                        <button type="button" class="btn btn-light"
+                                                                            data-dismiss="modal">Fechar</button>
+                                                                    </div><!-- /.modal-footer -->
+                                                                </div><!-- /.modal-content -->
+                                                            </form>
+                                                        </div><!-- /.modal-dialog -->
+                                                    </div>
+                                                    
+                                                    {{--Fim do modal para adicao de eventos--}}
+
                                                     {{--Inicio do modal de eliminar--}}
                                                     <div class="modal fade zoomIn" id="deleteRecordModal{{ $event->id }}"
                                                         tabindex="-1" aria-hidden="true">
@@ -217,7 +301,7 @@
                                 </div><!-- /.card-body -->
                                 <!-- .card-footer -->
                                 <div class="card-footer">
-                                    <a href="#clientContactNewModal" class="card-footer-item" data-toggle="modal"><i
+                                    <a href="#clientContactNewModal" class="card-footer-item" data-target="#clientNew" data-toggle="modal"><i
                                             class="fa fa-plus-circle mr-1"></i> Adicionar Evento</a>
                                 </div><!-- /.card-footer -->
                             </div>

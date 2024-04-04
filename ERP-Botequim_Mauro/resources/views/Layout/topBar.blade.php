@@ -384,9 +384,6 @@
                                         class="badge badge-warning">New</span> --}}</a> <!-- child menu -->
                                 <ul class="menu">
                                     <li class="menu-item">
-                                        <a href="{{route('addEvent')}}" class="menu-link">Adicionar Evento</a>
-                                    </li>
-                                    <li class="menu-item">
                                         <a href="{{route('allEvent')}}" class="menu-link">Todos Eventos</a>
                                     </li>
                                 </ul><!-- /child menu -->
