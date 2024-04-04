@@ -32,7 +32,7 @@
                                     <div class="btn-toolbar">
                                         <button type="button" class="btn btn-light"><i
                                                 class="oi oi-data-transfer-download"></i> <span
-                                                class="ml-1">Exportar</span></button> <button type="button"
+                                                class="ml-1" data-target="#clientNew" data-toggle="modal">Exportar</span></button> <button type="button"
                                             class="btn btn-light"><i class="oi oi-data-transfer-upload"></i> <span
                                                 class="ml-1">Importar</span></button>
                                         <div class="dropdown">
@@ -41,12 +41,10 @@
                                                     class="fa fa-caret-down"></span></button>
                                             <div class="dropdown-menu dropdown-menu-right">
                                                 <div class="dropdown-arrow"></div><a href="#"
-                                                    class="dropdown-item">Add tasks</a> <a href="#"
+                                                    class="dropdown-item" data-target="#clientNew" data-toggle="modal">Add tasks</a> <a href="#"
                                                     class="dropdown-item">Invite members</a>
                                                 <div class="dropdown-divider"></div><a href="#"
-                                                    class="dropdown-item">Share</a> <a href="#"
-                                                    class="dropdown-item">Archive</a> <a href="#"
-                                                    class="dropdown-item">Remove</a>
+                                                    class="dropdown-item">Share</a> 
                                             </div>
                                         </div>
                                     </div><!-- /.btn-toolbar -->
@@ -60,6 +58,7 @@
                                 <div class="card-body">
                                     {{-- <h2 class="card-title"> Contacts </h2><!-- .table-responsive --> --}}
                                     <div class="table-responsive">
+                                        @if(count($categories)>0)
                                         <table class="table table-hover" style="min-width: 678px">
                                             <thead>
                                                 <tr>
@@ -247,11 +246,16 @@
                                                 @endforeach
                                             </tbody>
                                         </table>
+                                        @else
+                                        <div class="tab-pane fade" id="project-explore-teams" role="tabpanel">
+                                            <div class="alert alert-warning mx-3"> A tabela esta vazia. Adicione as categorias! </div>
+                                        </div>
+                                        @endif
                                     </div><!-- /.table-responsive -->
                                 </div><!-- /.card-body -->
                                 <!-- .card-footer -->
                                 <div class="card-footer">
-                                    <a href="#clientContactNewModal" class="card-footer-item" data-target="#clientNew" data-toggle="modal"><i
+                                    <a href="#clientNew" class="card-footer-item" data-target="#clientNew" data-toggle="modal"><i
                                             class="fa fa-plus-circle mr-1"></i> Adicionar Categoria</a>
                                 </div><!-- /.card-footer -->
                             </div>
