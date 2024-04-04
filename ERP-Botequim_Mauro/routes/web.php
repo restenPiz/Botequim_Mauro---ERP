@@ -41,12 +41,15 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function() {
 
     //?Inicio das rotas de categoria
     Route::post('/storeCategories', [categoriesController::class, 'storeCategories'])->name('storeCategories');
-    Route::post('/allCategories', [categoriesController::class, 'allCategories'])->name('allCategories');
-    Route::post('/updateCategories', [categoriesController::class, 'updateCategories'])->name('updateCategories');
-    Route::post('/deleteCategories', [categoriesController::class, 'deleteCategories'])->name('deleteCategories');
+    Route::get('/allCategories', [categoriesController::class, 'allCategories'])->name('allCategories');
+    Route::post('/updateCategories/{id}', [categoriesController::class, 'updateCategories'])->name('updateCategories');
+    Route::get('/deleteCategories/{id}', [categoriesController::class, 'deleteCategories'])->name('deleteCategories');
 
     //?Inicio das rotas da parte de stock de entrada e saida
-    Route::post('/storeEvent', [stockController::class, 'storeEvent'])->name('storeEvent');
+    Route::post('/storeStock', [stockController::class, 'storeStock'])->name('storeStock');
+    Route::get('/allStock', [stockController::class, 'allStock'])->name('storeStock');
+    Route::post('/updateStock/{id}', [stockController::class, 'updateStock'])->name('updateStock');
+    Route::get('/deleteStock/{id}', [stockController::class, 'deleteStock'])->name('deleteStock');
 
 
 });
