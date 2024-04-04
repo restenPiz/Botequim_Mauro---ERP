@@ -438,10 +438,10 @@
                                         class="badge badge-warning">New</span> --}}</a> <!-- child menu -->
                                 <ul class="menu">
                                     <li class="menu-item">
-                                        <a href="{{route('stockIn')}}" class="menu-link">Adicionar Nova Mercadoria</a>
+                                        <a href="{{route('allStock')}}" class="menu-link">Adicionar Nova Mercadoria</a>
                                     </li>
                                     <li class="menu-item">
-                                        <a href="{{route('stockOut')}}" class="menu-link">Verificar Saidas de Mercadoria</a>
+                                        <a href="{{route('allStock')}}" class="menu-link">Verificar Saidas de Mercadoria</a>
                                     </li>
                                 </ul><!-- /child menu -->
                             </li>

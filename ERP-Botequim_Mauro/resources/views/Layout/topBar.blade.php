@@ -321,12 +321,13 @@
                                     de Ajuda</a>
                             </div><!-- /.dropdown-menu -->
                         </div><!-- /.btn-account -->
-                    </div><!-- /.top-bar-item -->
+                    </div><!-- /.top-bar-item -->`
                 </div><!-- /.top-bar-list -->
             </div><!-- /.top-bar -->
         </header><!-- /.app-header -->
         <!-- .app-aside -->
-        <aside class="app-aside app-aside-expand-md app-aside-light">
+        <aside class="app-aside app-aside-expand-md 
+        app-aside-light">
             <!-- .aside-content -->
             <div class="aside-content">
                 <!-- .aside-header -->
@@ -453,10 +454,7 @@
                                 <!-- child menu -->
                                 <ul class="menu">
                                     <li class="menu-item">
-                                        <a href="page-clients.html" class="menu-link">Adicionar Categorias</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="page-teams.html" class="menu-link">Verificar Categorias</a>
+                                        <a href="{{route('allCategories')}}" class="menu-link">Verificar Categorias</a>
                                     </li>
                                 </ul><!-- /child menu -->
                             </li><!-- /.menu-item --><!-- .menu-item -->

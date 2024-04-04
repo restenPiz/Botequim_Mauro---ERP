@@ -47,7 +47,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function() {
 
     //?Inicio das rotas da parte de stock de entrada e saida
     Route::post('/storeStock', [stockController::class, 'storeStock'])->name('storeStock');
-    Route::get('/allStock', [stockController::class, 'allStock'])->name('storeStock');
+    Route::get('/allStock', [stockController::class, 'allStock'])->name('allStock');
     Route::post('/updateStock/{id}', [stockController::class, 'updateStock'])->name('updateStock');
     Route::get('/deleteStock/{id}', [stockController::class, 'deleteStock'])->name('deleteStock');
 
