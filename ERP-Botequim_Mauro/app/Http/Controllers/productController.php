@@ -31,7 +31,7 @@ class productController extends Controller
         $products->Price=Request::input('Price');
         $products->Entry_date=Request::input('Entry_date');
         $products->Expiry_date=Request::input('Expiry_date');
-        $products->Invoice_number=Request::input('Invoice_number');
+        $products->Id_category=Request::input('Id_category');
 
         $products->save();
 
