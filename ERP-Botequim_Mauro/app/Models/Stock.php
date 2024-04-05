@@ -12,8 +12,8 @@ class Stock extends Model
     protected $table='stocks';
 
     protected $fillable=[
-        'Quantity','Barcode','Price',
+        'Quantity','Code','Price',
         'Expiry_date','Entry_date',
-        'Stock_code','Procut_name','Invoice_number'
+        'Stock_code','Product_name'
     ];
 }
