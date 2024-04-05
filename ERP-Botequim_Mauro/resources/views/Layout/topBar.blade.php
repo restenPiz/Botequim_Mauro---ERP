@@ -439,20 +439,20 @@
                                 <!-- child menu -->
                                 <ul class="menu">
                                     <li class="menu-item">
-                                        <a href="page-teams.html" class="menu-link">Todos Productos</a>
+                                        <a href="{{route('allStock')}}" class="menu-link">Verificar Productos</a>
                                     </li>
                                 </ul><!-- /child menu -->
                             </li><!-- /.menu-item --><!-- .menu-item -->
                             <li class="menu-item has-child">
                                 <a href="#" class="menu-link"><span class="menu-icon oi oi-list-rich"></span>
-                                    <span class="menu-text">Mercadorias</span> {{-- <span
+                                    <span class="menu-text">Stock</span> {{-- <span
                                         class="badge badge-warning">New</span> --}}</a> <!-- child menu -->
                                 <ul class="menu">
                                     <li class="menu-item">
-                                        <a href="{{route('allStock')}}" class="menu-link">Adicionar Nova Mercadoria</a>
+                                        <a href="{{route('allStock')}}" class="menu-link">Entrada de Productos</a>
                                     </li>
                                     <li class="menu-item">
-                                        <a href="{{route('allStock')}}" class="menu-link">Verificar Saidas de Mercadoria</a>
+                                        <a href="{{route('allStock')}}" class="menu-link">Saida de Productos</a>
                                     </li>
                                 </ul><!-- /child menu -->
                             </li>
