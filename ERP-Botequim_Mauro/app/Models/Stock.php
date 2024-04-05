@@ -18,12 +18,12 @@ class Stock extends Model
     ];
     
     //?Inicio das chaves estrangeiras
-    public function stocks()
+    public function products()
     {
-        return $this->hasMany(stock::class);
+        return $this->hasMany(Product::class);
     }
-    public function Product_name($id)
+    public function name($id)
     {
-        return Stock::find($id)->Product_name;
+        return Product::find($id)->Product_name;
     }
 }
