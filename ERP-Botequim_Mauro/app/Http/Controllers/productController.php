@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Product;
-use Illuminate\Http\Request;
+use Request;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class productController extends Controller
