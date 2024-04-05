@@ -65,34 +65,34 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach ($stocks as $stock)
+                                                @foreach ($products as $product)
                                                     <tr>
-                                                        <td class="align-middle"> {{ $stock->id }} </td>
-                                                        <td class="align-middle"> {{ $stock->Product_name }} </td>
-                                                        <td class="align-middle"> {{ $stock->Quantity }} </td>
-                                                        <td class="align-middle"> {{ $stock->Barcode }} </td>
-                                                        <td class="align-middle"> {{ $stock->Price }} </td>
-                                                        <td class="align-middle"> {{ $stock->Entry_date }} </td>
-                                                        <td class="align-middle"> {{ $stock->Expiry_date }} </td>
-                                                        <td class="align-middle"> {{ $stock->Invoice_number }} </td>
+                                                        <td class="align-middle"> {{ $product->id }} </td>
+                                                        <td class="align-middle"> {{ $product->Product_name }} </td>
+                                                        <td class="align-middle"> {{ $product->Quantity }} </td>
+                                                        <td class="align-middle"> {{ $product->Code }} </td>
+                                                        <td class="align-middle"> {{ $product->Price }} </td>
+                                                        <td class="align-middle"> {{ $product->Entry_date }} </td>
+                                                        <td class="align-middle"> {{ $product->Expiry_date }} </td>
+                                                        <td class="align-middle"> {{ $product->name($product->Category_name) }} </td>
                                                         <td class="align-middle text-right">
                                                             <button type="button" class="btn btn-sm btn-icon btn-secondary"
                                                                 data-toggle="modal"
-                                                                data-target="#clientNewModal{{ $stock->id }}"><i
+                                                                data-target="#clientNewModal{{ $product->id }}"><i
                                                                     class="fa fa-pencil-alt"></i> <span
                                                                     class="sr-only">Edit</span></button> <button
                                                                 type="button" class="btn btn-sm btn-icon btn-secondary"><i
-                                                                    class="far fa-trash-alt" data-target="#deleteRecordModal{{ $stock->id }}" data-toggle="modal"></i> <span
+                                                                    class="far fa-trash-alt" data-target="#deleteRecordModal{{ $product->id }}" data-toggle="modal"></i> <span
                                                                     class="sr-only">Remove</span></button>
                                                         </td>
                                                     </tr>
 
                                                     {{--Inicio do modal de eliminar--}}
-                                                    <div class="modal fade zoomIn" id="deleteRecordModal{{ $stock->id }}"
+                                                    <div class="modal fade zoomIn" id="deleteRecordModal{{ $product->id }}"
                                                         tabindex="-1" aria-hidden="true">
                                                         <div class="modal-dialog modal-dialog-centered">
                                                             <div class="modal-content">
-                                                                <form action="{{route('deleteStock',['id'=>$stock->id])}}" method="get">
+                                                                <form action="{{route('deleteStock',['id'=>$product->id])}}" method="get">
                                                                     @csrf
                                                                     @method('DELETE')
                                                                     <div class="modal-body">
@@ -123,13 +123,13 @@
                                                     {{--Fim do modal de eliminar--}}
 
                                                     {{--Inicio do modal de edicao--}}
-                                                    <div class="modal fade" id="clientNewModal{{ $stock->id }}"
+                                                    <div class="modal fade" id="clientNewModal{{ $product->id }}"
                                                         tabindex="-1" role="dialog" aria-labelledby="clientNewModalLabel"
                                                         aria-hidden="true">
                                                         <!-- .modal-dialog -->
                                                         <div class="modal-dialog" role="document">
                                                             <!-- .modal-content -->
-                                                            <form action="{{ route('updateEvent', ['id' => $stock->id]) }}"
+                                                            <form action="{{ route('updateEvent', ['id' => $product->id]) }}"
                                                                 method="post">
                                                                 @csrf
 
@@ -153,7 +153,7 @@
                                                                                     <input type="text" id="cnContactName"
                                                                                         class="form-control"
                                                                                         name="Event_name"
-                                                                                        value="{{ $stock->Event_name }}">
+                                                                                        value="{{ $product->Event_name }}">
                                                                                 </div>
                                                                             </div>
                                                                             <div class="col-md-12">
@@ -163,7 +163,7 @@
                                                                                     <input type="date" id="cnContactName"
                                                                                         class="form-control"
                                                                                         name="Event_date"
-                                                                                        value="{{ $stock->Event_date }}">
+                                                                                        value="{{ $product->Event_date }}">
                                                                                 </div>
                                                                             </div>
                                                                             <div class="col-md-12">
@@ -174,7 +174,7 @@
                                                                                         id="cnContactName"
                                                                                         class="form-control"
                                                                                         name="Event_time"
-                                                                                        value="{{ $stock->Event_time }}">
+                                                                                        value="{{ $product->Event_time }}">
                                                                                 </div>
                                                                             </div>
                                                                             <div class="col-md-12">
@@ -185,11 +185,11 @@
                                                                                         id="cnContactName"
                                                                                         class="form-control"
                                                                                         name="Number_of_person"
-                                                                                        value="{{ $stock->Number_of_person }}">
+                                                                                        value="{{ $product->Number_of_person }}">
                                                                                 </div>
                                                                             </div>
                                                                             <input type="hidden" name="id"
-                                                                                value="{{ $stock->id }}">
+                                                                                value="{{ $product->id }}">
                                                                         </div><!-- /.form-row -->
 
                                                                     </div><!-- /.modal-body -->
@@ -214,7 +214,7 @@
                                 <!-- .card-footer -->
                                 <div class="card-footer">
                                     <a href="{{route('addStock')}}" class="card-footer-item"><i
-                                            class="fa fa-plus-circle mr-1"></i> Adicionar Mercadoria</a>
+                                            class="fa fa-plus-circle mr-1"></i> Adicionar Producto</a>
                                 </div><!-- /.card-footer -->
                             </div>
                             {{-- End of table section --}}
