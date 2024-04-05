@@ -36,7 +36,36 @@ class productController extends Controller
         $products->save();
 
         //?Alerta de sucesso
-        Alert::success('Actualizado','O producto foi adicionado com sucesso!');
+        Alert::success('Adicionado','O producto foi adicionado com sucesso!');
+
+        return back();
+    }
+    public function updateProduct($id)
+    {
+        $products = Product::findOrFail($id);
+
+        $products->Product_name=Request::input('Product_name');
+        $products->Quantity=Request::input('Quantity');
+        $products->Code=Request::input('Code');
+        $products->Price=Request::input('Price');
+        $products->Entry_date=Request::input('Entry_date');
+        $products->Expiry_date=Request::input('Expiry_date');
+        $products->Id_category=Request::input('Id_category');
+
+        $products->save();
+
+        //?Alerta de sucesso
+        Alert::success('Actualizado','O producto foi actualizado com sucesso!');
+
+        return back();    
+    }
+    public function deleteProduct($id)
+    {
+        $products = Product::findOrFail($id);
+
+        $products->delete();
+
+        Alert::success('Eliminado!','O producto foi eliminado com sucesso!');
 
         return back();
     }
