@@ -12,8 +12,8 @@ class Product extends Model
 
     //*Inicio das colunas da tabela de productos
     protected $fillable =[
-        'Product_name','Price','Quantity','Sale_price','Expiry_date','Entry_date','Id_category','Id_stock'
-    ];
+        'Product_name','Price','Quantity','Sale_price','Expiry_date','Entry_date','Id_category'
+    ];  
 
     //*Inicio dos relacionamentos entre as tabelas
     public function categoria()
@@ -24,13 +24,5 @@ class Product extends Model
     public function name($id)
     {
         return Category::find($id)->Category_name;
-    }
-    public function stocks()
-    {
-        return $this->hasMany(stock::class);
-    }
-    public function Product_name($id)
-    {
-        return Stock::find($id)->Product_name;
     }
 }
