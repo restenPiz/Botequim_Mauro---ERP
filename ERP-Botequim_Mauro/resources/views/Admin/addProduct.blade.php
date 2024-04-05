@@ -13,10 +13,10 @@
                         <div class="col">
                             <!-- .card -->
                             <div class="card card-fluid">
-                                <h6 class="card-header"> Adicionar Mercadoria </h6><!-- .card-body -->
+                                <h6 class="card-header"> Adicionar Produto </h6><!-- .card-body -->
                                 <div class="card-body">
                                     <!-- form -->
-                                    <form method="post" action="{{route('storeStock')}}">
+                                    <form method="post" action="{{route('storeProduct')}}">
                                         @csrf
                                         <!-- form row -->
                                         <div class="form-row">
@@ -36,7 +36,7 @@
                                             <!-- form column -->
                                             <div class="col-md-6 mb-3">
                                                 <label for="input01">Codigo de Barro</label> <input type="text"
-                                                    class="form-control" id="input01" placeholder="Codigo de Barra" name="Barcode" required="">
+                                                    class="form-control" id="input01" placeholder="Codigo de Barra" name="Code" required="">
                                             </div><!-- /form column -->
                                             <!-- form column -->
                                             <div class="col-md-6 mb-3">
@@ -60,12 +60,16 @@
                                         <div class="form-row">
                                             <!-- form column -->
                                             <div class="col-md-6 mb-3">
-                                                <label for="input01">Numero de Factura</label> <input type="text"
-                                                    class="form-control" id="input01" placeholder="Numero de Factura" name="Invoice_number" required="">
+                                                <label>Categorias</label>
+                                                <select class="form-control" name="Id_category">
+                                                    @foreach ($categories as $category)
+                                                    <option value="{{$category->id}}">{{$category->Category_name}}</option>
+                                                    @endforeach
+                                                </select>
                                             </div><!-- /form column -->
                                         </div>
                                         <button type="submit" name="submit" class="btn btn-primary text-nowrap ml-auto">Adicionar Mercadoria</button>
-                                        <a href="{{route('allStock')}}" type="button" class="btn btn-light" data-dismiss="modal">Voltar</a>
+                                        <a href="{{route('allProduct')}}" type="button" class="btn btn-light" data-dismiss="modal">Voltar</a>
                                     </form><!-- /form -->
                                 </div><!-- /.card-body -->
                             </div><!-- /.card -->
