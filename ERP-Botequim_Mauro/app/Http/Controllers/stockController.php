@@ -23,7 +23,6 @@ class stockController extends Controller
         $stock = Stock::find($id);
 
         $stock->Product_name=Request::input('Product_name');
-        $stock->Sale=Request::input('Sale');
         $stock->Quantity=Request::input('Quantity');
         $stock->Barcode=Request::input('Barcode');
         $stock->Price=Request::input('Price');
@@ -42,7 +41,6 @@ class stockController extends Controller
         $stock=new Stock();
 
         $stock->Product_name=Request::input('Product_name');
-        $stock->Sale=Request::input('Sale');
         $stock->Quantity=Request::input('Quantity');
         $stock->Barcode=Request::input('Barcode');
         $stock->Price=Request::input('Price');
@@ -56,6 +54,7 @@ class stockController extends Controller
 
         return back();
     }
+    //?Inicio do metodo responsavel por eliminar o producto
     public function delete($id)
     {
         $stock=Stock::find($id);
