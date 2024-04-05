@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\productController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\userController;
@@ -54,6 +55,11 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function() {
     Route::get('/deleteStock/{id}', [stockController::class, 'deleteStock'])->name('deleteStock');
 
     //?Inicio das rotas da parte de productos
+    Route::get('/addProduct', [productController::class, 'addProduct'])->name('addProduct');
+    Route::post('/storeProduct', [productController::class, 'storeProduct'])->name('storeProduct');
+    Route::get('/allProduct', [productController::class, 'allProduct'])->name('allProduct');
+    Route::post('/updateProduct/{id}', [productController::class, 'updateProduct'])->name('updateProduct');
+    Route::get('/deleteProduct/{id}', [productController::class, 'deleteProduct'])->name('deleteProduct');
 
 });
 //?Fim das rotas da parte de admin
