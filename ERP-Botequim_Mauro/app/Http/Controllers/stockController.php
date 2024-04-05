@@ -32,6 +32,7 @@ class stockController extends Controller
 
         $stock->save();
 
+        //?Alerta de sucesso
         Alert::success('Actualizado','O producto foi actualizado com sucesso!');
 
         return back();
