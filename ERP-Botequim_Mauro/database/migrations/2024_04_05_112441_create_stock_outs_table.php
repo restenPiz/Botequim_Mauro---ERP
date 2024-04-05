@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('stock_outs', function (Blueprint $table) {
             $table->id();
+            $table->string('Product_name');
+            $table->string('Quantity');
+            $table->date('Date');
+            //?Inicio da chave estrangeira 
+            $table->unsignedBigInteger('Id_products')->unsigned();
+            $table->foreign('Id_product')->references('id')->on('products');
             $table->timestamps();
         });
     }
