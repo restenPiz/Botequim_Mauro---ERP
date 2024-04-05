@@ -13,4 +13,8 @@ class productController extends Controller
 
         return view('Admin.allProduct', compact("products"));
     }
+    public function addProduct()
+    {
+        return view('Admin.addProduct');
+    }
 }
