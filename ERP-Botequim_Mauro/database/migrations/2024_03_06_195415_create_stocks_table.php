@@ -15,11 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('Product_name');
             $table->string('Quantity');
-            $table->string('Barcode');
+            $table->string('Code');
             $table->string('Price');
             $table->string('Expiry_date');
             $table->string('Entry_date');
-            $table->string('Invoice_number');
 
             $table->timestamps();
         });
