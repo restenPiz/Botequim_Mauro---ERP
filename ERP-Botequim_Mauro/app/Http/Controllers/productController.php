@@ -11,6 +11,6 @@ class productController extends Controller
     {
         $products = Product::all();
 
-        return view("Admin.allProducts.blade.php", compact("products"));
+        return view('Admin.allProduct', compact("products"));
     }
 }
