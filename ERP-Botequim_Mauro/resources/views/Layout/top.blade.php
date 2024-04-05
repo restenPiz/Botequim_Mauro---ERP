@@ -419,33 +419,6 @@
                             <li class="menu-header">Stock </li><!-- /.menu-header -->
                             <!-- .menu-item -->
                             <li class="menu-item has-child">
-                                <a href="#" class="menu-link"><span class="menu-icon fas fa-table"></span>
-                                    <span class="menu-text">Producto</span> {{-- <span
-                                        class="badge badge-warning">New</span> --}}</a>
-                                <!-- child menu -->
-                                <ul class="menu">
-                                    <li class="menu-item">
-                                        <a href="allStock" class="menu-link">Adicionar Producto</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="page-teams.html" class="menu-link">Todos Productos</a>
-                                    </li>
-                                </ul><!-- /child menu -->
-                            </li><!-- /.menu-item --><!-- .menu-item -->
-                            <li class="menu-item has-child">
-                                <a href="#" class="menu-link"><span class="menu-icon oi oi-list-rich"></span>
-                                    <span class="menu-text">Mercadorias</span> {{-- <span
-                                        class="badge badge-warning">New</span> --}}</a> <!-- child menu -->
-                                <ul class="menu">
-                                    <li class="menu-item">
-                                        <a href="{{route('allStock')}}" class="menu-link">Verificar Entradas</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="{{route('allStock')}}" class="menu-link">Verificar Saidas</a>
-                                    </li>
-                                </ul><!-- /child menu -->
-                            </li>
-                            <li class="menu-item has-child">
                                 <a href="#" class="menu-link"><span
                                         class="menu-icon oi oi-puzzle-piece"></span> <span
                                         class="menu-text">Categorias</span> {{-- <span
@@ -458,6 +431,30 @@
                                 </ul><!-- /child menu -->
                             </li><!-- /.menu-item --><!-- .menu-item -->
                            
+                            <li class="menu-item has-child">
+                                <a href="#" class="menu-link"><span class="menu-icon fas fa-table"></span>
+                                    <span class="menu-text">Producto</span> {{-- <span
+                                        class="badge badge-warning">New</span> --}}</a>
+                                <!-- child menu -->
+                                <ul class="menu">
+                                    <li class="menu-item">
+                                        <a href="{{route('allStock')}}" class="menu-link">Verificar Productos</a>
+                                    </li>
+                                </ul><!-- /child menu -->
+                            </li><!-- /.menu-item --><!-- .menu-item -->
+                            <li class="menu-item has-child">
+                                <a href="#" class="menu-link"><span class="menu-icon oi oi-list-rich"></span>
+                                    <span class="menu-text">Stock</span> {{-- <span
+                                        class="badge badge-warning">New</span> --}}</a> <!-- child menu -->
+                                <ul class="menu">
+                                    <li class="menu-item">
+                                        <a href="{{route('allStock')}}" class="menu-link">Entrada de Productos</a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a href="{{route('allStock')}}" class="menu-link">Saida de Productos</a>
+                                    </li>
+                                </ul><!-- /child menu -->
+                            </li>
                         </ul><!-- /.menu -->
                     </nav><!-- /.stacked-menu -->
                 </div><!-- /.aside-menu -->
