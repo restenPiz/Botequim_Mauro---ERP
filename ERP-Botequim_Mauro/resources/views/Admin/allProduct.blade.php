@@ -55,12 +55,12 @@
                                             <thead>
                                                 <tr>
                                                     <th> Nome do Producto </th>
-                                                    <th> Quantity </th>
-                                                    <th> Codigo de Barra </th>
+                                                    <th> Quantidade </th>
+                                                    <th> Codigo </th>
                                                     <th> Preco </th>
                                                     <th> Data de Entrada </th>
                                                     <th> Data de Validade </th>
-                                                    <th> Numero de Factura </th>
+                                                    <th> Categoria </th>
                                                     <th></th>
                                                 </tr>
                                             </thead>
