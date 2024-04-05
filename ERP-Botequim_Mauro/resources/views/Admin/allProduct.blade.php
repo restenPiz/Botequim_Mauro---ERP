@@ -92,7 +92,7 @@
                                                         tabindex="-1" aria-hidden="true">
                                                         <div class="modal-dialog modal-dialog-centered">
                                                             <div class="modal-content">
-                                                                <form action="{{route('deleteStock',['id'=>$product->id])}}" method="get">
+                                                                <form action="{{route('deleteProduct',['id'=>$product->id])}}" method="get">
                                                                     @csrf
                                                                     @method('DELETE')
                                                                     <div class="modal-body">
