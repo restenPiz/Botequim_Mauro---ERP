@@ -439,7 +439,7 @@
                                 <!-- child menu -->
                                 <ul class="menu">
                                     <li class="menu-item">
-                                        <a href="{{route('allStock')}}" class="menu-link">Verificar Productos</a>
+                                        <a href="{{route('allProduct')}}" class="menu-link">Verificar Productos</a>
                                     </li>
                                 </ul><!-- /child menu -->
                             </li><!-- /.menu-item --><!-- .menu-item -->
