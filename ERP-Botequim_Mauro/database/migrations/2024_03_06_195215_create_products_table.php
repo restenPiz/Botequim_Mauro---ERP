@@ -14,7 +14,7 @@ return new class extends Migration
             $table->string('Code');
             $table->string('Price');
             $table->string('Quantity');
-            $table->string('Sale_price');
+            $table->string('Sale_price')->nullable();
             $table->date('Expiry_date');
             $table->date('Entry_date');
             $table->timestamps();
