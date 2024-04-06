@@ -67,6 +67,10 @@
                                                     @endforeach
                                                 </select>
                                             </div><!-- /form column -->
+                                            <div class="col-md-6 mb-3">
+                                                <label for="input02">Preco de Venda</label> <input type="text"
+                                                    class="form-control" id="input02" placeholder="Preco do Producto"  name="Sale_price" required="">
+                                            </div><!-- /form column -->
                                         </div>
                                         <button type="submit" name="submit" class="btn btn-primary text-nowrap ml-auto">Adicionar Producto</button>
                                         <a href="{{route('allProduct')}}" type="button" class="btn btn-light" data-dismiss="modal">Voltar</a>
