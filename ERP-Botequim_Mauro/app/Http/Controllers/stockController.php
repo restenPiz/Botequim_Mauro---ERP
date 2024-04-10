@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use App\Models\Stock;
+use Illuminate\Support\Facades\DB;
 use RealRashid\SweetAlert\Facades\Alert;
 use Request;
 
@@ -11,7 +12,7 @@ class stockController extends Controller
 {
     public function allStock()
     {
-        $stocks = Stock::all();
+        $stocks = DB::table('stocks')->get();
         
         return view('Admin.allStock-in',compact('stocks'));
     }
