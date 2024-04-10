@@ -210,7 +210,7 @@
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                     <label for="cnContactEmail">Codigo</label>
-                                                                                    <input type="date" id="cnContactName"
+                                                                                    <input type="text" id="cnContactName"
                                                                                         class="form-control"
                                                                                         name="Code"
                                                                                         value="{{ $product->Code }}">
