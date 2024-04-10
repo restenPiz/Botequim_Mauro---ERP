@@ -54,6 +54,7 @@
                                         <table class="table table-hover" style="min-width: 678px">
                                             <thead>
                                                 <tr>
+                                                    <th>#</th>
                                                     <th> Nome do Producto </th>
                                                     <th> Quantidade </th>
                                                     <th> Codigo </th>
