@@ -56,11 +56,10 @@
                                                 <tr>
                                                     <th> Nome do Producto </th>
                                                     <th> Quantity </th>
-                                                    <th> Codigo de Barra </th>
+                                                    <th> Codigo </th>
                                                     <th> Preco </th>
                                                     <th> Data de Entrada </th>
                                                     <th> Data de Validade </th>
-                                                    <th> Numero de Factura </th>
                                                     <th></th>
                                                 </tr>
                                             </thead>
@@ -68,7 +67,7 @@
                                                 @foreach ($stocks as $stock)
                                                     <tr>
                                                         <td class="align-middle"> {{ $stock->id }} </td>
-                                                        <td class="align-middle"> {{ $stock->Product_name }} </td>
+                                                        <td class="align-middle"> {{ $stock->name($stock->id) </td>
                                                         <td class="align-middle"> {{ $stock->Quantity }} </td>
                                                         <td class="align-middle"> {{ $stock->Barcode }} </td>
                                                         <td class="align-middle"> {{ $stock->Price }} </td>

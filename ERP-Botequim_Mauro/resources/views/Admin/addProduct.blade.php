@@ -62,6 +62,7 @@
                                             <div class="col-md-6 mb-3">
                                                 <label>Categorias</label>
                                                 <select class="form-control" name="Id_category">
+                                                    <option>--Selecione a Categoria --</option>
                                                     @foreach ($categories as $category)
                                                     <option value="{{$category->id}}">{{$category->Category_name}}</option>
                                                     @endforeach
