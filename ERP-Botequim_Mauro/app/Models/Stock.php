@@ -18,9 +18,9 @@ class Stock extends Model
     ];
     
     //?Inicio das chaves estrangeiras
-    public function products()
+    public function productos()
     {
-        return $this->hasMany(Product::class);
+        return $this->belongsTo(Product::class);
     }
     public function name($id)
     {

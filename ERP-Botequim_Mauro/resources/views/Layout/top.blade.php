@@ -15,32 +15,13 @@
     <link rel="canonical" href="index.html">
     <meta property="og:url" content="index.html">
     <meta property="og:site_name" content="Looper - Bootstrap 4 Admin Theme">
-    <script type="application/ld+json">
-      {
-        "name": "Looper - Bootstrap 4 Admin Theme",
-        "description": "Responsive admin theme build on top of Bootstrap 4",
-        "author":
-        {
-          "@type": "Person",
-          "name": "Beni Arisandi"
-        },
-        "@type": "WebSite",
-        "url": "",
-        "headline": "Dashboard",
-        "@context": "http://schema.org"
-      }
-    </script><!-- End SEO tag -->
-    <!-- FAVICONS -->
     <link rel="apple-touch-icon" sizes="144x144" href="assets/apple-touch-icon.png">
     <link rel="shortcut icon" href="assets/favicon.ico">
     <meta name="theme-color" content="#3063A0"><!-- End FAVICONS -->
-    <!-- GOOGLE FONT -->
     <link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600" rel="stylesheet"><!-- End GOOGLE FONT -->
-    <!-- BEGIN PLUGINS STYLES -->
     <link rel="stylesheet" href="../assets/vendor/open-iconic/font/css/open-iconic-bootstrap.min.css">
     <link rel="stylesheet" href="../assets/vendor/%40fortawesome/fontawesome-free/css/all.min.css">
     <link rel="stylesheet" href="../assets/vendor/flatpickr/flatpickr.min.css"><!-- END PLUGINS STYLES -->
-    <!-- BEGIN THEME STYLES -->
     <link rel="stylesheet" href="../assets/stylesheets/theme.min.css" data-skin="default">
     <link rel="stylesheet" href="../assets/stylesheets/theme-dark.min.css" data-skin="dark">
     <link rel="stylesheet" href="../assets/stylesheets/custom.css">
@@ -84,7 +65,6 @@
                 </div><!-- /.top-bar-brand -->
                 <!-- .top-bar-list -->
                 <div class="top-bar-list">
-                    <!-- .top-bar-item -->
                     <div class="top-bar-item px-2 d-md-none d-lg-none d-xl-none">
                         <!-- toggle menu -->
                         <button class="hamburger hamburger-squeeze" type="button" data-toggle="aside"

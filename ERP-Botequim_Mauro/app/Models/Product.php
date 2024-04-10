@@ -25,4 +25,8 @@ class Product extends Model
     {
         return Category::find($id)->Category_name;
     }
+    public function stock()
+    {
+        return $this->hasMany(stock::class);
+    }
 }

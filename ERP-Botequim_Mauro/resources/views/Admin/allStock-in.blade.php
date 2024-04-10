@@ -210,7 +210,7 @@
                     </div>
 
                     {{--Inicio da parte de adicao--}}
-                    <div class="col-lg-4"><br><br><br>
+                    <div class="col-lg-4">
                         <div class="col">
                             <!-- .card -->
                             <div class="card card-fluid">
@@ -225,7 +225,8 @@
                                             <div class="col-md-12 mb-3">
                                                 <label>Nome de Producto</label>
                                                 <select class="form-control" name="Product_name">
-                                                    @foreach ($products as $product)
+                                                    <option>--Selecione o Producto --</option>
+                                                    @foreach ($stocks as $product)
                                                     <option value="{{$product->name($product->id)}}">{{$product->name($product->id)}}</option>
                                                     @endforeach
                                                 </select>   
