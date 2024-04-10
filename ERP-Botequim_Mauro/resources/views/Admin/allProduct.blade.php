@@ -77,7 +77,9 @@
                                                         <td class="align-middle"> {{ $product->Price }} </td>
                                                         <td class="align-middle"> {{ $product->Entry_date }} </td>
                                                         <td class="align-middle"> {{ $product->Expiry_date }} </td>
-                                                        <td class="align-middle"> {{ $product->name($product->id) }} </td>
+                                                        <td class="align-middle"> 
+                                                            <span class="badge badge-subtle badge-warning">{{ $product->name($product->id) }}</span>
+                                                        </td>
                                                         <td class="align-middle text-right">
                                                             <button type="button" class="btn btn-sm btn-icon btn-secondary"
                                                                 data-toggle="modal"
@@ -132,7 +134,7 @@
                                                         <!-- .modal-dialog -->
                                                         <div class="modal-dialog" role="document">
                                                             <!-- .modal-content -->
-                                                            <form action="{{ route('updateEvent', ['id' => $product->id]) }}"
+                                                            <form action="{{ route('updateProduct', ['id' => $product->id]) }}"
                                                                 method="post">
                                                                 @csrf
 
