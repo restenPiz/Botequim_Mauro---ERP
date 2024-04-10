@@ -9,7 +9,7 @@
                 <!-- grid row -->
                 <div class="row">
                     <!-- grid column -->
-                    <div class="col-lg-12">
+                    <div class="col-lg-6">
                         <div class="col">
 
                             {{-- Inicio da tabela de todos eventos --}}
@@ -67,17 +67,15 @@
                                                 @foreach ($stocks as $stock)
                                                     <tr>
                                                         <td class="align-middle"> {{ $stock->id }} </td>
-                                                        <td class="align-middle"> {{ $stock->name($stock->id) </td>
+                                                        <td class="align-middle"> {{ $stock->name($stock->id) }}</td>
                                                         <td class="align-middle"> {{ $stock->Quantity }} </td>
-                                                        <td class="align-middle"> {{ $stock->Barcode }} </td>
+                                                        <td class="align-middle"> {{ $stock->Code }} </td>
                                                         <td class="align-middle"> {{ $stock->Price }} </td>
                                                         <td class="align-middle"> {{ $stock->Entry_date }} </td>
                                                         <td class="align-middle"> {{ $stock->Expiry_date }} </td>
-                                                        <td class="align-middle"> {{ $stock->Invoice_number }} </td>
                                                         <td class="align-middle text-right">
                                                             <button type="button" class="btn btn-sm btn-icon btn-secondary"
-                                                                data-toggle="modal"
-                                                                data-target="#clientNewModal{{ $stock->id }}"><i
+                                                                data-toggle="modal" data-target="#clientNewModal{{ $stock->id }}"><i
                                                                     class="fa fa-pencil-alt"></i> <span
                                                                     class="sr-only">Edit</span></button> <button
                                                                 type="button" class="btn btn-sm btn-icon btn-secondary"><i
