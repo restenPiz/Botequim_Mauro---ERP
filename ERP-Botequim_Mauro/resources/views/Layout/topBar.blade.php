@@ -478,25 +478,32 @@
 
     </div><!-- /.app -->
     <!-- BEGIN BASE JS -->
+
     <script>
-        function estudantes_turma(turma) {
-            var turma_id = turma.value;
-
-            $.get('/json-estudantes?turma_id=' + turma_id, function(data) {
-                console.log(data);
-
-                $('#estudante_id').empty();
-
-                $('#estudante_id').append('<option value="">--Selecione--</option>');
-
-                $.each(data, function(index, usuario) {
-                    $('#estudante_id').append('<option value="' + usuario.id + '">' + usuario.name + ' ' +
-                        usuario.apelido + '</option>');
-                })
+        $(document).ready(function() {
+            $('#Product_name').change(function() {
+                var productName = $(this).val();
+                
+                $.ajax({
+                    url: '/getProductDetails',
+                    type: 'GET',
+                    data: {
+                        productName: productName
+                    },
+                    success: function(response) {
+                        $('#Quantity').val(response.quantity);
+                        // Atualize outros campos conforme necessário
+                        $('#Quantity').prop('disabled', false);
+                        // Habilitar outros campos conforme necessário
+                    },
+                    error: function(xhr, status, error) {
+                        console.error(error);
+                    }
+                });
             });
-
-        }
+        });
     </script>
+
     <script src="assets/vendor/jquery/jquery.min.js"></script>
     <script src="assets/vendor/popper.js/umd/popper.min.js"></script>
     <script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script> <!-- END BASE JS -->
