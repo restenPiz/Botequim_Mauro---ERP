@@ -457,13 +457,13 @@
     </div><!-- /.app -->
 
     <script>
-        function productos() {
+        function productos(product) {
 
-            var Product_name = $('#Product_name').val();
+            var Product_name = product.value
             
             //Mostrar niveis
 
-            $.get('/getProductDetails?Product_name=' + Product_name, function(data) {
+            $.get('http://127.0.0.1:8000/admin/getProductDetails?Product_name=' + Product_name, function(data) {
                 console.log(data);
 
                 $('#Quantity').empty();
@@ -472,23 +472,22 @@
                 $('#Entry_date').empty();
                 $('#Expiry_date').empty();
 
-                $('#Quantity').append('<option value="">--Selecione--</option>');
-                $('#Price').append('<option value="">--Selecione--</option>');
-                $('#Code').append('<option value="">--Selecione--</option>');
-                $('#Entry_date').append('<option value="">--Selecione--</option>');
-                $('#Expiry_date').append('<option value="">--Selecione--</option>');
+                $('#Quantity').append('<input type="text" id="Quantity" name="Quantity" value="">');
+                $('#Price').append('<input type="text" id="Price" name="Price" value="">');
+                $('#Code').append('<input type="text" id="Code" name="Code" value="">');
+                $('#Entry_date').append('<input type="date" id="Entry_date" name="Entry_date" value="">');
+                $('#Expiry_date').append('<input type="date" id="Expiry_date" name="Expiry_date" value="">');
 
                 $.each(data, function(index, product) {
-                    $('#Quantity').append('<option value="' + product.Quantity + '">' + product.Quantity + '</option>');
-                    $('#Price').append('<option value="' + product.Price + '">' + product.Price + '</option>');
-                    $('#Code').append('<option value="' + product.Code + '">' + product.Code + '</option>');
-                    $('#Entry_date').append('<option value="' + product.Entry_date + '">' + product.Entry_date + '</option>');
-                    $('#Expiry_date').append('<option value="' + product.Expiry_date + '">' + product.Expiry_date + '</option>');
+                    $('#Quantity').append('<input value="' + product.Quantity + '" name="Quantity">');
+                    $('#Price').append('<input value="' + product.Price + '" name="Price">');
+                    $('#Code').append('<input value="' + product.Code + '" name="Code">');
+                    $('#Entry_date').append('<input value="' + product.Entry_date + '" name="Entry_date">');
+                    $('#Expiry_date').append('<input value="' + product.Expiry_date + '" name="Expiry_date">');
                 })
             });
         }
     </script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="../assets/vendor/sortablejs/Sortable.min.js"></script> <!-- END PLUGINS JS -->
     <script src="../assets/vendor/jquery/jquery.min.js"></script>
     <script src="../assets/vendor/popper.js/umd/popper.min.js"></script>

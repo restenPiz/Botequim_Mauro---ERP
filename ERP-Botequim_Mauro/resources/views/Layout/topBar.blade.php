@@ -482,18 +482,18 @@
     <script>
         function productos() {
 
-            var Product_name = $('#Product_name').val();
+            var Product_name = product.value
 
             //Mostrar niveis
 
-            $.get('/getProductDetails?Product_name=' + Product_name, function(data) {
+            $.get('http://127.0.0.1:8000/admin/getProductDetails?Product_name=' + Product_name, function(data) {
                 console.log(data);
 
-                $('#Quantity').empty();
-                $('#Price').empty();
-                $('#Code').empty();
-                $('#Entry_date').empty();
-                $('#Expiry_date').empty();
+                // $('#Quantity').empty();
+                // $('#Price').empty();
+                // $('#Code').empty();
+                // $('#Entry_date').empty();
+                // $('#Expiry_date').empty();
 
                 $('#Quantity').append('<option value="">--Selecione--</option>');
                 $('#Price').append('<option value="">--Selecione--</option>');
@@ -511,7 +511,6 @@
             });
         }
     </script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <script src="assets/vendor/jquery/jquery.min.js"></script>
     <script src="assets/vendor/popper.js/umd/popper.min.js"></script>

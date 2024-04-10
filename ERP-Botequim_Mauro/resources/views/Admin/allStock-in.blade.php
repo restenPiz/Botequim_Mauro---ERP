@@ -237,8 +237,8 @@
                                             </div><!-- /form column -->
                                             <!-- form column -->
                                             <div class="col-md-12 mb-3">
-                                                <label for="input01">Codigo de Barro</label> 
-                                                <input type="text" class="form-control" id="Barcode" placeholder="Codigo de Barra" name="Code" disabled>
+                                                <label for="input01">Codigo de Barra</label> 
+                                                <input type="text" class="form-control" id="Code" placeholder="Codigo de Barra" name="Code" disabled>
                                             </div><!-- /form column -->
                                             <!-- form column -->
                                             <div class="col-md-12 mb-3">
@@ -254,10 +254,6 @@
                                             <div class="col-md-12 mb-3">
                                                 <label for="input01">Data de Validade</label> 
                                                 <input type="date" class="form-control" id="Expiry_date" name="Expiry_date" disabled>
-                                            </div><!-- /form column -->
-                                            <div class="col-md-12 mb-3">
-                                                <label for="input01">Numero de Factura</label> 
-                                                <input type="text" class="form-control" id="Invoice_number" placeholder="Numero de Factura" name="Invoice_number" disabled>
                                             </div><!-- /form column -->
                                         </div>
                                         <button type="submit" name="submit" class="btn btn-primary text-nowrap ml-auto">Adicionar Entrada</button>
