@@ -459,32 +459,17 @@
     <script>
         function productos(product) {
 
-            var Product_name = product.value
-            
-            //Mostrar niveis
+            var Product_name = product.value;
 
             $.get('http://127.0.0.1:8000/admin/getProductDetails?Product_name=' + Product_name, function(data) {
                 console.log(data);
 
-                $('#Quantity').empty();
-                $('#Price').empty();
-                $('#Code').empty();
-                $('#Entry_date').empty();
-                $('#Expiry_date').empty();
-
-                $('#Quantity').append('<input type="text" id="Quantity" name="Quantity" value="">');
-                $('#Price').append('<input type="text" id="Price" name="Price" value="">');
-                $('#Code').append('<input type="text" id="Code" name="Code" value="">');
-                $('#Entry_date').append('<input type="date" id="Entry_date" name="Entry_date" value="">');
-                $('#Expiry_date').append('<input type="date" id="Expiry_date" name="Expiry_date" value="">');
-
-                $.each(data, function(index, product) {
-                    $('#Quantity').append('<input value="' + product.Quantity + '" name="Quantity">');
-                    $('#Price').append('<input value="' + product.Price + '" name="Price">');
-                    $('#Code').append('<input value="' + product.Code + '" name="Code">');
-                    $('#Entry_date').append('<input value="' + product.Entry_date + '" name="Entry_date">');
-                    $('#Expiry_date').append('<input value="' + product.Expiry_date + '" name="Expiry_date">');
-                })
+                // Atualiza os campos do formulário com os detalhes do produto
+                $('#Quantity').val(data.Quantity);
+                $('#Price').val(data.Price);
+                $('#Code').val(data.Code);
+                $('#Entry_date').val(data.Entry_date);
+                $('#Expiry_date').val(data.Expiry_date);
             });
         }
     </script>

@@ -489,24 +489,24 @@
             $.get('http://127.0.0.1:8000/admin/getProductDetails?Product_name=' + Product_name, function(data) {
                 console.log(data);
 
-                // $('#Quantity').empty();
-                // $('#Price').empty();
-                // $('#Code').empty();
-                // $('#Entry_date').empty();
-                // $('#Expiry_date').empty();
+                $('#Quantity').empty();
+                $('#Price').empty();
+                $('#Code').empty();
+                $('#Entry_date').empty();
+                $('#Expiry_date').empty();
 
-                $('#Quantity').append('<option value="">--Selecione--</option>');
-                $('#Price').append('<option value="">--Selecione--</option>');
-                $('#Code').append('<option value="">--Selecione--</option>');
-                $('#Entry_date').append('<option value="">--Selecione--</option>');
-                $('#Expiry_date').append('<option value="">--Selecione--</option>');
+                $('#Quantity').append('<input type="text" id="Quantity" name="Quantity" value="">');
+                $('#Price').append('<input type="text" id="Price" name="Price" value="">');
+                $('#Code').append('<input type="text" id="Code" name="Code" value="">');
+                $('#Entry_date').append('<input type="date" id="Entry_date" name="Entry_date" value="">');
+                $('#Expiry_date').append('<input type="date" id="Expiry_date" name="Expiry_date" value="">');
 
                 $.each(data, function(index, product) {
-                    $('#Quantity').append('<option value="' + product.Quantity + '">' + product.Quantity + '</option>');
-                    $('#Price').append('<option value="' + product.Price + '">' + product.Price + '</option>');
-                    $('#Code').append('<option value="' + product.Code + '">' + product.Code + '</option>');
-                    $('#Entry_date').append('<option value="' + product.Entry_date + '">' + product.Entry_date + '</option>');
-                    $('#Expiry_date').append('<option value="' + product.Expiry_date + '">' + product.Expiry_date + '</option>');
+                    $('#Quantity').append('<input placeholder="' + product.Quantity + '" value="' + product.Quantity + '" name="Quantity">');
+                    $('#Price').append('<input placeholder="' + product.Price + '" value="' + product.Price + '" name="Price">');
+                    $('#Code').append('<input placeholder="' + product.Code + '" value="' + product.Code + '" name="Code">');
+                    $('#Entry_date').append('<input placeholder="' + product.Entry_date + '" value="' + product.Entry_date + '" name="Entry_date">');
+                    $('#Expiry_date').append('<input placeholder="' + product.Expiry_date + '" value="' + product.Expiry_date + '" name="Expiry_date">');
                 })
             });
         }
