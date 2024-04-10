@@ -20,7 +20,7 @@ class Stock extends Model
     //?Inicio das chaves estrangeiras
     public function productos()
     {
-        return $this->belongsTo(Product::class);
+        return $this->belongsTo(Product::class,'Id_product','id');
     }
     public function name($id)
     {
