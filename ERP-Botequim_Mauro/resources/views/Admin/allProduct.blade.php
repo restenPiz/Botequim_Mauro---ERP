@@ -74,7 +74,7 @@
                                                         <td class="align-middle"> {{ $product->Sale_price }} </td>
                                                         <td class="align-middle"> {{ $product->Entry_date }} </td>
                                                         <td class="align-middle"> {{ $product->Expiry_date }} </td>
-                                                        <td class="align-middle"> {{ $product->name($product->Category_name) }} </td>
+                                                        <td class="align-middle"> {{ $product->name($product->id) }} </td>
                                                         <td class="align-middle text-right">
                                                             <button type="button" class="btn btn-sm btn-icon btn-secondary"
                                                                 data-toggle="modal"
