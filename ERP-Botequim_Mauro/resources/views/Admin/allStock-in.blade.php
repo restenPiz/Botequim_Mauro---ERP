@@ -9,7 +9,7 @@
                 <!-- grid row -->
                 <div class="row">
                     <!-- grid column -->
-                    <div class="col-lg-6">
+                    <div class="col-lg-8">
                         <div class="col">
 
                             {{-- Inicio da tabela de todos eventos --}}
@@ -143,18 +143,15 @@
                                                                     <div class="modal-body">
                                                                         <!-- .form-row -->
                                                                         <div class="form-row">
-                                                                            <div class="col-md-12">
-                                                                                <div class="form-group">
+                                                                            <div class="col">
                                                                                     <label for="cnContactName">Nome do
                                                                                         Evento</label>
                                                                                     <input type="text" id="cnContactName"
                                                                                         class="form-control"
                                                                                         name="Event_name"
                                                                                         value="{{ $stock->Event_name }}">
-                                                                                </div>
                                                                             </div>
-                                                                            <div class="col-md-12">
-                                                                                <div class="form-group">
+                                                                            <div class="col-md-6">
                                                                                     <label for="cnContactEmail">Data do
                                                                                         Evento</label>
                                                                                     <input type="date" id="cnContactName"
@@ -163,8 +160,7 @@
                                                                                         value="{{ $stock->Event_date }}">
                                                                                 </div>
                                                                             </div>
-                                                                            <div class="col-md-12">
-                                                                                <div class="form-group">
+                                                                            <div class="col-md-6">
                                                                                     <label for="cnStreet">Horario do
                                                                                         Evento</label>
                                                                                     <input type="time"
@@ -174,8 +170,7 @@
                                                                                         value="{{ $stock->Event_time }}">
                                                                                 </div>
                                                                             </div>
-                                                                            <div class="col-md-12">
-                                                                                <div class="form-group">
+                                                                            <div class="col-md-6">
                                                                                     <label for="cnSuite">Integrantes
                                                                                         do Evento</label>
                                                                                     <input type="text"
@@ -208,16 +203,71 @@
                                         </table>
                                     </div><!-- /.table-responsive -->
                                 </div><!-- /.card-body -->
-                                <!-- .card-footer -->
-                                <div class="card-footer">
-                                    <a href="{{route('addStock')}}" class="card-footer-item"><i
-                                            class="fa fa-plus-circle mr-1"></i> Adicionar Mercadoria</a>
-                                </div><!-- /.card-footer -->
                             </div>
                             {{-- End of table section --}}
 
                         </div>
                     </div>
+
+                    {{--Inicio da parte de adicao--}}
+                    <div class="col-lg-4"><br><br><br>
+                        <div class="col">
+                            <!-- .card -->
+                            <div class="card card-fluid">
+                                <h6 class="card-header"> Adicionar Entrada </h6><!-- .card-body -->
+                                <div class="card-body">
+                                    <!-- form -->
+                                    <form method="post" action="{{route('storeStock')}}">
+                                        @csrf
+                                        <!-- form row -->
+                                        <div class="form-row">
+                                            <!-- form column -->
+                                            <div class="col-md-12 mb-3">
+                                                <label>Nome de Producto</label>
+                                                <select class="form-control" name="Product_name">
+                                                    @foreach ($products as $product)
+                                                    <option value="{{$product->name($product->id)}}">{{$product->name($product->id)}}</option>
+                                                    @endforeach
+                                                </select>   
+                                            </div><!-- /form column -->
+                                            <!-- form column -->
+                                            <div class="col-md-12 mb-3">
+                                                <label for="input02">Quantidade</label> <input type="text"
+                                                    class="form-control" id="input02" placeholder="Quantidade" name="Quantity" required="">
+                                            </div><!-- /form column -->
+                                            <!-- form column -->
+                                            <div class="col-md-12 mb-3">
+                                                <label for="input01">Codigo de Barro</label> <input type="text"
+                                                    class="form-control" id="input01" placeholder="Codigo de Barra" name="Barcode" required="">
+                                            </div><!-- /form column -->
+                                            <!-- form column -->
+                                            <div class="col-md-12 mb-3">
+                                                <label for="input02">Preco do Producto</label> <input type="text"
+                                                    class="form-control" id="input02" placeholder="Preco do Producto"  name="Price" required="">
+                                            </div><!-- /form column -->
+                                            <!-- form column -->
+                                            <div class="col-md-12 mb-3">
+                                                <label for="input01">Data de Entrada</label> <input type="date"
+                                                    class="form-control" id="input01" name="Entry_date" required="">
+                                            </div><!-- /form column -->
+                                            <!-- form column -->
+                                            <div class="col-md-12 mb-3">
+                                                <label for="input01">Data de Validade</label> <input type="date"
+                                                    class="form-control" id="input01" name="Expiry_date" required="">
+                                            </div><!-- /form column -->
+                                            <div class="col-md-12 mb-3">
+                                                <label for="input01">Numero de Factura</label> <input type="text"
+                                                    class="form-control" id="input01" placeholder="Numero de Factura" name="Invoice_number" required="">
+                                            </div><!-- /form column -->
+                                        </div>
+                                        <button type="submit" name="submit" class="btn btn-primary text-nowrap ml-auto">Adicionar Entrada</button>
+                                        <a href="{{route('allStock')}}" type="button" class="btn btn-light" data-dismiss="modal">Voltar</a>
+                                    </form><!-- /form -->
+                                </div><!-- /.card-body -->
+                            </div><!-- /.card -->
+                        </div>
+                    </div>
+                    {{---Fim do formulario de adicao--}}
                 </div>
             </div>
     </main>

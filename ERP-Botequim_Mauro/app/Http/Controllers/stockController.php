@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use App\Models\Stock;
 use RealRashid\SweetAlert\Facades\Alert;
 use Request;
@@ -11,8 +12,9 @@ class stockController extends Controller
     public function allStock()
     {
         $stocks = Stock::all();
+        $products=Product::all();
         
-        return view('Admin.allStock-in',compact('stocks'));
+        return view('Admin.allStock-in',compact('stocks','products'));
     }
     public function addStock()
     {
