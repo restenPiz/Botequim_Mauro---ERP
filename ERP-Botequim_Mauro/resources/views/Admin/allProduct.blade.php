@@ -71,8 +71,10 @@
                                                         <td class="align-middle"> {{ $product->id }} </td>
                                                         <td class="align-middle"> {{ $product->Product_name }} </td>
                                                         <td class="align-middle"> {{ $product->Quantity }} </td>
-                                                        <td class="align-middle"> {{ $product->Code }} </td>
-                                                        <td class="align-middle"> {{ $product->Sale_price }} </td>
+                                                        <td class="align-middle"> 
+                                                            <span class="badge badge-subtle badge-success">{{$product->Code}}</span>
+                                                        </td>
+                                                        <td class="align-middle"> {{ $product->Price }} </td>
                                                         <td class="align-middle"> {{ $product->Entry_date }} </td>
                                                         <td class="align-middle"> {{ $product->Expiry_date }} </td>
                                                         <td class="align-middle"> {{ $product->name($product->id) }} </td>
