@@ -480,36 +480,34 @@
     <!-- BEGIN BASE JS -->
 
     <script>
-        function productos(product) {
-            var Product_name = product.value;
+        function productos() {
 
-            $.ajax({
-                url: '/getProductDetails',
-                method: 'GET',
-                data: { product_name: Product_name },
-                success: function(data) {
-                    console.log(data);
+            var Product_name = $('#Product_name').val();
 
-                    // Limpa os campos de detalhes do produto
-                    $('#Price').val('');
-                    $('#Quantity').val('');
-                    $('#Sale_price').val('');
-                    $('#Expiry_date').val('');
-                    $('#Entry_date').val('');
+            //Mostrar niveis
 
-                    // Preenche os campos do formulário com os detalhes do produto
-                    $('#Price').val(data.Price);
-                    $('#Quantity').val(data.Quantity);
-                    $('#Sale_price').val(data.Sale_price);
-                    $('#Expiry_date').val(data.Expiry_date);
-                    $('#Entry_date').val(data.Entry_date);
+            $.get('/getProductDetails?Product_name=' + Product_name, function(data) {
+                console.log(data);
 
-                    // Habilita os campos preenchidos automaticamente
-                    $('#Price, #Quantity, #Sale_price, #Expiry_date, #Entry_date').prop('disabled', false);
-                },
-                error: function(xhr, status, error) {
-                    console.error(xhr.responseText);
-                }
+                $('#Quantity').empty();
+                $('#Price').empty();
+                $('#Code').empty();
+                $('#Entry_date').empty();
+                $('#Expiry_date').empty();
+
+                $('#Quantity').append('<option value="">--Selecione--</option>');
+                $('#Price').append('<option value="">--Selecione--</option>');
+                $('#Code').append('<option value="">--Selecione--</option>');
+                $('#Entry_date').append('<option value="">--Selecione--</option>');
+                $('#Expiry_date').append('<option value="">--Selecione--</option>');
+
+                $.each(data, function(index, product) {
+                    $('#Quantity').append('<option value="' + product.Quantity + '">' + product.Quantity + '</option>');
+                    $('#Price').append('<option value="' + product.Price + '">' + product.Price + '</option>');
+                    $('#Code').append('<option value="' + product.Code + '">' + product.Code + '</option>');
+                    $('#Entry_date').append('<option value="' + product.Entry_date + '">' + product.Entry_date + '</option>');
+                    $('#Expiry_date').append('<option value="' + product.Expiry_date + '">' + product.Expiry_date + '</option>');
+                })
             });
         }
     </script>
