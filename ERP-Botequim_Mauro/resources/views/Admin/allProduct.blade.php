@@ -142,7 +142,7 @@
                                                                         <h6 id="clientNewModalLabel"
                                                                             class="modal-title inline-editable">
                                                                             <span class="sr-only">Formulario de Actualizacao
-                                                                                de Eventos</span>
+                                                                                de Productos</span>
                                                                         </h6>
                                                                     </div><!-- /.modal-header -->
                                                                     <!-- .modal-body -->
@@ -151,44 +151,60 @@
                                                                         <div class="form-row">
                                                                             <div class="col-md-12">
                                                                                 <div class="form-group">
-                                                                                    <label for="cnContactName">Nome do
-                                                                                        Evento</label>
+                                                                                    <label for="cnContactName">Nome do Producto</label>
                                                                                     <input type="text" id="cnContactName"
                                                                                         class="form-control"
-                                                                                        name="Event_name"
-                                                                                        value="{{ $product->Event_name }}">
+                                                                                        name="Product_name"
+                                                                                        value="{{ $product->Product_name }}">
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                    <label for="cnContactName">Quantidade</label>
+                                                                                    <input type="text" id="cnContactName"
+                                                                                        class="form-control"
+                                                                                        name="Quantity"
+                                                                                        value="{{ $product->Quantity }}">
                                                                                 </div>
                                                                             </div>
                                                                             <div class="col-md-12">
                                                                                 <div class="form-group">
-                                                                                    <label for="cnContactEmail">Data do
-                                                                                        Evento</label>
+                                                                                    <label for="cnContactName">Preco</label>
+                                                                                    <input type="text" id="cnContactName"
+                                                                                        class="form-control"
+                                                                                        name="Price"
+                                                                                        value="{{ $product->Price }}">
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                    <label for="cnContactName">Preco de Venda</label>
+                                                                                    <input type="text" id="cnContactName"
+                                                                                        class="form-control"
+                                                                                        name="Sale_price"
+                                                                                        value="{{ $product->Sale_price }}">
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-12">
+                                                                                <div class="form-group">
+                                                                                    <label for="cnContactEmail">Data do Entrada</label>
                                                                                     <input type="date" id="cnContactName"
                                                                                         class="form-control"
-                                                                                        name="Event_date"
-                                                                                        value="{{ $product->Event_date }}">
+                                                                                        name="Entry_date"
+                                                                                        value="{{ $product->Entry_date }}">
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                    <label for="cnContactEmail">Data de Validade</label>
+                                                                                    <input type="date" id="cnContactName"
+                                                                                        class="form-control"
+                                                                                        name="Expiry_date"
+                                                                                        value="{{ $product->Expiry_date }}">
                                                                                 </div>
                                                                             </div>
                                                                             <div class="col-md-12">
                                                                                 <div class="form-group">
-                                                                                    <label for="cnStreet">Horario do
-                                                                                        Evento</label>
-                                                                                    <input type="time"
-                                                                                        id="cnContactName"
-                                                                                        class="form-control"
-                                                                                        name="Event_time"
-                                                                                        value="{{ $product->Event_time }}">
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="col-md-12">
-                                                                                <div class="form-group">
-                                                                                    <label for="cnSuite">Integrantes
-                                                                                        do Evento</label>
-                                                                                    <input type="text"
-                                                                                        id="cnContactName"
-                                                                                        class="form-control"
-                                                                                        name="Number_of_person"
-                                                                                        value="{{ $product->Number_of_person }}">
+                                                                                    <label>Categorias</label>
+                                                                                    <select class="form-control" name="Id_category">
+                                                                                        @foreach ($categories as $category)
+                                                                                        <option value="{{$category->id}}">{{$category->Category_name}}</option>
+                                                                                        @endforeach
+                                                                                    </select>
                                                                                 </div>
                                                                             </div>
                                                                             <input type="hidden" name="id"
@@ -200,7 +216,7 @@
                                                                     <div class="modal-footer">
                                                                         <button type="submit" name="submit"
                                                                             class="btn btn-primary">Actualizar
-                                                                            Evento</button>
+                                                                            Producto</button>
                                                                         <button type="button" class="btn btn-light"
                                                                             data-dismiss="modal">Fechar</button>
                                                                     </div><!-- /.modal-footer -->

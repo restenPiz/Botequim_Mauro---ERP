@@ -12,8 +12,9 @@ class productController extends Controller
     public function allProduct()
     {
         $products = Product::all();
+        $categories=Category::all();
 
-        return view('Admin.allProduct', compact("products"));
+        return view('Admin.allProduct', compact("products","categories"));
     }
     public function addProduct()
     {
