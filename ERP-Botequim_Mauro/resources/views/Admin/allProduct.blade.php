@@ -208,6 +208,13 @@
                                                                                         @endforeach
                                                                                     </select>
                                                                                 </div>
+                                                                                <div class="form-group">
+                                                                                    <label for="cnContactEmail">Codigo</label>
+                                                                                    <input type="date" id="cnContactName"
+                                                                                        class="form-control"
+                                                                                        name="Code"
+                                                                                        value="{{ $product->Code }}">
+                                                                                </div>
                                                                             </div>
                                                                             <input type="hidden" name="id"
                                                                                 value="{{ $product->id }}">
