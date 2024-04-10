@@ -456,6 +456,31 @@
 
     </div><!-- /.app -->
     
+    <script>
+        $(document).ready(function() {
+            $('#Product_name').change(function() {
+                var productName = $(this).val();
+                
+                $.ajax({
+                    url: '/getProductDetails',
+                    type: 'GET',
+                    data: {
+                        productName: productName
+                    },
+                    success: function(response) {
+                        $('#Quantity').val(response.quantity);
+                        // Atualize outros campos conforme necessário
+                        $('#Quantity').prop('disabled', false);
+                        // Habilitar outros campos conforme necessário
+                    },
+                    error: function(xhr, status, error) {
+                        console.error(error);
+                    }
+                });
+            });
+        });
+    </script>
+
     <script src="../assets/vendor/sortablejs/Sortable.min.js"></script> <!-- END PLUGINS JS -->
     <script src="../assets/vendor/jquery/jquery.min.js"></script>
     <script src="../assets/vendor/popper.js/umd/popper.min.js"></script>

@@ -226,38 +226,38 @@
                                                 <label>Nome de Producto</label>
                                                 <select class="form-control" name="Product_name">
                                                     <option>--Selecione o Produto--</option>
-                                                    @foreach ($product as $stock)
+                                                    @foreach ($products as $stock)
                                                         <option value="{{ $stock->Product_name }}">{{ $stock->Product_name }}</option>
                                                     @endforeach
                                                 </select> 
                                             </div>
                                             <div class="col-md-12 mb-3">
                                                 <label for="input02">Quantidade</label> <input type="text"
-                                                    class="form-control" id="input02" placeholder="Quantidade" name="Quantity" required="">
+                                                    class="form-control" id="Quantity" placeholder="Quantidade" name="Quantity" disabled>
                                             </div><!-- /form column -->
                                             <!-- form column -->
                                             <div class="col-md-12 mb-3">
                                                 <label for="input01">Codigo de Barro</label> <input type="text"
-                                                    class="form-control" id="input01" placeholder="Codigo de Barra" name="Barcode" required="">
+                                                    class="form-control" id="Quantity" placeholder="Codigo de Barra" name="Barcode" disabled>
                                             </div><!-- /form column -->
                                             <!-- form column -->
                                             <div class="col-md-12 mb-3">
                                                 <label for="input02">Preco do Producto</label> <input type="text"
-                                                    class="form-control" id="input02" placeholder="Preco do Producto"  name="Price" required="">
+                                                    class="form-control" id="Quantity" placeholder="Preco do Producto"  name="Price" disabled>
                                             </div><!-- /form column -->
                                             <!-- form column -->
                                             <div class="col-md-12 mb-3">
                                                 <label for="input01">Data de Entrada</label> <input type="date"
-                                                    class="form-control" id="input01" name="Entry_date" required="">
+                                                    class="form-control" id="Quantity" name="Entry_date" disabled>
                                             </div><!-- /form column -->
                                             <!-- form column -->
                                             <div class="col-md-12 mb-3">
                                                 <label for="input01">Data de Validade</label> <input type="date"
-                                                    class="form-control" id="input01" name="Expiry_date" required="">
+                                                    class="form-control" id="Quantity" name="Expiry_date" disabled>
                                             </div><!-- /form column -->
                                             <div class="col-md-12 mb-3">
                                                 <label for="input01">Numero de Factura</label> <input type="text"
-                                                    class="form-control" id="input01" placeholder="Numero de Factura" name="Invoice_number" required="">
+                                                    class="form-control" id="Quantity" placeholder="Numero de Factura" name="Invoice_number" disabled>
                                             </div><!-- /form column -->
                                         </div>
                                         <button type="submit" name="submit" class="btn btn-primary text-nowrap ml-auto">Adicionar Entrada</button>
