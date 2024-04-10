@@ -472,11 +472,18 @@
                 $('#Entry_date').empty();
                 $('#Expiry_date').empty();
 
-                $('#Product_name').append('<option value="">--Selecione--</option>');
+                $('#Quantity').append('<option value="">--Selecione--</option>');
+                $('#Price').append('<option value="">--Selecione--</option>');
+                $('#Code').append('<option value="">--Selecione--</option>');
+                $('#Entry_date').append('<option value="">--Selecione--</option>');
+                $('#Expiry_date').append('<option value="">--Selecione--</option>');
 
                 $.each(data, function(index, product) {
-                    $('#Product_name').append('<option value="' + product.id + '">' + product.name +
-                        '</option>');
+                    $('#Quantity').append('<option value="' + product.Quantity + '">' + product.Quantity + '</option>');
+                    $('#Price').append('<option value="' + product.Price + '">' + product.Price + '</option>');
+                    $('#Code').append('<option value="' + product.Code + '">' + product.Code + '</option>');
+                    $('#Entry_date').append('<option value="' + product.Entry_date + '">' + product.Entry_date + '</option>');
+                    $('#Expiry_date').append('<option value="' + product.Expiry_date + '">' + product.Expiry_date + '</option>');
                 })
             });
         }
