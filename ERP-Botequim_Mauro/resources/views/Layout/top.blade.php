@@ -455,32 +455,33 @@
         {{-- Fim do MainContent --}}
 
     </div><!-- /.app -->
-    
-    <script>
-        $(document).ready(function() {
-            $('#Product_name').change(function() {
-                var productName = $(this).val();
-                
-                $.ajax({
-                    url: '/getProductDetails',
-                    type: 'GET',
-                    data: {
-                        productName: productName
-                    },
-                    success: function(response) {
-                        $('#Quantity').val(response.quantity);
-                        // Atualize outros campos conforme necessário
-                        $('#Quantity').prop('disabled', false);
-                        // Habilitar outros campos conforme necessário
-                    },
-                    error: function(xhr, status, error) {
-                        console.error(error);
-                    }
-                });
-            });
-        });
-    </script>
 
+    <script>
+        function productos() {
+
+            var Product_name = $('#Product_name').val();
+            
+            //Mostrar niveis
+
+            $.get('/getProductDetails?Product_name=' + Product_name, function(data) {
+                console.log(data);
+
+                $('#Quantity').empty();
+                $('#Price').empty();
+                $('#Code').empty();
+                $('#Entry_date').empty();
+                $('#Expiry_date').empty();
+
+                $('#Product_name').append('<option value="">--Selecione--</option>');
+
+                $.each(data, function(index, product) {
+                    $('#Product_name').append('<option value="' + product.id + '">' + product.name +
+                        '</option>');
+                })
+            });
+        }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="../assets/vendor/sortablejs/Sortable.min.js"></script> <!-- END PLUGINS JS -->
     <script src="../assets/vendor/jquery/jquery.min.js"></script>
     <script src="../assets/vendor/popper.js/umd/popper.min.js"></script>

@@ -224,7 +224,7 @@
                                             <!-- form column -->
                                             <div class="col-md-12 mb-3">
                                                 <label>Nome de Producto</label>
-                                                <select class="form-control" name="Product_name">
+                                                <select class="form-control" name="Product_name" id="Product_name" onchange="productos(this)">
                                                     <option>--Selecione o Produto--</option>
                                                     @foreach ($products as $stock)
                                                         <option value="{{ $stock->Product_name }}">{{ $stock->Product_name }}</option>
@@ -232,32 +232,32 @@
                                                 </select> 
                                             </div>
                                             <div class="col-md-12 mb-3">
-                                                <label for="input02">Quantidade</label> <input type="text"
-                                                    class="form-control" id="Quantity" placeholder="Quantidade" name="Quantity" disabled>
+                                                <label for="input02">Quantidade</label> 
+                                                <input type="text" class="form-control" id="Quantity" placeholder="Quantidade" name="Quantity" disabled>
                                             </div><!-- /form column -->
                                             <!-- form column -->
                                             <div class="col-md-12 mb-3">
-                                                <label for="input01">Codigo de Barro</label> <input type="text"
-                                                    class="form-control" id="Quantity" placeholder="Codigo de Barra" name="Barcode" disabled>
+                                                <label for="input01">Codigo de Barro</label> 
+                                                <input type="text" class="form-control" id="Barcode" placeholder="Codigo de Barra" name="Code" disabled>
                                             </div><!-- /form column -->
                                             <!-- form column -->
                                             <div class="col-md-12 mb-3">
-                                                <label for="input02">Preco do Producto</label> <input type="text"
-                                                    class="form-control" id="Quantity" placeholder="Preco do Producto"  name="Price" disabled>
+                                                <label for="input02">Preco do Produto</label> 
+                                                <input type="text" class="form-control" id="Price" placeholder="Preco do Produto"  name="Price" disabled>
                                             </div><!-- /form column -->
                                             <!-- form column -->
                                             <div class="col-md-12 mb-3">
-                                                <label for="input01">Data de Entrada</label> <input type="date"
-                                                    class="form-control" id="Quantity" name="Entry_date" disabled>
+                                                <label for="input01">Data de Entrada</label> 
+                                                <input type="date" class="form-control" id="Entry_date" name="Entry_date" disabled>
                                             </div><!-- /form column -->
                                             <!-- form column -->
                                             <div class="col-md-12 mb-3">
-                                                <label for="input01">Data de Validade</label> <input type="date"
-                                                    class="form-control" id="Quantity" name="Expiry_date" disabled>
+                                                <label for="input01">Data de Validade</label> 
+                                                <input type="date" class="form-control" id="Expiry_date" name="Expiry_date" disabled>
                                             </div><!-- /form column -->
                                             <div class="col-md-12 mb-3">
-                                                <label for="input01">Numero de Factura</label> <input type="text"
-                                                    class="form-control" id="Quantity" placeholder="Numero de Factura" name="Invoice_number" disabled>
+                                                <label for="input01">Numero de Factura</label> 
+                                                <input type="text" class="form-control" id="Invoice_number" placeholder="Numero de Factura" name="Invoice_number" disabled>
                                             </div><!-- /form column -->
                                         </div>
                                         <button type="submit" name="submit" class="btn btn-primary text-nowrap ml-auto">Adicionar Entrada</button>

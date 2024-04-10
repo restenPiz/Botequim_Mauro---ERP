@@ -480,29 +480,40 @@
     <!-- BEGIN BASE JS -->
 
     <script>
-        $(document).ready(function() {
-            $('#Product_name').change(function() {
-                var productName = $(this).val();
-                
-                $.ajax({
-                    url: '/getProductDetails',
-                    type: 'GET',
-                    data: {
-                        productName: productName
-                    },
-                    success: function(response) {
-                        $('#Quantity').val(response.quantity);
-                        // Atualize outros campos conforme necessário
-                        $('#Quantity').prop('disabled', false);
-                        // Habilitar outros campos conforme necessário
-                    },
-                    error: function(xhr, status, error) {
-                        console.error(error);
-                    }
-                });
+        function productos(product) {
+            var Product_name = product.value;
+
+            $.ajax({
+                url: '/getProductDetails',
+                method: 'GET',
+                data: { product_name: Product_name },
+                success: function(data) {
+                    console.log(data);
+
+                    // Limpa os campos de detalhes do produto
+                    $('#Price').val('');
+                    $('#Quantity').val('');
+                    $('#Sale_price').val('');
+                    $('#Expiry_date').val('');
+                    $('#Entry_date').val('');
+
+                    // Preenche os campos do formulário com os detalhes do produto
+                    $('#Price').val(data.Price);
+                    $('#Quantity').val(data.Quantity);
+                    $('#Sale_price').val(data.Sale_price);
+                    $('#Expiry_date').val(data.Expiry_date);
+                    $('#Entry_date').val(data.Entry_date);
+
+                    // Habilita os campos preenchidos automaticamente
+                    $('#Price, #Quantity, #Sale_price, #Expiry_date, #Entry_date').prop('disabled', false);
+                },
+                error: function(xhr, status, error) {
+                    console.error(xhr.responseText);
+                }
             });
-        });
+        }
     </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <script src="assets/vendor/jquery/jquery.min.js"></script>
     <script src="assets/vendor/popper.js/umd/popper.min.js"></script>

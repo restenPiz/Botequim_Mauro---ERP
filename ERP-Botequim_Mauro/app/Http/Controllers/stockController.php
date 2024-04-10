@@ -72,21 +72,18 @@ class stockController extends Controller
     //?Inicio do metodo que retorna os dados do select
     public function getProductDetails(Request $request)
     {
-        // Obter o nome do produto da solicitação
-        $productName = $request->input('productName');
-        
-        // Obter os detalhes do produto com base no nome
-        $product = Product::where('Product_name', $productName)->first();
+        // Obtém o nome do produto da solicitação
+        $product_name = $request->input('Product_name');
 
-        // Verificar se o produto foi encontrado
+        // Busca os detalhes do produto com base no nome
+        $product = Product::where('Product_name', $product_name)->first();
+
+        // Verifica se o produto foi encontrado
         if ($product) {
-            // Retorna os detalhes do produto como resposta JSON
-            return response()->json([
-                'quantity' => $product->Quantity,
-                // Adicione outros detalhes do produto conforme necessário
-            ]);
+            // Retorna os detalhes do produto como JSON
+            return response()->json($product);
         } else {
-            // Produto não encontrado
+            // Retorna uma resposta indicando que o produto não foi encontrado
             return response()->json(['error' => 'Produto não encontrado'], 404);
         }
     }
