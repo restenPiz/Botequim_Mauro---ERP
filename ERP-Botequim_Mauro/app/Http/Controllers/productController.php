@@ -36,7 +36,7 @@ class productController extends Controller
         $products->save();
 
         //?Alerta de sucesso
-        Alert::success('Adicionado','O producto foi adicionado com sucesso!');
+        Alert::success('Adicionado!','O producto foi adicionado com sucesso!');
 
         return back();
     }
@@ -56,7 +56,7 @@ class productController extends Controller
         $products->save();
 
         //?Alerta de sucesso
-        Alert::success('Actualizado','O producto foi actualizado com sucesso!');
+        Alert::success('Actualizado!','O producto foi actualizado com sucesso!');
 
         return back();    
     }
