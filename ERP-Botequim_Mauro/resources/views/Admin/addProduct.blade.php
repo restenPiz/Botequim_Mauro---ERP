@@ -35,7 +35,7 @@
                                         <div class="form-row">
                                             <!-- form column -->
                                             <div class="col-md-6 mb-3">
-                                                <label for="input01">Codigo de Barro</label> <input type="text"
+                                                <label for="input01">Codigo de Barra</label> <input type="text"
                                                     class="form-control" id="input01" placeholder="Codigo de Barra" name="Code" required="">
                                             </div><!-- /form column -->
                                             <!-- form column -->
