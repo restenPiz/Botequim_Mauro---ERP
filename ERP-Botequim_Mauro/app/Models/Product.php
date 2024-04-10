@@ -21,10 +21,6 @@ class Product extends Model
         return $this->belongsTo(Category::class, 'Id_category', 'id');
     }
     //*Metodo responsavel por encontrar o nome da categoria
-    public function name($id)
-    {
-        return Category::find($id)->Category_name;
-    }
     public function stock()
     {
         return $this->hasMany(Stock::class);

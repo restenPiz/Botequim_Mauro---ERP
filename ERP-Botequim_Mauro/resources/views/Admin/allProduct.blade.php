@@ -78,7 +78,7 @@
                                                         <td class="align-middle"> {{ $product->Entry_date }} </td>
                                                         <td class="align-middle"> {{ $product->Expiry_date }} </td>
                                                         <td class="align-middle"> 
-                                                            <span class="badge badge-subtle badge-warning">{{ $product->name($product->id) }}</span>
+                                                            <span class="badge badge-subtle badge-warning">{{ $product->categoria->Category_name }}</span>
                                                         </td>
                                                         <td class="align-middle text-right">
                                                             <button type="button" class="btn btn-sm btn-icon btn-secondary"
