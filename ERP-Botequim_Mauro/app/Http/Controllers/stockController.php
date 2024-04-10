@@ -12,9 +12,10 @@ class stockController extends Controller
 {
     public function allStock()
     {
-        $stocks = DB::table('stocks')->get();
+        $stocks = Stock::all();
+        $products=Product::all();
         
-        return view('Admin.allStock-in',compact('stocks'));
+        return view('Admin.allStock-in',compact('stocks','products'));
     }
     public function addStock()
     {

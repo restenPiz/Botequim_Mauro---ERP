@@ -225,13 +225,12 @@
                                             <div class="col-md-12 mb-3">
                                                 <label>Nome de Producto</label>
                                                 <select class="form-control" name="Product_name">
-                                                    <option>--Selecione o Producto --</option>
-                                                    @foreach ($stocks as $product)
-                                                    <option value="{{$product->productos->id}}">{{$product->productos->id}}</option>
+                                                    <option>--Selecione o Produto--</option>
+                                                    @foreach ($product as $stock)
+                                                        <option value="{{ $stock->Product_name }}">{{ $stock->Product_name }}</option>
                                                     @endforeach
-                                                </select>   
-                                            </div><!-- /form column -->
-                                            <!-- form column -->
+                                                </select> 
+                                            </div>
                                             <div class="col-md-12 mb-3">
                                                 <label for="input02">Quantidade</label> <input type="text"
                                                     class="form-control" id="input02" placeholder="Quantidade" name="Quantity" required="">

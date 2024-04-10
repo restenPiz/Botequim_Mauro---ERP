@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Stock extends Model
+class Stock extends Model 
 {
     use HasFactory;
 
@@ -18,7 +18,7 @@ class Stock extends Model
     ];
     
     //?Inicio das chaves estrangeiras
-    public function productos()
+    public function product()
     {
         return $this->belongsTo(Product::class,'Id_product','id');
     }
