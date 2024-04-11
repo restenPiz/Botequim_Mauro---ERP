@@ -8,6 +8,59 @@
             <div class="page-section"></br>
                 <!-- grid row -->
                 <div class="row">
+                    <div class="col-lg-4">
+                        <div class="col">
+                            <!-- .card -->
+                            <div class="card card-fluid">
+                                <h6 class="card-header"> Adicionar Entrada </h6><!-- .card-body -->
+                                <div class="card-body">
+                                    <!-- form -->
+                                    <form method="post" action="{{route('storeStock')}}">
+                                        @csrf
+                                        <!-- form row -->
+                                        <div class="form-row">
+                                            <!-- form column -->
+                                            <div class="col-md-12 mb-3">
+                                                <label>Nome de Producto</label>
+                                                <select class="form-control" name="Id_product" id="Product_name" onchange="productos(this);">
+                                                    <option>--Selecione o Produto--</option>
+                                                    @foreach ($products as $stock)
+                                                        <option value="{{ $stock->id }}">{{ $stock->Product_name }}</option>
+                                                    @endforeach
+                                                </select> 
+                                            </div>
+                                            <div class="col-md-12 mb-3">
+                                                <label for="input02">Quantidade</label> 
+                                                <input type="text" value="" class="form-control" id="Quantity" placeholder="Quantidade" name="Quantity" disabled>
+                                            </div><!-- /form column -->
+                                            <!-- form column -->
+                                            <div class="col-md-12 mb-3">
+                                                <label for="input01">Codigo de Barra</label> 
+                                                <input type="text" value="" class="form-control" id="Code" placeholder="Codigo de Barra" name="Code" disabled>
+                                            </div><!-- /form column -->
+                                            <!-- form column -->
+                                            <div class="col-md-12 mb-3">
+                                                <label for="input02">Preco do Produto</label> 
+                                                <input type="text" value="" class="form-control" id="Price" placeholder="Preco do Produto"  name="Price" disabled>
+                                            </div><!-- /form column -->
+                                            <!-- form column -->
+                                            <div class="col-md-12 mb-3">
+                                                <label for="input01">Data de Entrada</label> 
+                                                <input type="date" value="" class="form-control" id="Entry_date" name="Entry_date" disabled>
+                                            </div><!-- /form column -->
+                                            <!-- form column -->
+                                            <div class="col-md-12 mb-3">
+                                                <label for="input01">Data de Validade</label> 
+                                                <input type="date" value="" class="form-control" id="Expiry_date" name="Expiry_date" disabled>
+                                            </div><!-- /form column -->
+                                        </div>
+                                        <button type="submit" name="submit" class="btn btn-primary text-nowrap ml-auto" onclick="enableFields()">Adicionar Entrada</button>
+                                        <a href="{{route('allStock')}}" type="button" class="btn btn-light" data-dismiss="modal">Voltar</a>
+                                    </form><!-- /form -->
+                                </div><!-- /.card-body -->
+                            </div><!-- /.card -->
+                        </div>
+                    </div>
                     <!-- grid column -->
                     <div class="col-lg-8">
                         <div class="col">
@@ -147,7 +200,7 @@
                                                                             <div class="col-md-12">
                                                                                 <div class="form-group">
                                                                                     <label>Nome de Producto</label>
-                                                                                    <select class="form-control" name="Id_product" id="Product_name" onchange="productos(this);">
+                                                                                    <select class="form-control" name="Id_product" id="Product_name" onchange="producto(this);">
                                                                                         <option value="{{$stock->Id_product}}">{{$stock->product->Product_name}}</option>
                                                                                         @foreach ($products as $stocks)
                                                                                             <option value="{{ $stocks->id }}">{{ $stocks->Product_name }}</option>
@@ -227,59 +280,7 @@
                     </div>
 
                     {{--Inicio da parte de adicao--}}
-                    <div class="col-lg-4">
-                        <div class="col">
-                            <!-- .card -->
-                            <div class="card card-fluid">
-                                <h6 class="card-header"> Adicionar Entrada </h6><!-- .card-body -->
-                                <div class="card-body">
-                                    <!-- form -->
-                                    <form method="post" action="{{route('storeStock')}}">
-                                        @csrf
-                                        <!-- form row -->
-                                        <div class="form-row">
-                                            <!-- form column -->
-                                            <div class="col-md-12 mb-3">
-                                                <label>Nome de Producto</label>
-                                                <select class="form-control" name="Id_product" id="Product_name" onchange="productos(this);">
-                                                    <option>--Selecione o Produto--</option>
-                                                    @foreach ($products as $stock)
-                                                        <option value="{{ $stock->id }}">{{ $stock->Product_name }}</option>
-                                                    @endforeach
-                                                </select> 
-                                            </div>
-                                            <div class="col-md-12 mb-3">
-                                                <label for="input02">Quantidade</label> 
-                                                <input type="text" value="" class="form-control" id="Quantity" placeholder="Quantidade" name="Quantity" disabled>
-                                            </div><!-- /form column -->
-                                            <!-- form column -->
-                                            <div class="col-md-12 mb-3">
-                                                <label for="input01">Codigo de Barra</label> 
-                                                <input type="text" value="" class="form-control" id="Code" placeholder="Codigo de Barra" name="Code" disabled>
-                                            </div><!-- /form column -->
-                                            <!-- form column -->
-                                            <div class="col-md-12 mb-3">
-                                                <label for="input02">Preco do Produto</label> 
-                                                <input type="text" value="" class="form-control" id="Price" placeholder="Preco do Produto"  name="Price" disabled>
-                                            </div><!-- /form column -->
-                                            <!-- form column -->
-                                            <div class="col-md-12 mb-3">
-                                                <label for="input01">Data de Entrada</label> 
-                                                <input type="date" value="" class="form-control" id="Entry_date" name="Entry_date" disabled>
-                                            </div><!-- /form column -->
-                                            <!-- form column -->
-                                            <div class="col-md-12 mb-3">
-                                                <label for="input01">Data de Validade</label> 
-                                                <input type="date" value="" class="form-control" id="Expiry_date" name="Expiry_date" disabled>
-                                            </div><!-- /form column -->
-                                        </div>
-                                        <button type="submit" name="submit" class="btn btn-primary text-nowrap ml-auto" onclick="enableFields()">Adicionar Entrada</button>
-                                        <a href="{{route('allStock')}}" type="button" class="btn btn-light" data-dismiss="modal">Voltar</a>
-                                    </form><!-- /form -->
-                                </div><!-- /.card-body -->
-                            </div><!-- /.card -->
-                        </div>
-                    </div>
+                    
                     {{---Fim do formulario de adicao--}}
                 </div>
             </div>
