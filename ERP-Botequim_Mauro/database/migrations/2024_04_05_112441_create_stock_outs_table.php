@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('stock_outs', function (Blueprint $table) {
             $table->id();
-            $table->string('Product_name');
             $table->string('Quantity');
             $table->date('Date');
             $table->timestamps();

@@ -12,7 +12,7 @@ class Stock_out extends Model
     protected $table='stock_outs';
 
     protected $fillable = [
-        'Product_name','Quantity','Date','Id_product'
+        'Quantity','Date','Id_product'
     ];
 
     //?Inicio das chaves estrangeiras
