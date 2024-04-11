@@ -119,9 +119,100 @@
                                                     {{--Fim do modal de eliminar--}}
 
                                                     {{---Inicio do modal de editar--}}
+                                                    <div class="modal fade" id="clientNewModal{{ $stock->id }}"
+                                                        tabindex="-1" role="dialog" aria-labelledby="clientNewModalLabel"
+                                                        aria-hidden="true">
+                                                        <!-- .modal-dialog -->
+                                                        <div class="modal-dialog" role="document">
+                                                            <!-- .modal-content -->
+                                                            <form action="{{ route('updateStock', ['id' => $stock->id]) }}"
+                                                                method="post">
+                                                                @csrf
 
+                                                                <div class="modal-content">
+                                                                    <!-- .modal-header -->
+                                                                    <div class="modal-header">
+                                                                        <h6 id="clientNewModalLabel"
+                                                                            class="modal-title inline-editable">
+                                                                            <span class="sr-only">Formulario de Actualizacao
+                                                                                de Productos</span>
+                                                                        </h6>
+                                                                    </div><!-- /.modal-header -->
+                                                                    <!-- .modal-body -->
+                                                                    <div class="modal-body">
+                                                                        <!-- .form-row -->
+                                                                        <div class="form-row">
+                                                                            <div class="col-md-12">
+                                                                                <div class="form-group">
+                                                                                    <label>Nome de Producto</label>
+                                                                                    <select class="form-control" name="Id_product" id="Product_name" onchange="productos(this);">
+                                                                                        <option value="{{$stock->Id_product}}">{{$stock->product->Product_name}}</option>
+                                                                                        @foreach ($products as $stocks)
+                                                                                            <option value="{{ $stocks->id }}">{{ $stocks->Product_name }}</option>
+                                                                                        @endforeach
+                                                                                    </select> 
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                    <label for="cnContactName">Quantidade</label>
+                                                                                    <input type="text" 
+                                                                                        class="form-control"
+                                                                                        name="Quantity" id="Quantity"
+                                                                                        value="{{ $stock->Quantity }}" disabled>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-12">
+                                                                                <div class="form-group">
+                                                                                    <label for="cnContactName">Preco</label>
+                                                                                    <input type="text" id="Price"
+                                                                                        class="form-control"
+                                                                                        name="Price" 
+                                                                                        value="{{ $stock->Price }}" disabled>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-12">
+                                                                                <div class="form-group">
+                                                                                    <label for="cnContactEmail">Data do Entrada</label>
+                                                                                    <input type="date" id="Entry_date"
+                                                                                        class="form-control"
+                                                                                        name="Entry_date"
+                                                                                        value="{{ $stock->Entry_date }}" disabled>
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                    <label for="cnContactEmail">Data de Validade</label>
+                                                                                    <input type="date" id="Expiry_date"
+                                                                                        class="form-control"
+                                                                                        name="Expiry_date"
+                                                                                        value="{{ $stock->Expiry_date }}" disabled>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-12">
+                                                                                <div class="form-group">
+                                                                                    <label for="cnContactEmail">Codigo</label>
+                                                                                    <input type="text" id="Code"
+                                                                                        class="form-control"
+                                                                                        name="Code"
+                                                                                        value="{{ $stock->Code }}" disabled>
+                                                                                </div>
+                                                                            </div>
+                                                                            <input type="hidden" name="id"
+                                                                                value="{{ $stock->id }}">
+                                                                        </div><!-- /.form-row -->
+
+                                                                    </div><!-- /.modal-body -->
+                                                                    <!-- .modal-footer -->
+                                                                    <div class="modal-footer">
+                                                                        <button type="submit" name="submit"
+                                                                            class="btn btn-primary">Actualizar
+                                                                            Producto</button>
+                                                                        <button type="button" class="btn btn-light"
+                                                                            data-dismiss="modal">Fechar</button>
+                                                                    </div><!-- /.modal-footer -->
+                                                                </div><!-- /.modal-content -->
+                                                            </form>
+                                                        </div><!-- /.modal-dialog -->
+                                                    </div>
                                                     {{-- Fim do formulario dos modais --}}
-                                                    
+
                                                 @endforeach
                                             </tbody>
                                         </table>
