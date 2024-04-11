@@ -503,9 +503,9 @@
                 // Atualiza os campos do formulário com os detalhes do produto
                 $('#A1').val(data.Quantity);
                 $('#A2').val(data.Price);
-                $('#A3').val(data.Code);
-                $('#A4').val(data.Entry_date);
-                $('#A5').val(data.Expiry_date);
+                $('#A5').val(data.Code);
+                $('#A3').val(data.Entry_date);
+                $('#A4').val(data.Expiry_date);
             });
         }
         function enableField() {
@@ -534,8 +534,8 @@
             if (fieldsDisabled) {
                 // Desabilita os campos
                 $('#A1').val(JSON.parse(fieldsDisabled).Quantity).prop('disabled', true);
-                $('#A2').val(JSON.parse(fieldsDisabled).Code).prop('disabled', true);
-                $('#A3').val(JSON.parse(fieldsDisabled).Price).prop('disabled', true);
+                $('#A5').val(JSON.parse(fieldsDisabled).Code).prop('disabled', true);
+                $('#A2').val(JSON.parse(fieldsDisabled).Price).prop('disabled', true);
                 $('#A4').val(JSON.parse(fieldsDisabled).Entry_date).prop('disabled', true);
                 $('#A5').val(JSON.parse(fieldsDisabled).Expiry_date).prop('disabled', true);
             }

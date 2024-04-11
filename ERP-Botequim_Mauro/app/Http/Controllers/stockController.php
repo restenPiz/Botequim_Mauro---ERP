@@ -93,7 +93,7 @@ class stockController extends Controller
         // $product = Product::where('Product_name', $input)->first();
         $input= Request::input('id');
 
-        $product=Stock::where('id',$input)->first();
+        $product=Stock::where('id','=',$input)->first();
 
         if ($product) {
             // Retorna os detalhes do produto como JSON
