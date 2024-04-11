@@ -68,7 +68,9 @@
                                                     <tr>
                                                         <td class="align-middle"> {{ $stock->product->Product_name }}</td>
                                                         <td class="align-middle"> {{ $stock->Quantity }} </td>
-                                                        <td class="align-middle"> {{ $stock->Code }} </td>
+                                                        <td class="align-middle"> 
+                                                            <span class="badge badge-subtle badge-success">{{$stock->Code}}</span>
+                                                        </td>
                                                         <td class="align-middle"> {{ $stock->Price }} </td>
                                                         <td class="align-middle"> {{ $stock->Entry_date }} </td>
                                                         <td class="align-middle"> {{ $stock->Expiry_date }} </td>
