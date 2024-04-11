@@ -25,7 +25,6 @@ class stockController extends Controller
     {
         $stock = Stock::find($id);
 
-        $stock->Product_name=Request::input('Product_name');
         $stock->Quantity=Request::input('Quantity');
         $stock->Code=Request::input('Code');
         $stock->Price=Request::input('Price');
@@ -44,7 +43,6 @@ class stockController extends Controller
     {
         $stock=new Stock();
 
-        $stock->Product_name=Request::input('Product_name');
         $stock->Quantity=Request::input('Quantity');
         $stock->Code=Request::input('Code');
         $stock->Price=Request::input('Price');
