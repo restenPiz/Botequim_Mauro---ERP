@@ -147,7 +147,7 @@
                                                                             <div class="col-md-12">
                                                                                 <div class="form-group">
                                                                                     <label>Nome de Producto</label>
-                                                                                    <select class="form-control" name="Id_product" id="Product_name" onchange="producto(this);">
+                                                                                    <select class="form-control" name="Id_product" id="Product_name" onchange="productos(this);">
                                                                                         <option value="{{$stock->Id_product}}">{{$stock->product->Product_name}}</option>
                                                                                         @foreach ($products as $stocks)
                                                                                             <option value="{{ $stocks->id }}">{{ $stocks->Product_name }}</option>
@@ -204,7 +204,7 @@
                                                                     <!-- .modal-footer -->
                                                                     <div class="modal-footer">
                                                                         <button type="submit" name="submit"
-                                                                            class="btn btn-primary">Actualizar
+                                                                            class="btn btn-primary" onclick="enableFields()">Actualizar
                                                                             Producto</button>
                                                                         <button type="button" class="btn btn-light"
                                                                             data-dismiss="modal">Fechar</button>
