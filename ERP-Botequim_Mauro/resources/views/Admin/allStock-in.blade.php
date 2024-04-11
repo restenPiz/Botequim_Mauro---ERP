@@ -51,7 +51,7 @@
                                 <div class="card-body">
                                     {{-- <h2 class="card-title"> Contacts </h2><!-- .table-responsive --> --}}
                                     <div class="table-responsive">
-                                        <table class="table table-hover" style="min-width: 678px">
+                                        <table class="table table-striped" style="min-width: 678px">
                                             <thead>
                                                 <tr>
                                                     <th> Nome do Producto </th>
@@ -66,8 +66,7 @@
                                             <tbody>
                                                 @foreach ($stocks as $stock)
                                                     <tr>
-                                                        <td class="align-middle"> {{ $stock->id }} </td>
-                                                        <td class="align-middle"> {{ $stock->name($stock->id) }}</td>
+                                                        <td class="align-middle"> {{ $stock->product->Product_name }}</td>
                                                         <td class="align-middle"> {{ $stock->Quantity }} </td>
                                                         <td class="align-middle"> {{ $stock->Code }} </td>
                                                         <td class="align-middle"> {{ $stock->Price }} </td>
@@ -119,85 +118,10 @@
                                                     </div>
                                                     {{--Fim do modal de eliminar--}}
 
-                                                    {{--Inicio do modal de edicao--}}
-                                                    <div class="modal fade" id="clientNewModal{{ $stock->id }}"
-                                                        tabindex="-1" role="dialog" aria-labelledby="clientNewModalLabel"
-                                                        aria-hidden="true">
-                                                        <!-- .modal-dialog -->
-                                                        <div class="modal-dialog" role="document">
-                                                            <!-- .modal-content -->
-                                                            <form action="{{ route('updateEvent', ['id' => $stock->id]) }}"
-                                                                method="post">
-                                                                @csrf
+                                                    {{---Inicio do modal de editar--}}
 
-                                                                <div class="modal-content">
-                                                                    <!-- .modal-header -->
-                                                                    <div class="modal-header">
-                                                                        <h6 id="clientNewModalLabel"
-                                                                            class="modal-title inline-editable">
-                                                                            <span class="sr-only">Formulario de Actualizacao
-                                                                                de Eventos</span>
-                                                                        </h6>
-                                                                    </div><!-- /.modal-header -->
-                                                                    <!-- .modal-body -->
-                                                                    <div class="modal-body">
-                                                                        <!-- .form-row -->
-                                                                        <div class="form-row">
-                                                                            <div class="col">
-                                                                                    <label for="cnContactName">Nome do
-                                                                                        Evento</label>
-                                                                                    <input type="text" id="cnContactName"
-                                                                                        class="form-control"
-                                                                                        name="Event_name"
-                                                                                        value="{{ $stock->Event_name }}">
-                                                                            </div>
-                                                                            <div class="col-md-6">
-                                                                                    <label for="cnContactEmail">Data do
-                                                                                        Evento</label>
-                                                                                    <input type="date" id="cnContactName"
-                                                                                        class="form-control"
-                                                                                        name="Event_date"
-                                                                                        value="{{ $stock->Event_date }}">
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="col-md-6">
-                                                                                    <label for="cnStreet">Horario do
-                                                                                        Evento</label>
-                                                                                    <input type="time"
-                                                                                        id="cnContactName"
-                                                                                        class="form-control"
-                                                                                        name="Event_time"
-                                                                                        value="{{ $stock->Event_time }}">
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="col-md-6">
-                                                                                    <label for="cnSuite">Integrantes
-                                                                                        do Evento</label>
-                                                                                    <input type="text"
-                                                                                        id="cnContactName"
-                                                                                        class="form-control"
-                                                                                        name="Number_of_person"
-                                                                                        value="{{ $stock->Number_of_person }}">
-                                                                                </div>
-                                                                            </div>
-                                                                            <input type="hidden" name="id"
-                                                                                value="{{ $stock->id }}">
-                                                                        </div><!-- /.form-row -->
-
-                                                                    </div><!-- /.modal-body -->
-                                                                    <!-- .modal-footer -->
-                                                                    <div class="modal-footer">
-                                                                        <button type="submit" name="submit"
-                                                                            class="btn btn-primary">Actualizar
-                                                                            Evento</button>
-                                                                        <button type="button" class="btn btn-light"
-                                                                            data-dismiss="modal">Fechar</button>
-                                                                    </div><!-- /.modal-footer -->
-                                                                </div><!-- /.modal-content -->
-                                                            </form>
-                                                        </div><!-- /.modal-dialog -->
-                                                    </div>
                                                     {{-- Fim do formulario dos modais --}}
+                                                    
                                                 @endforeach
                                             </tbody>
                                         </table>
@@ -224,10 +148,10 @@
                                             <!-- form column -->
                                             <div class="col-md-12 mb-3">
                                                 <label>Nome de Producto</label>
-                                                <select class="form-control" name="Product_name" id="Product_name" onchange="productos(this);">
+                                                <select class="form-control" name="Id_product" id="Product_name" onchange="productos(this);">
                                                     <option>--Selecione o Produto--</option>
                                                     @foreach ($products as $stock)
-                                                        <option value="{{ $stock->Product_name }}">{{ $stock->Product_name }}</option>
+                                                        <option value="{{ $stock->id }}">{{ $stock->Product_name }}</option>
                                                     @endforeach
                                                 </select> 
                                             </div>
@@ -266,5 +190,5 @@
                     {{---Fim do formulario de adicao--}}
                 </div>
             </div>
-    </main>
+        </main>
 @endsection

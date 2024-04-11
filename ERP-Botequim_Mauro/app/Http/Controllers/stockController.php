@@ -25,6 +25,7 @@ class stockController extends Controller
     {
         $stock = Stock::find($id);
 
+        $stock->id=Request::input('id');
         $stock->Quantity=Request::input('Quantity');
         $stock->Code=Request::input('Code');
         $stock->Price=Request::input('Price');
@@ -57,11 +58,11 @@ class stockController extends Controller
         return back();
     }
     //?Inicio do metodo responsavel por eliminar o producto
-    public function delete($id)
+    public function deleteStock($id)
     {
         $stock=Stock::find($id);
 
-        $stock::delete();
+        $stock->delete();
 
         Alert::success('Eliminado','O producto foi eliminado com sucesso!');
 
@@ -70,10 +71,13 @@ class stockController extends Controller
     //?Inicio do metodo que retorna os dados do select
     public function getProductDetails()
     {
-        $input = Request::input('Product_name');
+        // $input = Request::input('Product_name');
 
-        $product = Product::where('Product_name', $input)->first();
-    
+        // $product = Product::where('Product_name', $input)->first();
+        $input= Request::input('id');
+
+        $product=Product::where('id',$input)->first();
+
         if ($product) {
             // Retorna os detalhes do produto como JSON
             return response()->json($product);
