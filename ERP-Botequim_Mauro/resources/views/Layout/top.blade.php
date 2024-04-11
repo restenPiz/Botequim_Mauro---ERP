@@ -472,21 +472,23 @@
                 $('#Expiry_date').val(data.Expiry_date);
             });
         }
-        function prepareFields() {;
-            $('#Quantity').prop('disabled', true);
-            $('#Code').prop('disabled', true);
-            $('#Price').prop('disabled', true);
-            $('#Entry_date').prop('disabled', true);
-            $('#Expiry_date').prop('disabled', true);
-
-            // Salva o estado dos campos desabilitados no localStorage
-            localStorage.setItem('fieldsDisabled', JSON.stringify({
-                Quantity: $('#Quantity').val(),
-                Code: $('#Code').val(),
-                Price: $('#Price').val(),
-                Entry_date: $('#Entry_date').val(),
-                Expiry_date: $('#Expiry_date').val()
-            }));
+        function enableFields() {
+            // Habilita temporariamente os campos antes de enviar o formulário
+            $('#Quantity').prop('disabled', false);
+            $('#Code').prop('disabled', false);
+            $('#Price').prop('disabled', false);
+            $('#Entry_date').prop('disabled', false);
+            $('#Expiry_date').prop('disabled', false);
+            
+            // Adiciona um atraso para garantir que os campos sejam habilitados antes do envio do formulário
+            setTimeout(function() {
+                // Desabilita os campos novamente
+                $('#Quantity').prop('disabled', true);
+                $('#Code').prop('disabled', true);
+                $('#Price').prop('disabled', true);
+                $('#Entry_date').prop('disabled', true);
+                $('#Expiry_date').prop('disabled', true);
+            }, 1000); // Ajuste o valor do tempo de espera conforme necessário
         }
     </script>
 

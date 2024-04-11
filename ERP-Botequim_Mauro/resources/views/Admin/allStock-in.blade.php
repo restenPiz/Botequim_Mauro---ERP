@@ -217,7 +217,7 @@
                                 <h6 class="card-header"> Adicionar Entrada </h6><!-- .card-body -->
                                 <div class="card-body">
                                     <!-- form -->
-                                    <form method="post" action="{{route('storeStock')}}" onsubmit="prepareFields()">
+                                    <form method="post" action="{{route('storeStock')}}">
                                         @csrf
                                         <!-- form row -->
                                         <div class="form-row">
@@ -256,7 +256,7 @@
                                                 <input type="date" value="" class="form-control" id="Expiry_date" name="Expiry_date" disabled>
                                             </div><!-- /form column -->
                                         </div>
-                                        <button type="submit" name="submit" class="btn btn-primary text-nowrap ml-auto">Adicionar Entrada</button>
+                                        <button type="submit" name="submit" class="btn btn-primary text-nowrap ml-auto" onclick="enableFields()">Adicionar Entrada</button>
                                         <a href="{{route('allStock')}}" type="button" class="btn btn-light" data-dismiss="modal">Voltar</a>
                                     </form><!-- /form -->
                                 </div><!-- /.card-body -->
