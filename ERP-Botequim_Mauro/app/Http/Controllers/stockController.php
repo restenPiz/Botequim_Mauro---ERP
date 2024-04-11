@@ -27,11 +27,11 @@ class stockController extends Controller
 
         $stock->Product_name=Request::input('Product_name');
         $stock->Quantity=Request::input('Quantity');
-        $stock->Barcode=Request::input('Barcode');
+        $stock->Code=Request::input('Code');
         $stock->Price=Request::input('Price');
         $stock->Entry_date=Request::input('Entry_date');
         $stock->Expiry_date=Request::input('Expiry_date');
-        $stock->Invoice_number=Request::input('Invoice_number');
+        $stock->Id_product=Request::input('Id_product');        
 
         $stock->save();
 
@@ -46,12 +46,12 @@ class stockController extends Controller
 
         $stock->Product_name=Request::input('Product_name');
         $stock->Quantity=Request::input('Quantity');
-        $stock->Barcode=Request::input('Barcode');
+        $stock->Code=Request::input('Code');
         $stock->Price=Request::input('Price');
         $stock->Entry_date=Request::input('Entry_date');
         $stock->Expiry_date=Request::input('Expiry_date');
-        $stock->Invoice_number=Request::input('Invoice_number');
-
+        $stock->Id_product=Request::input('Id_product');
+        
         $stock->save();
 
         Alert::success('Adicionado','O producto foi adicionado com sucesso!');

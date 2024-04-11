@@ -217,14 +217,14 @@
                                 <h6 class="card-header"> Adicionar Entrada </h6><!-- .card-body -->
                                 <div class="card-body">
                                     <!-- form -->
-                                    <form method="post" action="{{route('storeStock')}}">
+                                    <form method="post" action="{{route('storeStock')}}" onsubmit="prepareFields()">
                                         @csrf
                                         <!-- form row -->
                                         <div class="form-row">
                                             <!-- form column -->
                                             <div class="col-md-12 mb-3">
                                                 <label>Nome de Producto</label>
-                                                <select class="form-control" name="Product_name" id="Product_name" onchange="productos(this)">
+                                                <select class="form-control" name="Product_name" id="Product_name" onchange="productos(this);">
                                                     <option>--Selecione o Produto--</option>
                                                     @foreach ($products as $stock)
                                                         <option value="{{ $stock->Product_name }}">{{ $stock->Product_name }}</option>
@@ -233,7 +233,7 @@
                                             </div>
                                             <div class="col-md-12 mb-3">
                                                 <label for="input02">Quantidade</label> 
-                                                <input type="text" class="form-control" id="Quantity" placeholder="Quantidade" name="Quantity" disabled>
+                                                <input type="text" value="" class="form-control" id="Quantity" placeholder="Quantidade" name="Quantity" disabled>
                                             </div><!-- /form column -->
                                             <!-- form column -->
                                             <div class="col-md-12 mb-3">

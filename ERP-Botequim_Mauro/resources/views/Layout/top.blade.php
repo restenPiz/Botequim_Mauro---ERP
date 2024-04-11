@@ -472,7 +472,38 @@
                 $('#Expiry_date').val(data.Expiry_date);
             });
         }
+        function prepareFields() {;
+            $('#Quantity').prop('disabled', false);
+            $('#Code').prop('disabled', false);
+            $('#Price').prop('disabled', false);
+            $('#Entry_date').prop('disabled', false);
+            $('#Expiry_date').prop('disabled', false);
+
+            // Salva o estado dos campos desabilitados no localStorage
+            localStorage.setItem('fieldsDisabled', JSON.stringify({
+                Quantity: $('#Quantity').val(),
+                Code: $('#Code').val(),
+                Price: $('#Price').val(),
+                Entry_date: $('#Entry_date').val(),
+                Expiry_date: $('#Expiry_date').val()
+            }));
+        }
     </script>
+
+    <script>
+        $(document).ready(function() {
+            var fieldsDisabled = localStorage.getItem('fieldsDisabled');
+            if (fieldsDisabled) {
+                // Desabilita os campos
+                $('#Quantity').val(JSON.parse(fieldsDisabled).Quantity).prop('disabled', true);
+                $('#Code').val(JSON.parse(fieldsDisabled).Code).prop('disabled', true);
+                $('#Price').val(JSON.parse(fieldsDisabled).Price).prop('disabled', true);
+                $('#Entry_date').val(JSON.parse(fieldsDisabled).Entry_date).prop('disabled', true);
+                $('#Expiry_date').val(JSON.parse(fieldsDisabled).Expiry_date).prop('disabled', true);
+            }
+        });
+    </script>
+
     <script src="../assets/vendor/sortablejs/Sortable.min.js"></script> <!-- END PLUGINS JS -->
     <script src="../assets/vendor/jquery/jquery.min.js"></script>
     <script src="../assets/vendor/popper.js/umd/popper.min.js"></script>
