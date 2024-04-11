@@ -473,11 +473,11 @@
             });
         }
         function prepareFields() {;
-            $('#Quantity').prop('disabled', false);
-            $('#Code').prop('disabled', false);
-            $('#Price').prop('disabled', false);
-            $('#Entry_date').prop('disabled', false);
-            $('#Expiry_date').prop('disabled', false);
+            $('#Quantity').prop('disabled', true);
+            $('#Code').prop('disabled', true);
+            $('#Price').prop('disabled', true);
+            $('#Entry_date').prop('disabled', true);
+            $('#Expiry_date').prop('disabled', true);
 
             // Salva o estado dos campos desabilitados no localStorage
             localStorage.setItem('fieldsDisabled', JSON.stringify({
