@@ -257,7 +257,7 @@
                                                                     <!-- .modal-footer -->
                                                                     <div class="modal-footer">
                                                                         <button type="submit" name="submit"
-                                                                            class="btn btn-primary" onclick="enableFields()">Actualizar
+                                                                            class="btn btn-primary" onclick="enableField()">Actualizar
                                                                             Producto</button>
                                                                         <button type="button" class="btn btn-light"
                                                                             data-dismiss="modal">Fechar</button>

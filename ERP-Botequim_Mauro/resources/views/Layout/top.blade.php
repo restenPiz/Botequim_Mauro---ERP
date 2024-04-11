@@ -508,7 +508,7 @@
                 $('#A5').val(data.Expiry_date);
             });
         }
-        function enableFields() {
+        function enableField() {
             // Habilita temporariamente os campos antes de enviar o formulário
             $('#A1').prop('disabled', false);
             $('#A2').prop('disabled', false);
