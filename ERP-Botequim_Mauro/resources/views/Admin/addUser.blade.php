@@ -154,7 +154,7 @@
                                                         tabindex="-1" aria-hidden="true">
                                                         <div class="modal-dialog modal-dialog-centered">
                                                             <div class="modal-content">
-                                                                <form action="{{route('deleteStock',['id'=>$user->id])}}" method="get">
+                                                                <form action="{{route('deleteUser',['id'=>$user->id])}}" method="get">
                                                                     @csrf
                                                                     @method('DELETE')
                                                                     <div class="modal-body">
@@ -167,7 +167,7 @@
                                                                             <div class="mt-4 pt-2 fs-15 mx-4 mx-sm-5">
                                                                                 <h4>Voce tem certeza ?</h4>
                                                                                 <p class="text-muted mx-4 mb-0">Voce pretende eliminar
-                                                                                 este producto ?</p>
+                                                                                 este Usuario ?</p>
                                                                             </div>
                                                                         </div>
                                                                         <div class="d-flex gap-2 justify-content-center mt-4 mb-2">
