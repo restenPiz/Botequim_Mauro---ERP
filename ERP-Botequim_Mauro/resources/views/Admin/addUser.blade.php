@@ -10,7 +10,7 @@
                 <div class="row">
 
                     {{--Inicio da parte de formulario de adicao de usuarios--}}
-                    <div class="col-lg-3">
+                    <div class="col-lg-4">
                         <div class="col">
                             <!-- .card -->
                             <div class="card card-fluid">
@@ -85,7 +85,7 @@
                                         class="fa fa-plus"></span></button> <!-- /floating action -->
                                 <!-- title and toolbar -->
                                 <div class="d-md-flex align-items-md-start">
-                                    <h1 class="page-title mr-sm-auto"> Entrada de Productos </h1><!-- .btn-toolbar -->
+                                    <h1 class="page-title mr-sm-auto"> Todos Usuarios </h1><!-- .btn-toolbar -->
                                     <div class="btn-toolbar">
                                         <button type="button" class="btn btn-light"><i
                                                 class="oi oi-data-transfer-download"></i> <span
@@ -120,26 +120,24 @@
                                         <table class="table table-striped" style="min-width: 678px">
                                             <thead>
                                                 <tr>
-                                                    <th> Nome do Producto </th>
-                                                    <th> Quantity </th>
-                                                    <th> Codigo </th>
-                                                    <th> Preco </th>
+                                                    <th> Nome do Usuario </th>
+                                                    <th> Apelido </th>
+                                                    <th> Email </th>
+                                                    <th>Tipo de Usuario</th>
                                                     <th> Data de Entrada </th>
-                                                    <th> Data de Validade </th>
                                                     <th></th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 @foreach ($users as $user)
                                                     <tr>
-                                                        <td class="align-middle"> {{ $user->product->Product_name }}</td>
-                                                        <td class="align-middle"> {{ $user->Quantity }} </td>
+                                                        <td class="align-middle"> {{ $user->name }}</td>
+                                                        <td class="align-middle"> {{ $user->Surname }} </td>
                                                         <td class="align-middle"> 
-                                                            <span class="badge badge-subtle badge-success">{{$user->Code}}</span>
+                                                            <span class="badge badge-subtle badge-success">{{$user->email}}</span>
                                                         </td>
-                                                        <td class="align-middle"> {{ $user->Price }} </td>
-                                                        <td class="align-middle"> {{ $user->Entry_date }} </td>
-                                                        <td class="align-middle"> {{ $user->Expiry_date }} </td>
+                                                        <td class="align-middle"> {{ $user->user_type }} </td>
+                                                        <td class="align-middle"> {{ $user->created_at }} </td>
                                                         <td class="align-middle text-right">
                                                             <button type="button" class="btn btn-sm btn-icon btn-secondary"
                                                                 data-toggle="modal" data-target="#clientNewModal{{ $user->id }}"><i
@@ -186,99 +184,6 @@
                                                     </div>
                                                     {{--Fim do modal de eliminar--}}
 
-                                                    {{---Inicio do modal de editar--}}
-                                                    <div class="modal fade" id="clientNewModal{{ $user->id }}"
-                                                        tabindex="-1" role="dialog" aria-labelledby="clientNewModalLabel"
-                                                        aria-hidden="true">
-                                                        <!-- .modal-dialog -->
-                                                        <div class="modal-dialog" role="document">
-                                                            <!-- .modal-content -->
-                                                            <form action="{{ route('updateStock', ['id' => $user->id]) }}"
-                                                                method="post">
-                                                                @csrf
-
-                                                                <div class="modal-content">
-                                                                    <!-- .modal-header -->
-                                                                    <div class="modal-header">
-                                                                        <h6 id="clientNewModalLabel"
-                                                                            class="modal-title inline-editable">
-                                                                            <span class="sr-only">Formulario de Actualizacao
-                                                                                de Productos</span>
-                                                                        </h6>
-                                                                    </div><!-- /.modal-header -->
-                                                                    <!-- .modal-body -->
-                                                                    <div class="modal-body">
-                                                                        <!-- .form-row -->
-                                                                        <div class="form-row">
-                                                                            <div class="col-md-12">
-                                                                                <div class="form-group">
-                                                                                    <label>Nome de Producto</label>
-                                                                                    <select class="form-control" name="Id_product" id="Id_product" onchange="prod(this);">
-                                                                                        <option value="{{$user->Id_product}}">{{$user->product->Product_name}}</option>
-                                                                                        @foreach ($products as $users)
-                                                                                            <option value="{{ $users->id }}">{{ $users->Product_name }}</option>
-                                                                                        @endforeach
-                                                                                    </select> 
-                                                                                </div>
-                                                                                <div class="form-group">
-                                                                                    <label for="cnContactName">Quantidade</label>
-                                                                                    <input type="text" 
-                                                                                        class="form-control"
-                                                                                        name="Quantity" id="quantity"
-                                                                                        placeholder="{{ $user->Quantity }}" value="" disabled>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="col-md-12">
-                                                                                <div class="form-group">
-                                                                                    <label for="cnContactName">Preco</label>
-                                                                                    <input type="text" id="price"
-                                                                                        class="form-control"
-                                                                                        name="Price" value=""
-                                                                                        placeholder="{{ $user->Price }}" disabled>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="col-md-12">
-                                                                                <div class="form-group">
-                                                                                    <label for="cnContactEmail">Data do Entrada</label>
-                                                                                    <input type="date" id="entry_date"
-                                                                                        class="form-control"
-                                                                                        name="Entry_date" value=""
-                                                                                        placeholder="{{ $user->Entry_date }}" disabled>
-                                                                                </div>
-                                                                                <div class="form-group">
-                                                                                    <label for="cnContactEmail">Data de Validade</label>
-                                                                                    <input type="date" id="expiry_date"
-                                                                                        class="form-control"
-                                                                                        name="Expiry_date" value=""
-                                                                                        placeholder="{{ $user->Expiry_date }}" disabled>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="col-md-12">
-                                                                                <div class="form-group">
-                                                                                    <label for="cnContactEmail">Codigo</label>
-                                                                                    <input type="text" id="code"
-                                                                                        class="form-control"
-                                                                                        name="Code" value=""
-                                                                                        placeholder="{{ $user->Code }}" disabled>
-                                                                                </div>
-                                                                            </div>
-                                                                            <input type="hidden" name="id"
-                                                                                value="{{ $user->id }}">
-                                                                        </div><!-- /.form-row -->
-
-                                                                    </div><!-- /.modal-body -->
-                                                                    <!-- .modal-footer -->
-                                                                    <div class="modal-footer">
-                                                                        <button type="submit" name="submit"
-                                                                            class="btn btn-primary" onclick="enableField()">Actualizar
-                                                                            Producto</button>
-                                                                        <button type="button" class="btn btn-light"
-                                                                            data-dismiss="modal">Fechar</button>
-                                                                    </div><!-- /.modal-footer -->
-                                                                </div><!-- /.modal-content -->
-                                                            </form>
-                                                        </div><!-- /.modal-dialog -->
-                                                    </div>
                                                     {{-- Fim do formulario dos modais --}}
 
                                                 @endforeach
