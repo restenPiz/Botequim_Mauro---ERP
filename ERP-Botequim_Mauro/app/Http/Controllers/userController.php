@@ -19,6 +19,7 @@ class userController extends Controller
     }
     public function storeUser(Request $request)
     {
+        //?Inicio da condicao
         if ($request->input('user_type') === 'Attendant') {
             $role = 'attendant';
             $successMessage = 'O usuário atendente foi adicionado com sucesso!';
