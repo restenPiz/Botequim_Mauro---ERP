@@ -340,7 +340,7 @@
                         <ul class="menu">
                             <!-- .menu-item -->
                             <li class="menu-item has-active">
-                                <a href="index-2.html" class="menu-link"><span class="menu-icon fas fa-home"></span>
+                                <a href="{{route('dashboard')}}" class="menu-link"><span class="menu-icon fas fa-home"></span>
                                     <span class="menu-text">Inicio</span></a>
                             </li><!-- /.menu-item -->
                             <!-- .menu-item -->
