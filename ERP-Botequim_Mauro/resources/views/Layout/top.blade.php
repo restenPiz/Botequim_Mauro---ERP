@@ -506,7 +506,8 @@
                 $('#A5').val(data.Code);
                 $('#A3').val(data.Entry_date);
                 $('#A4').val(data.Expiry_date);
-            });
+            }); 
+            
         }
         function enableField() {
             // Habilita temporariamente os campos antes de enviar o formulário
