@@ -56,11 +56,10 @@
                                         </div><!-- /.form-group -->
                                         
                                         <!-- .form-actions -->
-                                        <div class="form-row">
-                                            <!-- enable submit btn when user type their current password -->
-                                            <input type="password" class="form-control mr-3" id="input06"
-                                                placeholder="Digite novamente a senha" name="password_confirmation" required=""> 
-                                        </div><!-- /.form-actions -->
+                                        <div class="form-group">
+                                            <label for="input04">Senha de Confirmacao</label> <input type="password"
+                                                class="form-control" id="input04" value="secret" name="password_confirmation" required="">
+                                        </div><!-- /.form-group -->
                                         <div class="form-actions">
                                             <button type="submit"
                                                name="submit" class="btn btn-primary ">Adicionar Usuario</button>
