@@ -88,11 +88,10 @@ class stockController extends Controller
     }
     public function getProduct()
     {
-        $input= Request::input('id');
-        
-        $product = DB::table('stocks')
-            ->where('id', $input)
-            ->get();
+
+        $input= Request::input('Id_product');
+
+        $product=Stock::where('Id_product',$input)->get();
 
         if ($product) {
             // Retorna os detalhes do produto como JSON

@@ -200,7 +200,7 @@
                                                                             <div class="col-md-12">
                                                                                 <div class="form-group">
                                                                                     <label>Nome de Producto</label>
-                                                                                    <select class="form-control" name="Id_product" id="Id_product" onchange="product(this);">
+                                                                                    <select class="form-control" name="Id_product" id="Id_product" onchange="prod(this);">
                                                                                         <option value="{{$stock->Id_product}}">{{$stock->product->Product_name}}</option>
                                                                                         @foreach ($products as $stocks)
                                                                                             <option value="{{ $stocks->id }}">{{ $stocks->Product_name }}</option>
