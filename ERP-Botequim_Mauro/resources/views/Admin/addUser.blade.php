@@ -184,6 +184,100 @@
                                                     </div>
                                                     {{--Fim do modal de eliminar--}}
 
+                                                    {{--Inicio do modal de editar--}}
+                                                    <div class="modal fade" id="clientNewModal{{ $user->id }}"
+                                                        tabindex="-1" role="dialog" aria-labelledby="clientNewModalLabel"
+                                                        aria-hidden="true">
+                                                        <!-- .modal-dialog -->
+                                                        <div class="modal-dialog" role="document">
+                                                            <!-- .modal-content -->
+                                                            <form action="{{ route('updateUser', ['id' => $user->id]) }}"
+                                                                method="post">
+                                                                @csrf
+
+                                                                <div class="modal-content">
+                                                                    <!-- .modal-header -->
+                                                                    <div class="modal-header">
+                                                                        <h6 id="clientNewModalLabel"
+                                                                            class="modal-title inline-editable">
+                                                                            <span class="sr-only">Formulario de Actualizacao
+                                                                                de Usuarios</span>
+                                                                        </h6>
+                                                                    </div><!-- /.modal-header -->
+                                                                    <!-- .modal-body -->
+                                                                    <div class="modal-body">
+                                                                        <!-- .form-row -->
+                                                                        <div class="form-row">
+                                                                            <div class="modal-body">
+                                                                                <!-- .form-row -->
+                                                                                <div class="form-row">
+                                                                                    <div class="col-md-12">
+                                                                                        <div class="form-group">
+                                                                                            <label for="cnContactName">Nome do Usuario</label>
+                                                                                            <input type="text" id="cnContactName"
+                                                                                                class="form-control"
+                                                                                                name="name"
+                                                                                                value="{{$user->name}}">
+                                                                                        </div>
+                                                                                        <div class="form-group">
+                                                                                            <label for="cnContactEmail">Apelido</label>
+                                                                                            <input type="text" id="cnContactName"
+                                                                                                class="form-control"
+                                                                                                name="Surname" 
+                                                                                                value="{{$user->Surname}}">
+                                                                                        </div>
+                                                                                        <div class="form-group">
+                                                                                            <label>Tipo de Usuario</label>
+                                                                                            <select class="form-control" name="user_type">
+                                                                                                <option value="{{$user->user_type}}">{{$user->user_type}}</option>
+                                                                                                <option value="Attendant">Atendente</option>
+                                                                                                <option value="Stock_manager">Gestor de Stock</option>
+                                                                                                <option value="Accountant">Contabilista</option>
+                                                                                            </select>
+                                                                                        </div>
+                                                                                        <div class="form-group">
+                                                                                            <label for="cnContactEmail">Email</label>
+                                                                                            <input type="text" id="cnContactName"
+                                                                                                class="form-control"
+                                                                                                name="email" 
+                                                                                                value="{{$user->email}}">
+                                                                                        </div>
+                                                                                        <div class="form-group">
+                                                                                            <label for="cnContactEmail">Senha</label>
+                                                                                            <input type="text" id="cnContactName"
+                                                                                                class="form-control"
+                                                                                                name="password" 
+                                                                                                value="{{$user->password}}">
+                                                                                        </div>
+                                                                                        <div class="form-group">
+                                                                                            <label for="cnContactEmail">Senha de Confirmacao</label>
+                                                                                            <input type="text" id="cnContactName"
+                                                                                                class="form-control"
+                                                                                                name="password_confirmation" 
+                                                                                                value="{{$user->password_confirmation}}">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div><!-- /.form-row -->
+        
+                                                                            </div><!-- /.modal-body -->
+                                                                            <input type="hidden" name="id"
+                                                                                value="{{ $user->id }}">
+                                                                        </div><!-- /.form-row -->
+
+                                                                    </div><!-- /.modal-body -->
+                                                                    <!-- .modal-footer -->
+                                                                    <div class="modal-footer">
+                                                                        <button type="submit" name="submit"
+                                                                            class="btn btn-primary">Actualizar
+                                                                            Usuario</button>
+                                                                        <button type="button" class="btn btn-light"
+                                                                            data-dismiss="modal">Fechar</button>
+                                                                    </div><!-- /.modal-footer -->
+                                                                </div><!-- /.modal-content -->
+                                                            </form>
+                                                        </div><!-- /.modal-dialog -->
+                                                    </div>
+                                                    
                                                     {{-- Fim do formulario dos modais --}}
 
                                                 @endforeach
