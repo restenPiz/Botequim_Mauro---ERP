@@ -17,10 +17,6 @@ class userController extends Controller
 
         return view('Admin.addUser',compact('users'));
     }
-    public function allUser()
-    {
-        return view('Admin.allUser');
-    }
     public function storeUser(Request $request)
     {
         // Verifica se o usuário está autenticado e tem a função 'admin'
@@ -29,8 +25,8 @@ class userController extends Controller
             $request->validate([
                 'name' => 'required|string|max:255',
                 'email' => 'required|string|email|max:255|unique:users',
-                'surname' => 'required|string|max:255',
-                'userType' => 'required|string',
+                'Surname' => 'required|string|max:255',
+                'user_Type' => 'required|string',
                 'password' => 'required|string|min:8',
             ]);
 
@@ -38,8 +34,8 @@ class userController extends Controller
             $user = User::create([
                 'name' => $request->name,
                 'email' => $request->email,
-                'surname' => $request->surname,
-                'User_type' => $request->input('userType'), // Corrigindo aqui
+                'Surname' => $request->surname,
+                'user_Type' => $request->input('user_Type'), // Corrigindo aqui
                 'password' => Hash::make($request->password),
             ]);
 
