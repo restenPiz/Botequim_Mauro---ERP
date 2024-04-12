@@ -227,14 +227,14 @@
                                                                             <div class="col-md-12">
                                                                                 <div class="form-group">
                                                                                     <label for="cnContactEmail">Data do Entrada</label>
-                                                                                    <input type="text" id="entry_date"
+                                                                                    <input type="date" id="entry_date"
                                                                                         class="form-control"
                                                                                         name="Entry_date" value=""
                                                                                         placeholder="{{ $stock->Entry_date }}" disabled>
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                     <label for="cnContactEmail">Data de Validade</label>
-                                                                                    <input type="text" id="expiry_date"
+                                                                                    <input type="date" id="expiry_date"
                                                                                         class="form-control"
                                                                                         name="Expiry_date" value=""
                                                                                         placeholder="{{ $stock->Expiry_date }}" disabled>
