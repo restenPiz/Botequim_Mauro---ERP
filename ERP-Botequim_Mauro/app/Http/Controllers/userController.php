@@ -47,9 +47,35 @@ class userController extends Controller
     
         return redirect()->back();
     }
-    public function updateUser($id)
+    public function updateUser($id, Request $request)
     {
+        $user = User::find($id);
 
+        if (Request::input('user_type') === 'Attendant') {
+            $role = 'attendant';
+            $successMessage = 'O usuário atendente foi adicionado com sucesso!';
+        } elseif (Request::input('user_type') === 'Stock_manager') {
+            $role = 'stock_manager';
+            $successMessage = 'O usuário gestor de estoque foi adicionado com sucesso!';
+        } elseif (Request::input('user_type') === 'Accountant') {
+            $role = 'accountant';
+            $successMessage = 'O usuário contabilista foi adicionado com sucesso!';
+        } else {
+            $role = null;
+        }
+
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'Surname' => $request->surname,
+            'user_type' => $request->user_type, 
+            'password' => Hash::make($request->password),
+        ]);
+
+        $user->addRole($role); 
+        Alert::success('Actualizado', $successMessage);
+    
+        return redirect()->back();
     }
     public function deleteUser($id)
     {
