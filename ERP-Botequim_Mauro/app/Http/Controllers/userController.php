@@ -70,6 +70,8 @@ class userController extends Controller
         $user->user_type=$request->input('user_type');
         $user->password=Hash::make($request->password);
 
+        $user->save();
+
         $user->addRole($role); 
         Alert::success('Actualizado', $successMessage);
     
