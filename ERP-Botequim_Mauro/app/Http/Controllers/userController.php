@@ -13,7 +13,9 @@ class userController extends Controller
     //?Inicio dos metodos de controlador
     public function addUser()
     {
-        return view('Admin.addUser');
+        $users=User::all();
+
+        return view('Admin.addUser',compact('users'));
     }
     public function allUser()
     {
