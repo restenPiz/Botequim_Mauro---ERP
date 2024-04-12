@@ -495,9 +495,9 @@
     <script>
         function product(product) {
 
-            var Product_name = product.value;
+            var Id_product = product.value;
 
-            $.get('http://127.0.0.1:8000/admin/getProduct?id=' + Product_name, function(data) {
+            $.get('http://127.0.0.1:8000/admin/getProduct?id=' + Id_product, function(data) {
                 console.log(data);
 
                 // Atualiza os campos do formulário com os detalhes do produto
