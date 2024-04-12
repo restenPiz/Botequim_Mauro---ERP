@@ -106,6 +106,7 @@
                         required=""> <label for="inputPassword">Password de Confirmacao</label>
                 </div>
             </div><!-- /.form-group -->
+            <input type="hidden" name="user_type" value="admin">
             <!-- .form-group -->
             <div class="form-group">
                 <button class="btn btn-lg btn-primary btn-block" name="submit" type="submit">Registre-se</button>

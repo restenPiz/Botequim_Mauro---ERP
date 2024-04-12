@@ -37,7 +37,7 @@
                                         {{--Inicio do input type select--}}
                                         <div class="form-group">
                                             <label>Tipo de Usuario</label>
-                                            <select class="form-control" name="User_type">
+                                            <select class="form-control" name="user_type">
                                                 <option >-- Selecione --</option>
                                                 <option value="Attendant">Atendente</option>
                                                 <option value="Stock_manager">Gestor de Stock</option>

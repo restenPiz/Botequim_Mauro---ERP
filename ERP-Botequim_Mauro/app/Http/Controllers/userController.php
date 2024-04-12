@@ -19,56 +19,31 @@ class userController extends Controller
     }
     public function storeUser(Request $request)
     {
-        // Verifica se o usuário está autenticado e tem a função 'admin'
-        if (Auth::check() && Auth::user()->hasRole('admin')) {
-            // Validação dos dados do formulário
-            $request->validate([
-                'name' => 'required|string|max:255',
-                'email' => 'required|string|email|max:255|unique:users',
-                'Surname' => 'required|string|max:255',
-                'user_Type' => 'required|string',
-                'password' => 'required|string|min:8',
-            ]);
-
-            // Criação do usuário
-            $user = User::create([
-                'name' => $request->name,
-                'email' => $request->email,
-                'Surname' => $request->surname,
-                'user_Type' => $request->input('user_Type'), // Corrigindo aqui
-                'password' => Hash::make($request->password),
-            ]);
-
-            // Atribuição da função (role) com base no tipo de usuário selecionado
-            switch ($request->input('User_type')) { // Corrigindo aqui
-                case 'Attendant':
-                    $role = 'attendant';
-                    $successMessage = 'O usuário atendente foi adicionado com sucesso!';
-                    break;
-                case 'Stock_manager':
-                    $role = 'stock_manager';
-                    $successMessage = 'O usuário gestor de estoque foi adicionado com sucesso!';
-                    break;
-                case 'Accountant':
-                    $role = 'accountant';
-                    $successMessage = 'O usuário contabilista foi adicionado com sucesso!';
-                    break;
-                default:
-                    $role = null;
-                    break;
-            }
-
-            if ($role) {
-                $user->attachRole($role); // Atribui a função (role) ao usuário
-                Alert::success('Adicionado', $successMessage);
-            } else {
-                Alert::error('Erro', 'Tipo de usuário inválido!');
-            }
-
-            return redirect()->back();
+        if ($request->input('user_type') === 'Attendant') {
+            $role = 'attendant';
+            $successMessage = 'O usuário atendente foi adicionado com sucesso!';
+        } elseif ($request->input('user_type') === 'Stock_manager') {
+            $role = 'stock_manager';
+            $successMessage = 'O usuário gestor de estoque foi adicionado com sucesso!';
+        } elseif ($request->input('user_type') === 'Accountant') {
+            $role = 'accountant';
+            $successMessage = 'O usuário contabilista foi adicionado com sucesso!';
         } else {
-            return redirect()->route('login')->with('error', 'Você não tem permissão para acessar esta funcionalidade!');
+            $role = null;
         }
+
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'Surname' => $request->surname,
+            'user_type' => $request->user_type, 
+            'password' => Hash::make($request->password),
+        ]);
+
+        $user->addRole($role); 
+        Alert::success('Adicionado', $successMessage);
+    
+        return redirect()->back();
     }
     public function updateUser($id)
     {
