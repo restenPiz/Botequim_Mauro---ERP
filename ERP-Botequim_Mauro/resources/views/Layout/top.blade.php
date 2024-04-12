@@ -435,6 +435,18 @@
                                     </li>
                                 </ul><!-- /child menu -->
                             </li>
+                            
+                            <li class="menu-header">Venda </li><!-- /.menu-header -->
+                            <li class="menu-item">
+                                <a href="index-2.html" class="menu-link"><span class="menu-icon fas fa-money-check"></span>
+                                    <span class="menu-text">Todas Vendas</span></a>
+                            </li><!-- /.menu-item -->
+                            
+                            <li class="menu-header">Relatorio </li><!-- /.menu-header -->
+                            <li class="menu-item">
+                                <a href="index-2.html" class="menu-link"><span class="menu-icon oi oi-bar-chart"></span>
+                                    <span class="menu-text">Relatorios</span></a>
+                            </li><!-- /.menu-item -->
                         </ul><!-- /.menu -->
                     </nav><!-- /.stacked-menu -->
                 </div><!-- /.aside-menu -->
@@ -556,8 +568,6 @@
             }
         });
     </script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="../assets/vendor/sortablejs/Sortable.min.js"></script> <!-- END PLUGINS JS -->
     <script src="../assets/vendor/jquery/jquery.min.js"></script>
     <script src="../assets/vendor/popper.js/umd/popper.min.js"></script>
