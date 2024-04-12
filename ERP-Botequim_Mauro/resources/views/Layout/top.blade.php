@@ -494,7 +494,6 @@
 
     <script>
         function prod(product) {
-
             var Id_product = product.value;
 
             $.get('http://127.0.0.1:8000/admin/getProduct?Id_product=' + Id_product, function(data) {
@@ -507,8 +506,8 @@
                 $('#A3').val(data.Entry_date);
                 $('#A4').val(data.Expiry_date);
             }); 
-            
         }
+
         function enableField() {
             // Habilita temporariamente os campos antes de enviar o formulário
             $('#A1').prop('disabled', false);
@@ -526,7 +525,7 @@
                 $('#A4').prop('disabled', true);
                 $('#A5').prop('disabled', true);
             }, 1000); // Ajuste o valor do tempo de espera conforme necessário
-            }
+        }
     </script>
 
     <script>
