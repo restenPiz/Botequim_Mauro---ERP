@@ -130,33 +130,33 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach ($stocks as $stock)
+                                                @foreach ($users as $user)
                                                     <tr>
-                                                        <td class="align-middle"> {{ $stock->product->Product_name }}</td>
-                                                        <td class="align-middle"> {{ $stock->Quantity }} </td>
+                                                        <td class="align-middle"> {{ $user->product->Product_name }}</td>
+                                                        <td class="align-middle"> {{ $user->Quantity }} </td>
                                                         <td class="align-middle"> 
-                                                            <span class="badge badge-subtle badge-success">{{$stock->Code}}</span>
+                                                            <span class="badge badge-subtle badge-success">{{$user->Code}}</span>
                                                         </td>
-                                                        <td class="align-middle"> {{ $stock->Price }} </td>
-                                                        <td class="align-middle"> {{ $stock->Entry_date }} </td>
-                                                        <td class="align-middle"> {{ $stock->Expiry_date }} </td>
+                                                        <td class="align-middle"> {{ $user->Price }} </td>
+                                                        <td class="align-middle"> {{ $user->Entry_date }} </td>
+                                                        <td class="align-middle"> {{ $user->Expiry_date }} </td>
                                                         <td class="align-middle text-right">
                                                             <button type="button" class="btn btn-sm btn-icon btn-secondary"
-                                                                data-toggle="modal" data-target="#clientNewModal{{ $stock->id }}"><i
+                                                                data-toggle="modal" data-target="#clientNewModal{{ $user->id }}"><i
                                                                     class="fa fa-pencil-alt"></i> <span
                                                                     class="sr-only">Edit</span></button> <button
                                                                 type="button" class="btn btn-sm btn-icon btn-secondary"><i
-                                                                    class="far fa-trash-alt" data-target="#deleteRecordModal{{ $stock->id }}" data-toggle="modal"></i> <span
+                                                                    class="far fa-trash-alt" data-target="#deleteRecordModal{{ $user->id }}" data-toggle="modal"></i> <span
                                                                     class="sr-only">Remove</span></button>
                                                         </td>
                                                     </tr>
 
                                                     {{--Inicio do modal de eliminar--}}
-                                                    <div class="modal fade zoomIn" id="deleteRecordModal{{ $stock->id }}"
+                                                    <div class="modal fade zoomIn" id="deleteRecordModal{{ $user->id }}"
                                                         tabindex="-1" aria-hidden="true">
                                                         <div class="modal-dialog modal-dialog-centered">
                                                             <div class="modal-content">
-                                                                <form action="{{route('deleteStock',['id'=>$stock->id])}}" method="get">
+                                                                <form action="{{route('deleteStock',['id'=>$user->id])}}" method="get">
                                                                     @csrf
                                                                     @method('DELETE')
                                                                     <div class="modal-body">
@@ -187,13 +187,13 @@
                                                     {{--Fim do modal de eliminar--}}
 
                                                     {{---Inicio do modal de editar--}}
-                                                    <div class="modal fade" id="clientNewModal{{ $stock->id }}"
+                                                    <div class="modal fade" id="clientNewModal{{ $user->id }}"
                                                         tabindex="-1" role="dialog" aria-labelledby="clientNewModalLabel"
                                                         aria-hidden="true">
                                                         <!-- .modal-dialog -->
                                                         <div class="modal-dialog" role="document">
                                                             <!-- .modal-content -->
-                                                            <form action="{{ route('updateStock', ['id' => $stock->id]) }}"
+                                                            <form action="{{ route('updateStock', ['id' => $user->id]) }}"
                                                                 method="post">
                                                                 @csrf
 
@@ -214,9 +214,9 @@
                                                                                 <div class="form-group">
                                                                                     <label>Nome de Producto</label>
                                                                                     <select class="form-control" name="Id_product" id="Id_product" onchange="prod(this);">
-                                                                                        <option value="{{$stock->Id_product}}">{{$stock->product->Product_name}}</option>
-                                                                                        @foreach ($products as $stocks)
-                                                                                            <option value="{{ $stocks->id }}">{{ $stocks->Product_name }}</option>
+                                                                                        <option value="{{$user->Id_product}}">{{$user->product->Product_name}}</option>
+                                                                                        @foreach ($products as $users)
+                                                                                            <option value="{{ $users->id }}">{{ $users->Product_name }}</option>
                                                                                         @endforeach
                                                                                     </select> 
                                                                                 </div>
@@ -225,7 +225,7 @@
                                                                                     <input type="text" 
                                                                                         class="form-control"
                                                                                         name="Quantity" id="quantity"
-                                                                                        placeholder="{{ $stock->Quantity }}" value="" disabled>
+                                                                                        placeholder="{{ $user->Quantity }}" value="" disabled>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="col-md-12">
@@ -234,7 +234,7 @@
                                                                                     <input type="text" id="price"
                                                                                         class="form-control"
                                                                                         name="Price" value=""
-                                                                                        placeholder="{{ $stock->Price }}" disabled>
+                                                                                        placeholder="{{ $user->Price }}" disabled>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="col-md-12">
@@ -243,14 +243,14 @@
                                                                                     <input type="date" id="entry_date"
                                                                                         class="form-control"
                                                                                         name="Entry_date" value=""
-                                                                                        placeholder="{{ $stock->Entry_date }}" disabled>
+                                                                                        placeholder="{{ $user->Entry_date }}" disabled>
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                     <label for="cnContactEmail">Data de Validade</label>
                                                                                     <input type="date" id="expiry_date"
                                                                                         class="form-control"
                                                                                         name="Expiry_date" value=""
-                                                                                        placeholder="{{ $stock->Expiry_date }}" disabled>
+                                                                                        placeholder="{{ $user->Expiry_date }}" disabled>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="col-md-12">
@@ -259,11 +259,11 @@
                                                                                     <input type="text" id="code"
                                                                                         class="form-control"
                                                                                         name="Code" value=""
-                                                                                        placeholder="{{ $stock->Code }}" disabled>
+                                                                                        placeholder="{{ $user->Code }}" disabled>
                                                                                 </div>
                                                                             </div>
                                                                             <input type="hidden" name="id"
-                                                                                value="{{ $stock->id }}">
+                                                                                value="{{ $user->id }}">
                                                                         </div><!-- /.form-row -->
 
                                                                     </div><!-- /.modal-body -->
