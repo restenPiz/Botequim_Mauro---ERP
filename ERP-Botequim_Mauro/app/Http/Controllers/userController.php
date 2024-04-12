@@ -51,13 +51,13 @@ class userController extends Controller
     {
         $user = User::find($id);
 
-        if (Request::input('user_type') === 'Attendant') {
+        if ($request->input('user_type') === 'Attendant') {
             $role = 'attendant';
             $successMessage = 'O usuário atendente foi adicionado com sucesso!';
-        } elseif (Request::input('user_type') === 'Stock_manager') {
+        } elseif ($request->input('user_type') === 'Stock_manager') {
             $role = 'stock_manager';
             $successMessage = 'O usuário gestor de estoque foi adicionado com sucesso!';
-        } elseif (Request::input('user_type') === 'Accountant') {
+        } elseif ($request->input('user_type') === 'Accountant') {
             $role = 'accountant';
             $successMessage = 'O usuário contabilista foi adicionado com sucesso!';
         } else {
