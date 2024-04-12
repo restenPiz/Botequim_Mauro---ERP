@@ -244,14 +244,14 @@
                                                                                         </div>
                                                                                         <div class="form-group">
                                                                                             <label for="cnContactEmail">Senha</label>
-                                                                                            <input type="text" id="cnContactName"
+                                                                                            <input type="password" id="cnContactName"
                                                                                                 class="form-control"
-                                                                                                name="password" 
+                                                                                                name="password"  
                                                                                                 value="{{$user->password}}">
                                                                                         </div>
                                                                                         <div class="form-group">
                                                                                             <label for="cnContactEmail">Senha de Confirmacao</label>
-                                                                                            <input type="text" id="cnContactName"
+                                                                                            <input type="password" id="cnContactName"
                                                                                                 class="form-control"
                                                                                                 name="password_confirmation" 
                                                                                                 value="{{$user->password_confirmation}}">
