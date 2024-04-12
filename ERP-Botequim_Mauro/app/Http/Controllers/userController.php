@@ -64,13 +64,11 @@ class userController extends Controller
             $role = null;
         }
 
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'Surname' => $request->surname,
-            'user_type' => $request->user_type, 
-            'password' => Hash::make($request->password),
-        ]);
+        $user->name=$request->input('name');
+        $user->email=$request->input('email');
+        $user->Surname=$request->input('Surname');
+        $user->user_type=$request->input('user_type');
+        $user->password=Hash::make($request->password);
 
         $user->addRole($role); 
         Alert::success('Actualizado', $successMessage);
