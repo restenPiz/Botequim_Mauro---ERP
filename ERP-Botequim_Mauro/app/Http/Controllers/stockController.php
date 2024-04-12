@@ -88,9 +88,6 @@ class stockController extends Controller
     }
     public function getProduct()
     {
-        // $input = Request::input('Product_name');
-
-        // $product = Product::where('Product_name', $input)->first();
         $input= Request::input('id');
 
         $product=Stock::where('id','=',$input)->first();
