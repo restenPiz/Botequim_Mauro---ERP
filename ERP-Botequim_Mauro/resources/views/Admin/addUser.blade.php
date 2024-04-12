@@ -244,17 +244,11 @@
                                                                                         </div>
                                                                                         <div class="form-group">
                                                                                             <label for="cnContactEmail">Senha</label>
-                                                                                            <input type="password" id="cnContactName"
-                                                                                                class="form-control"
-                                                                                                name="password"  
-                                                                                                value="{{$user->password}}">
+                                                                                            <input type="password" id="cnContactName" class="form-control" name="password">
                                                                                         </div>
                                                                                         <div class="form-group">
                                                                                             <label for="cnContactEmail">Senha de Confirmacao</label>
-                                                                                            <input type="password" id="cnContactName"
-                                                                                                class="form-control"
-                                                                                                name="password_confirmation" 
-                                                                                                value="{{$user->password_confirmation}}">
+                                                                                            <input type="password" id="cnContactName" class="form-control" name="password_confirmation">
                                                                                         </div>
                                                                                     </div>
                                                                                 </div><!-- /.form-row -->
