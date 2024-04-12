@@ -212,7 +212,7 @@
                                                                                     <input type="text" 
                                                                                         class="form-control"
                                                                                         name="Quantity" id="quantity"
-                                                                                        value="{{ $stock->Quantity }}" disabled>
+                                                                                        placeholder="{{ $stock->Quantity }}" value="" disabled>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="col-md-12">
@@ -220,8 +220,8 @@
                                                                                     <label for="cnContactName">Preco</label>
                                                                                     <input type="text" id="price"
                                                                                         class="form-control"
-                                                                                        name="Price" 
-                                                                                        value="{{ $stock->Price }}" disabled>
+                                                                                        name="Price" value=""
+                                                                                        placeholder="{{ $stock->Price }}" disabled>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="col-md-12">
@@ -229,15 +229,15 @@
                                                                                     <label for="cnContactEmail">Data do Entrada</label>
                                                                                     <input type="date" id="entry_date"
                                                                                         class="form-control"
-                                                                                        name="Entry_date"
-                                                                                        value="{{ $stock->Entry_date }}" disabled>
+                                                                                        name="Entry_date" value=""
+                                                                                        placeholder="{{ $stock->Entry_date }}" disabled>
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                     <label for="cnContactEmail">Data de Validade</label>
                                                                                     <input type="date" id="expiry_date"
                                                                                         class="form-control"
-                                                                                        name="Expiry_date"
-                                                                                        value="{{ $stock->Expiry_date }}" disabled>
+                                                                                        name="Expiry_date" value=""
+                                                                                        placeholder="{{ $stock->Expiry_date }}" disabled>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="col-md-12">
@@ -245,8 +245,8 @@
                                                                                     <label for="cnContactEmail">Codigo</label>
                                                                                     <input type="text" id="code"
                                                                                         class="form-control"
-                                                                                        name="Code"
-                                                                                        value="{{ $stock->Code }}" disabled>
+                                                                                        name="Code" value=""
+                                                                                        placeholder="{{ $stock->Code }}" disabled>
                                                                                 </div>
                                                                             </div>
                                                                             <input type="hidden" name="id"
