@@ -8,8 +8,9 @@
             <div class="page-section"></br>
                 <!-- grid row -->
                 <div class="row">
-                    <!-- grid column -->
-                    <div class="col-lg-12">
+
+                    {{--Inicio da parte de formulario de adicao de usuarios--}}
+                    <div class="col-lg-3">
                         <div class="col">
                             <!-- .card -->
                             <div class="card card-fluid">
@@ -21,16 +22,18 @@
                                         <!-- form row -->
                                         <div class="form-row">
                                             <!-- form column -->
-                                            <div class="col-md-6 mb-3">
+                                            <div class="col-md-12 mb-3">
                                                 <label for="input01">Nome</label> <input type="text"
                                                     class="form-control" id="input01" value="Beni" name="name" required="">
                                             </div><!-- /form column -->
+                                        </div><!-- /form row -->
+                                        <div class="form-row">
                                             <!-- form column -->
-                                            <div class="col-md-6 mb-3">
+                                            <div class="col-md-12 mb-3">
                                                 <label for="input02">Apelido</label> <input type="text"
                                                     class="form-control" id="input02" value="Arisandi" name="Surname" required="">
                                             </div><!-- /form column -->
-                                        </div><!-- /form row -->
+                                        </div>
                                         {{--Inicio do input type select--}}
                                         <div class="form-group">
                                             <label>Tipo de Usuario</label>
@@ -51,20 +54,29 @@
                                             <label for="input04">Senha</label> <input type="password"
                                                 class="form-control" id="input04" value="secret" name="password" required="">
                                         </div><!-- /.form-group -->
-                                        <hr>
+                                        
                                         <!-- .form-actions -->
-                                        <div class="form-actions">
-                                            
+                                        <div class="form-row">
                                             <!-- enable submit btn when user type their current password -->
                                             <input type="password" class="form-control mr-3" id="input06"
-                                                placeholder="Digite novamente a senha" name="password_confirmation" required=""> <button type="submit"
-                                               name="submit" class="btn btn-primary text-nowrap ml-auto">Adicionar Usuario</button>
+                                                placeholder="Digite novamente a senha" name="password_confirmation" required=""> 
                                         </div><!-- /.form-actions -->
+                                        <div class="form-actions">
+                                            <button type="submit"
+                                               name="submit" class="btn btn-primary ">Adicionar Usuario</button>
+                                        </div>
                                     </form><!-- /form -->
                                 </div><!-- /.card-body -->
                             </div><!-- /.card -->
                         </div>
                     </div>
+
+                    {{--Fim do formulario de adicao de usuarios--}}
+
+                    {{--Inicio da tabela de todos usuarios--}}
+
+                    {{--Fim da tabela de todos os usuarios--}}
+
                 </div>
             </div>
         </div>
