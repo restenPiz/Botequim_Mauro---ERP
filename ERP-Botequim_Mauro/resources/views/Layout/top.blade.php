@@ -556,33 +556,6 @@
             }
         });
     </script>
-    
-    <script>
-        // Função para adicionar o placeholder ao input de data se estiver vazio
-        function addDatePlaceholder(inputId, placeholderText) {
-            var input = document.getElementById(inputId);
-            if (!input.value) {
-                input.setAttribute('data-placeholder', placeholderText);
-                input.value = placeholderText;
-                input.classList.add('placeholder');
-            }
-        }
-    
-        // Adiciona os placeholders aos inputs de data
-        addDatePlaceholder('entry_date', '{{ $stock->Entry_date }}');
-        addDatePlaceholder('expiry_date', '{{ $stock->Expiry_date }}');
-    
-        // Remove o placeholder ao clicar no input
-        document.querySelectorAll('input[type="date"]').forEach(function(input) {
-            input.addEventListener('click', function() {
-                if (this.classList.contains('placeholder')) {
-                    this.value = '';
-                    this.classList.remove('placeholder');
-                }
-            });
-        });
-    </script>
-
     <script src="../assets/vendor/sortablejs/Sortable.min.js"></script> <!-- END PLUGINS JS -->
     <script src="../assets/vendor/jquery/jquery.min.js"></script>
     <script src="../assets/vendor/popper.js/umd/popper.min.js"></script>
