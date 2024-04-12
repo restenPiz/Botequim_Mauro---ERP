@@ -24,20 +24,21 @@
                                             <!-- form column -->
                                             <div class="col-md-12 mb-3">
                                                 <label for="input01">Nome</label> <input type="text"
-                                                    class="form-control" id="input01" value="Beni" name="name" required="">
+                                                    class="form-control" id="input01" placeholder="Digite o seu nome" name="name" required="">
                                             </div><!-- /form column -->
                                         </div><!-- /form row -->
                                         <div class="form-row">
                                             <!-- form column -->
                                             <div class="col-md-12 mb-3">
                                                 <label for="input02">Apelido</label> <input type="text"
-                                                    class="form-control" id="input02" value="Arisandi" name="Surname" required="">
+                                                    class="form-control" id="input02" placeholder="Digite o seu apelido" name="Surname" required="">
                                             </div><!-- /form column -->
                                         </div>
                                         {{--Inicio do input type select--}}
                                         <div class="form-group">
                                             <label>Tipo de Usuario</label>
                                             <select class="form-control" name="User_type">
+                                                <option >-- Selecione --</option>
                                                 <option value="Attendant">Atendente</option>
                                                 <option value="Stock_manager">Gestor de Stock</option>
                                                 <option value="Accountant">Contabilista</option>
@@ -47,18 +48,18 @@
                                         <!-- .form-group -->
                                         <div class="form-group">
                                             <label for="input03">Email</label> <input type="email" class="form-control"
-                                                id="input03" value="bent10@looper.com" name="email" required="">
+                                                id="input03" placeholder="Ex: contacto@mauropeniel.info" name="email" required="">
                                         </div><!-- /.form-group -->
                                         <!-- .form-group -->
                                         <div class="form-group">
                                             <label for="input04">Senha</label> <input type="password"
-                                                class="form-control" id="input04" value="secret" name="password" required="">
+                                                class="form-control" id="input04" placeholder="Digite a sua senha" name="password" required="">
                                         </div><!-- /.form-group -->
                                         
                                         <!-- .form-actions -->
                                         <div class="form-group">
                                             <label for="input04">Senha de Confirmacao</label> <input type="password"
-                                                class="form-control" id="input04" value="secret" name="password_confirmation" required="">
+                                                class="form-control" id="input04" placeholder="Digite novamente a sua senha" name="password_confirmation" required="">
                                         </div><!-- /.form-group -->
                                         <div class="form-actions">
                                             <button type="submit"
