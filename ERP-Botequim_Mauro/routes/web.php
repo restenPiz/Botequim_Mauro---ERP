@@ -28,9 +28,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function() {
 
     //?Inicio das rotas do usuario
     Route::get('/addUser', [userController::class, 'addUser'])->name('addUser');
-    Route::get('/allUser', [userController::class, 'allUser'])->name('allUser');
-    Route::get('/updateUser', [userController::class, 'updateUser'])->name('updateUser');
-    Route::get('/deleteUser', [userController::class, 'deleteUser'])->name('deleteUser');
+    Route::post('/updateUser/{id}', [userController::class, 'updateUser'])->name('updateUser');
+    Route::get('/deleteUser/{id}', [userController::class, 'deleteUser'])->name('deleteUser');
     Route::post('/storeUser', [userController::class, 'storeUser'])->name('storeUser');
 
     //?Inicio das rotas de evento
