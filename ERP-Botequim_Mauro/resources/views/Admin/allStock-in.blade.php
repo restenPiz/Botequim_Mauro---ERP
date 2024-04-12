@@ -211,14 +211,14 @@
                                                                                     <label for="cnContactName">Quantidade</label>
                                                                                     <input type="text" 
                                                                                         class="form-control"
-                                                                                        name="Quantity" id="A1"
+                                                                                        name="Quantity" id="quantity"
                                                                                         value="{{ $stock->Quantity }}" disabled>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="col-md-12">
                                                                                 <div class="form-group">
                                                                                     <label for="cnContactName">Preco</label>
-                                                                                    <input type="text" id="A2"
+                                                                                    <input type="text" id="price"
                                                                                         class="form-control"
                                                                                         name="Price" 
                                                                                         value="{{ $stock->Price }}" disabled>
@@ -227,14 +227,14 @@
                                                                             <div class="col-md-12">
                                                                                 <div class="form-group">
                                                                                     <label for="cnContactEmail">Data do Entrada</label>
-                                                                                    <input type="date" id="A3"
+                                                                                    <input type="date" id="entry_date"
                                                                                         class="form-control"
                                                                                         name="Entry_date"
                                                                                         value="{{ $stock->Entry_date }}" disabled>
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                     <label for="cnContactEmail">Data de Validade</label>
-                                                                                    <input type="date" id="A4"
+                                                                                    <input type="date" id="expiry_date"
                                                                                         class="form-control"
                                                                                         name="Expiry_date"
                                                                                         value="{{ $stock->Expiry_date }}" disabled>
@@ -243,7 +243,7 @@
                                                                             <div class="col-md-12">
                                                                                 <div class="form-group">
                                                                                     <label for="cnContactEmail">Codigo</label>
-                                                                                    <input type="text" id="A5"
+                                                                                    <input type="text" id="code"
                                                                                         class="form-control"
                                                                                         name="Code"
                                                                                         value="{{ $stock->Code }}" disabled>

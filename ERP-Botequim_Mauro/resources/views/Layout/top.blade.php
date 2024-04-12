@@ -500,30 +500,30 @@
                 console.log(data);
 
                 // Atualiza os campos do formulário com os detalhes do produto
-                $('#A1').val(data.Quantity);
-                $('#A2').val(data.Price);
-                $('#A5').val(data.Code);
-                $('#A3').val(data.Entry_date);
-                $('#A4').val(data.Expiry_date);
+                $('#quantity').val(data.Quantity);
+                $('#price').val(data.Price);
+                $('#code').val(data.Code);
+                $('#entry_date').val(data.Entry_date);
+                $('#expiry_date').val(data.Expiry_date);
             }); 
         }
 
         function enableField() {
             // Habilita temporariamente os campos antes de enviar o formulário
-            $('#A1').prop('disabled', false);
-            $('#A2').prop('disabled', false);
-            $('#A3').prop('disabled', false);
-            $('#A4').prop('disabled', false);
-            $('#A5').prop('disabled', false);
+            $('#quantity').prop('disabled', false);
+            $('#price').prop('disabled', false);
+            $('#code').prop('disabled', false);
+            $('#entry_date').prop('disabled', false);
+            $('#expiry_date').prop('disabled', false);
 
             // Adiciona um atraso para garantir que os campos sejam habilitados antes do envio do formulário
             setTimeout(function() {
                 // Desabilita os campos novamente
-                $('#A1').prop('disabled', true);
-                $('#A2').prop('disabled', true);
-                $('#A3').prop('disabled', true);
-                $('#A4').prop('disabled', true);
-                $('#A5').prop('disabled', true);
+                $('#quantity').prop('disabled', true);
+                $('#price').prop('disabled', true);
+                $('#code').prop('disabled', true);
+                $('#entry_date').prop('disabled', true);
+                $('#expiry_date').prop('disabled', true);
             }, 1000); // Ajuste o valor do tempo de espera conforme necessário
         }
     </script>
@@ -533,11 +533,11 @@
             var fieldsDisabled = localStorage.getItem('fieldsDisabled');
             if (fieldsDisabled) {
                 // Desabilita os campos
-                $('#A1').val(JSON.parse(fieldsDisabled).Quantity).prop('disabled', true);
-                $('#A5').val(JSON.parse(fieldsDisabled).Code).prop('disabled', true);
-                $('#A2').val(JSON.parse(fieldsDisabled).Price).prop('disabled', true);
-                $('#A4').val(JSON.parse(fieldsDisabled).Entry_date).prop('disabled', true);
-                $('#A5').val(JSON.parse(fieldsDisabled).Expiry_date).prop('disabled', true);
+                $('#quanity').val(JSON.parse(fieldsDisabled).Quantity).prop('disabled', true);
+                $('#price').val(JSON.parse(fieldsDisabled).Code).prop('disabled', true);
+                $('#code').val(JSON.parse(fieldsDisabled).Price).prop('disabled', true);
+                $('#entry_date').val(JSON.parse(fieldsDisabled).Entry_date).prop('disabled', true);
+                $('#expiry_date').val(JSON.parse(fieldsDisabled).Expiry_date).prop('disabled', true);
             }
         });
     </script>
