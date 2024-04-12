@@ -493,6 +493,7 @@
     </script>
 
     <script>
+        //Inicio da function que retornar os produtos em json
         function prod(product) {
             var Id_product = product.value;
 
