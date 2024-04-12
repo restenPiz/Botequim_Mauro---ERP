@@ -493,7 +493,7 @@
     </script>
 
     <script>
-        function producto(product) {
+        function product(product) {
 
             var Product_name = product.value;
 
