@@ -79,6 +79,12 @@ class userController extends Controller
     }
     public function deleteUser($id)
     {
-        
+        $user = User::find($id);
+
+        $user->delete();
+
+        Alert::success('Eliminado!','O usuario foi eliminado com sucesso!');
+
+        return back();
     }
 }
