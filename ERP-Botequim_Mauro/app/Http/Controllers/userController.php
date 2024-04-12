@@ -33,6 +33,7 @@ class userController extends Controller
             $role = null;
         }
 
+        //?Metodo de insercao
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
