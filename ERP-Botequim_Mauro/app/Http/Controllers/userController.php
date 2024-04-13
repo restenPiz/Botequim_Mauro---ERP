@@ -72,7 +72,6 @@ class userController extends Controller
 
         $user->save();
 
-        // $user->addRole($role); 
         Alert::success('Actualizado', $successMessage);
     
         return redirect()->back();
