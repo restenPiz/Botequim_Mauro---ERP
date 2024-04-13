@@ -28,15 +28,15 @@
                                             <!-- form column -->
                                             <div class="col-md-12 mb-3">
                                                 <label for="input02">Apelido</label> <input type="text"
-                                                class="form-control" placeholder="Codigo" id="input02" name="Surname" required="">
+                                                class="form-control" placeholder="Apelido" id="input02" name="Surname" required="">
                                             </div><!-- /form column -->
                                             <div class="col-md-12 mb-3">
                                                 <label for="input02">Idade</label> <input type="text"
-                                                class="form-control" placeholder="Codigo" id="input02" name="Age" required="">
+                                                class="form-control" placeholder="Idade" id="input02" name="Age" required="">
                                             </div><!-- /form column -->
                                             <div class="col-md-12 mb-3">
                                                 <label for="input02">Morada</label> <input type="text"
-                                                class="form-control" placeholder="Codigo" id="input02" name="Household" required="">
+                                                class="form-control" placeholder="Morada" id="input02" name="Household" required="">
                                             </div><!-- /form column -->
                                             <input type="hidden" name="client_type" value="debit">
                                         </div>
