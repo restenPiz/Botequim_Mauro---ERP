@@ -16,7 +16,7 @@
                                 <h6 class="card-header"> Adicionar Cliente </h6><!-- .card-body -->
                                 <div class="card-body">
                                     <!-- form -->
-                                    <form method="post" action="{{route('storeCategories')}}">
+                                    <form method="post" action="{{route('storeClient')}}">
                                         @csrf
                                         <!-- form row -->
                                         <div class="form-row">
@@ -49,6 +49,12 @@
                             </div><!-- /.card -->
                         </div>
                     </div>
+
+                    {{--Inicio da tabela de todos clientes--}}
+
+
+                    
+                    {{--Fim da tabela de todos clientes--}}
                 </div>
             </div>
         </div>
