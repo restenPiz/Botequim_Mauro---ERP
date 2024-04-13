@@ -158,7 +158,83 @@
                                                     {{--Fim do modal de eliminar--}}
 
                                                     {{--Inicio do modal de editar--}}
+                                                    <div class="modal fade" id="clientNewModal{{ $client->id }}"
+                                                        tabindex="-1" role="dialog" aria-labelledby="clientNewModalLabel"
+                                                        aria-hidden="true">
+                                                        <!-- .modal-dialog -->
+                                                        <div class="modal-dialog" role="document">
+                                                            <!-- .modal-content -->
+                                                            <form action="{{ route('updateClient', ['id' => $client->id]) }}"
+                                                                method="post">
+                                                                @csrf
 
+                                                                <div class="modal-content">
+                                                                    <!-- .modal-header -->
+                                                                    <div class="modal-header">
+                                                                        <h6 id="clientNewModalLabel"
+                                                                            class="modal-title inline-editable">
+                                                                            <span class="sr-only">Formulario de Actualizacao
+                                                                                de Clientes</span>
+                                                                        </h6>
+                                                                    </div><!-- /.modal-header -->
+                                                                    <!-- .modal-body -->
+                                                                    <div class="modal-body">
+                                                                        <!-- .form-row -->
+                                                                        <div class="form-row">
+                                                                            <div class="modal-body">
+                                                                                <!-- .form-row -->
+                                                                                <div class="form-row">
+                                                                                    <div class="col-md-12">
+                                                                                        <div class="form-group">
+                                                                                            <label for="cnContactName">Nome do Cliente</label>
+                                                                                            <input type="text" id="cnContactName"
+                                                                                                class="form-control"
+                                                                                                name="Name_client"
+                                                                                                value="{{$client->Name_client}}">
+                                                                                        </div>
+                                                                                        <div class="form-group">
+                                                                                            <label for="cnContactEmail">Apelido</label>
+                                                                                            <input type="text" id="cnContactName"
+                                                                                                class="form-control"
+                                                                                                name="Surname" 
+                                                                                                value="{{$client->Surname}}">
+                                                                                        </div>
+                                                                                        <div class="form-group">
+                                                                                            <label for="cnContactEmail">Idade</label>
+                                                                                            <input type="text" id="cnContactName"
+                                                                                                class="form-control"
+                                                                                                name="Age" 
+                                                                                                value="{{$client->Age}}">
+                                                                                        </div>
+                                                                                        <div class="form-group">
+                                                                                            <label for="cnContactEmail">Morada</label>
+                                                                                            <input type="text" id="cnContactName"
+                                                                                                class="form-control"
+                                                                                                name="Household" 
+                                                                                                value="{{$client->Household}}">
+                                                                                        </div>
+                                                                                        <input type="hidden" name="client_type" value="debit">
+                                                                                    </div>
+                                                                                </div><!-- /.form-row -->
+        
+                                                                            </div><!-- /.modal-body -->
+                                                                            <input type="hidden" name="id"
+                                                                                value="{{ $client->id }}">
+                                                                        </div><!-- /.form-row -->
+
+                                                                    </div><!-- /.modal-body -->
+                                                                    <!-- .modal-footer -->
+                                                                    <div class="modal-footer">
+                                                                        <button type="submit" name="submit"
+                                                                            class="btn btn-primary">Actualizar
+                                                                            Client</button>
+                                                                        <button type="button" class="btn btn-light"
+                                                                            data-dismiss="modal">Fechar</button>
+                                                                    </div><!-- /.modal-footer -->
+                                                                </div><!-- /.modal-content -->
+                                                            </form>
+                                                        </div><!-- /.modal-dialog -->
+                                                    </div>
                                                     {{--Fim do modal de editar--}}
 
                                                 @endforeach
