@@ -72,11 +72,12 @@ class userController extends Controller
 
         $user->save();
 
-        $user->addRole($role); 
+        // $user->addRole($role); 
         Alert::success('Actualizado', $successMessage);
     
         return redirect()->back();
     }
+    //?Inicio do metodo para eliminar os usuarios
     public function deleteUser($id)
     {
         $user = User::find($id);
