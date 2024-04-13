@@ -228,7 +228,7 @@
                                                                                         </div>
                                                                                         <div class="form-group">
                                                                                             <label>Tipo de Usuario</label>
-                                                                                            <select class="form-control" name="user_type">
+                                                                                            <select class="form-control" name="user_type" disabled>
                                                                                                 <option value="{{$user->user_type}}">{{$user->user_type}}</option>
                                                                                                 <option value="Attendant">Atendente</option>
                                                                                                 <option value="Stock_manager">Gestor de Stock</option>
