@@ -7,6 +7,7 @@ use App\Http\Controllers\userController;
 use App\Http\Controllers\eventController;
 use App\Http\Controllers\categoriesController;
 use App\Http\Controllers\stockController;
+use App\Http\Controllers\debitController;
 
 //*Inicio das rotas do sistema
 
@@ -61,6 +62,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function() {
     Route::get('/allProduct', [productController::class, 'allProduct'])->name('allProduct');
     Route::post('/updateProduct/{id}', [productController::class, 'updateProduct'])->name('updateProduct');
     Route::get('/deleteProduct/{id}', [productController::class, 'deleteProduct'])->name('deleteProduct');
+
+    //?Inicio das rotas da parte de dividas
 
 });
 //?Fim das rotas da parte de admin
