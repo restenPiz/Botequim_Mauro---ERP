@@ -60,6 +60,6 @@ class clientController extends Controller
     {
         $clients=Client::find($id);
 
-        return view('Admin.addDebit',compact('clients'));
+        return view('Admin.allDebit',compact('clients'));
     }
 }
