@@ -112,10 +112,9 @@
                                                         <td class="align-middle"> {{ $client->Age }} </td>
                                                         <td class="align-middle"> {{ $client->Household }} </td>
                                                         <td class="align-middle text-right">
-                                                            <button type="button" class="btn btn-sm btn-icon btn-secondary"
-                                                                data-toggle="modal" data-target="#clientNewModal{{ $client->id }}"><i
+                                                            <button type="button" class="btn btn-sm btn-icon btn-secondary"><i
                                                                     class="fa fa-eye"></i> <span
-                                                                    class="sr-only">Edit</span></button>
+                                                                    class="sr-only">Show</span><a href="{{route('showClient')}}"></a></button>
                                                             <button type="button" class="btn btn-sm btn-icon btn-secondary"
                                                                 data-toggle="modal" data-target="#clientNewModal{{ $client->id }}"><i
                                                                     class="fa fa-pencil-alt"></i> <span
