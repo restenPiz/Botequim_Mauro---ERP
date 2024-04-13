@@ -372,26 +372,11 @@
                                 <!-- child menu -->
                                 <ul class="menu">
                                     <li class="menu-item">
-                                        <a href="page-clients.html" class="menu-link">Adicionar Dividas</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="page-teams.html" class="menu-link">Verificar Dividas</a>
+                                        <a href="{{route('addClient')}}" class="menu-link">Verificar Dividas</a>
                                     </li>
                                 </ul><!-- /child menu -->
                             </li>
-                            <li class="menu-item has-child">
-                                <a href="#" class="menu-link"><span class="menu-icon far fa-file"></span> <span
-                                        class="menu-text">Pedidos</span> {{-- <span
-                                        class="badge badge-warning">New</span> --}}</a> <!-- child menu -->
-                                <ul class="menu">
-                                    <li class="menu-item">
-                                        <a href="page-clients.html" class="menu-link">Adicionar Pedido</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="page-teams.html" class="menu-link">Todos Pedidos</a>
-                                    </li>
-                                </ul><!-- /child menu -->
-                            </li>
+                            
                             <!-- .menu-header -->
                             <li class="menu-header">Stock </li><!-- /.menu-header -->
                             <!-- .menu-item -->
