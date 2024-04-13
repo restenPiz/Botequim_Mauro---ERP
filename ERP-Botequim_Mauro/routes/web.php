@@ -72,7 +72,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function() {
 
     //?Inicio das rotas da parte de clientes
     Route::post('/storeClient', [clientController::class, 'storeClient'])->name('storeClient');
-    Route::get('/allClient', [clientController::class, 'allClient'])->name('allClient');
+    Route::get('/allClient', [clientController::class, 'addClient'])->name('addClient');
     Route::post('/updateClient/{id}', [clientController::class, 'updateClient'])->name('updateClient');
     Route::get('/deleteClient/{id}', [clientController::class, 'deleteClient'])->name('deleteClient');    
 
