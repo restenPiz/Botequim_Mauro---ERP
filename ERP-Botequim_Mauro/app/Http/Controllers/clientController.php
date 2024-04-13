@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Client;
-use Illuminate\Http\Request;
+use Request;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class clientController extends Controller
@@ -13,6 +13,38 @@ class clientController extends Controller
         $clients=Client::all();
         
         return view("Admin.addClient",compact('clients'));
+    }
+    public function storeClient()
+    {
+        $client=new Client();
+
+        $client->Name_client=Request::input('Name_client');
+        $client->Surname=Request::input('Surname');
+        $client->Age=Request::input('Age');
+        $client->Household=Request::input('Household');
+        $client->client_type=Request::input('client_type');
+
+        $client->save();
+
+        Alert::success('Adicionado!','O cliente foi adicionado com sucesso!');
+
+        return back();
+    }
+    public function updateClient($id)
+    {
+        $client=Client::find($id);
+
+        $client->Name_client=Request::input('Name_client');
+        $client->Surname=Request::input('Surname');
+        $client->Age=Request::input('Age');
+        $client->Household=Request::input('Household');
+        $client->client_type=Request::input('client_type');
+
+        $client->save();
+
+        Alert::success('Actualizado!','O cliente foi actualizado com sucesso!');
+
+        return back();
     }
     public function deleteClient($id)
     {

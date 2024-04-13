@@ -227,7 +227,7 @@
                                                                     <div class="modal-footer">
                                                                         <button type="submit" name="submit"
                                                                             class="btn btn-primary">Actualizar
-                                                                            Client</button>
+                                                                            Cliente</button>
                                                                         <button type="button" class="btn btn-light"
                                                                             data-dismiss="modal">Fechar</button>
                                                                     </div><!-- /.modal-footer -->
