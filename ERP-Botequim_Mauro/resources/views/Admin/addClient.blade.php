@@ -107,11 +107,15 @@
                                             <tbody>
                                                 @foreach ($clients as $client)
                                                     <tr>
-                                                        <td class="align-middle"> {{ $client->Client_name }}</td>
+                                                        <td class="align-middle"> {{ $client->Name_client }}</td>
                                                         <td class="align-middle"> {{ $client->Surname }} </td>
                                                         <td class="align-middle"> {{ $client->Age }} </td>
                                                         <td class="align-middle"> {{ $client->Household }} </td>
                                                         <td class="align-middle text-right">
+                                                            <button type="button" class="btn btn-sm btn-icon btn-secondary"
+                                                                data-toggle="modal" data-target="#clientNewModal{{ $client->id }}"><i
+                                                                    class="fa fa-eye"></i> <span
+                                                                    class="sr-only">Edit</span></button>
                                                             <button type="button" class="btn btn-sm btn-icon btn-secondary"
                                                                 data-toggle="modal" data-target="#clientNewModal{{ $client->id }}"><i
                                                                     class="fa fa-pencil-alt"></i> <span
