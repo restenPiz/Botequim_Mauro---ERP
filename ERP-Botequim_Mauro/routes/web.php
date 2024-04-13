@@ -65,6 +65,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function() {
     Route::get('/deleteProduct/{id}', [productController::class, 'deleteProduct'])->name('deleteProduct');
 
     //?Inicio das rotas da parte de dividas
+    Route::post('/storeDebit', [debitController::class, 'storeDebit'])->name('storeDebit');
+    Route::get('/allDebit', [debitController::class, 'allDebit'])->name('allDebit');
+    Route::post('/updateDebit/{id}', [debitController::class, 'updateDebit'])->name('updateDebit');
+    Route::get('/deleteDebit/{id}', [debitController::class, 'deleteDebit'])->name('deleteDebit');
 
     //?Inicio das rotas da parte de clientes
 
