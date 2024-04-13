@@ -71,7 +71,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function() {
     Route::get('/deleteDebit/{id}', [debitController::class, 'deleteDebit'])->name('deleteDebit');
 
     //?Inicio das rotas da parte de clientes
-
+    Route::post('/storeClient', [clientController::class, 'storeClient'])->name('storeClient');
+    Route::get('/allClient', [clientController::class, 'allClient'])->name('allClient');
+    Route::post('/updateClient/{id}', [clientController::class, 'updateClient'])->name('updateClient');
+    Route::get('/deleteClient/{id}', [clientController::class, 'deleteClient'])->name('deleteClient');    
 
 });
 //?Fim das rotas da parte de admin
