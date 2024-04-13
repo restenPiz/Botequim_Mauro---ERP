@@ -56,4 +56,10 @@ class clientController extends Controller
 
         return back();
     }
+    public function showClient($id)
+    {
+        $clients=Client::find($id);
+
+        return view('Admin.addDebit',compact('clients'));
+    }
 }
