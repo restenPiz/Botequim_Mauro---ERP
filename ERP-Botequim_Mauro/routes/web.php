@@ -8,6 +8,7 @@ use App\Http\Controllers\eventController;
 use App\Http\Controllers\categoriesController;
 use App\Http\Controllers\stockController;
 use App\Http\Controllers\debitController;
+use App\Http\Controllers\clientController;
 
 //*Inicio das rotas do sistema
 
@@ -64,6 +65,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function() {
     Route::get('/deleteProduct/{id}', [productController::class, 'deleteProduct'])->name('deleteProduct');
 
     //?Inicio das rotas da parte de dividas
+
+    //?Inicio das rotas da parte de clientes
+
 
 });
 //?Fim das rotas da parte de admin
