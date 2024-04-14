@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Client;
+use Illuminate\Support\Facades\DB;
 use Request;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -58,8 +59,10 @@ class clientController extends Controller
     }
     public function showClient($id)
     {
-        $clients=Client::find($id);
-
-        return view('Admin.allDebit',compact('clients'));
+        $clients=DB::table('clients')
+            ->where('id',$id)
+            ->get();
+            
+        dd($clients);
     }
 }
