@@ -23,9 +23,10 @@ class Debit extends Model
     ];
 
     //*Inicio dos relacionamentos das chaves estrangeiras
-    public function clients()
+    
+    public function client()
     {
-        return $this->hasMany(Client::class);   
+        return $this->belongsTo(Client::class,'Id_client','id');
     }
     public function requests()
     {

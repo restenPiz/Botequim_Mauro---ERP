@@ -16,4 +16,8 @@ class Client extends Model
     protected $fillable =[
         'Name_client','Surname','Age','Household'
     ];
+    public function debit()
+    {
+        return $this->hasMany(Debit::class);   
+    }
 }
