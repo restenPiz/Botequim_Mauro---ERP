@@ -63,6 +63,6 @@ class clientController extends Controller
             ->where('id',$id)
             ->get();
             
-        dd($clients);
+        return view('Admin.allDebit',compact('clients'));
     }
 }

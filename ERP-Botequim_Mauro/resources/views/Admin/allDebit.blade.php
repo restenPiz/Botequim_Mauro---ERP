@@ -1,4 +1,4 @@
-@extends('Layout.top')
+@extends('Layout.topBar')
 @section('content')
     {{-- Inicio da parte contendo o conteudo dos usuarios --}}
     <main class="app-main">
@@ -13,17 +13,17 @@
                         <div class="col">
                             <!-- .card -->
                             <div class="card card-fluid">
-                                <h6 class="card-header"> Adicionar Cliente </h6><!-- .card-body -->
+                                <h6 class="card-header"> Adicionar Divida </h6><!-- .card-body -->
                                 <div class="card-body">
                                     <!-- form -->
-                                    <form method="post" action="{{route('storeClient')}}">
+                                    <form method="post" action="{{route('storeDebit')}}">
                                         @csrf
                                         <!-- form row -->
                                         <div class="form-row">
                                             <!-- form column -->
                                             <div class="col-md-12 mb-3">
                                                 <label for="input01">Nome do Cliente</label> <input type="text"
-                                                    class="form-control" id="input01" placeholder="Nome do Cliente" name="Name_client" required="">
+                                                    class="form-control" id="input01" placeholder="Nome do Cliente" name="Client_name" required="">
                                             </div><!-- /form column -->
                                             <!-- form column -->
                                             <div class="col-md-12 mb-3">
@@ -114,7 +114,7 @@
                                                         <td class="align-middle text-right">
                                                             <button type="button" class="btn btn-sm btn-icon btn-secondary"><i
                                                                     class="fa fa-eye"></i> <span
-                                                                    class="sr-only">Show</span><a href="{{route('showClient')}}"></a></button>
+                                                                    class="sr-only">Show</span><a href=""></a></button>
                                                             <button type="button" class="btn btn-sm btn-icon btn-secondary"
                                                                 data-toggle="modal" data-target="#clientNewModal{{ $client->id }}"><i
                                                                     class="fa fa-pencil-alt"></i> <span
