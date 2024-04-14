@@ -361,7 +361,7 @@
                         <ul class="menu">
                             <!-- .menu-item -->
                             <li class="menu-item has-active">
-                                <a href="index-2.html" class="menu-link"><span class="menu-icon fas fa-home"></span>
+                                <a href="{{route('dashboard')}}" class="menu-link"><span class="menu-icon fas fa-home"></span>
                                     <span class="menu-text">Inicio</span></a>
                             </li><!-- /.menu-item -->
                             <!-- .menu-item -->
@@ -376,7 +376,7 @@
                                 </ul><!-- /child menu -->
                             </li><!-- /.menu-item -->
                             <!-- .menu-item -->
-                             <li class="menu-item has-child">
+                            <li class="menu-item has-child">
                                 <a href="#" class="menu-link"><span class="menu-icon oi oi-browser"></span>
                                     <span class="menu-text">Evento</span> {{-- <span
                                         class="badge badge-warning">New</span> --}}</a> <!-- child menu -->
@@ -439,7 +439,18 @@
                                 </ul><!-- /child menu -->
                             </li>
                             
-                        </ul><!-- /.menu -->
+                            <li class="menu-header">Venda </li><!-- /.menu-header -->
+                            <li class="menu-item">
+                                <a href="index-2.html" class="menu-link"><span class="menu-icon fas fa-money-check"></span>
+                                    <span class="menu-text">Todas Vendas</span></a>
+                            </li><!-- /.menu-item -->
+                            
+                            <li class="menu-header">Relatorio </li><!-- /.menu-header -->
+                            <li class="menu-item">
+                                <a href="index-2.html" class="menu-link"><span class="menu-icon oi oi-bar-chart"></span>
+                                    <span class="menu-text">Relatorios</span></a>
+                            </li><!-- /.menu-item -->
+                        </ul><!-- /.menu --><!-- /.menu -->
                     </nav><!-- /.stacked-menu -->
                 </div><!-- /.aside-menu -->
                 <!-- Skin changer -->
