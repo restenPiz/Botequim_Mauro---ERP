@@ -11,7 +11,8 @@ class clientController extends Controller
 {
     public function addClient()
     {
-        $clients=Client::all();
+        $clients=DB::table('clients')
+            ->get();
         
         return view("Admin.addClient",compact('clients'));
     }
@@ -59,10 +60,8 @@ class clientController extends Controller
     }
     public function showClient($id)
     {
-        $clients=DB::table('clients')
-            ->where('id',$id)
-            ->get();
-            
-        return view('Admin.allDebit',compact('clients'));
+        return view('Admin.allDebit', [
+            'client' => Client::findOrFail($id)
+        ]);
     }
 }

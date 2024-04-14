@@ -112,7 +112,7 @@
                                                         <td class="align-middle"> {{ $client->Age }} </td>
                                                         <td class="align-middle"> {{ $client->Household }} </td>
                                                         <td class="align-middle text-right">
-                                                           <a class="btn btn-sm btn-icon btn-secondary" href="{{route('showClient',['id'=>$client->id])}}"><i
+                                                           <a class="btn btn-sm btn-icon btn-secondary" href="showClient/{{$client->id}}"><i
                                                             class="fa fa-eye"></i> <span
                                                             class="sr-only">Show</span></a>
                                                             <button type="button" class="btn btn-sm btn-icon btn-secondary"

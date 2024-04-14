@@ -23,7 +23,7 @@
                                             <!-- form column -->
                                             <div class="col-md-12 mb-3">
                                                 <label for="input01">Nome do Cliente</label> <input type="text"
-                                                    class="form-control" id="input01" placeholder="Nome do Cliente" name="Client_name" required="">
+                                                    class="form-control" id="input01" value="{{$client->Name_client}}" name="Client_name" required="">
                                             </div><!-- /form column -->
                                             <!-- form column -->
                                             <div class="col-md-12 mb-3">
@@ -105,32 +105,32 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach ($clients as $client)
+                                                @foreach ($client as $clients)
                                                     <tr>
-                                                        <td class="align-middle"> {{ $client->Name_client }}</td>
-                                                        <td class="align-middle"> {{ $client->Surname }} </td>
-                                                        <td class="align-middle"> {{ $client->Age }} </td>
-                                                        <td class="align-middle"> {{ $client->Household }} </td>
+                                                        <td class="align-middle"> {{ $clients->Name_client }}</td>
+                                                        <td class="align-middle"> {{ $clients->Surname }} </td>
+                                                        <td class="align-middle"> {{ $clients->Age }} </td>
+                                                        <td class="align-middle"> {{ $clients->Household }} </td>
                                                         <td class="align-middle text-right">
                                                             <button type="button" class="btn btn-sm btn-icon btn-secondary"><i
                                                                     class="fa fa-eye"></i> <span
                                                                     class="sr-only">Show</span><a href=""></a></button>
                                                             <button type="button" class="btn btn-sm btn-icon btn-secondary"
-                                                                data-toggle="modal" data-target="#clientNewModal{{ $client->id }}"><i
+                                                                data-toggle="modal" data-target="#clientNewModal{{ $clients->id }}"><i
                                                                     class="fa fa-pencil-alt"></i> <span
                                                                     class="sr-only">Edit</span></button> <button
                                                                 type="button" class="btn btn-sm btn-icon btn-secondary"><i
-                                                                    class="far fa-trash-alt" data-target="#deleteRecordModal{{ $client->id }}" data-toggle="modal"></i> <span
+                                                                    class="far fa-trash-alt" data-target="#deleteRecordModal{{ $clients->id }}" data-toggle="modal"></i> <span
                                                                     class="sr-only">Remove</span></button>
                                                         </td>
                                                     </tr>
 
                                                     {{--Inicio do modal de eliminar--}}
-                                                    <div class="modal fade zoomIn" id="deleteRecordModal{{ $client->id }}"
+                                                    <div class="modal fade zoomIn" id="deleteRecordModal{{ $clients->id }}"
                                                         tabindex="-1" aria-hidden="true">
                                                         <div class="modal-dialog modal-dialog-centered">
                                                             <div class="modal-content">
-                                                                <form action="{{route('deleteClient',['id'=>$client->id])}}" method="get">
+                                                                <form action="{{route('deleteClient',['id'=>$clients->id])}}" method="get">
                                                                     @csrf
                                                                     @method('DELETE')
                                                                     <div class="modal-body">
@@ -161,13 +161,13 @@
                                                     {{--Fim do modal de eliminar--}}
 
                                                     {{--Inicio do modal de editar--}}
-                                                    <div class="modal fade" id="clientNewModal{{ $client->id }}"
+                                                    <div class="modal fade" id="clientNewModal{{ $clients->id }}"
                                                         tabindex="-1" role="dialog" aria-labelledby="clientNewModalLabel"
                                                         aria-hidden="true">
                                                         <!-- .modal-dialog -->
                                                         <div class="modal-dialog" role="document">
                                                             <!-- .modal-content -->
-                                                            <form action="{{ route('updateClient', ['id' => $client->id]) }}"
+                                                            <form action="{{ route('updateClient', ['id' => $clients->id]) }}"
                                                                 method="post">
                                                                 @csrf
 
@@ -193,28 +193,28 @@
                                                                                             <input type="text" id="cnContactName"
                                                                                                 class="form-control"
                                                                                                 name="Name_client"
-                                                                                                value="{{$client->Name_client}}">
+                                                                                                value="{{$clients->Name_client}}">
                                                                                         </div>
                                                                                         <div class="form-group">
                                                                                             <label for="cnContactEmail">Apelido</label>
                                                                                             <input type="text" id="cnContactName"
                                                                                                 class="form-control"
                                                                                                 name="Surname" 
-                                                                                                value="{{$client->Surname}}">
+                                                                                                value="{{$clients->Surname}}">
                                                                                         </div>
                                                                                         <div class="form-group">
                                                                                             <label for="cnContactEmail">Idade</label>
                                                                                             <input type="text" id="cnContactName"
                                                                                                 class="form-control"
                                                                                                 name="Age" 
-                                                                                                value="{{$client->Age}}">
+                                                                                                value="{{$clients->Age}}">
                                                                                         </div>
                                                                                         <div class="form-group">
                                                                                             <label for="cnContactEmail">Morada</label>
                                                                                             <input type="text" id="cnContactName"
                                                                                                 class="form-control"
                                                                                                 name="Household" 
-                                                                                                value="{{$client->Household}}">
+                                                                                                value="{{$clients->Household}}">
                                                                                         </div>
                                                                                         <input type="hidden" name="client_type" value="debit">
                                                                                     </div>
@@ -222,7 +222,7 @@
         
                                                                             </div><!-- /.modal-body -->
                                                                             <input type="hidden" name="id"
-                                                                                value="{{ $client->id }}">
+                                                                                value="{{ $clients->id }}">
                                                                         </div><!-- /.form-row -->
 
                                                                     </div><!-- /.modal-body -->
