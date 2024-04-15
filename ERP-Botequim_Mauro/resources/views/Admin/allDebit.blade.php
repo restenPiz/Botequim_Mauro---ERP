@@ -47,7 +47,7 @@
                                             </div><!-- /form column -->
                                         </div>
                                         <button type="submit" name="submit"
-                                            class="btn btn-primary text-nowrap ml-auto">Adicionar Cliente</button>
+                                            class="btn btn-primary text-nowrap ml-auto">Adicionar Divida</button>
                                         <a href="{{ route('dashboard') }}" type="button" class="btn btn-light"
                                             data-dismiss="modal">Voltar</a>
                                     </form><!-- /form -->
