@@ -69,6 +69,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function() {
     Route::get('/allDebit', [debitController::class, 'allDebit'])->name('allDebit');
     Route::post('/updateDebit/{id}', [debitController::class, 'updateDebit'])->name('updateDebit');
     Route::get('/deleteDebit/{id}', [debitController::class, 'deleteDebit'])->name('deleteDebit');
+    Route::get('/getDebit', [debitController::class, 'getDebit'])->name('getDebit');
 
     //?Inicio das rotas da parte de clientes
     Route::post('/storeClient', [clientController::class, 'storeClient'])->name('storeClient');

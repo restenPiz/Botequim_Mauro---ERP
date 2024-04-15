@@ -491,34 +491,21 @@
         function prod(product) {
             var Id_product = product.value;
 
-            $.get('http://127.0.0.1:8000/admin/getProduct?Id_product=' + Id_product, function(data) {
+            $.get('http://127.0.0.1:8000/admin/getDebit?id=' + Id_product, function(data) {
                 console.log(data);
 
-                // Atualiza os campos do formulário com os detalhes do produto
-                $('#quantity').val(data.Quantity);
                 $('#price').val(data.Price);
-                $('#code').val(data.Code);
-                $('#entry_date').val(data.Entry_date);
-                $('#expiry_date').val(data.Expiry_date);
             }); 
         }
 
         function enableField() {
             // Habilita temporariamente os campos antes de enviar o formulário
-            $('#quantity').prop('disabled', false);
             $('#price').prop('disabled', false);
-            $('#code').prop('disabled', false);
-            $('#entry_date').prop('disabled', false);
-            $('#expiry_date').prop('disabled', false);
 
             // Adiciona um atraso para garantir que os campos sejam habilitados antes do envio do formulário
             setTimeout(function() {
                 // Desabilita os campos novamente
-                $('#quantity').prop('disabled', true);
                 $('#price').prop('disabled', true);
-                $('#code').prop('disabled', true);
-                $('#entry_date').prop('disabled', true);
-                $('#expiry_date').prop('disabled', true);
             }, 1000); // Ajuste o valor do tempo de espera conforme necessário
         }
     </script>
@@ -528,11 +515,7 @@
             var fieldsDisabled = localStorage.getItem('fieldsDisabled');
             if (fieldsDisabled) {
                 // Desabilita os campos
-                $('#quanity').val(JSON.parse(fieldsDisabled).Quantity).prop('disabled', true);
                 $('#price').val(JSON.parse(fieldsDisabled).Code).prop('disabled', true);
-                $('#code').val(JSON.parse(fieldsDisabled).Price).prop('disabled', true);
-                $('#entry_date').val(JSON.parse(fieldsDisabled).Entry_date).prop('disabled', true);
-                $('#expiry_date').val(JSON.parse(fieldsDisabled).Expiry_date).prop('disabled', true);
             }
         });
     </script>

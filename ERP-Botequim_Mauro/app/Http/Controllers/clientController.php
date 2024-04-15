@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Client;
+use App\Models\Product;
 use Illuminate\Support\Facades\DB;
 use Request;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -60,19 +61,11 @@ class clientController extends Controller
     }
     public function showClient($id)
     {
-        // return view('Admin.allDebit', [
-        //     'client' => Client::findOrFail($id)
-        // ]);
 
-        $client=Client::find($id);
+        $products=Product::all();
 
-        if($client)
-        {
-            return view('Admin.allDebit',compact('client'));
-        }
-        else
-        {
-            dd($client);
-        }
+        return view('Admin.allDebit', [
+            'client' => Client::findOrFail($id)
+        ],compact('products'));
     }
 }

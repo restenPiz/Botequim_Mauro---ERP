@@ -16,41 +16,47 @@
                                 <h6 class="card-header"> Adicionar Divida </h6><!-- .card-body -->
                                 <div class="card-body">
                                     <!-- form -->
-                                    <form method="post" action="{{route('storeDebit')}}">
+                                    <form method="post" action="{{ route('storeDebit') }}">
                                         @csrf
                                         <!-- form row -->
                                         <div class="form-row">
                                             <!-- form column -->
                                             <div class="col-md-12 mb-3">
                                                 <label for="input01">Nome do Cliente</label> <input type="text"
-                                                    class="form-control" id="input01" value="{{$client->Name_client}}" name="Client_name" required="">
-                                            </div><!-- /form column -->
-                                            <!-- form column -->
-                                            <div class="col-md-12 mb-3">
-                                                <label for="input02">Apelido</label> <input type="text"
-                                                class="form-control" placeholder="Apelido" id="input02" name="Surname" required="">
+                                                    class="form-control" id="input01" value="{{ $client->Name_client }} {{$client->Surname}}"
+                                                    name="Id_client" required="" disabled>
                                             </div><!-- /form column -->
                                             <div class="col-md-12 mb-3">
-                                                <label for="input02">Idade</label> <input type="text"
-                                                class="form-control" placeholder="Idade" id="input02" name="Age" required="">
+                                                <label for="input01">Nome do Producto</label> 
+                                                <select class="form-control" name="Id_product" id="Id_product" onchange="prod(this);">
+                                                    <option>--Selecione a Categoria --</option>
+                                                    @foreach ($products as $product)
+                                                    <option value="{{$product->id}}">{{$product->Product_name}}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                            <div class="col-md-12 mb-3">
+                                                <label for="input02">Preco do Producto</label> <input type="text"
+                                                    class="form-control" placeholder="Preco do Producto" id="price"
+                                                    name="Household" required="" value="" disabled>
                                             </div><!-- /form column -->
                                             <div class="col-md-12 mb-3">
-                                                <label for="input02">Morada</label> <input type="text"
-                                                class="form-control" placeholder="Morada" id="input02" name="Household" required="">
+                                                <label for="input02">Data de Pagamento</label> <input type="date"
+                                                    class="form-control" placeholder="Value" id="input02"
+                                                    name="Date_to_pay" required="">
                                             </div><!-- /form column -->
-                                            <input type="hidden" name="client_type" value="debit">
                                         </div>
-                                        <button type="submit"
-                                               name="submit" class="btn btn-primary text-nowrap ml-auto">Adicionar Cliente</button>
-                                        <a href="{{route('dashboard')}}" type="button" class="btn btn-light"
-                                                                            data-dismiss="modal">Voltar</a>
+                                        <button type="submit" name="submit"
+                                            class="btn btn-primary text-nowrap ml-auto">Adicionar Cliente</button>
+                                        <a href="{{ route('dashboard') }}" type="button" class="btn btn-light"
+                                            data-dismiss="modal">Voltar</a>
                                     </form><!-- /form -->
                                 </div><!-- /.card-body -->
                             </div><!-- /.card -->
                         </div>
                     </div>
 
-                    {{--Inicio da tabela de todos clientes--}}
+                    {{-- Inicio da tabela de todos clientes --}}
 
                     <div class="col-lg-8">
                         <div class="col">
@@ -105,142 +111,157 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach ($client as $clients)
-                                                    <tr>
-                                                        <td class="align-middle"> {{ $clients->Name_client }}</td>
-                                                        <td class="align-middle"> {{ $clients->Surname }} </td>
-                                                        <td class="align-middle"> {{ $clients->Age }} </td>
-                                                        <td class="align-middle"> {{ $clients->Household }} </td>
-                                                        <td class="align-middle text-right">
-                                                            <button type="button" class="btn btn-sm btn-icon btn-secondary"><i
-                                                                    class="fa fa-eye"></i> <span
-                                                                    class="sr-only">Show</span><a href=""></a></button>
-                                                            <button type="button" class="btn btn-sm btn-icon btn-secondary"
-                                                                data-toggle="modal" data-target="#clientNewModal{{ $clients->id }}"><i
-                                                                    class="fa fa-pencil-alt"></i> <span
-                                                                    class="sr-only">Edit</span></button> <button
-                                                                type="button" class="btn btn-sm btn-icon btn-secondary"><i
-                                                                    class="far fa-trash-alt" data-target="#deleteRecordModal{{ $clients->id }}" data-toggle="modal"></i> <span
-                                                                    class="sr-only">Remove</span></button>
-                                                        </td>
-                                                    </tr>
+                                                <tr>
+                                                    <td class="align-middle"> {{ $client->Name_client }}</td>
+                                                    <td class="align-middle"> {{ $client->Surname }} </td>
+                                                    <td class="align-middle"> {{ $client->Age }} </td>
+                                                    <td class="align-middle"> {{ $client->Household }} </td>
+                                                    <td class="align-middle text-right">
+                                                        <button type="button"
+                                                            class="btn btn-sm btn-icon btn-secondary"><i
+                                                                class="fa fa-eye"></i> <span class="sr-only">Show</span><a
+                                                                href=""></a></button>
+                                                        <button type="button" class="btn btn-sm btn-icon btn-secondary"
+                                                            data-toggle="modal"
+                                                            data-target="#clientNewModal{{ $client->id }}"><i
+                                                                class="fa fa-pencil-alt"></i> <span
+                                                                class="sr-only">Edit</span></button> <button
+                                                            type="button" class="btn btn-sm btn-icon btn-secondary"><i
+                                                                class="far fa-trash-alt"
+                                                                data-target="#deleteRecordModal{{ $client->id }}"
+                                                                data-toggle="modal"></i> <span
+                                                                class="sr-only">Remove</span></button>
+                                                    </td>
+                                                </tr>
 
-                                                    {{--Inicio do modal de eliminar--}}
-                                                    <div class="modal fade zoomIn" id="deleteRecordModal{{ $clients->id }}"
-                                                        tabindex="-1" aria-hidden="true">
-                                                        <div class="modal-dialog modal-dialog-centered">
-                                                            <div class="modal-content">
-                                                                <form action="{{route('deleteClient',['id'=>$clients->id])}}" method="get">
-                                                                    @csrf
-                                                                    @method('DELETE')
-                                                                    <div class="modal-body">
-                                                                        <div class="mt-2 text-center">
-                                                                            <lord-icon src="https://cdn.lordicon.com/gsqxdxog.json"
-                                                                                trigger="loop"
-                                                                                colors="primary:#f7b84b,secondary:#f06548"
-                                                                                style="width:100px;height:100px">
-                                                                            </lord-icon>
-                                                                            <div class="mt-4 pt-2 fs-15 mx-4 mx-sm-5">
-                                                                                <h4>Voce tem certeza ?</h4>
-                                                                                <p class="text-muted mx-4 mb-0">Voce pretende eliminar
-                                                                                 este Cliente ?</p>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="d-flex gap-2 justify-content-center mt-4 mb-2">
-                                                                            <button type="button" class="btn w-sm btn-light"
-                                                                                data-bs-dismiss="modal">Fechar</button>
-                                                                            <button type="submit" name="submit"
-                                                                                class="btn w-sm btn-danger " id="delete-record">Sim,
-                                                                                elimine!</button>
+                                                {{-- Inicio do modal de eliminar --}}
+                                                <div class="modal fade zoomIn" id="deleteRecordModal{{ $client->id }}"
+                                                    tabindex="-1" aria-hidden="true">
+                                                    <div class="modal-dialog modal-dialog-centered">
+                                                        <div class="modal-content">
+                                                            <form action="{{ route('deleteClient', ['id' => $client->id]) }}"
+                                                                method="get">
+                                                                @csrf
+                                                                @method('DELETE')
+                                                                <div class="modal-body">
+                                                                    <div class="mt-2 text-center">
+                                                                        <lord-icon
+                                                                            src="https://cdn.lordicon.com/gsqxdxog.json"
+                                                                            trigger="loop"
+                                                                            colors="primary:#f7b84b,secondary:#f06548"
+                                                                            style="width:100px;height:100px">
+                                                                        </lord-icon>
+                                                                        <div class="mt-4 pt-2 fs-15 mx-4 mx-sm-5">
+                                                                            <h4>Voce tem certeza ?</h4>
+                                                                            <p class="text-muted mx-4 mb-0">Voce pretende
+                                                                                eliminar
+                                                                                este Cliente ?</p>
                                                                         </div>
                                                                     </div>
-                                                                </form>
-                                                            </div>
+                                                                    <div
+                                                                        class="d-flex gap-2 justify-content-center mt-4 mb-2">
+                                                                        <button type="button" class="btn w-sm btn-light"
+                                                                            data-bs-dismiss="modal">Fechar</button>
+                                                                        <button type="submit" name="submit"
+                                                                            class="btn w-sm btn-danger "
+                                                                            id="delete-record">Sim,
+                                                                            elimine!</button>
+                                                                    </div>
+                                                                </div>
+                                                            </form>
                                                         </div>
                                                     </div>
-                                                    {{--Fim do modal de eliminar--}}
+                                                </div>
+                                                {{-- Fim do modal de eliminar --}}
 
-                                                    {{--Inicio do modal de editar--}}
-                                                    <div class="modal fade" id="clientNewModal{{ $clients->id }}"
-                                                        tabindex="-1" role="dialog" aria-labelledby="clientNewModalLabel"
-                                                        aria-hidden="true">
-                                                        <!-- .modal-dialog -->
-                                                        <div class="modal-dialog" role="document">
-                                                            <!-- .modal-content -->
-                                                            <form action="{{ route('updateClient', ['id' => $clients->id]) }}"
-                                                                method="post">
-                                                                @csrf
+                                                {{-- Inicio do modal de editar --}}
+                                                <div class="modal fade" id="clientNewModal{{ $client->id }}"
+                                                    tabindex="-1" role="dialog" aria-labelledby="clientNewModalLabel"
+                                                    aria-hidden="true">
+                                                    <!-- .modal-dialog -->
+                                                    <div class="modal-dialog" role="document">
+                                                        <!-- .modal-content -->
+                                                        <form action="{{ route('updateClient', ['id' => $client->id]) }}"
+                                                            method="post">
+                                                            @csrf
 
-                                                                <div class="modal-content">
-                                                                    <!-- .modal-header -->
-                                                                    <div class="modal-header">
-                                                                        <h6 id="clientNewModalLabel"
-                                                                            class="modal-title inline-editable">
-                                                                            <span class="sr-only">Formulario de Actualizacao
-                                                                                de Clientes</span>
-                                                                        </h6>
-                                                                    </div><!-- /.modal-header -->
-                                                                    <!-- .modal-body -->
-                                                                    <div class="modal-body">
-                                                                        <!-- .form-row -->
-                                                                        <div class="form-row">
-                                                                            <div class="modal-body">
-                                                                                <!-- .form-row -->
-                                                                                <div class="form-row">
-                                                                                    <div class="col-md-12">
-                                                                                        <div class="form-group">
-                                                                                            <label for="cnContactName">Nome do Cliente</label>
-                                                                                            <input type="text" id="cnContactName"
-                                                                                                class="form-control"
-                                                                                                name="Name_client"
-                                                                                                value="{{$clients->Name_client}}">
-                                                                                        </div>
-                                                                                        <div class="form-group">
-                                                                                            <label for="cnContactEmail">Apelido</label>
-                                                                                            <input type="text" id="cnContactName"
-                                                                                                class="form-control"
-                                                                                                name="Surname" 
-                                                                                                value="{{$clients->Surname}}">
-                                                                                        </div>
-                                                                                        <div class="form-group">
-                                                                                            <label for="cnContactEmail">Idade</label>
-                                                                                            <input type="text" id="cnContactName"
-                                                                                                class="form-control"
-                                                                                                name="Age" 
-                                                                                                value="{{$clients->Age}}">
-                                                                                        </div>
-                                                                                        <div class="form-group">
-                                                                                            <label for="cnContactEmail">Morada</label>
-                                                                                            <input type="text" id="cnContactName"
-                                                                                                class="form-control"
-                                                                                                name="Household" 
-                                                                                                value="{{$clients->Household}}">
-                                                                                        </div>
-                                                                                        <input type="hidden" name="client_type" value="debit">
+                                                            <div class="modal-content">
+                                                                <!-- .modal-header -->
+                                                                <div class="modal-header">
+                                                                    <h6 id="clientNewModalLabel"
+                                                                        class="modal-title inline-editable">
+                                                                        <span class="sr-only">Formulario de Actualizacao
+                                                                            de Clientes</span>
+                                                                    </h6>
+                                                                </div><!-- /.modal-header -->
+                                                                <!-- .modal-body -->
+                                                                <div class="modal-body">
+                                                                    <!-- .form-row -->
+                                                                    <div class="form-row">
+                                                                        <div class="modal-body">
+                                                                            <!-- .form-row -->
+                                                                            <div class="form-row">
+                                                                                <div class="col-md-12">
+                                                                                    <div class="form-group">
+                                                                                        <label for="cnContactName">Nome do
+                                                                                            Cliente</label>
+                                                                                        <input type="text"
+                                                                                            id="cnContactName"
+                                                                                            class="form-control"
+                                                                                            name="Name_client"
+                                                                                            value="{{ $client->Name_client }}">
                                                                                     </div>
-                                                                                </div><!-- /.form-row -->
-        
-                                                                            </div><!-- /.modal-body -->
-                                                                            <input type="hidden" name="id"
-                                                                                value="{{ $clients->id }}">
-                                                                        </div><!-- /.form-row -->
+                                                                                    <div class="form-group">
+                                                                                        <label
+                                                                                            for="cnContactEmail">Apelido</label>
+                                                                                        <input type="text"
+                                                                                            id="cnContactName"
+                                                                                            class="form-control"
+                                                                                            name="Surname"
+                                                                                            value="{{ $client->Surname }}">
+                                                                                    </div>
+                                                                                    <div class="form-group">
+                                                                                        <label
+                                                                                            for="cnContactEmail">Idade</label>
+                                                                                        <input type="text"
+                                                                                            id="cnContactName"
+                                                                                            class="form-control"
+                                                                                            name="Age"
+                                                                                            value="{{ $client->Age }}">
+                                                                                    </div>
+                                                                                    <div class="form-group">
+                                                                                        <label
+                                                                                            for="cnContactEmail">Morada</label>
+                                                                                        <input type="text"
+                                                                                            id="cnContactName"
+                                                                                            class="form-control"
+                                                                                            name="Household"
+                                                                                            value="{{ $client->Household }}">
+                                                                                    </div>
+                                                                                    <input type="hidden"
+                                                                                        name="client_type" value="debit">
+                                                                                </div>
+                                                                            </div><!-- /.form-row -->
 
-                                                                    </div><!-- /.modal-body -->
-                                                                    <!-- .modal-footer -->
-                                                                    <div class="modal-footer">
-                                                                        <button type="submit" name="submit"
-                                                                            class="btn btn-primary">Actualizar
-                                                                            Cliente</button>
-                                                                        <button type="button" class="btn btn-light"
-                                                                            data-dismiss="modal">Fechar</button>
-                                                                    </div><!-- /.modal-footer -->
-                                                                </div><!-- /.modal-content -->
-                                                            </form>
-                                                        </div><!-- /.modal-dialog -->
-                                                    </div>
-                                                    {{--Fim do modal de editar--}}
+                                                                        </div><!-- /.modal-body -->
+                                                                        <input type="hidden" name="id"
+                                                                            value="{{ $client->id }}">
+                                                                    </div><!-- /.form-row -->
 
-                                                @endforeach
+                                                                </div><!-- /.modal-body -->
+                                                                <!-- .modal-footer -->
+                                                                <div class="modal-footer">
+                                                                    <button type="submit" name="submit"
+                                                                        class="btn btn-primary">Actualizar
+                                                                        Cliente</button>
+                                                                    <button type="button" class="btn btn-light"
+                                                                        data-dismiss="modal">Fechar</button>
+                                                                </div><!-- /.modal-footer -->
+                                                            </div><!-- /.modal-content -->
+                                                        </form>
+                                                    </div><!-- /.modal-dialog -->
+                                                </div>
+                                                {{-- Fim do modal de editar --}}
                                             </tbody>
                                         </table>
                                     </div>
@@ -248,9 +269,9 @@
                             </div>
                         </div>
                     </div>
-                
 
-                    {{--Fim da tabela de todos clientes--}}
+
+                    {{-- Fim da tabela de todos clientes --}}
                 </div>
             </div>
         </div>
