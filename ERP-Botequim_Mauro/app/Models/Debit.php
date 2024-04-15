@@ -19,7 +19,7 @@ class Debit extends Model
         'Date_to_pay',
         'Description',
         'Id_client',
-        'Id_request',
+        'Id_product',
     ];
 
     //*Inicio dos relacionamentos das chaves estrangeiras

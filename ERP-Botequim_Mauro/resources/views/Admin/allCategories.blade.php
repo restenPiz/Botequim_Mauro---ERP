@@ -9,7 +9,7 @@
                 <!-- grid row -->
                 <div class="row">
                     <!-- grid column -->
-                    <div class="col-lg-6">
+                    <div class="col-lg-8">
                         <div class="col">
 
                             {{-- Inicio da tabela de todos eventos --}}
@@ -29,25 +29,6 @@
                                 <!-- title and toolbar -->
                                 <div class="d-md-flex align-items-md-start">
                                     <h1 class="page-title mr-sm-auto"> Todas Categorias </h1><!-- .btn-toolbar -->
-                                    {{--<div class="btn-toolbar">
-                                        <button type="button" class="btn btn-light"><i
-                                                class="oi oi-data-transfer-download"></i> <span
-                                                class="ml-1" data-target="#clientNew" data-toggle="modal">Exportar</span></button> <button type="button"
-                                            class="btn btn-light"><i class="oi oi-data-transfer-upload"></i> <span
-                                                class="ml-1">Importar</span></button>
-                                        <div class="dropdown">
-                                            <button type="button" class="btn btn-light"
-                                                data-toggle="dropdown"><span>Mais</span> <span
-                                                    class="fa fa-caret-down"></span></button>
-                                            <div class="dropdown-menu dropdown-menu-right">
-                                                <div class="dropdown-arrow"></div><a href="#"
-                                                    class="dropdown-item" data-target="#clientNew" data-toggle="modal">Add tasks</a> <a href="#"
-                                                    class="dropdown-item">Invite members</a>
-                                                <div class="dropdown-divider"></div><a href="#"
-                                                    class="dropdown-item">Share</a> 
-                                            </div>
-                                        </div>
-                                    </div>--}}
                                 </div><!-- /title and toolbar -->
                             </header><!-- /.page-title-bar -->
                             <!-- .page-section -->
@@ -107,7 +88,7 @@
                                                                     <div class="modal-body">
                                                                         <!-- .form-row -->
                                                                         <div class="form-row">
-                                                                            <div class="col-md-6">
+                                                                            <div class="col-md-12">
                                                                                 <div class="form-group">
                                                                                     <label for="cnContactName">Nome da Categoria</label>
                                                                                     <input type="text" id="cnContactName"
@@ -203,7 +184,7 @@
                                                                             <div class="modal-body">
                                                                                 <!-- .form-row -->
                                                                                 <div class="form-row">
-                                                                                    <div class="col-md-6">
+                                                                                    <div class="col-md-12">
                                                                                         <div class="form-group">
                                                                                             <label for="cnContactName">Nome da Categoria</label>
                                                                                             <input type="text" id="cnContactName"
@@ -231,7 +212,7 @@
                                                                     <div class="modal-footer">
                                                                         <button type="submit" name="submit"
                                                                             class="btn btn-primary">Actualizar
-                                                                            Category</button>
+                                                                            Categoria</button>
                                                                         <button type="button" class="btn btn-light"
                                                                             data-dismiss="modal">Fechar</button>
                                                                     </div><!-- /.modal-footer -->
@@ -263,7 +244,7 @@
 
                     {{--Inicio da seccao do formulario de adicao de categorias--}}
                     
-                    <div class="col-lg-6"><br><br><br><br><br>
+                    <div class="col-lg-4"><br><br><br><br><br>
                         <div class="col">
                             <!-- .card -->
                             <div class="card card-fluid">
@@ -275,12 +256,12 @@
                                         <!-- form row -->
                                         <div class="form-row">
                                             <!-- form column -->
-                                            <div class="col-md-6 mb-3">
+                                            <div class="col-md-12 mb-3">
                                                 <label for="input01">Nome da Categoria</label> <input type="text"
                                                     class="form-control" id="input01" placeholder="Nome da Categoria" name="Category_name" required="">
                                             </div><!-- /form column -->
                                             <!-- form column -->
-                                            <div class="col-md-6 mb-3">
+                                            <div class="col-md-12 mb-3">
                                                 <label for="input02">Codigo</label> <input type="text"
                                                 class="form-control" placeholder="Codigo" id="input02" name="Code" required="">
                                             </div><!-- /form column -->
