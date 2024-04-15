@@ -32,9 +32,4 @@ class Debit extends Model
     {
         return $this->hasMany(Request::class);   
     }
-    //*Metodo responsavel por encontrar o nome da categoria
-    public function name($id)
-    {
-        return Client::find($id)->Name_client;
-    }
 }

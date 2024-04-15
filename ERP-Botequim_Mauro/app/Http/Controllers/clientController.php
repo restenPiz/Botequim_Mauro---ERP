@@ -60,12 +60,8 @@ class clientController extends Controller
     }
     public function showClient($id)
     {
-        $client=Client::all();
-
-        return view('Admin.allDebit',compact('client'));
-    //     return view('Admin.allDebit', [
-    //         'client' => Client::findOrFail($id)
-    //     ]);
-    // 
+        return view('Admin.allDebit', [
+            'client' => Client::findOrFail($id)
+        ]);
     }
 }

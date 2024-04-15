@@ -14,7 +14,7 @@ class Client extends Model
 
     //*Inicio das colunas da tabela cliente
     protected $fillable =[
-        'Name_client','Surname','Age','Household'
+        'Name_client','Surname','Age','Household','client_type'
     ];
     public function debit()
     {
