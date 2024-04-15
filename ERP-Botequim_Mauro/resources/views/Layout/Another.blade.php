@@ -491,14 +491,14 @@
         function prod(product) {
             var Id_product = product.value;
 
-            $.get('http://127.0.0.1:8000/admin/getDebit?id=' + Id_product, function(data) {
+            $.get('http://127.0.0.1:8000/admin/getDebit?Id_product=' + Id_product, function(data) {
                 console.log(data);
 
                 $('#price').val(data.Price);
             }); 
         }
 
-        function enableField() {
+        function enableField() {    
             $('#price').prop('disabled', false);
 
             setTimeout(function() {

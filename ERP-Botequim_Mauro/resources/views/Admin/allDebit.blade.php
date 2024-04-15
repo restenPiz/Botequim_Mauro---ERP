@@ -29,7 +29,7 @@
                                             <div class="col-md-12 mb-3">
                                                 <label for="input01">Nome do Producto</label> 
                                                 <select class="form-control" name="Id_product" id="Id_product" onchange="prod(this);">
-                                                    <option>--Selecione a Categoria --</option>
+                                                    <option>--Selecione o Producto --</option>
                                                     @foreach ($products as $product)
                                                     <option value="{{$product->id}}">{{$product->Product_name}}</option>
                                                     @endforeach
