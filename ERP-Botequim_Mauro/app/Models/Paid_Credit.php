@@ -16,9 +16,9 @@ class Paid_Credit extends Model
     ];
 
     //*Inicio dos links de chave estrangeira
-    public function clients()
+    public function client()
     {
-        return $this->hasMany(Client::class);   
+        return $this->belongsTo(Client::class,'Id_client','id');
     }
     public function name($id)
     {

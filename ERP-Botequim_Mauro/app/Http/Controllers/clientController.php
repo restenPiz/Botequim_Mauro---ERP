@@ -68,7 +68,7 @@ class clientController extends Controller
 
         if($client)
         {
-            return view('Admin.allDebit',['client'=>$client]);
+            return view('Admin.allDebit',compact('client'));
         }
         else
         {

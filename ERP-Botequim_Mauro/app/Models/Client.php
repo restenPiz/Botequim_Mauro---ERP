@@ -20,4 +20,12 @@ class Client extends Model
     {
         return $this->hasMany(Debit::class);   
     }
+    public function paid_credit()
+    {
+        return $this->hasMany(Paid_Credit::class);   
+    }
+    public function request()
+    {
+        return $this->hasMany(Request::class);   
+    }
 }
