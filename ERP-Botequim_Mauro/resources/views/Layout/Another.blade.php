@@ -499,14 +499,11 @@
         }
 
         function enableField() {
-            // Habilita temporariamente os campos antes de enviar o formulário
             $('#price').prop('disabled', false);
 
-            // Adiciona um atraso para garantir que os campos sejam habilitados antes do envio do formulário
             setTimeout(function() {
-                // Desabilita os campos novamente
                 $('#price').prop('disabled', true);
-            }, 1000); // Ajuste o valor do tempo de espera conforme necessário
+            }, 1000); 
         }
     </script>
 
