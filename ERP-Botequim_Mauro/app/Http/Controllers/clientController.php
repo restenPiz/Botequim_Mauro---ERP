@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Client;
+use App\Models\Debit;
 use App\Models\Product;
 use Illuminate\Support\Facades\DB;
 use Request;
@@ -61,11 +62,11 @@ class clientController extends Controller
     }
     public function showClient($id)
     {
-
         $products=Product::all();
+        $debits=Debit::all();
 
         return view('Admin.allDebit', [
             'client' => Client::findOrFail($id)
-        ],compact('products'));
+        ],compact('products','debits'));
     }
 }

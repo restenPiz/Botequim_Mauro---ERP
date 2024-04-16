@@ -54,11 +54,11 @@
                                         <table class="table table-striped" style="min-width: 678px">
                                             <thead>
                                                 <tr>
-                                                    <th>#</th>
                                                     <th> Nome do Producto </th>
                                                     <th> Quantidade </th>
                                                     <th> Codigo </th>
                                                     <th> Preco </th>
+                                                    <th> Preco de Venda </th>
                                                     <th> Data de Entrada </th>
                                                     <th> Data de Validade </th>
                                                     <th> Categoria </th>
@@ -68,13 +68,13 @@
                                             <tbody>
                                                 @foreach ($products as $product)
                                                     <tr>
-                                                        <td class="align-middle"> {{ $product->id }} </td>
                                                         <td class="align-middle"> {{ $product->Product_name }} </td>
                                                         <td class="align-middle"> {{ $product->Quantity }} </td>
                                                         <td class="align-middle"> 
                                                             <span class="badge badge-subtle badge-success">{{$product->Code}}</span>
                                                         </td>
                                                         <td class="align-middle"> {{ $product->Price }} </td>
+                                                        <td class="align-middle"> {{ $product->Sale_price }} </td>
                                                         <td class="align-middle"> {{ $product->Entry_date }} </td>
                                                         <td class="align-middle"> {{ $product->Expiry_date }} </td>
                                                         <td class="align-middle"> 

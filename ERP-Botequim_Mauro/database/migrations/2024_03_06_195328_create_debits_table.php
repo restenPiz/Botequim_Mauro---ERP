@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('debits', function (Blueprint $table) {
             $table->id();
-            $table->string('Value');
+            $table->string('Price');
             $table->string('Date_to_pay');
             $table->timestamps();
         });

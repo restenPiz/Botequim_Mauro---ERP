@@ -12,12 +12,8 @@ class Debit extends Model
     protected $table = 'debits';
 
     protected $fillable = [
-        'Client_name',
-        'Surname',
-        'Value',
-        'Bi_number',
+        'Price',
         'Date_to_pay',
-        'Description',
         'Id_client',
         'Id_product',
     ];
@@ -28,8 +24,8 @@ class Debit extends Model
     {
         return $this->belongsTo(Client::class,'Id_client','id');
     }
-    public function requests()
+    public function product()
     {
-        return $this->hasMany(Request::class);   
+        return $this->belongsTo(Product::class,'Id_product','id');
     }
 }

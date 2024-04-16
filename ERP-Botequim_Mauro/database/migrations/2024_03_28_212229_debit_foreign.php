@@ -11,9 +11,6 @@ return new class extends Migration
         Schema::table('debits', function (Blueprint $table) {
             $table->unsignedBigInteger('Id_client')->unsigned();
             $table->foreign('Id_client')->references('id')->on('clients');
-
-            $table->unsignedBigInteger('Id_request')->unsigned();
-            $table->foreign('Id_request')->references('id')->on('requests');
         });
     }
 

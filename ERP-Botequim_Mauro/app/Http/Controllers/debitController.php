@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Debit;
 use App\Models\Product;
+use RealRashid\SweetAlert\Facades\Alert;
 use Request;
 
 class debitController extends Controller
@@ -20,5 +22,51 @@ class debitController extends Controller
             // Retorna uma resposta indicando que o produto não foi encontrado
             return response()->json(['error' => 'Produto não encontrado'], 404);
         }
+    }
+    public function storeDebit()
+    {
+        $debit=new Debit();
+
+        $debit->Price=Request::input('Price');
+        $debit->Id_product=Request::input('Id_product');
+        $debit->Id_client=Request::input('Id_client');
+        $debit->Date_to_pay=Request::input('Date_to_pay');
+
+        $debit->save();
+
+        Alert::success('Adicionado!','A sua divida foi adicionada com sucesso!');
+
+        return back();
+    }
+    public function updateDebit($id)
+    {
+        $debit=Debit::findOrFail($id);
+
+        $debit->Value=Request::input('Value');
+        $debit->Id_product=Request::input('Id_product');
+        $debit->Id_client=Request::input('Id_client');
+        $debit->Date_to_pay=Request::input('Date_to_pay');
+
+        $debit->save();
+
+        Alert::success('Adicionado!','A sua divida foi adicionada com sucesso!');
+
+        return back();
+    }
+    public function deleteDebit($id)
+    {
+        $debit=Debit::findOrFail($id);
+
+        $debit->save();
+
+        Alert::success('Eliminado!','A sua divida foi eliminada com sucesso!');
+
+        return back();
+    }
+    public function allDebit()
+    {
+        $debits=Debit::all();
+
+        return view('Admin.allDebit',compact('debits'));
     }
 }

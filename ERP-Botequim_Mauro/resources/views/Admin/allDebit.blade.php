@@ -23,7 +23,7 @@
                                             <!-- form column -->
                                             <div class="col-md-12 mb-3">
                                                 <label for="input01">Nome do Cliente</label> <input type="text"
-                                                    class="form-control" id="input01" value="{{ $client->Name_client }} {{$client->Surname}}"
+                                                    class="form-control" id="input01" placeholder="{{ $client->Name_client }} {{$client->Surname}}"
                                                     name="Id_client" required="" disabled>
                                             </div><!-- /form column -->
                                             <div class="col-md-12 mb-3">
@@ -38,7 +38,7 @@
                                             <div class="col-md-12 mb-3">
                                                 <label for="input02">Preco do Producto</label> <input type="text"
                                                     class="form-control" placeholder="Preco do Producto" id="price"
-                                                    name="Household" required="" value="" disabled>
+                                                    name="Price" value="" disabled>
                                             </div><!-- /form column -->
                                             <div class="col-md-12 mb-3">
                                                 <label for="input02">Data de Pagamento</label> <input type="date"
@@ -48,7 +48,7 @@
                                         </div>
                                         <button type="submit" name="submit"
                                             class="btn btn-primary text-nowrap ml-auto">Adicionar Divida</button>
-                                        <a href="{{ route('allClient') }}" type="button" class="btn btn-light"
+                                        <a href="{{ route('addClient') }}" type="button" class="btn btn-light"
                                             data-dismiss="modal">Voltar</a>
                                     </form><!-- /form -->
                                 </div><!-- /.card-body -->
@@ -68,7 +68,7 @@
                                         class="fa fa-plus"></span></button> <!-- /floating action -->
                                 <!-- title and toolbar -->
                                 <div class="d-md-flex align-items-md-start">
-                                    <h1 class="page-title mr-sm-auto"> Todos Clientes </h1><!-- .btn-toolbar -->
+                                    <h1 class="page-title mr-sm-auto"> Todas Dividas de {{$client->Name_client}} {{$client->Surname}} </h1><!-- .btn-toolbar -->
                                     <div class="btn-toolbar">
                                         <button type="button" class="btn btn-light"><i
                                                 class="oi oi-data-transfer-download"></i> <span
@@ -103,19 +103,18 @@
                                         <table class="table table-striped" style="min-width: 678px">
                                             <thead>
                                                 <tr>
-                                                    <th> Nome do Cliente </th>
-                                                    <th> Apelido </th>
-                                                    <th> Idade </th>
-                                                    <th> Morada </th>
+                                                    <th> Nome de Producto </th>
+                                                    <th> Preco </th>
+                                                    <th> Data de Pagamento </th>
                                                     <th></th>
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                @foreach ($debits as $debit)
                                                 <tr>
-                                                    <td class="align-middle"> {{ $client->Name_client }}</td>
-                                                    <td class="align-middle"> {{ $client->Surname }} </td>
-                                                    <td class="align-middle"> {{ $client->Age }} </td>
-                                                    <td class="align-middle"> {{ $client->Household }} </td>
+                                                    <td class="align-middle"> {{ $debit->product->Product_name }} </td>
+                                                    <td class="align-middle"> {{ $debit->Price }} </td>
+                                                    <td class="align-middle"> {{ $debit->Date_to_pay }} </td>
                                                     <td class="align-middle text-right">
                                                         <button type="button"
                                                             class="btn btn-sm btn-icon btn-secondary"><i
@@ -123,23 +122,23 @@
                                                                 href=""></a></button>
                                                         <button type="button" class="btn btn-sm btn-icon btn-secondary"
                                                             data-toggle="modal"
-                                                            data-target="#clientNewModal{{ $client->id }}"><i
+                                                            data-target="#clientNewModal{{ $debit->id }}"><i
                                                                 class="fa fa-pencil-alt"></i> <span
                                                                 class="sr-only">Edit</span></button> <button
                                                             type="button" class="btn btn-sm btn-icon btn-secondary"><i
                                                                 class="far fa-trash-alt"
-                                                                data-target="#deleteRecordModal{{ $client->id }}"
+                                                                data-target="#deleteRecordModal{{ $debit->id }}"
                                                                 data-toggle="modal"></i> <span
                                                                 class="sr-only">Remove</span></button>
                                                     </td>
                                                 </tr>
 
                                                 {{-- Inicio do modal de eliminar --}}
-                                                <div class="modal fade zoomIn" id="deleteRecordModal{{ $client->id }}"
+                                                <div class="modal fade zoomIn" id="deleteRecordModal{{ $debit->id }}"
                                                     tabindex="-1" aria-hidden="true">
                                                     <div class="modal-dialog modal-dialog-centered">
                                                         <div class="modal-content">
-                                                            <form action="{{ route('deleteClient', ['id' => $client->id]) }}"
+                                                            <form action="{{ route('deleteClient', ['id' => $debit->id]) }}"
                                                                 method="get">
                                                                 @csrf
                                                                 @method('DELETE')
@@ -175,13 +174,13 @@
                                                 {{-- Fim do modal de eliminar --}}
 
                                                 {{-- Inicio do modal de editar --}}
-                                                <div class="modal fade" id="clientNewModal{{ $client->id }}"
+                                                <div class="modal fade" id="clientNewModal{{ $debit->id }}"
                                                     tabindex="-1" role="dialog" aria-labelledby="clientNewModalLabel"
                                                     aria-hidden="true">
                                                     <!-- .modal-dialog -->
                                                     <div class="modal-dialog" role="document">
                                                         <!-- .modal-content -->
-                                                        <form action="{{ route('updateClient', ['id' => $client->id]) }}"
+                                                        <form action="{{ route('updateDebit', ['id' => $debit->id]) }}"
                                                             method="post">
                                                             @csrf
 
@@ -209,7 +208,7 @@
                                                                                             id="cnContactName"
                                                                                             class="form-control"
                                                                                             name="Name_client"
-                                                                                            value="{{ $client->Name_client }}">
+                                                                                            value="{{ $debit->Name_client }}">
                                                                                     </div>
                                                                                     <div class="form-group">
                                                                                         <label
@@ -218,7 +217,7 @@
                                                                                             id="cnContactName"
                                                                                             class="form-control"
                                                                                             name="Surname"
-                                                                                            value="{{ $client->Surname }}">
+                                                                                            value="{{ $debit->Surname }}">
                                                                                     </div>
                                                                                     <div class="form-group">
                                                                                         <label
@@ -227,7 +226,7 @@
                                                                                             id="cnContactName"
                                                                                             class="form-control"
                                                                                             name="Age"
-                                                                                            value="{{ $client->Age }}">
+                                                                                            value="{{ $debit->Age }}">
                                                                                     </div>
                                                                                     <div class="form-group">
                                                                                         <label
@@ -236,7 +235,7 @@
                                                                                             id="cnContactName"
                                                                                             class="form-control"
                                                                                             name="Household"
-                                                                                            value="{{ $client->Household }}">
+                                                                                            value="{{ $debit->Household }}">
                                                                                     </div>
                                                                                     <input type="hidden"
                                                                                         name="client_type" value="debit">
@@ -245,7 +244,7 @@
 
                                                                         </div><!-- /.modal-body -->
                                                                         <input type="hidden" name="id"
-                                                                            value="{{ $client->id }}">
+                                                                            value="{{ $debit->id }}">
                                                                     </div><!-- /.form-row -->
 
                                                                 </div><!-- /.modal-body -->
@@ -261,6 +260,7 @@
                                                         </form>
                                                     </div><!-- /.modal-dialog -->
                                                 </div>
+                                                @endforeach
                                                 {{-- Fim do modal de editar --}}
                                             </tbody>
                                         </table>
