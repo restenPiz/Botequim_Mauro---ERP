@@ -261,9 +261,21 @@
                                                 @endforeach
                                                 {{-- Fim do modal de editar --}}
                                             </tbody>
+                                            <tfoot>
+                                                <tr>
+                                                    <td class="align-middle"><h1>Preco Total:</h1></td>
+                                                    <td class="align-middle"><h1>{{$count}}</h1></td>
+                                                </tr>
+                                            </tfoot>
                                         </table>
                                     </div>
                                 </div>
+
+                                {{-- <div class="card-footer">
+                                    <a href="{{route('addProduct')}}" class="card-footer-item"><i
+                                            class="fa fa-plus-circle mr-1"></i> Adicionar Producto</a>
+                                </div> --}}
+
                             </div>
                         </div>
                     </div>

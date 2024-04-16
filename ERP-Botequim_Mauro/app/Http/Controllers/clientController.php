@@ -66,8 +66,12 @@ class clientController extends Controller
         
         $debits=Debit::where('Id_client',$id)->get();
 
+        $count=DB::table('debits')
+            ->where('Id_client', $id)
+            ->sum('Price');
+
         return view('Admin.allDebit', [
             'client' => Client::findOrFail($id)
-        ],compact('products','debits'));
+        ],compact('products','debits','count'));
     }
 }

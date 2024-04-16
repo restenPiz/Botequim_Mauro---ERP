@@ -70,7 +70,11 @@ class debitController extends Controller
             ->where('id',$id)
             ->get();
         
+        $count=DB::table('debits')
+            ->where('Id_client', $id)
+            ->sum('Price');
+        
 
-        return view('Admin.allDebit',compact('debits'));
+        return view('Admin.allDebit',compact('debits','count'));
     }
 }
