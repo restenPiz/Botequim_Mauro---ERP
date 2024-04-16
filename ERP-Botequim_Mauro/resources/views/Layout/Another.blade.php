@@ -494,15 +494,15 @@
             $.get('http://127.0.0.1:8000/admin/getDebit?Id_product=' + Id_product, function(data) {
                 console.log(data);
 
-                $('#price').val(data.Price);
+                $('#Price').val(data.Price);
             }); 
         }
 
         function enableField() {    
-            $('#price').prop('disabled', false);
+            $('#Price').prop('disabled', false);
 
             setTimeout(function() {
-                $('#price').prop('disabled', true);
+                $('#Price').prop('disabled', true);
             }, 1000); 
         }
     </script>
@@ -512,7 +512,7 @@
             var fieldsDisabled = localStorage.getItem('fieldsDisabled');
             if (fieldsDisabled) {
                 // Desabilita os campos
-                $('#price').val(JSON.parse(fieldsDisabled).Code).prop('disabled', true);
+                $('#Price').val(JSON.parse(fieldsDisabled).Code).prop('disabled', true);
             }
         });
     </script>

@@ -23,8 +23,8 @@
                                             <!-- form column -->
                                             <div class="col-md-12 mb-3">
                                                 <label for="input01">Nome do Cliente</label> 
-                                                <select name="Id_client" id="Id_client" class="form-control" disabled>
-                                                        <option value="{{$client->id}}">{{$client->Name_client}} {{$client->Surname}}</option>
+                                                <select name="Id_client" id="Id_client" class="form-control">
+                                                        <option value="{{$client->id}}" selected>{{$client->Name_client}} {{$client->Surname}}</option>
                                                     </select>
                                             </div><!-- /form column -->
                                             <div class="col-md-12 mb-3">
@@ -39,7 +39,7 @@
                                             <div class="col-md-12 mb-3">
                                                 <label for="input02">Preco do Producto</label> 
                                                 <input type="text"
-                                                    class="form-control" placeholder="Preco do Producto" id="price"
+                                                    class="form-control" placeholder="Preco do Producto" id="Price"
                                                     name="Price" value="" disabled>
                                             </div><!-- /form column -->
                                             <div class="col-md-12 mb-3">
@@ -49,7 +49,7 @@
                                             </div><!-- /form column -->
                                         </div>
                                         <button type="submit" name="submit"
-                                            class="btn btn-primary text-nowrap ml-auto">Adicionar Divida</button>
+                                            class="btn btn-primary text-nowrap ml-auto" onclick="enableField()">Adicionar Divida</button>
                                         <a href="{{ route('addClient') }}" type="button" class="btn btn-light"
                                             data-dismiss="modal">Voltar</a>
                                     </form><!-- /form -->
