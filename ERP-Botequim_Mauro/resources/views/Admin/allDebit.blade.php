@@ -136,7 +136,7 @@
                                                     tabindex="-1" aria-hidden="true">
                                                     <div class="modal-dialog modal-dialog-centered">
                                                         <div class="modal-content">
-                                                            <form action="{{ route('deleteClient', ['id' => $debit->id]) }}"
+                                                            <form action="{{ route('deleteDebit', ['id' => $debit->id]) }}"
                                                                 method="get">
                                                                 @csrf
                                                                 @method('DELETE')
@@ -263,8 +263,8 @@
                                             </tbody>
                                             <tfoot>
                                                 <tr>
-                                                    <td class="align-middle"><h1>Preco Total:</h1></td>
-                                                    <td class="align-middle"><h1>{{$count}}</h1></td>
+                                                    <td class="align-middle"><h5>Valor da Divida:</h5></td>
+                                                    <td class="align-middle"><h5>{{$count}}</h5></td>
                                                 </tr>
                                             </tfoot>
                                         </table>
@@ -277,6 +277,10 @@
                                 </div> --}}
 
                             </div>
+                            {{--Inicio da parte de butao de pagar--}}
+                            <button type="submit" name="submit"
+                            class="btn btn-primary text-nowrap ml-auto" onclick="enableField()">Pagar Divida</button>
+                            {{--Fim da parte de butao de pagar--}}
                         </div>
                     </div>
 
