@@ -22,9 +22,10 @@
                                         <div class="form-row">
                                             <!-- form column -->
                                             <div class="col-md-12 mb-3">
-                                                <label for="input01">Nome do Cliente</label> <input type="text"
-                                                    class="form-control" id="input01" placeholder="{{ $client->Name_client }} {{$client->Surname}}"
-                                                    name="Id_client" value="{{$client->id}}" disabled>
+                                                <label for="input01">Nome do Cliente</label> 
+                                                <select name="Id_client" id="Id_client" class="form-control" disabled>
+                                                        <option value="{{$client->id}}">{{$client->Name_client}} {{$client->Surname}}</option>
+                                                    </select>
                                             </div><!-- /form column -->
                                             <div class="col-md-12 mb-3">
                                                 <label for="input01">Nome do Producto</label> 
