@@ -24,7 +24,7 @@
                                             <div class="col-md-12 mb-3">
                                                 <label for="input01">Nome do Cliente</label> <input type="text"
                                                     class="form-control" id="input01" placeholder="{{ $client->Name_client }} {{$client->Surname}}"
-                                                    name="Id_client" required="" disabled>
+                                                    name="Id_client" value="{{$client->id}}" disabled>
                                             </div><!-- /form column -->
                                             <div class="col-md-12 mb-3">
                                                 <label for="input01">Nome do Producto</label> 
@@ -36,7 +36,8 @@
                                                 </select>
                                             </div>
                                             <div class="col-md-12 mb-3">
-                                                <label for="input02">Preco do Producto</label> <input type="text"
+                                                <label for="input02">Preco do Producto</label> 
+                                                <input type="text"
                                                     class="form-control" placeholder="Preco do Producto" id="price"
                                                     name="Price" value="" disabled>
                                             </div><!-- /form column -->
