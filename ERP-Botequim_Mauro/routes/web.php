@@ -66,7 +66,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function() {
 
     //?Inicio das rotas da parte de dividas
     Route::post('/storeDebit', [debitController::class, 'storeDebit'])->name('storeDebit');
-    Route::get('/allDebit', [debitController::class, 'allDebit'])->name('allDebit');
+    Route::get('/allDebit/{id}', [debitController::class, 'allDebit'])->name('allDebit');
     Route::post('/updateDebit/{id}', [debitController::class, 'updateDebit'])->name('updateDebit');
     Route::get('/deleteDebit/{id}', [debitController::class, 'deleteDebit'])->name('deleteDebit');
     Route::get('/getDebit', [debitController::class, 'getDebit'])->name('getDebit');

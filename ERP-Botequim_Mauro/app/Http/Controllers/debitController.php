@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Debit;
 use App\Models\Product;
+use Illuminate\Support\Facades\DB;
 use RealRashid\SweetAlert\Facades\Alert;
 use Request;
 
@@ -63,9 +64,12 @@ class debitController extends Controller
 
         return back();
     }
-    public function allDebit()
+    public function allDebit($id)
     {
-        $debits=Debit::all();
+        $debit=DB::table('debits')
+            ->where('id',$id)
+            ->get();
+        
 
         return view('Admin.allDebit',compact('debits'));
     }

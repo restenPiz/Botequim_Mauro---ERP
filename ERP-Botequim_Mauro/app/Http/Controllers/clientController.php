@@ -63,7 +63,8 @@ class clientController extends Controller
     public function showClient($id)
     {
         $products=Product::all();
-        $debits=Debit::all();
+        
+        $debits=Debit::where('Id_client',$id)->get();
 
         return view('Admin.allDebit', [
             'client' => Client::findOrFail($id)
