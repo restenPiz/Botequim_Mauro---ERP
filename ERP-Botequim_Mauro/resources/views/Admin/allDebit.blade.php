@@ -200,20 +200,17 @@
                                                                             <div class="form-row">
                                                                                 <div class="col-md-12">
                                                                                     <div class="form-group">
-                                                                                        <label for="cnContactName">Nome do
-                                                                                            Cliente</label>
-                                                                                        <input type="text"
-                                                                                            id="cnContactName"
-                                                                                            class="form-control"
-                                                                                            name="Name_client"
-                                                                                            value="{{ $debit->client->Name_client }}">
+                                                                                        <label for="input01">Nome do Cliente</label> 
+                                                                                        <select name="Id_client" id="Id_client" class="form-control">
+                                                                                            <option value="{{$client->id}}" selected>{{$client->Name_client}} {{$client->Surname}}</option>
+                                                                                        </select>
                                                                                     </div>
                                                                                     <div class="form-group">
                                                                                         <label for="input01">Nome do Producto</label> 
-                                                                                        <select class="form-control" name="Id_product" id="Id_product" onchange="prod(this);">
-                                                                                            <option>--Selecione o Producto --</option>
+                                                                                        <select class="form-control" name="Id_product" id="Id_product" onchange="prodi(this);">
+                                                                                            <option value="{{$debit->product->id}}">{{$debit->product->Product_name}}</option>
                                                                                             @foreach ($products as $product)
-                                                                                            <option value="{{$debit->Id_product}}">{{$debit->product->Product_name}}</option>
+                                                                                            <option value="{{$product->id}}">{{$product->Product_name}}</option>
                                                                                             @endforeach
                                                                                         </select>
                                                                                     </div>
