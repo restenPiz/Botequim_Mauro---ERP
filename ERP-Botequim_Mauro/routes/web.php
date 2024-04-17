@@ -9,6 +9,7 @@ use App\Http\Controllers\categoriesController;
 use App\Http\Controllers\stockController;
 use App\Http\Controllers\debitController;
 use App\Http\Controllers\clientController;
+use App\Http\Controllers\paymentController;
 
 //*Inicio das rotas do sistema
 
@@ -77,6 +78,13 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function() {
     Route::post('/updateClient/{id}', [clientController::class, 'updateClient'])->name('updateClient');
     Route::get('/deleteClient/{id}', [clientController::class, 'deleteClient'])->name('deleteClient');   
     Route::get('/showClient/{id}', [clientController::class, 'showClient'])->name('showClient');   
+    
+    //?Inicio das rotas da parte de pagamento
+    Route::post('/storePayment', [paymentController::class, 'storePayment'])->name('storePayment');
+    Route::get('/allPayment', [paymentController::class, 'addPayment'])->name('addPayment');
+    Route::post('/updatePayment/{id}', [paymentController::class, 'updatePayment'])->name('updatePayment');
+    Route::get('/deletePayment/{id}', [paymentController::class, 'deletePayment'])->name('deletePayment');   
+    Route::get('/showPayment/{id}', [paymentController::class, 'showPayment'])->name('showPayment');  
 
 });
 //?Fim das rotas da parte de admin
