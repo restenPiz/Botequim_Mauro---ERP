@@ -202,7 +202,7 @@
                                                                                 <div class="form-row">
                                                                                     <div class="col-md-12">
                                                                                         <div class="form-group">
-                                                                                            <label for="cnContactName">Nome do Usuario</label>
+                                                                                            <label for="cnContactName">Nome do Atendente</label>
                                                                                             <input type="text" id="cnContactName"
                                                                                                 class="form-control"
                                                                                                 name="name"

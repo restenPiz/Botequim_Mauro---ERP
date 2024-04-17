@@ -14,7 +14,7 @@
                         <div class="col">
                             <!-- .card -->
                             <div class="card card-fluid">
-                                <h6 class="card-header"> Adicionar Usuarios </h6><!-- .card-body -->
+                                <h6 class="card-header"> Adicionar Contabilista </h6><!-- .card-body -->
                                 <div class="card-body">
                                     <!-- form -->
                                     <form method="post" action="{{route('storeUser')}}">
@@ -34,18 +34,6 @@
                                                     class="form-control" id="input02" placeholder="Digite o seu apelido" name="Surname" required="">
                                             </div><!-- /form column -->
                                         </div>
-                                        {{--Inicio do input type select--}}
-                                        <div class="form-group">
-                                            <label>Tipo de Usuario</label>
-                                            <select class="form-control" name="user_type">
-                                                <option >-- Selecione --</option>
-                                                <option value="Attendant">Atendente</option>
-                                                <option value="Stock_manager">Gestor de Stock</option>
-                                                <option value="Accountant">Contabilista</option>
-                                            </select>
-                                        </div>
-                                        {{--Fim do input type select--}}
-                                        <!-- .form-group -->
                                         <div class="form-group">
                                             <label for="input03">Email</label> <input type="email" class="form-control"
                                                 id="input03" placeholder="Ex: contacto@mauropeniel.info" name="email" required="">
@@ -61,9 +49,10 @@
                                             <label for="input04">Senha de Confirmacao</label> <input type="password"
                                                 class="form-control" id="input04" placeholder="Digite novamente a sua senha" name="password_confirmation" required="">
                                         </div><!-- /.form-group -->
+                                        <input type="hidden" name="user_type" value="Accountant" >
                                         <div class="form-actions">
                                             <button type="submit"
-                                               name="submit" class="btn btn-primary ">Adicionar Usuario</button>
+                                               name="submit" class="btn btn-primary ">Adicionar Contabilista</button>
                                         </div>
                                     </form><!-- /form -->
                                 </div><!-- /.card-body -->
@@ -85,7 +74,7 @@
                                         class="fa fa-plus"></span></button> <!-- /floating action -->
                                 <!-- title and toolbar -->
                                 <div class="d-md-flex align-items-md-start">
-                                    <h1 class="page-title mr-sm-auto"> Todos Usuarios </h1><!-- .btn-toolbar -->
+                                    <h1 class="page-title mr-sm-auto"> Todos Contabilistas </h1><!-- .btn-toolbar -->
                                     <div class="btn-toolbar">
                                         <button type="button" class="btn btn-light"><i
                                                 class="oi oi-data-transfer-download"></i> <span
@@ -201,7 +190,7 @@
                                                                         <h6 id="clientNewModalLabel"
                                                                             class="modal-title inline-editable">
                                                                             <span class="sr-only">Formulario de Actualizacao
-                                                                                de Usuarios</span>
+                                                                                de Contabilista</span>
                                                                         </h6>
                                                                     </div><!-- /.modal-header -->
                                                                     <!-- .modal-body -->
@@ -213,7 +202,7 @@
                                                                                 <div class="form-row">
                                                                                     <div class="col-md-12">
                                                                                         <div class="form-group">
-                                                                                            <label for="cnContactName">Nome do Usuario</label>
+                                                                                            <label for="cnContactName">Nome do Atendente</label>
                                                                                             <input type="text" id="cnContactName"
                                                                                                 class="form-control"
                                                                                                 name="name"
@@ -225,15 +214,6 @@
                                                                                                 class="form-control"
                                                                                                 name="Surname" 
                                                                                                 value="{{$user->Surname}}">
-                                                                                        </div>
-                                                                                        <div class="form-group">
-                                                                                            <label>Tipo de Usuario</label>
-                                                                                            <select class="form-control" name="user_type" disabled>
-                                                                                                <option value="{{$user->user_type}}">{{$user->user_type}}</option>
-                                                                                                <option value="Attendant">Atendente</option>
-                                                                                                <option value="Stock_manager">Gestor de Stock</option>
-                                                                                                <option value="Accountant">Contabilista</option>
-                                                                                            </select>
                                                                                         </div>
                                                                                         <div class="form-group">
                                                                                             <label for="cnContactEmail">Email</label>
@@ -256,6 +236,7 @@
                                                                             </div><!-- /.modal-body -->
                                                                             <input type="hidden" name="id"
                                                                                 value="{{ $user->id }}">
+                                                                                <input type="hidden" name="user_type" value="Accountant" >
                                                                         </div><!-- /.form-row -->
 
                                                                     </div><!-- /.modal-body -->
@@ -263,7 +244,7 @@
                                                                     <div class="modal-footer">
                                                                         <button type="submit" name="submit"
                                                                             class="btn btn-primary">Actualizar
-                                                                            Usuario</button>
+                                                                            Contabilista</button>
                                                                         <button type="button" class="btn btn-light"
                                                                             data-dismiss="modal">Fechar</button>
                                                                     </div><!-- /.modal-footer -->

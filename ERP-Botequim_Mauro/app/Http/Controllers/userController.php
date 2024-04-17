@@ -16,6 +16,7 @@ class userController extends Controller
     {
         $users=DB::table('users')
             ->where('id','>','1')
+            ->where('user_type','Attendant')
             ->get();
 
         return view('Admin.addUser',compact('users'));
@@ -24,6 +25,7 @@ class userController extends Controller
     {
         $users=DB::table('users')
             ->where('id','>','1')
+            ->where('user_type','Stock_manager')
             ->get();
 
         return view('Admin.addStockManager',compact('users'));
@@ -32,6 +34,7 @@ class userController extends Controller
     {
         $users=DB::table('users')
             ->where('id','>','1')
+            ->where('user_type','Accountant')
             ->get();
 
         return view('Admin.addAcountant',compact('users'));
