@@ -8,6 +8,6 @@ class reportController extends Controller
 {
     public function addReport()
     {
-        return view("Admin.allReport");
+        return view("Admin.addReport");
     }
 }
