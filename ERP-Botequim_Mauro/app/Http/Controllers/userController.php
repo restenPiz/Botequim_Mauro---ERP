@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Hash;
 
@@ -13,19 +14,25 @@ class userController extends Controller
     //?Inicio dos metodos de controlador
     public function addUser()
     {
-        $users=User::all();
+        $users=DB::table('users')
+            ->where('id','>','1')
+            ->get();
 
         return view('Admin.addUser',compact('users'));
     }
     public function addStockManager()
     {
-        $users=User::all();
+        $users=DB::table('users')
+            ->where('id','>','1')
+            ->get();
 
         return view('Admin.addStockManager',compact('users'));
     }
     public function addAcountant()
     {
-        $users=User::all();
+        $users=DB::table('users')
+            ->where('id','>','1')
+            ->get();
 
         return view('Admin.addAcountant',compact('users'));
     }
