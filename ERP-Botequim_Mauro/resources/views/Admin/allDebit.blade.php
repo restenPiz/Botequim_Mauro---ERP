@@ -115,7 +115,7 @@
                                                 @foreach ($debits as $debit)
                                                 <tr>
                                                     <td class="align-middle"> {{ $debit->product->Product_name }} </td>
-                                                    <td class="align-middle"> {{ $debit->Price }} </td>
+                                                    <td class="align-middle"> {{ $debit->Price }} MT</td>
                                                     <td class="align-middle"> {{ $debit->Date_to_pay }} </td>
                                                     <td class="align-middle text-right">
                                                         <button type="button" class="btn btn-sm btn-icon btn-secondary"
@@ -188,7 +188,7 @@
                                                                     <h6 id="clientNewModalLabel"
                                                                         class="modal-title inline-editable">
                                                                         <span class="sr-only">Formulario de Actualizacao
-                                                                            de Clientes</span>
+                                                                            de Productos</span>
                                                                     </h6>
                                                                 </div><!-- /.modal-header -->
                                                                 <!-- .modal-body -->
@@ -264,7 +264,7 @@
                                             <tfoot>
                                                 <tr>
                                                     <td class="align-middle"><h5>Valor da Divida:</h5></td>
-                                                    <td class="align-middle"><h5>{{$count}}</h5></td>
+                                                    <td class="align-middle"><h5>{{$count}} MT</h5></td>
                                                 </tr>
                                             </tfoot>
                                         </table>
@@ -279,7 +279,7 @@
                             </div>
                             {{--Inicio da parte de butao de pagar--}}
                             <button type="submit" name="submit"
-                            class="btn btn-primary text-nowrap ml-auto" onclick="enableField()">Pagar Divida</button>
+                            class="btn btn-success text-nowrap ml-auto" onclick="enableField()">Pagar Divida</button>
                             {{--Fim da parte de butao de pagar--}}
                         </div>
                     </div>
