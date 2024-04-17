@@ -25,8 +25,27 @@ class paymentController extends Controller
 
         return back();
     }
-    public function updatePayment()
+    public function updatePayment($id)
     {
+        $payment=Payment::findOrFail($id);
 
+        $payment->Name_payment=Request::input('Name_payment');
+        $payment->Code=Request::input('Code');
+
+        $payment->save();
+
+        Alert::success('Actualizado!','O tipo de pagamento foi actualizado com sucesso!');
+
+        return back();
+    }
+    public function deletePayment($id)
+    {
+        $payment=Payment::findOrFail($id);
+
+        $payment->delete();
+
+        Alert::success('Eliminado!','O tipo de pagamento foi eliminado com sucesso!');
+
+        return back();
     }
 }
