@@ -23,7 +23,7 @@
                                             <!-- form column -->
                                             <div class="col-md-12 mb-3">
                                                 <label for="input01">Nome do Cliente</label> 
-                                                <select name="Id_client" id="Id_client" class="form-control" disabled>
+                                                <select name="Id_client" id="Id_client" class="form-control">
                                                         <option value="{{$client->id}}" selected>{{$client->Name_client}} {{$client->Surname}}</option>
                                                     </select>
                                             </div><!-- /form column -->
