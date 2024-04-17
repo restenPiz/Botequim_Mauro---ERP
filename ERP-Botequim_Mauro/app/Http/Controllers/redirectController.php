@@ -4,26 +4,33 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class redirectController extends Controller
 {
     public function index()
     {
-        if(Auth::user()->hasRole("admin"))
+        if(Auth::user()->hasRole('admin'))
         {
             return view('dashboard');   
         }
-        elseif(Auth::user()->hasRole('Attendant'))
+        if(Auth::user()->hasRole('attendant'))
         {
             return view('dashboard1');
         }
-        elseif(Auth::user()->hasRole('Stock_manager'))
+        if(Auth::user()->hasRole('stock_manager'))
         {
             return view('dashboard2');
         }
-        else
+        if(Auth::user()->hasRole('accountant'))
         {
             return view('dashboard3');
+        }
+        else
+        {
+            Alert::error('Nao Autenticado!','Tente Novamente');
+
+            return back();
         }
     }
 }

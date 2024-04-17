@@ -20,7 +20,7 @@ Route::get('/', function () {
 });
 
 //*Inicio da rota que redireciona para as diferentes views
-Route::delete('/dashboard', [redirectController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');;
+Route::get('/dashboard', [redirectController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');;
 
 //?Inicio das rotas da parte de admin
 Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function() {
