@@ -430,7 +430,7 @@
                             
                             <li class="menu-header">Relatorio </li><!-- /.menu-header -->
                             <li class="menu-item">
-                                <a href="index-2.html" class="menu-link"><span class="menu-icon oi oi-bar-chart"></span>
+                                <a href="{{route('addReport')}}" class="menu-link"><span class="menu-icon oi oi-bar-chart"></span>
                                     <span class="menu-text">Relatorios</span></a>
                             </li><!-- /.menu-item -->
                         </ul><!-- /.menu -->
