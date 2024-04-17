@@ -91,6 +91,13 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function() {
     //?Inicio das rotas da parte de relatorio
     Route::get('/allReport', [reportController::class, 'addReport'])->name('addReport');
 });
+
+//?Inicio das rotas da parte do atendente
+Route::group(['prefix' => 'attendant', 'middleware' => ['role:attendant']], function() {
+
+
+})
+
 //?Fim das rotas da parte de admin
 
 require __DIR__.'/auth.php';
