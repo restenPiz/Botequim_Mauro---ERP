@@ -851,7 +851,7 @@
                                         class="badge badge-warning">New</span> --}}</a> <!-- child menu -->
                                 <ul class="menu">
                                     <li class="menu-item">
-                                        <a href="{{route('addUser')}}" class="menu-link">Verificar Clientes</a>
+                                        <a href="{{route('addClientRequest')}}" class="menu-link">Verificar Pedidos</a>
                                     </li>
                                 </ul><!-- /child menu -->
                             </li><!-- /.menu-item -->
