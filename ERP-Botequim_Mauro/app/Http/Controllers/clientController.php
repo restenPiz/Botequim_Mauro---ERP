@@ -79,7 +79,11 @@ class clientController extends Controller
     {
         if(Auth::user()->hasRole('attendant'))
         {
-            return view('Attendant.addClientRequest');
+            $clients=DB::table('clients')
+                ->where('user_type','request')
+                ->get();
+
+            return view('Attendant.addClientRequest',compact('clients'));
         }
         else
         {
