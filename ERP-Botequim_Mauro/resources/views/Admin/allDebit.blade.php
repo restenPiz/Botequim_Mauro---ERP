@@ -219,21 +219,17 @@
                                                                                     </div>
                                                                                     <div class="form-group">
                                                                                         <label
-                                                                                            for="cnContactEmail">Idade</label>
+                                                                                            for="cnContactEmail">Preco do Producto</label>
                                                                                         <input type="text"
-                                                                                            id="cnContactName"
+                                                                                            id="Price"
                                                                                             class="form-control"
-                                                                                            name="Age"
-                                                                                            value="{{ $debit->Age }}">
+                                                                                            name="Price"
+                                                                                            value="{{ $debit->Price }}">
                                                                                     </div>
                                                                                     <div class="form-group">
-                                                                                        <label
-                                                                                            for="cnContactEmail">Morada</label>
-                                                                                        <input type="text"
-                                                                                            id="cnContactName"
-                                                                                            class="form-control"
-                                                                                            name="Household"
-                                                                                            value="{{ $debit->Household }}">
+                                                                                        <label for="input02">Data de Pagamento</label> <input type="date"
+                                                                                            class="form-control" value="{{$debit->Date_to_pay}}" id="input02"
+                                                                                            name="Date_to_pay" required="">
                                                                                     </div>
                                                                                     <input type="hidden"
                                                                                         name="client_type" value="debit">
