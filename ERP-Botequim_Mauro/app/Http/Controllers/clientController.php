@@ -21,19 +21,27 @@ class clientController extends Controller
     }
     public function storeClient()
     {
-        $client=new Client();
+        if (Auth::check()) {
+            $client=new Client();
 
-        $client->Name_client=Request::input('Name_client');
-        $client->Surname=Request::input('Surname');
-        $client->Age=Request::input('Age');
-        $client->Household=Request::input('Household');
-        $client->client_type=Request::input('client_type');
+            $client->Name_client=Request::input('Name_client');
+            $client->Surname=Request::input('Surname');
+            $client->Age=Request::input('Age');
+            $client->Household=Request::input('Household');
+            $client->client_type=Request::input('client_type');
 
-        $client->save();
+            $client->save();
 
-        Alert::success('Adicionado!','O cliente foi adicionado com sucesso!');
+            Alert::success('Adicionado!','O cliente foi adicionado com sucesso!');
 
-        return back();
+            return back();
+       } 
+       else
+       {
+            Alert::error('Nao Autenticado!','Faca o login para poder ter acesso!');
+
+            return redirect()->route('login');
+       }
     }
     public function updateClient($id)
     {

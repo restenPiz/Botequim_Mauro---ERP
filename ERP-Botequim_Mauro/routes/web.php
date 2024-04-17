@@ -76,7 +76,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function() {
     Route::get('/getDebit', [debitController::class, 'getDebit'])->name('getDebit');
 
     //?Inicio das rotas da parte de clientes
-    Route::post('/storeClient', [clientController::class, 'storeClient'])->name('storeClient');
     Route::get('/allClient', [clientController::class, 'addClient'])->name('addClient');
     Route::post('/updateClient/{id}', [clientController::class, 'updateClient'])->name('updateClient');
     Route::get('/deleteClient/{id}', [clientController::class, 'deleteClient'])->name('deleteClient');   
@@ -99,6 +98,10 @@ Route::group(['prefix' => 'attendant', 'middleware' => ['role:attendant']], func
     Route::get('/addClientRequest', [clientController::class, 'addClientRequest'])->name('addClientRequest');
 
 });
+
+//* Inicio das rotas multiplas */
+Route::post('/storeClient', [clientController::class, 'storeClient'])->name('storeClient');
+//* Fim das rotas multiplas */
 
 //?Fim das rotas da parte de admin
 
