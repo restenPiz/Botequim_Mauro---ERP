@@ -530,6 +530,27 @@
             }
         });
     </script>
+
+    <script>
+        function prodi(product) {
+            var Id_product = product.value;
+
+            $.get('http://127.0.0.1:8000/admin/getDebit?Id_product=' + Id_product, function(data) {
+                console.log(data);
+
+                $('#Price').val(data.Price);
+            }); 
+        }
+
+        function enableField() {    
+            $('#Price').prop('disabled', false);
+
+            setTimeout(function() {
+                $('#Price').prop('disabled', true);
+            }, 1000); 
+        }
+    </script>
+
     <script src="/../assets/vendor/sortablejs/Sortable.min.js"></script> <!-- END PLUGINS JS -->
     <script src="/../assets/vendor/jquery/jquery.min.js"></script>
     <script src="/../assets/vendor/popper.js/umd/popper.min.js"></script>
