@@ -28,7 +28,7 @@
                                         class="fa fa-plus"></span></button> <!-- /floating action -->
                                 <!-- title and toolbar -->
                                 <div class="d-md-flex align-items-md-start">
-                                    <h1 class="page-title mr-sm-auto"> Todas os Pagamentos </h1><!-- .btn-toolbar -->
+                                    <h1 class="page-title mr-sm-auto"> Todos os Tipos de Pagamentos </h1><!-- .btn-toolbar -->
                                 </div><!-- /title and toolbar -->
                             </header><!-- /.page-title-bar -->
                             <!-- .page-section -->
