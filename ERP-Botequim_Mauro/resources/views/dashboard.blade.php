@@ -1,6 +1,8 @@
 @extends('Layout.topBar')
 @section('content')
 
+    @role('admin')
+
     <main class="app-main">
         <!-- .wrapper -->
         <div class="wrapper">
@@ -384,5 +386,7 @@
         </footer><!-- /.app-footer -->
         <!-- /.wrapper -->
     </main><!-- /.app-main -->
+
+    @endrole
 
 @endsection
