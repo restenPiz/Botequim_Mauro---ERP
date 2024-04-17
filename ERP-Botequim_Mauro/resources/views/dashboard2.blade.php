@@ -1,0 +1,1 @@
+<h1>Gestor de Stock</h1>
