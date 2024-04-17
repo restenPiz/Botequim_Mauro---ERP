@@ -38,7 +38,7 @@
                                                 <label for="input02">Morada</label> <input type="text"
                                                 class="form-control" placeholder="Morada" id="input02" name="Household" required="">
                                             </div><!-- /form column -->
-                                            <input type="hidden" name="client_type" value="debit">
+                                            <input type="hidden" name="client_type" value="request">
                                         </div>
                                         <button type="submit"
                                                name="submit" class="btn btn-primary text-nowrap ml-auto">Adicionar Cliente</button>
