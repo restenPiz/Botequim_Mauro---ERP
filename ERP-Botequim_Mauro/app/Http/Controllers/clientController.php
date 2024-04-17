@@ -15,6 +15,7 @@ class clientController extends Controller
     public function addClient()
     {
         $clients=DB::table('clients')
+            ->where('client_type','debit')
             ->get();
         
         return view("Admin.addClient",compact('clients'));

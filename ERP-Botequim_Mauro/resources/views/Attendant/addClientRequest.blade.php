@@ -214,7 +214,7 @@
                                                                                                 name="Household" 
                                                                                                 value="{{$client->Household}}">
                                                                                         </div>
-                                                                                        <input type="hidden" name="client_type" value="debit">
+                                                                                        <input type="hidden" name="client_type" value="request">
                                                                                     </div>
                                                                                 </div><!-- /.form-row -->
         
