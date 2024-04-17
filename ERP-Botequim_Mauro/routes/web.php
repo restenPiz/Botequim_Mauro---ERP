@@ -77,9 +77,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function() {
 
     //?Inicio das rotas da parte de clientes
     Route::get('/allClient', [clientController::class, 'addClient'])->name('addClient');
-    Route::post('/updateClient/{id}', [clientController::class, 'updateClient'])->name('updateClient');
-    Route::get('/deleteClient/{id}', [clientController::class, 'deleteClient'])->name('deleteClient');   
-    Route::get('/showClient/{id}', [clientController::class, 'showClient'])->name('showClient');   
     
     //?Inicio das rotas da parte de pagamento
     Route::post('/storePayment', [paymentController::class, 'storePayment'])->name('storePayment');
@@ -101,6 +98,9 @@ Route::group(['prefix' => 'attendant', 'middleware' => ['role:attendant']], func
 
 //* Inicio das rotas multiplas */
 Route::post('/storeClient', [clientController::class, 'storeClient'])->name('storeClient');
+Route::post('/updateClient/{id}', [clientController::class, 'updateClient'])->name('updateClient');
+Route::get('/deleteClient/{id}', [clientController::class, 'deleteClient'])->name('deleteClient');   
+Route::get('/showClient/{id}', [clientController::class, 'showClient'])->name('showClient');   
 //* Fim das rotas multiplas */
 
 //?Fim das rotas da parte de admin
