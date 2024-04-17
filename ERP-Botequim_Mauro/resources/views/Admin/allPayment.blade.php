@@ -70,7 +70,7 @@
                                                         tabindex="-1" aria-hidden="true">
                                                         <div class="modal-dialog modal-dialog-centered">
                                                             <div class="modal-content">
-                                                                <form action="{{route('deleteCategories',['id'=>$payment->id])}}" method="get">
+                                                                <form action="{{route('deletePayment',['id'=>$payment->id])}}" method="get">
                                                                     @csrf
                                                                     @method('DELETE')
                                                                     <div class="modal-body">
@@ -83,7 +83,7 @@
                                                                             <div class="mt-4 pt-2 fs-15 mx-4 mx-sm-5">
                                                                                 <h4>Voce tem certeza ?</h4>
                                                                                 <p class="text-muted mx-4 mb-0">Voce pretende eliminar
-                                                                                 esta Categoria ?</p>
+                                                                                 {{$payment->Name_payment}} ?</p>
                                                                             </div>
                                                                         </div>
                                                                         <div class="d-flex gap-2 justify-content-center mt-4 mb-2">
@@ -129,14 +129,14 @@
                                                                                 <div class="form-row">
                                                                                     <div class="col-md-12">
                                                                                         <div class="form-group">
-                                                                                            <label for="cnContactName">Nome da Categoria</label>
+                                                                                            <label for="cnContactName">Nome do Tipo de Pagamento</label>
                                                                                             <input type="text" id="cnContactName"
                                                                                                 class="form-control"
-                                                                                                name="Category_name"
+                                                                                                name="Name_payment"
                                                                                                 value="{{$payment->Name_payment}}">
                                                                                         </div>
                                                                                         <div class="form-group">
-                                                                                            <label for="cnContactEmail">Codigo da Categoria</label>
+                                                                                            <label for="cnContactEmail">Codigo</label>
                                                                                             <input type="text" id="cnContactName"
                                                                                                 class="form-control"
                                                                                                 name="Code" 
@@ -155,7 +155,7 @@
                                                                     <div class="modal-footer">
                                                                         <button type="submit" name="submit"
                                                                             class="btn btn-primary">Actualizar
-                                                                            Categoria</button>
+                                                                            Tipo de Pagamento</button>
                                                                         <button type="button" class="btn btn-light"
                                                                             data-dismiss="modal">Fechar</button>
                                                                     </div><!-- /.modal-footer -->
