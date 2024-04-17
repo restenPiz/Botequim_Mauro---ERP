@@ -83,8 +83,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function() {
     Route::post('/storePayment', [paymentController::class, 'storePayment'])->name('storePayment');
     Route::get('/allPayment', [paymentController::class, 'addPayment'])->name('addPayment');
     Route::post('/updatePayment/{id}', [paymentController::class, 'updatePayment'])->name('updatePayment');
-    Route::get('/deletePayment/{id}', [paymentController::class, 'deletePayment'])->name('deletePayment');   
-    Route::get('/showPayment/{id}', [paymentController::class, 'showPayment'])->name('showPayment');  
+    Route::get('/deletePayment/{id}', [paymentController::class, 'deletePayment'])->name('deletePayment'); 
 
 });
 //?Fim das rotas da parte de admin

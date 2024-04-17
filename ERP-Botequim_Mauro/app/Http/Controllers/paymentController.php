@@ -14,6 +14,7 @@ class paymentController extends Controller
     }
     public function storePayment()
     {
+        //?Inicio do metodo responsavel por adicionar o tipo de pagamento
         $payment=new Payment();
 
         $payment->Name_payment=Request::input('Name_payment');
