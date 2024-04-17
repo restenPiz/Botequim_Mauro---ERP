@@ -847,7 +847,7 @@
                             
                             <li class="menu-item has-child">
                                 <a href="#" class="menu-link"><span class="menu-icon far fa-user"></span> <span
-                                        class="menu-text">Clientes</span> {{-- <span
+                                        class="menu-text">Pedidos</span> {{-- <span
                                         class="badge badge-warning">New</span> --}}</a> <!-- child menu -->
                                 <ul class="menu">
                                     <li class="menu-item">
