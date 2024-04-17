@@ -28,7 +28,7 @@
                                         class="fa fa-plus"></span></button> <!-- /floating action -->
                                 <!-- title and toolbar -->
                                 <div class="d-md-flex align-items-md-start">
-                                    <h1 class="page-title mr-sm-auto"> Todas Categorias </h1><!-- .btn-toolbar -->
+                                    <h1 class="page-title mr-sm-auto"> Todas os Pagamentos </h1><!-- .btn-toolbar -->
                                 </div><!-- /title and toolbar -->
                             </header><!-- /.page-title-bar -->
                             <!-- .page-section -->
@@ -39,28 +39,28 @@
                                 <div class="card-body">
                                     {{-- <h2 class="card-title"> Contacts </h2><!-- .table-responsive --> --}}
                                     <div class="table-responsive">
-                                        @if(count($categories)>0)
+                                        @if(count($payments)>0)
                                         <table class="table table-hover" style="min-width: 678px">
                                             <thead>
                                                 <tr>
-                                                    <th> Nome da Categoria </th>
+                                                    <th> Nome do Pagamento </th>
                                                     <th> Codigo </th>
                                                     <th></th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach ($categories as $category)
+                                                @foreach ($payments as $payment)
                                                     <tr>
-                                                        <td class="align-middle"> {{ $category->Category_name }} </td>
-                                                        <td class="align-middle"> {{ $category->Code }} </td>
+                                                        <td class="align-middle"> {{ $payment->Name_payment }} </td>
+                                                        <td class="align-middle"> {{ $payment->Code }} </td>
                                                         <td class="align-middle text-right">
                                                             <button type="button" class="btn btn-sm btn-icon btn-secondary"
                                                                 data-toggle="modal"
-                                                                data-target="#clientNewModal{{ $category->id }}"><i
+                                                                data-target="#clientNewModal{{ $payment->id }}"><i
                                                                     class="fa fa-pencil-alt"></i> <span
                                                                     class="sr-only">Edit</span></button> <button
                                                                 type="button" class="btn btn-sm btn-icon btn-secondary"><i
-                                                                    class="far fa-trash-alt" data-target="#deleteRecordModal{{ $category->id }}" data-toggle="modal"></i> <span
+                                                                    class="far fa-trash-alt" data-target="#deleteRecordModal{{ $payment->id }}" data-toggle="modal"></i> <span
                                                                     class="sr-only">Remove</span></button>
                                                         </td>
                                                     </tr>
@@ -123,11 +123,11 @@
                                                     {{--Fim do modal para adicao de eventos--}}
 
                                                     {{--Inicio do modal de eliminar--}}
-                                                    <div class="modal fade zoomIn" id="deleteRecordModal{{ $category->id }}"
+                                                    <div class="modal fade zoomIn" id="deleteRecordModal{{ $payment->id }}"
                                                         tabindex="-1" aria-hidden="true">
                                                         <div class="modal-dialog modal-dialog-centered">
                                                             <div class="modal-content">
-                                                                <form action="{{route('deleteCategories',['id'=>$category->id])}}" method="get">
+                                                                <form action="{{route('deleteCategories',['id'=>$payment->id])}}" method="get">
                                                                     @csrf
                                                                     @method('DELETE')
                                                                     <div class="modal-body">
@@ -158,13 +158,13 @@
                                                     {{--Fim do modal de eliminar--}}
 
                                                     {{--Inicio do modal de edicao--}}
-                                                    <div class="modal fade" id="clientNewModal{{ $category->id }}"
+                                                    <div class="modal fade" id="clientNewModal{{ $payment->id }}"
                                                         tabindex="-1" role="dialog" aria-labelledby="clientNewModalLabel"
                                                         aria-hidden="true">
                                                         <!-- .modal-dialog -->
                                                         <div class="modal-dialog" role="document">
                                                             <!-- .modal-content -->
-                                                            <form action="{{ route('updateCategories', ['id' => $category->id]) }}"
+                                                            <form action="{{ route('updateCategories', ['id' => $payment->id]) }}"
                                                                 method="post">
                                                                 @csrf
 
@@ -190,21 +190,21 @@
                                                                                             <input type="text" id="cnContactName"
                                                                                                 class="form-control"
                                                                                                 name="Category_name"
-                                                                                                value="{{$category->Category_name}}">
+                                                                                                value="{{$payment->Category_name}}">
                                                                                         </div>
                                                                                         <div class="form-group">
                                                                                             <label for="cnContactEmail">Codigo da Categoria</label>
                                                                                             <input type="text" id="cnContactName"
                                                                                                 class="form-control"
                                                                                                 name="Code" 
-                                                                                                value="{{$category->Code}}">
+                                                                                                value="{{$payment->Code}}">
                                                                                         </div>
                                                                                     </div>
                                                                                 </div><!-- /.form-row -->
         
                                                                             </div><!-- /.modal-body -->
                                                                             <input type="hidden" name="id"
-                                                                                value="{{ $category->id }}">
+                                                                                value="{{ $payment->id }}">
                                                                         </div><!-- /.form-row -->
 
                                                                     </div><!-- /.modal-body -->
