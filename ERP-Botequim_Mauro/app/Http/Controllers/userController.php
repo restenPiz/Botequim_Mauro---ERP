@@ -17,6 +17,18 @@ class userController extends Controller
 
         return view('Admin.addUser',compact('users'));
     }
+    public function addStockManager()
+    {
+        $users=User::all();
+
+        return view('Admin.addStockManager',compact('users'));
+    }
+    public function addAcountant()
+    {
+        $users=User::all();
+
+        return view('Admin.addAcountant',compact('users'));
+    }
     public function storeUser(Request $request)
     {
         //?Inicio da condicao
