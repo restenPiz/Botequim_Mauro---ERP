@@ -35,7 +35,7 @@ class debitController extends Controller
 
         $debit->save();
 
-        Alert::success('Adicionado!','A sua divida foi adicionada com sucesso!');
+        Alert::success('Adicionado!','Producto adicionado com sucesso na lista de dividas!');
 
         return back();
     }
@@ -50,7 +50,7 @@ class debitController extends Controller
 
         $debit->save();
 
-        Alert::success('Actualizado!','O producto foi actualizado com sucesso!');
+        Alert::success('Actualizado!','O producto foi actualizado com sucesso na lista de dividas!');
 
         return back();
     }

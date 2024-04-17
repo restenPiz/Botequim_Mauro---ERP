@@ -108,6 +108,7 @@
                                                     <th> Nome de Producto </th>
                                                     <th> Preco </th>
                                                     <th> Data de Pagamento </th>
+                                                    <th>Status</th>
                                                     <th></th>
                                                 </tr>
                                             </thead>
@@ -117,6 +118,9 @@
                                                     <td class="align-middle"> {{ $debit->product->Product_name }} </td>
                                                     <td class="align-middle"> {{ $debit->Price }} MT</td>
                                                     <td class="align-middle"> {{ $debit->Date_to_pay }} </td>
+                                                    <td class="align-middle"> 
+                                                        <span class="badge badge-subtle badge-danger">Nao Pago</span>
+                                                    </td>
                                                     <td class="align-middle text-right">
                                                         <button type="button" class="btn btn-sm btn-icon btn-secondary"
                                                             data-toggle="modal"
@@ -221,7 +225,7 @@
                                                                                             id="Priced"
                                                                                             class="form-control"
                                                                                             name="Price"
-                                                                                            value="{{ $debit->Price }}">
+                                                                                            value="{{ $debit->Price }}" disabled>
                                                                                     </div>
                                                                                     <div class="form-group">
                                                                                         <label for="input02">Data de Pagamento</label> <input type="date"
