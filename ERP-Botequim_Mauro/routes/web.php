@@ -95,6 +95,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function() {
 //?Inicio das rotas da parte do atendente
 Route::group(['prefix' => 'attendant', 'middleware' => ['role:attendant']], function() {
 
+    //?Inicio das rotas da parte de cliente
+    Route::get('/addClientRequest', [clientController::class, 'addClientRequest'])->name('addClientRequest');
 
 });
 
