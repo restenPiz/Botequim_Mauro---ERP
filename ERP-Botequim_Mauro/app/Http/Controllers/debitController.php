@@ -58,7 +58,7 @@ class debitController extends Controller
     {
         $debit=Debit::findOrFail($id);
 
-        $debit->save();
+        $debit->delete();
 
         Alert::success('Eliminado!','A sua divida foi eliminada com sucesso!');
 
