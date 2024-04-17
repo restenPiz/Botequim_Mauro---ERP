@@ -80,8 +80,7 @@
                                                                     <div class="modal-header">
                                                                         <h6 id="clientNewModalLabel"
                                                                             class="modal-title inline-editable">
-                                                                            Formulario de Adicao
-                                                                                de Categorias
+                                                                            Formulario de adicao de tipos de pagamentos
                                                                         </h6>
                                                                     </div><!-- /.modal-header -->
                                                                     <!-- .modal-body -->
@@ -90,14 +89,14 @@
                                                                         <div class="form-row">
                                                                             <div class="col-md-12">
                                                                                 <div class="form-group">
-                                                                                    <label for="cnContactName">Nome da Categoria</label>
+                                                                                    <label for="cnContactName">Nome do tipo de pagamento</label>
                                                                                     <input type="text" id="cnContactName"
                                                                                         class="form-control"
-                                                                                        name="Category_name"
-                                                                                        placeholder="Nome do Evento">
+                                                                                        name="Name_payment"
+                                                                                        placeholder="Nome do tipo de pagamento" value="">
                                                                                 </div>
                                                                                 <div class="form-group">
-                                                                                    <label for="cnContactEmail">Codigo da Categoria</label>
+                                                                                    <label for="cnContactEmail">Codigo</label>
                                                                                     <input type="text" id="cnContactName"
                                                                                         class="form-control"
                                                                                         name="Code" placeholder="Codigo da Categoria"
@@ -110,8 +109,8 @@
                                                                     <!-- .modal-footer -->
                                                                     <div class="modal-footer">
                                                                         <button type="submit" name="submit"
-                                                                            class="btn btn-primary">Adicionar
-                                                                            Categoria</button>
+                                                                            class="btn btn-primary">Actualizar
+                                                                            Tipo de pagamento</button>
                                                                         <button type="button" class="btn btn-light"
                                                                             data-dismiss="modal">Fechar</button>
                                                                     </div><!-- /.modal-footer -->
@@ -248,17 +247,17 @@
                         <div class="col">
                             <!-- .card -->
                             <div class="card card-fluid">
-                                <h6 class="card-header"> Adicionar Categoria </h6><!-- .card-body -->
+                                <h6 class="card-header"> Adicionar Tipo de Pagamento </h6><!-- .card-body -->
                                 <div class="card-body">
                                     <!-- form -->
-                                    <form method="post" action="{{route('storeCategories')}}">
+                                    <form method="post" action="{{route('storePayment')}}">
                                         @csrf
                                         <!-- form row -->
                                         <div class="form-row">
                                             <!-- form column -->
                                             <div class="col-md-12 mb-3">
-                                                <label for="input01">Nome da Categoria</label> <input type="text"
-                                                    class="form-control" id="input01" placeholder="Nome da Categoria" name="Category_name" required="">
+                                                <label for="input01">Nome do Tipo de Pagamento</label> <input type="text"
+                                                    class="form-control" id="input01" placeholder="Nome do Tipo de Pagamento" name="Name_payment" required="">
                                             </div><!-- /form column -->
                                             <!-- form column -->
                                             <div class="col-md-12 mb-3">
@@ -267,7 +266,7 @@
                                             </div><!-- /form column -->
                                         </div>
                                         <button type="submit"
-                                               name="submit" class="btn btn-primary text-nowrap ml-auto">Adicionar Categoria</button>
+                                               name="submit" class="btn btn-primary text-nowrap ml-auto">Adicionar Tipo de Pagamento</button>
                                     </form><!-- /form -->
                                 </div><!-- /.card-body -->
                             </div><!-- /.card -->
