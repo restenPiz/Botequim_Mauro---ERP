@@ -371,7 +371,15 @@
                                         class="badge badge-warning">New</span> --}}</a> <!-- child menu -->
                                 <ul class="menu">
                                     <li class="menu-item">
-                                        <a href="{{route('addUser')}}" class="menu-link">Verificar Usuarios</a>
+                                        <a href="{{route('addUser')}}" class="menu-link">Adicionar Atendente</a>
+                                    </li>
+                                    
+                                    <li class="menu-item">
+                                        <a href="{{route('addStockManager')}}" class="menu-link">Adicionar Gestor de Stock</a>
+                                    </li>
+
+                                    <li class="menu-item">
+                                        <a href="{{route('addAcountant')}}" class="menu-link">Adicionar Contabilista</a>
                                     </li>
                                 </ul><!-- /child menu -->
                             </li><!-- /.menu-item -->
