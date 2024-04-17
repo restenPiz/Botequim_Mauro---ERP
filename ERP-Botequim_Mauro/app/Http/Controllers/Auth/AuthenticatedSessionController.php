@@ -37,7 +37,7 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerateToken();
 
-        Alert::success('Volte a se logar no sistema!');
+        Alert::warning('Volte mais vezes!');
 
         return redirect('/');
     }
