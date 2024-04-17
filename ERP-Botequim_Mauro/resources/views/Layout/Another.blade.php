@@ -552,6 +552,15 @@
             }, 1000); 
         }
     </script>
+    <script>
+        $(document).ready(function() {
+            var fieldsDisabled = localStorage.getItem('fieldsDisabled');
+            if (fieldsDisabled) {
+                // Desabilita os campos
+                $('#Priced').val(JSON.parse(fieldsDisabled).Code).prop('disabled', true);
+            }
+        });
+    </script>
 
     <script src="/../assets/vendor/sortablejs/Sortable.min.js"></script> <!-- END PLUGINS JS -->
     <script src="/../assets/vendor/jquery/jquery.min.js"></script>
