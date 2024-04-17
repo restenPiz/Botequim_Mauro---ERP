@@ -152,7 +152,7 @@
                                                                             <h4>Voce tem certeza ?</h4>
                                                                             <p class="text-muted mx-4 mb-0">Voce pretende
                                                                                 eliminar
-                                                                                este Cliente ?</p>
+                                                                                este Producto da Lista de Dividas ?</p>
                                                                         </div>
                                                                     </div>
                                                                     <div
