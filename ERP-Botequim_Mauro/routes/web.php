@@ -10,6 +10,7 @@ use App\Http\Controllers\stockController;
 use App\Http\Controllers\debitController;
 use App\Http\Controllers\clientController;
 use App\Http\Controllers\paymentController;
+use App\Http\Controllers\reportController;
 
 //*Inicio das rotas do sistema
 
@@ -85,6 +86,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function() {
     Route::post('/updatePayment/{id}', [paymentController::class, 'updatePayment'])->name('updatePayment');
     Route::get('/deletePayment/{id}', [paymentController::class, 'deletePayment'])->name('deletePayment'); 
 
+    //?Inicio das rotas da parte de relatorio
+    Route::get('/allReport', [reportController::class, 'addReport'])->name('addReport');
 });
 //?Fim das rotas da parte de admin
 

@@ -275,8 +275,12 @@
 
                             </div>
                             {{--Inicio da parte de butao de pagar--}}
-                            <button type="submit" name="submit"
-                            class="btn btn-success text-nowrap ml-auto" onclick="enableField()">Pagar Divida</button>
+                            <div class="col">
+                                <button type="submit" name="submit"
+                                class="btn btn-success text-nowrap ml-auto" onclick="enableField()">Pagar Divida</button>
+                                <button type="submit" name="submit"
+                                class="btn btn-danger text-nowrap ml-auto" onclick="enableField()">Eliminar Todos Productos</button>
+                            </div>
                             {{--Fim da parte de butao de pagar--}}
                         </div>
                     </div>
