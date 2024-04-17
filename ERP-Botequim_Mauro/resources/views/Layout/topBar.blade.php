@@ -445,7 +445,7 @@
                                     <span class="menu-text">Todas Vendas</span></a>
                             </li><!-- /.menu-item -->
                             <li class="menu-item">
-                                <a href="index-2.html" class="menu-link"><span class="menu-icon fas fa-money-bill"></span>
+                                <a href="{{route('addPayment')}}" class="menu-link"><span class="menu-icon fas fa-money-bill"></span>
                                     <span class="menu-text">Tipos de Pagamentos</span></a>
                             </li><!-- /.menu-item -->
                             
