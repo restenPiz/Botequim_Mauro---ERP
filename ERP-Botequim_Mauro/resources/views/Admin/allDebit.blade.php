@@ -206,16 +206,16 @@
                                                                                             id="cnContactName"
                                                                                             class="form-control"
                                                                                             name="Name_client"
-                                                                                            value="{{ $debit->Name_client }}">
+                                                                                            value="{{ $debit->client->Name_client }}">
                                                                                     </div>
                                                                                     <div class="form-group">
-                                                                                        <label
-                                                                                            for="cnContactEmail">Apelido</label>
-                                                                                        <input type="text"
-                                                                                            id="cnContactName"
-                                                                                            class="form-control"
-                                                                                            name="Surname"
-                                                                                            value="{{ $debit->Surname }}">
+                                                                                        <label for="input01">Nome do Producto</label> 
+                                                                                        <select class="form-control" name="Id_product" id="Id_product" onchange="prod(this);">
+                                                                                            <option>--Selecione o Producto --</option>
+                                                                                            @foreach ($products as $product)
+                                                                                            <option value="{{$debit->Id_product}}">{{$debit->product->Product_name}}</option>
+                                                                                            @endforeach
+                                                                                        </select>
                                                                                     </div>
                                                                                     <div class="form-group">
                                                                                         <label
