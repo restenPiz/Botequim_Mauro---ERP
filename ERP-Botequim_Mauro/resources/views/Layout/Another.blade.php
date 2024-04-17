@@ -500,9 +500,11 @@
 
         function enableField() {    
             $('#Price').prop('disabled', false);
+            $('#Id_client').prop('disabled', false);
 
             setTimeout(function() {
                 $('#Price').prop('disabled', true);
+                $('#Id_client').prop('disabled', true);
             }, 1000); 
         }
     </script>
@@ -513,6 +515,7 @@
             if (fieldsDisabled) {
                 // Desabilita os campos
                 $('#Price').val(JSON.parse(fieldsDisabled).Code).prop('disabled', true);
+                $('#Id_client').val(JSON.parse(fieldsDisabled).Code).prop('disabled', true);
             }
         });
     </script>
