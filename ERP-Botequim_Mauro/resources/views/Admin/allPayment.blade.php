@@ -9,7 +9,7 @@
                 <!-- grid row -->
                 <div class="row">
                     <!-- grid column -->
-                    <div class="col-lg-8">
+                    <div class="col-lg-7">
                         <div class="col">
 
                             {{-- Inicio da tabela de todos eventos --}}
@@ -65,62 +65,6 @@
                                                         </td>
                                                     </tr>
 
-                                                    {{--Inicio do Modal para adicao de eventos--}}
-                                                    <div class="modal fade" id="clientNewModal" tabindex="-1" role="dialog" aria-labelledby="clientNewModalLabel"
-                                                    aria-hidden="true">
-                                                        <!-- .modal-dialog -->
-                                                        <div class="modal-dialog" role="document">
-                                                            <!-- .modal-content -->
-                                                            <form action="{{ route('storeCategories') }}"
-                                                                method="post">
-                                                                @csrf
-
-                                                                <div class="modal-content">
-                                                                    <!-- .modal-header -->
-                                                                    <div class="modal-header">
-                                                                        <h6 id="clientNewModalLabel"
-                                                                            class="modal-title inline-editable">
-                                                                            Formulario de adicao de tipos de pagamentos
-                                                                        </h6>
-                                                                    </div><!-- /.modal-header -->
-                                                                    <!-- .modal-body -->
-                                                                    <div class="modal-body">
-                                                                        <!-- .form-row -->
-                                                                        <div class="form-row">
-                                                                            <div class="col-md-12">
-                                                                                <div class="form-group">
-                                                                                    <label for="cnContactName">Nome do tipo de pagamento</label>
-                                                                                    <input type="text" id="cnContactName"
-                                                                                        class="form-control"
-                                                                                        name="Name_payment"
-                                                                                        placeholder="Nome do tipo de pagamento" value="">
-                                                                                </div>
-                                                                                <div class="form-group">
-                                                                                    <label for="cnContactEmail">Codigo</label>
-                                                                                    <input type="text" id="cnContactName"
-                                                                                        class="form-control"
-                                                                                        name="Code" placeholder="Codigo da Categoria"
-                                                                                        value="">
-                                                                                </div>
-                                                                            </div>
-                                                                        </div><!-- /.form-row -->
-
-                                                                    </div><!-- /.modal-body -->
-                                                                    <!-- .modal-footer -->
-                                                                    <div class="modal-footer">
-                                                                        <button type="submit" name="submit"
-                                                                            class="btn btn-primary">Actualizar
-                                                                            Tipo de pagamento</button>
-                                                                        <button type="button" class="btn btn-light"
-                                                                            data-dismiss="modal">Fechar</button>
-                                                                    </div><!-- /.modal-footer -->
-                                                                </div><!-- /.modal-content -->
-                                                            </form>
-                                                        </div><!-- /.modal-dialog -->
-                                                    </div>
-                                                    
-                                                    {{--Fim do modal para adicao de eventos--}}
-
                                                     {{--Inicio do modal de eliminar--}}
                                                     <div class="modal fade zoomIn" id="deleteRecordModal{{ $payment->id }}"
                                                         tabindex="-1" aria-hidden="true">
@@ -163,7 +107,7 @@
                                                         <!-- .modal-dialog -->
                                                         <div class="modal-dialog" role="document">
                                                             <!-- .modal-content -->
-                                                            <form action="{{ route('updateCategories', ['id' => $payment->id]) }}"
+                                                            <form action="{{ route('updatePayment', ['id' => $payment->id]) }}"
                                                                 method="post">
                                                                 @csrf
 
@@ -173,7 +117,7 @@
                                                                         <h6 id="clientNewModalLabel"
                                                                             class="modal-title inline-editable">
                                                                             <span class="sr-only">Formulario de Actualizacao
-                                                                                de Eventos</span>
+                                                                                de Tipo de Pagamentos</span>
                                                                         </h6>
                                                                     </div><!-- /.modal-header -->
                                                                     <!-- .modal-body -->
@@ -189,7 +133,7 @@
                                                                                             <input type="text" id="cnContactName"
                                                                                                 class="form-control"
                                                                                                 name="Category_name"
-                                                                                                value="{{$payment->Category_name}}">
+                                                                                                value="{{$payment->Name_payment}}">
                                                                                         </div>
                                                                                         <div class="form-group">
                                                                                             <label for="cnContactEmail">Codigo da Categoria</label>
@@ -243,7 +187,7 @@
 
                     {{--Inicio da seccao do formulario de adicao de categorias--}}
                     
-                    <div class="col-lg-4"><br><br><br><br><br>
+                    <div class="col-lg-5"><br><br><br><br><br>
                         <div class="col">
                             <!-- .card -->
                             <div class="card card-fluid">
