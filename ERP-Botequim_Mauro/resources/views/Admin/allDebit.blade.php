@@ -218,7 +218,7 @@
                                                                                         <label
                                                                                             for="cnContactEmail">Preco do Producto</label>
                                                                                         <input type="text"
-                                                                                            id="Price"
+                                                                                            id="Priced"
                                                                                             class="form-control"
                                                                                             name="Price"
                                                                                             value="{{ $debit->Price }}">

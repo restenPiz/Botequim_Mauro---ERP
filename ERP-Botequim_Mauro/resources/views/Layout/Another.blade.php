@@ -532,21 +532,23 @@
     </script>
 
     <script>
+
+        //Inicio do script para editar o modal de editar o producto na divida
         function prodi(product) {
             var Id_product = product.value;
 
             $.get('http://127.0.0.1:8000/admin/getDebit?Id_product=' + Id_product, function(data) {
                 console.log(data);
 
-                $('#Price').val(data.Price);
+                $('#Priced').val(data.Price);
             }); 
         }
 
         function enableField() {    
-            $('#Price').prop('disabled', false);
+            $('#Priced').prop('disabled', false);
 
             setTimeout(function() {
-                $('#Price').prop('disabled', true);
+                $('#Priced').prop('disabled', true);
             }, 1000); 
         }
     </script>
