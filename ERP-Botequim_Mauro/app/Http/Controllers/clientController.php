@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Client;
 use App\Models\Debit;
 use App\Models\Product;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Request;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -73,5 +74,18 @@ class clientController extends Controller
         return view('Admin.allDebit', [
             'client' => Client::findOrFail($id)
         ],compact('products','debits','count'));
+    }
+    public function addClientRequest()
+    {
+        if(Auth::user()->hasRole('attendant'))
+        {
+            return view('Attendant.addClientRequest');
+        }
+        else
+        {
+            Alert::error('Nao Autenticado!','Faca o login para poder ter acesso!');
+
+            return redirect()->route('login');
+        }
     }
 }
