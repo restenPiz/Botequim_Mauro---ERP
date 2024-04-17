@@ -11,6 +11,7 @@ use App\Http\Controllers\debitController;
 use App\Http\Controllers\clientController;
 use App\Http\Controllers\paymentController;
 use App\Http\Controllers\reportController;
+use App\Http\Controllers\redirectController;
 
 //*Inicio das rotas do sistema
 
@@ -18,9 +19,8 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+//*Inicio da rota que redireciona para as diferentes views
+Route::delete('/dashboard', [redirectController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');;
 
 //?Inicio das rotas da parte de admin
 Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function() {
@@ -96,7 +96,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function() {
 Route::group(['prefix' => 'attendant', 'middleware' => ['role:attendant']], function() {
 
 
-})
+});
 
 //?Fim das rotas da parte de admin
 
