@@ -11,13 +11,13 @@ class ProductRequest extends Model
 
     protected $table='product_requests';
 
-    protected $fillable=['Id_product','Id_request'];
+    protected $fillable=['Id_stock','Id_request'];
 
     //*Inicio dos relacionamentos entre as tabelas
     public function products() {
-        return $this->belongsTo(Product::class,'Id_product');
+        return $this->belongsTo(Stock::class,'Id_stock','id');
     }
     public function requests() {
-        return $this->belongsTo(Request::class,'Id_request');
+        return $this->belongsTo(Request::class,'Id_request','id');
     }
 }

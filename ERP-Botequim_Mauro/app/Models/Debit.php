@@ -15,7 +15,7 @@ class Debit extends Model
         'Price',
         'Date_to_pay',
         'Id_client',
-        'Id_product',
+        'Id_stock',
     ];
 
     //*Inicio dos relacionamentos das chaves estrangeiras
@@ -26,6 +26,6 @@ class Debit extends Model
     }
     public function product()
     {
-        return $this->belongsTo(Product::class,'Id_product','id');
+        return $this->belongsTo(Stock::class,'Id_stock','id');
     }
 }
