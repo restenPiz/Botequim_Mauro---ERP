@@ -115,7 +115,7 @@
                                             <tbody>
                                                 @foreach ($debits as $debit)
                                                 <tr>
-                                                    <td class="align-middle"> {{ $debit->product->Product_name }} </td>
+                                                    <td class="align-middle"> {{ $debit->product->product->Product_name }} </td>
                                                     <td class="align-middle"> {{ $debit->Price }} MT</td>
                                                     <td class="align-middle"> {{ $debit->Date_to_pay }} </td>
                                                     <td class="align-middle"> 

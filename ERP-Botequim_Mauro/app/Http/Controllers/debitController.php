@@ -29,7 +29,7 @@ class debitController extends Controller
         $debit=new Debit();
 
         $debit->Price=Request::input('Price');
-        $debit->Id_product=Request::input('Id_product');
+        $debit->Id_stock=Request::input('Id_stock');
         $debit->Id_client=Request::input('Id_client');
         $debit->Date_to_pay=Request::input('Date_to_pay');
 
@@ -44,7 +44,7 @@ class debitController extends Controller
         $debit=Debit::findOrFail($id);
 
         $debit->Price=Request::input('Price');
-        $debit->Id_product=Request::input('Id_product');
+        $debit->Id_stock=Request::input('Id_stock');
         $debit->Id_client=Request::input('Id_client');
         $debit->Date_to_pay=Request::input('Date_to_pay');
 
