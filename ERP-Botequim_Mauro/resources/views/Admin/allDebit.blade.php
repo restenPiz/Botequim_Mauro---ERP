@@ -32,7 +32,7 @@
                                                 <select class="form-control" name="Id_product" id="Id_product" onchange="prod(this);">
                                                     <option>--Selecione o Producto --</option>
                                                     @foreach ($products as $product)
-                                                    <option value="{{$product->id}}">{{$product->Product_name}}</option>
+                                                    <option value="{{$product->product->id}}">{{$product->product->Product_name}}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
