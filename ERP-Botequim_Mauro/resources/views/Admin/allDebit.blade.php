@@ -212,7 +212,7 @@
                                                                                     <div class="form-group">
                                                                                         <label for="input01">Nome do Producto</label> 
                                                                                         <select class="form-control" name="Id_stock" id="Id_product" onchange="prod(this);">
-                                                                                            <option value="{{$debit->product->id}}">{{$debit->product->Product_name}}</option>
+                                                                                            <option value="{{$debit->product->id}}">{{$debit->product->product->Product_name}}</option>
                                                                                             @foreach ($products as $product)
                                                                                             <option value="{{$product->product->id}}">{{$product->product->Product_name}}</option>
                                                                                             @endforeach
@@ -247,7 +247,7 @@
                                                                 <div class="modal-footer">
                                                                     <button type="submit" name="submit"
                                                                         class="btn btn-primary" onclick="enableField()">Actualizar
-                                                                        Cliente</button>
+                                                                        Producto</button>
                                                                     <button type="button" class="btn btn-light"
                                                                         data-dismiss="modal">Fechar</button>
                                                                 </div><!-- /.modal-footer -->
