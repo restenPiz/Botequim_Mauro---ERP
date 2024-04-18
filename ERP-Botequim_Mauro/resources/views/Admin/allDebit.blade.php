@@ -211,10 +211,10 @@
                                                                                     </div>
                                                                                     <div class="form-group">
                                                                                         <label for="input01">Nome do Producto</label> 
-                                                                                        <select class="form-control" name="Id_product" id="Id_product" onchange="prodi(this);">
+                                                                                        <select class="form-control" name="Id_stock" id="Id_product" onchange="prod(this);">
                                                                                             <option value="{{$debit->product->id}}">{{$debit->product->Product_name}}</option>
                                                                                             @foreach ($products as $product)
-                                                                                            <option value="{{$product->id}}">{{$product->Product_name}}</option>
+                                                                                            <option value="{{$product->product->id}}">{{$product->product->Product_name}}</option>
                                                                                             @endforeach
                                                                                         </select>
                                                                                     </div>
