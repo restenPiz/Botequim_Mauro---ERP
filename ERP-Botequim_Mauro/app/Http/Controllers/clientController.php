@@ -84,6 +84,7 @@ class clientController extends Controller
             'client' => Client::findOrFail($id)
         ],compact('products','debits','count'));
     }
+    //?Inicio do metodo de adicionar os pedidos de clientes
     public function addClientRequest()
     {
         if(Auth::user()->hasRole('attendant'))
