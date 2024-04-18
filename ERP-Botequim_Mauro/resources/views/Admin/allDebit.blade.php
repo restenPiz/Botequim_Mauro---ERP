@@ -17,7 +17,7 @@
                                 <div class="card-body">
                                     <!-- form -->
                                     <form method="post" action="{{ route('storeDebit') }}">
-                                        @csrf
+                                        @csrfsssssss
                                         <!-- form row -->
                                         <div class="form-row">
                                             <!-- form column -->
