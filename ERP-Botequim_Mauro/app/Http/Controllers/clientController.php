@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Client;
 use App\Models\Debit;
 use App\Models\Product;
+use App\Models\Stock;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Request;
@@ -72,7 +73,7 @@ class clientController extends Controller
     }
     public function showClient($id)
     {
-        $products=Product::all();
+        $products=Stock::all();
         
         $debits=Debit::where('Id_client',$id)->get();
 

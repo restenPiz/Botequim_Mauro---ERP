@@ -405,7 +405,7 @@
                                         <a href="{{route('addClient')}}" class="menu-link">Verificar Dividas</a>
                                     </li>
                                 </ul><!-- /child menu -->
-                            </li>7
+                            </li>
                             
                             <!-- .menu-header -->
                             <li class="menu-header">Stock </li><!-- /.menu-header -->
