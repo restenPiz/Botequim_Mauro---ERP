@@ -89,6 +89,7 @@ class clientController extends Controller
     {
         if(Auth::user()->hasRole('attendant'))
         {
+            //?metodo de retorno de todos os dados incluindo o tipo de cliente pedidos
             $clients=DB::table('clients')
                 ->where('client_type','request')
                 ->get();
