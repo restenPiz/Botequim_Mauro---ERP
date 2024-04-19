@@ -227,16 +227,9 @@
                                                                                         <input type="text"
                                                                                             id="Priced"
                                                                                             class="form-control"
-                                                                                            name="Price"
+                                                                                            name="Product_price"
                                                                                             value="{{ $request->Price }}" disabled>
                                                                                     </div>
-                                                                                    <div class="form-group">
-                                                                                        <label for="input02">Data de Pagamento</label> <input type="date"
-                                                                                            class="form-control" value="{{$request->Date_to_pay}}" id="input02"
-                                                                                            name="Date_to_pay" required="">
-                                                                                    </div>
-                                                                                    <input type="hidden"
-                                                                                        name="client_type" value="debit">
                                                                                 </div>
                                                                             </div><!-- /.form-row -->
 
