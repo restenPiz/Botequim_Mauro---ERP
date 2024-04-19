@@ -113,8 +113,10 @@ class clientController extends Controller
                 ->where('id',$id)
                 ->where('client_type','request')
                 ->get();
+            
+            $stocks=Stock::all();
 
-            return view('Attendant.showClientRequest',compact('clients'));
+            return view('Attendant.showClientRequest',compact('clients','stocks'));
         }
         else
         {
