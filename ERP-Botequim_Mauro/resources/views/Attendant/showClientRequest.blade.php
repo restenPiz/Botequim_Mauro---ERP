@@ -107,7 +107,7 @@
                                                 <tr>
                                                     <th> Nome de Producto </th>
                                                     <th> Preco </th>
-                                                    <th> Data de Pagamento </th>
+                                                    <th> Quantidade </th>
                                                     <th>Status</th>
                                                     <th></th>
                                                 </tr>
@@ -156,7 +156,7 @@
                                                                             <h4>Voce tem certeza ?</h4>
                                                                             <p class="text-muted mx-4 mb-0">Voce pretende
                                                                                 eliminar
-                                                                                este Producto da Lista de Dividas ?</p>
+                                                                                este Producto da Lista de Pedidos ?</p>
                                                                         </div>
                                                                     </div>
                                                                     <div
@@ -192,7 +192,7 @@
                                                                     <h6 id="clientNewModalLabel"
                                                                         class="modal-title inline-editable">
                                                                         <span class="sr-only">Formulario de Actualizacao
-                                                                            de Productos</span>
+                                                                            de Pedidos</span>
                                                                     </h6>
                                                                 </div><!-- /.modal-header -->
                                                                 <!-- .modal-body -->
