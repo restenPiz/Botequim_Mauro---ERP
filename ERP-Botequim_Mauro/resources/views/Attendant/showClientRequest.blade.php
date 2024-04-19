@@ -115,32 +115,32 @@
                                             <tbody>
                                                 @foreach ($requests as $request)
                                                 <tr>
-                                                    <td class="align-middle"> {{ $debit->product->product->Product_name }} </td>
-                                                    <td class="align-middle"> {{ $debit->Price }} MT</td>
-                                                    <td class="align-middle"> {{ $debit->Date_to_pay }} </td>
+                                                    <td class="align-middle"> {{ $request->product->product->Product_name }} </td>
+                                                    <td class="align-middle"> {{ $request->Price }} MT</td>
+                                                    <td class="align-middle"> {{ $request->Date_to_pay }} </td>
                                                     <td class="align-middle"> 
                                                         <span class="badge badge-subtle badge-danger">Nao Pago</span>
                                                     </td>
                                                     <td class="align-middle text-right">
                                                         <button type="button" class="btn btn-sm btn-icon btn-secondary"
                                                             data-toggle="modal"
-                                                            data-target="#clientNewModal{{ $debit->id }}"><i
+                                                            data-target="#clientNewModal{{ $request->id }}"><i
                                                                 class="fa fa-pencil-alt"></i> <span
                                                                 class="sr-only">Edit</span></button> <button
                                                             type="button" class="btn btn-sm btn-icon btn-secondary"><i
                                                                 class="far fa-trash-alt"
-                                                                data-target="#deleteRecordModal{{ $debit->id }}"
+                                                                data-target="#deleteRecordModal{{ $request->id }}"
                                                                 data-toggle="modal"></i> <span
                                                                 class="sr-only">Remove</span></button>
                                                     </td>
                                                 </tr>
 
                                                 {{-- Inicio do modal de eliminar --}}
-                                                <div class="modal fade zoomIn" id="deleteRecordModal{{ $debit->id }}"
+                                                <div class="modal fade zoomIn" id="deleteRecordModal{{ $request->id }}"
                                                     tabindex="-1" aria-hidden="true">
                                                     <div class="modal-dialog modal-dialog-centered">
                                                         <div class="modal-content">
-                                                            <form action="{{ route('deleteDebit', ['id' => $debit->id]) }}"
+                                                            <form action="{{ route('deleteDebit', ['id' => $request->id]) }}"
                                                                 method="get">
                                                                 @csrf
                                                                 @method('DELETE')
@@ -176,13 +176,13 @@
                                                 {{-- Fim do modal de eliminar --}}
 
                                                 {{-- Inicio do modal de editar --}}
-                                                <div class="modal fade" id="clientNewModal{{ $debit->id }}"
+                                                <div class="modal fade" id="clientNewModal{{ $request->id }}"
                                                     tabindex="-1" role="dialog" aria-labelledby="clientNewModalLabel"
                                                     aria-hidden="true">
                                                     <!-- .modal-dialog -->
                                                     <div class="modal-dialog" role="document">
                                                         <!-- .modal-content -->
-                                                        <form action="{{ route('updateDebit', ['id' => $debit->id]) }}"
+                                                        <form action="{{ route('updateDebit', ['id' => $request->id]) }}"
                                                             method="post">
                                                             @csrf
 
@@ -212,7 +212,7 @@
                                                                                     <div class="form-group">
                                                                                         <label for="input01">Nome do Producto</label> 
                                                                                         <select class="form-control" name="Id_stock" id="Id_product" onchange="prod(this);">
-                                                                                            <option value="{{$debit->product->id}}">{{$debit->product->product->Product_name}}</option>
+                                                                                            <option value="{{$request->product->id}}">{{$request->product->product->Product_name}}</option>
                                                                                             @foreach ($products as $product)
                                                                                             <option value="{{$product->product->id}}">{{$product->product->Product_name}}</option>
                                                                                             @endforeach
@@ -225,11 +225,11 @@
                                                                                             id="Priced"
                                                                                             class="form-control"
                                                                                             name="Price"
-                                                                                            value="{{ $debit->Price }}" disabled>
+                                                                                            value="{{ $request->Price }}" disabled>
                                                                                     </div>
                                                                                     <div class="form-group">
                                                                                         <label for="input02">Data de Pagamento</label> <input type="date"
-                                                                                            class="form-control" value="{{$debit->Date_to_pay}}" id="input02"
+                                                                                            class="form-control" value="{{$request->Date_to_pay}}" id="input02"
                                                                                             name="Date_to_pay" required="">
                                                                                     </div>
                                                                                     <input type="hidden"
@@ -239,7 +239,7 @@
 
                                                                         </div><!-- /.modal-body -->
                                                                         <input type="hidden" name="id"
-                                                                            value="{{ $debit->id }}">
+                                                                            value="{{ $request->id }}">
                                                                     </div><!-- /.form-row -->
 
                                                                 </div><!-- /.modal-body -->
