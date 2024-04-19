@@ -237,7 +237,7 @@
                                                                                             id="Quantity"
                                                                                             class="form-control"
                                                                                             name="Quantity"
-                                                                                            value="{{ $request->Price }}" disabled>
+                                                                                            placeholder="Digite a quantidade" required="">
                                                                                     </div>
                                                                                 </div>
                                                                             </div><!-- /.form-row -->
