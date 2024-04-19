@@ -13,11 +13,8 @@ return new class extends Migration
     {
         Schema::create('requests', function (Blueprint $table) {
             $table->id();
-            $table->string('Product_name');
             $table->string('Product_price');
             $table->string('Quantity');
-            $table->time('Request_time');
-            $table->date('Request_date');
             $table->timestamps();
         });
     }

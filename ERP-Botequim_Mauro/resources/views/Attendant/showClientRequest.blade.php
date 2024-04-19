@@ -115,9 +115,9 @@
                                             <tbody>
                                                 @foreach ($requests as $request)
                                                 <tr>
-                                                    <td class="align-middle"> {{ $request->product->product->Product_name }} </td>
-                                                    <td class="align-middle"> {{ $request->Price }} MT</td>
-                                                    <td class="align-middle"> {{ $request->Date_to_pay }} </td>
+                                                    <td class="align-middle"> {{ $request->products->product->Product_name }} </td>
+                                                    <td class="align-middle"> {{ $request->products->Price }} MT</td>
+                                                    <td class="align-middle"> {{ $request->products->Quantity }} </td>
                                                     <td class="align-middle"> 
                                                         <span class="badge badge-subtle badge-danger">Nao Pago</span>
                                                     </td>
