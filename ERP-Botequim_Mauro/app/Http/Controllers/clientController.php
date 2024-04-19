@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Client;
 use App\Models\Debit;
 use App\Models\Product;
+use App\Models\ProductRequest;
 use App\Models\Stock;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -116,8 +117,8 @@ class clientController extends Controller
             
             $stocks=Stock::all();
 
-            //?Inicio do metodo que vai retornar todos os pedidos
-            $requests=Request::all();
+            //?(Acessando a tabela intermediaria)
+            $requests=ProductRequest::all();
 
             return view('Attendant.showClientRequest',compact('clients','stocks','requests'));
         }
