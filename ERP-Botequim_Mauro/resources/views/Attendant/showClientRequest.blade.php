@@ -230,6 +230,15 @@
                                                                                             name="Product_price"
                                                                                             value="{{ $request->Price }}" disabled>
                                                                                     </div>
+                                                                                    <div class="form-group">
+                                                                                        <label
+                                                                                            for="cnContactEmail">Quantidade</label>
+                                                                                        <input type="text"
+                                                                                            id="Quantity"
+                                                                                            class="form-control"
+                                                                                            name="Quantity"
+                                                                                            value="{{ $request->Price }}" disabled>
+                                                                                    </div>
                                                                                 </div>
                                                                             </div><!-- /.form-row -->
 
