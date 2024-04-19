@@ -92,7 +92,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function() {
 //?Inicio das rotas da parte do atendente
 Route::group(['prefix' => 'attendant', 'middleware' => ['role:attendant']], function() {
 
-    //?Inicio das rotas da parte de cliente
+    //?Inicio das rotas da parte de cliente (Concretamente na parte de pedidos)
     Route::get('/addClientRequest', [clientController::class, 'addClientRequest'])->name('addClientRequest');
     Route::get('/showClientRequest/{id}', [clientController::class, 'showClientRequest'])->name('showClientRequest');
     Route::post('/storeClientRequest', [clientController::class, 'storeClientRequest'])->name('storeClientRequest');
