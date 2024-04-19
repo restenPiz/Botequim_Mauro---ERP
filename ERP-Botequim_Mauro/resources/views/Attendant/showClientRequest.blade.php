@@ -16,7 +16,7 @@
                                 <h6 class="card-header"> Adicionar Producto na Lista de Pedidos </h6><!-- .card-body -->
                                 <div class="card-body">
                                     <!-- form -->
-                                    <form method="post" action="{{ route('storeDebit') }}">
+                                    <form method="post" action="{{ route('storeClientRequest') }}">
                                         @csrf
                                         <!-- form row -->
                                         <div class="form-row">
