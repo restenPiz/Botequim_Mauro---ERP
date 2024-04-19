@@ -108,7 +108,7 @@ class clientController extends Controller
     //?Inicio da rota responsavel por fazer o show dos pedidos do clientes
     public function showClientRequest($id)
     {
-        if(Auth::user()->hasRole('Attendant'))
+        if(Auth::user()->hasRole('attendant'))
         {
             $clients=DB::table('clients')
                 ->where('id',$id)

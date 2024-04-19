@@ -958,6 +958,8 @@
     </div><!-- /.app -->
     <!-- BEGIN BASE JS -->
 
+    @endrole
+    
     <script>
 
         function productos(product) {
@@ -1007,7 +1009,7 @@
     @include('sweetalert::alert')
     {{-- Fim do link do sweetAlerta --}}
 
-    @endrole
+   
 
 
 </body>
