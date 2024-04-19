@@ -111,7 +111,7 @@ class clientController extends Controller
         {
             $clients=DB::table('clients')
                 ->where('id',$id)
-                ->where('user_type','request')
+                ->where('client_type','request')
                 ->get();
 
             return view('Attendant.showClientRequest',compact('clients'));
