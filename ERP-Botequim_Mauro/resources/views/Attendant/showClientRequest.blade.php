@@ -49,8 +49,8 @@
                                             </div><!-- /form column -->
                                         </div>
                                         <button type="submit" name="submit"
-                                            class="btn btn-primary text-nowrap ml-auto" onclick="enableFields()">Adicionar Divida</button>
-                                        <a href="{{ route('addClient') }}" type="button" class="btn btn-light"
+                                            class="btn btn-primary text-nowrap ml-auto" onclick="enableFields()">Adicionar Pedido</button>
+                                        <a href="{{ route('addClientRequest') }}" type="button" class="btn btn-light"
                                             data-dismiss="modal">Voltar</a>
                                     </form><!-- /form -->
                                 </div><!-- /.card-body -->
@@ -70,7 +70,7 @@
                                         class="fa fa-plus"></span></button> <!-- /floating action -->
                                 <!-- title and toolbar -->
                                 <div class="d-md-flex align-items-md-start">
-                                    <h1 class="page-title mr-sm-auto"> Todas Dividas de {{$client->Name_client}} {{$client->Surname}} </h1><!-- .btn-toolbar -->
+                                    <h1 class="page-title mr-sm-auto"> Todos Pedidos de {{$client->Name_client}} {{$client->Surname}} </h1><!-- .btn-toolbar -->
                                     <div class="btn-toolbar">
                                         <button type="button" class="btn btn-light"><i
                                                 class="oi oi-data-transfer-download"></i> <span

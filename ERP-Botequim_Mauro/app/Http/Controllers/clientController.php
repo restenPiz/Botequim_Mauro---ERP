@@ -116,7 +116,10 @@ class clientController extends Controller
             
             $stocks=Stock::all();
 
-            return view('Attendant.showClientRequest',compact('clients','stocks'));
+            //?Inicio do metodo que vai retornar todos os pedidos
+            $requests=Request::all();
+
+            return view('Attendant.showClientRequest',compact('clients','stocks','requests'));
         }
         else
         {
