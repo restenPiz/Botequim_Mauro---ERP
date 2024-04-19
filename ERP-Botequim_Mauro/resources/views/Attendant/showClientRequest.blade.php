@@ -206,7 +206,10 @@
                                                                                     <div class="form-group">
                                                                                         <label for="input01">Nome do Cliente</label> 
                                                                                         <select name="Id_client" id="Id_client" class="form-control">
-                                                                                            <option value="{{$client->id}}" selected>{{$client->Name_client}} {{$client->Surname}}</option>
+                                                                                            <option value="{{$request->products->Id_client}}" selected>{{$request->products->clients->Name_client}} {{$request->products->clients->Surname}}</option>
+                                                                                            @foreach ($clients as $client)
+                                                                                                <option value="{{$client->id}}" selected>{{$client->Name_client}} {{$client->Surname}}</option>
+                                                                                            @endforeach
                                                                                         </select>
                                                                                     </div>
                                                                                     <div class="form-group">
