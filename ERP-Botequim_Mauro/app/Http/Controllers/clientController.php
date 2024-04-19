@@ -104,4 +104,23 @@ class clientController extends Controller
             return redirect()->route('login');
         }
     }
+    //?Inicio da rota responsavel por fazer o show dos pedidos do clientes
+    public function showClientRequest($id)
+    {
+        if(Auth::user()->hasRole('Attendant'))
+        {
+            $clients=DB::table('clients')
+                ->where('id',$id)
+                ->where('user_type','request')
+                ->get();
+
+            return view('Attendant.showClientRequest',compact('clients'));
+        }
+        else
+        {
+            Alert::error('Nao Autenticado','Faca login para poder entrar no sistema!');
+        
+            return back();
+         }
+    }
 }
