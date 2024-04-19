@@ -24,4 +24,9 @@ class Stock_out extends Model
     {
         return Product::find($id)->Product_name;
     }
+    //*Inicio do relacionamento de muito para muitos com a tabela de Pedidos
+    public function request()
+    {
+        return $this->belongsToMany(Request::class, 'Id_product','Id_request');
+    }
 }
