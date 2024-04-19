@@ -37,6 +37,8 @@
 </head>
 
 <body>
+
+    @role('admin')
     <!-- .app -->
     <div class="app">
         <header class="app-header app-header-dark">
@@ -593,6 +595,7 @@
     @include('sweetalert::alert')
     {{-- Fim do link do sweetAlerta --}}
 
+    @endrole
     
     @role('attendant')
     <div class="app">
