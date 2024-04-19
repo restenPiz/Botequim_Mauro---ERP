@@ -11,9 +11,6 @@ return new class extends Migration
         Schema::table('requests', function (Blueprint $table) {
             $table->unsignedBigInteger('Id_client');
             $table->foreign('Id_client')->references('id')->on('clients');
-        
-            $table->unsignedBigInteger('Id_paid_credit');
-            $table->foreign('Id_paid_credit')->references('id')->on('paid__credits');
         });
     }
 
