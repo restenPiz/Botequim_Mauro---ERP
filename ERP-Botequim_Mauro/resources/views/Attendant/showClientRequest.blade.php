@@ -43,9 +43,9 @@
                                                     name="Price" value="" disabled>
                                             </div><!-- /form column -->
                                             <div class="col-md-12 mb-3">
-                                                <label for="input02">Data do Pedido</label> <input type="date"
-                                                    class="form-control" placeholder="Value" id="input02"
-                                                    name="Date_to_pay" required="">
+                                                <label for="input02">Quantidade</label> <input type="text"
+                                                    class="form-control" placeholder="Quantidade" id="input02"
+                                                    name="Quantity" required="">
                                             </div><!-- /form column -->
                                         </div>
                                         <button type="submit" name="submit"
