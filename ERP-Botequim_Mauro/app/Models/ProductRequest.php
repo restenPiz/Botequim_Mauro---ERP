@@ -11,6 +11,7 @@ class ProductRequest extends Model
 
     protected $table='product_requests';
 
+    //?Inicio da tabela intermediaria
     protected $fillable=['Id_stock','Id_request'];
 
     //*Inicio dos relacionamentos entre as tabelas
