@@ -113,7 +113,7 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach ($debits as $debit)
+                                                @foreach ($requests as $request)
                                                 <tr>
                                                     <td class="align-middle"> {{ $debit->product->product->Product_name }} </td>
                                                     <td class="align-middle"> {{ $debit->Price }} MT</td>
