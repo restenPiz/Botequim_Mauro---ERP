@@ -95,6 +95,7 @@ Route::group(['prefix' => 'attendant', 'middleware' => ['role:attendant']], func
     //?Inicio das rotas da parte de cliente
     Route::get('/addClientRequest', [clientController::class, 'addClientRequest'])->name('addClientRequest');
     Route::get('/showClientRequest/{id}', [clientController::class, 'showClientRequest'])->name('showClientRequest');
+    Route::post('/storeClientRequest', [clientController::class, 'storeClientRequest'])->name('storeClientRequest');
 
 });
 
