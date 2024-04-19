@@ -96,6 +96,8 @@ Route::group(['prefix' => 'attendant', 'middleware' => ['role:attendant']], func
     Route::get('/addClientRequest', [clientController::class, 'addClientRequest'])->name('addClientRequest');
     Route::get('/showClientRequest/{id}', [clientController::class, 'showClientRequest'])->name('showClientRequest');
     Route::post('/storeClientRequest', [clientController::class, 'storeClientRequest'])->name('storeClientRequest');
+    Route::post('/updateClientRequest', [clientController::class, 'updateClientRequest'])->name('updateClientRequest');
+    Route::get('/deleteClientRequest/{id}', [clientController::class, 'deleteClientRequest'])->name('deleteClientRequest');
 
 });
 
