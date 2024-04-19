@@ -129,4 +129,19 @@ class clientController extends Controller
             return back();
          }
     }
+    public function updateClientRequest($id)
+    {
+        if(Auth::user()->hasRole('attendant')){
+            $clients=Client::findOrFail($id);
+
+            $clients->Name_client=Request::input('Name_client');
+            $clients->Surname=Request::input('Surname');
+            $clients->Age=Request::input('Age');
+            $clients->Household=Request::input('Household');
+            $clients->client_type=Request::input('client_type');
+
+            return back();
+
+        }
+    }
 }
