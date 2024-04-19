@@ -23,10 +23,10 @@ class Request extends Model
     {
         return $this->belongsTo(Paid_Credit::class, 'Id_paid_credit', 'id');
     }
-
-    //*Inicio do metodo responsavel por retornar o nome do cliente
-    public function name($id)
+     
+    //*Inicio do metodo do relacionamento de muito para muitos
+    public function product()
     {
-        return Client::find($id)->Name_client;
+        return $this->belongsToMany(Stock::class, 'Id_product','Id_request');
     }
 }
