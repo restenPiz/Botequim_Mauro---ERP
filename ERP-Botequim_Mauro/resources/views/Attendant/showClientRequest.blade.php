@@ -74,9 +74,7 @@
                                     <div class="btn-toolbar">
                                         <button type="button" class="btn btn-light"><i
                                                 class="oi oi-data-transfer-download"></i> <span
-                                                class="ml-1">Exportar</span></button> <button type="button"
-                                            class="btn btn-light"><i class="oi oi-data-transfer-upload"></i> <span
-                                                class="ml-1">Importar</span></button>
+                                                class="ml-1">Imprimir Lista de Pedidos</span></button> 
                                         <div class="dropdown">
                                             <button type="button" class="btn btn-light"
                                                 data-toggle="dropdown"><span>Mais</span> <span
@@ -282,7 +280,7 @@
                             {{--Inicio da parte de butao de pagar--}}
                             <div class="col">
                                 <button type="submit" name="submit"
-                                class="btn btn-success text-nowrap ml-auto" onclick="enableField()">Pagar Divida</button>
+                                class="btn btn-success text-nowrap ml-auto" onclick="enableField()">Concluir Venda</button>
                                 <button type="submit" name="submit"
                                 class="btn btn-danger text-nowrap ml-auto" onclick="enableField()">Eliminar Todos Productos</button>
                             </div>
