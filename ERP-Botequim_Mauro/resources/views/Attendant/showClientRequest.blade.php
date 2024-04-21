@@ -31,7 +31,7 @@
                                                 <label for="input01">Nome do Producto</label> 
                                                 <select class="form-control" name="Id_stock" id="Id_product" onchange="prod(this);">
                                                     <option>--Selecione o Producto --</option>
-                                                    @foreach ($products as $product)
+                                                    @foreach ($stocks as $product)
                                                     <option value="{{$product->product->id}}">{{$product->product->Product_name}}</option>
                                                     @endforeach
                                                 </select>
@@ -266,7 +266,7 @@
                                             <tfoot>
                                                 <tr>
                                                     <td class="align-middle"><h5>Valor da Divida:</h5></td>
-                                                    <td class="align-middle"><h5>{{$count}} MT</h5></td>
+                                                    <td class="align-middle"><h5> MT</h5></td>
                                                 </tr>
                                             </tfoot>
                                         </table>

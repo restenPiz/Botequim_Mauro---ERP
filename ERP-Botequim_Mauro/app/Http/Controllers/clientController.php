@@ -111,17 +111,14 @@ class clientController extends Controller
     {
         if(Auth::user()->hasRole('attendant'))
         {
-            $clients=DB::table('clients')
-                ->where('id',$id)
-                ->where('client_type','request')
-                ->get();
+            $client=Client::where('client_type','request')->first();
             
             $stocks=Stock::all();
 
             //?(Acessando a tabela intermediaria)
             $requests=ProductRequest::all();
 
-            return view('Attendant.showClientRequest',compact('clients','stocks','requests'));
+            return view('Attendant.showClientRequest',compact('client','stocks','requests'));
         }
         else
         {
