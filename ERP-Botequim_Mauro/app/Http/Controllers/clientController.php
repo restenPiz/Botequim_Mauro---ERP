@@ -35,7 +35,8 @@ class clientController extends Controller
 
             $client->save();
 
-            Alert::success('Adicionado!','O cliente foi adicionado com sucesso!');
+            $message=$client->Name_client;
+            Alert::success('Adicionado!',$message.' foi adicionado com sucesso!');
 
             return back();
        } 
