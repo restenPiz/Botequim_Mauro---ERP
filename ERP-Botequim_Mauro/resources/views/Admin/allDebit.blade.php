@@ -74,7 +74,8 @@
                                     <div class="btn-toolbar">
                                         <button type="button" class="btn btn-light"><i
                                                 class="oi oi-data-transfer-download"></i> <span
-                                                class="ml-1">Exportar</span></button> <button type="button"
+                                                class="ml-1">Exportar</span></button> 
+                                                {{-- <button type="button"
                                             class="btn btn-light"><i class="oi oi-data-transfer-upload"></i> <span
                                                 class="ml-1">Importar</span></button>
                                         <div class="dropdown">
@@ -90,7 +91,7 @@
                                                     class="dropdown-item">Archive</a> <a href="#"
                                                     class="dropdown-item">Remove</a>
                                             </div>
-                                        </div>
+                                        </div> --}}
                                     </div><!-- /.btn-toolbar -->
                                 </div><!-- /title and toolbar -->
                             </header><!-- /.page-title-bar -->

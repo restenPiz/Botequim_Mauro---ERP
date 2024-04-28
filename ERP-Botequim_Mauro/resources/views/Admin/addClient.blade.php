@@ -64,10 +64,8 @@
                                     <div class="btn-toolbar">
                                         <button type="button" class="btn btn-light"><i
                                                 class="oi oi-data-transfer-download"></i> <span
-                                                class="ml-1">Exportar</span></button> <button type="button"
-                                            class="btn btn-light"><i class="oi oi-data-transfer-upload"></i> <span
-                                                class="ml-1">Importar</span></button>
-                                        <div class="dropdown">
+                                                class="ml-1">Exportar</span></button> 
+                                        {{-- <div class="dropdown">
                                             <button type="button" class="btn btn-light"
                                                 data-toggle="dropdown"><span>Mais</span> <span
                                                     class="fa fa-caret-down"></span></button>
@@ -80,7 +78,7 @@
                                                     class="dropdown-item">Archive</a> <a href="#"
                                                     class="dropdown-item">Remove</a>
                                             </div>
-                                        </div>
+                                        </div> --}}
                                     </div><!-- /.btn-toolbar -->
                                 </div><!-- /title and toolbar -->
                             </header><!-- /.page-title-bar -->
@@ -92,6 +90,23 @@
                                 <div class="card-body">
                                     {{-- <h2 class="card-title"> Contacts </h2><!-- .table-responsive --> --}}
                                     <div class="table-responsive">
+                                        <div class="input-group input-group-alt">
+                                            <!-- .input-group-prepend -->
+                                            <div class="input-group-prepend">
+                                              <select id="filterBy" class="custom-select">
+                                                <option value='' selected> Filtrar Por </option>
+                                              </select>
+                                            </div><!-- /.input-group-prepend -->
+                                            <!-- .input-group -->
+                                            <div class="input-group has-clearable">
+                                              <button id="clear-search" type="button" class="close" aria-label="Close"><span aria-hidden="true"><i class="fa fa-times-circle"></i></span></button>
+                                              <div class="input-group-prepend">
+                                                <span class="input-group-text"><span class="oi oi-magnifying-glass"></span></span>
+                                              </div><input id="table-search" type="text" class="form-control" placeholder="Pesquisar clientes">
+                                            </div><!-- /.input-group -->
+                                          </div><!-- /.input-group -->
+                                        </div><!-- /.form-group -->
+
                                         <table class="table table-striped" style="min-width: 678px">
                                             <thead>
                                                 <tr>
