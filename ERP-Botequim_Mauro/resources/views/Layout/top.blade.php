@@ -437,9 +437,9 @@
     @include('sweetalert::alert')
     {{-- Fim do link do sweetAlerta --}}
 
-    @endrole
+@endrole
     
-    @role('attendant')
+@role('attendant')
 
     <!DOCTYPE html>
     <html lang="en">
@@ -682,7 +682,7 @@
     <!-- BEGIN BASE JS -->
 
 
-    @endrole
+   
 
     <script>
 
@@ -737,3 +737,5 @@
 </body>
 
 </html>
+
+@endrole
