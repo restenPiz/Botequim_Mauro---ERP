@@ -346,7 +346,7 @@
         function prod(product) {
             var Id_product = product.value;
 
-            $.get('http://127.0.0.1:8000/admin/getDebit?Id_product=' + Id_product, function(data) {
+            $.get('http://127.0.0.1:8000/admin/getDebit?id=' + Id_product, function(data) {
                 console.log(data);
 
                 $('#Price').val(data.Price);
@@ -524,7 +524,7 @@
                                 <use class="fill-warning" xlink:href="#a"></use>
                             </g>
                         </svg></a> --}}
-                        <a href="index-2.html"><img style="width: 14rem;margin-left:-2.3rem" src="assets/logo.png"></a>
+                        <a href="index-2.html"><img style="width: 14rem;margin-left:-2.3rem" src="/../assets/logo.png"></a>
                 </div><!-- /.top-bar-brand -->
                 <!-- .top-bar-list -->
                 <div class="top-bar-list">
@@ -587,10 +587,10 @@
                         <div class="dropdown d-none d-md-flex">
                             <button class="btn-account" type="button" data-toggle="dropdown" aria-haspopup="true"
                                 aria-expanded="false"><span class="user-avatar user-avatar-md"><img
-                                        src="assets/dif.jpg" alt=""></span> <span
+                                        src="/../assets/dif.jpg" alt=""></span> <span
                                     class="account-summary pr-lg-4 d-none d-lg-block"><span
                                         class="account-name">{{ Auth::user()->name }}</span> <span
-                                        class="account-description">Administrador</span></span></button>
+                                        class="account-description">Atendente</span></span></button>
                             <!-- .dropdown-menu -->
                             <div class="dropdown-menu">
                                 <div class="dropdown-arrow d-lg-none" x-arrow=""></div>
@@ -620,7 +620,7 @@
                                 src="/../assets/images/avatars/profile.jpg" alt=""></span> <span
                             class="account-icon"><span class="fa fa-caret-down fa-lg"></span></span> <span
                             class="account-summary"><span class="account-name">{{ Auth::user()->name }}</span> <span
-                                class="account-description">Administrador</span></span></button>
+                                class="account-description">Atendente</span></span></button>
                     <!-- /.btn-account -->
                     <!-- .dropdown-aside -->
                     <div id="dropdown-aside" class="dropdown-aside collapse">

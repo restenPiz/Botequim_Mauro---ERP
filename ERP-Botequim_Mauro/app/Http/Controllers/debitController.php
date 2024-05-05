@@ -12,7 +12,7 @@ class debitController extends Controller
 {
     public function getDebit()
     {
-        $input= Request::input('Id_product');
+        $input= Request::input('id');
 
         $product=Product::where('id',$input)->first();
 
