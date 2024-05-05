@@ -815,6 +815,7 @@
         });
     </script>
 
+
     <script src="/../assets/vendor/sortablejs/Sortable.min.js"></script> <!-- END PLUGINS JS -->
     <script src="/../assets/vendor/jquery/jquery.min.js"></script>
     <script src="/../assets/vendor/popper.js/umd/popper.min.js"></script>
@@ -834,7 +835,6 @@
     <!-- BEGIN THEME JS -->
     <script src="/../assets/javascript/theme.min.js"></script> <!-- END THEME JS -->
     <!-- BEGIN PAGE LEVEL JS -->
-    <script src="/../assets/javascript/pages/dashboard-demo.js"></script> <!-- END PAGE LEVEL JS -->
     
     <script src="/../assets/javascript/pages/invoice-demo.js"></script> <!-- END PAGE LEVEL JS -->
     <!-- Global site tag (gtag.js) - Google Analytics -->
