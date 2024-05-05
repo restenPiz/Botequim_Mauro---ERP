@@ -25651,7 +25651,7 @@ a.metric:hover {
     position: relative;
     padding: 1rem;
     width: 100%;
-    background-color: #d6d8e1;
+    background-color: white;
     overflow: hidden
 }
 
@@ -25664,7 +25664,7 @@ a.metric:hover {
     background-color: inherit
 }
 
-.invoice-wrapper>.invoice-img {
+/*.invoice-wrapper>.invoice-img {
     position: relative;
     display: block;
     margin-right: auto;
@@ -25677,7 +25677,7 @@ a.metric:hover {
     user-select: none;
     z-index: 1;
     box-shadow: .5rem .5rem 1rem rgba(20, 20, 31, .05), .5rem -.5rem 1rem rgba(20, 20, 31, .05), -.5rem .5rem 1rem rgba(20, 20, 31, .05), -.5rem -.5rem 1rem rgba(20, 20, 31, .05)
-}
+}*/
 
 .invoice-actions {
     position: absolute;
