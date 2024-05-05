@@ -66,7 +66,7 @@ class debitController extends Controller
     }
     public function allDebit($id)
     {
-        $debit=DB::table('debits')
+        $debits=DB::table('debits')
             ->where('id',$id)
             ->get();
         

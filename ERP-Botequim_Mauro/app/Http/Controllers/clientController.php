@@ -117,7 +117,7 @@ class clientController extends Controller
 
             //?(Acessando a tabela intermediaria)
             $requests=ProductRequest::all();
-
+            
             return view('Attendant.showClientRequest',compact('client','stocks','requests'));
         }
         else

@@ -90,9 +90,7 @@
                                             <!-- .col -->
                                             <div class="col d-flex">
                                                 <h2 class="invoice-brand align-self-center">
-                                                    <img src="/../assets/logo1.png" width="250" height="150" alt=""> <span
-                                                        class="sr-only">Invoice
-                                                        Brand</span>
+                                                    <img src="/../assets/logo1.png" width="250" height="150" alt=""> 
                                                 </h2>
                                             </div><!-- /.col -->
                                             <!-- .col -->
@@ -100,19 +98,13 @@
                                                 <table class="table table-borderless table-sm">
                                                     <tbody>
                                                         <tr>
-                                                            <td colspan="2">
-                                                                <small>Amount (USD)</small>
-                                                                <h5> $3.096,00 </h5>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
                                                             <td>
-                                                                <small>Invoice No</small><br>
-                                                                <h5> INV-65D9E592 </h5>
+                                                                <small>Numero de Pedido</small><br>
+                                                                <h5> INV</h5>
                                                             </td>
                                                             <td>
-                                                                <small>Due Date</small><br>
-                                                                <h5> Jan 18, 2019 </h5>
+                                                                <small>Data de Criacao</small><br>
+                                                                <h5>  </h5>
                                                             </td>
                                                         </tr>
                                                     </tbody>
@@ -129,9 +121,9 @@
                                                 <!-- .invoice-sender -->
                                                 <div class="invoice-sender">
                                                     <dl>
-                                                        <dt> From: </dt>
-                                                        <dd> Stilearning </dd>
-                                                        <dd> 983 Kunde Glens, Pourosmouth<br> AK 68019-8335
+                                                        <dt> De: </dt>
+                                                        <dd> Botequim Mauro </dd>
+                                                        <dd> Distrito de Mossurize, Provincia de Manica<br> 
                                                         </dd>
                                                     </dl>
                                                 </div><!-- /.invoice-recipient -->
@@ -141,26 +133,25 @@
                                                 <!-- .invoice-recipient -->
                                                 <div class="invoice-recipient">
                                                     <dl>
-                                                        <dt> Billed To: </dt>
-                                                        <dd> Ron-tech </dd>
-                                                        <dd> 3272 Mills Valleys Suite 412, Port Willis<br> NV
-                                                            69859 </dd>
+                                                        <dt> Para: </dt>
+                                                        <dd> {{$client->Name_client}} </dd>
+                                                        <dd> {{$client->Household}} </dd>
                                                     </dl>
                                                 </div><!-- /.invoice-recipient -->
                                             </div><!-- /.col -->
                                         </div><!-- /grid row -->
                                         <table class="table table-sm">
                                             <caption class="invoice-title">
-                                                <span>Invoice</span><br>
-                                                <span class="text-primary">Looper Admin Theme Custom
-                                                    Design</span>
+                                                <span>Lista de Pedidos</span><br>
+                                                {{-- <span class="text-primary">Looper Admin Theme Custom
+                                                    Design</span> --}}
                                             </caption>
                                             <thead>
                                                 <tr>
-                                                    <th style="min-width: 375px"> Description </th>
-                                                    <th class="text-right"> Qty </th>
+                                                    <th style="min-width: 375px"> Nome do Producto </th>
+                                                    <th class="text-right"> Quantidade </th>
                                                     <th> Price </th>
-                                                    <th class="text-right"> Amount (USD) </th>
+                                                    <th class="text-right"> Valor (MT) </th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -184,9 +175,9 @@
                                                 <tr>
                                                     <th colspan="2"></th>
                                                     <th> Total </th>
-                                                    <th class="text-right"> $3.196,00 </th>
+                                                    <th class="text-right">1000 MT </th>
                                                 </tr>
-                                                <tr>
+                                                {{-- <tr>
                                                     <th colspan="2"></th>
                                                     <th> Coupon </th>
                                                     <th class="text-right"> $100,00 </th>
@@ -195,7 +186,7 @@
                                                     <th colspan="2"></th>
                                                     <th> Due </th>
                                                     <th class="text-right"> $3.096,00 </th>
-                                                </tr>
+                                                </tr> --}}
                                             </tfoot>
                                         </table>
                                     </div><!-- /.invoice-body -->
