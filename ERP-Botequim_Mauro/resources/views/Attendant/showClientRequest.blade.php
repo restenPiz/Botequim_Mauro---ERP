@@ -152,6 +152,7 @@
                                                     <th class="text-right"> Quantidade </th>
                                                     <th> Price </th>
                                                     <th class="text-right"> Valor (MT) </th>
+                                                    <th></th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -160,12 +161,14 @@
                                                     <td class="text-right"> 1 </td>
                                                     <td> $3.000,00 </td>
                                                     <td class="text-right"> $3.000,00 </td>
+                                                    
                                                 </tr>
                                                 <tr>
                                                     <td> Looper Admin Theme (Standard License) </td>
                                                     <td class="text-right"> 4 </td>
                                                     <td> $49,00 </td>
                                                     <td class="text-right"> $196,00 </td>
+                                                    
                                                 </tr><!-- fake border -->
                                                 <tr>
                                                     <td colspan="4"></td>
@@ -193,9 +196,9 @@
                                     <!-- .invoice-footer -->
                                     <div class="invoice-footer">
                                         <p>
-                                            <strong>Thanks for buying or notes</strong>. Please click button
-                                            with caret down icon above to generate and download this invoice in
-                                            pdf format.
+                                            <strong>Obrigado por gerar essa lista</strong>. Por favor clique no botão
+                                            com o ícone de cursor para baixo acima para gerar e baixar esta lista de pedidos em
+                                            formato pdf.
                                         </p>
                                     </div><!-- /.invoice-footer -->
                                 </div><!-- /.invoice -->
