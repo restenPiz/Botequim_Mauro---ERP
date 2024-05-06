@@ -355,11 +355,9 @@
 
         function enableField() {    
             $('#Price').prop('disabled', false);
-            $('#Id_client').prop('disabled', false);
 
             setTimeout(function() {
                 $('#Price').prop('disabled', true);
-                $('#Id_client').prop('disabled', true);
             }, 1000); 
         }
     </script>
