@@ -58,8 +58,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function() {
     Route::get('/allStock', [stockController::class, 'allStock'])->name('allStock');
     Route::post('/updateStock/{id}', [stockController::class, 'updateStock'])->name('updateStock');
     Route::get('/deleteStock/{id}', [stockController::class, 'deleteStock'])->name('deleteStock');
-    Route::get('/getProductDetails', [StockController::class, 'getProductDetails'])->name('getProductDetails');
-    Route::get('/getProduct', [StockController::class, 'getProduct'])->name('getProduct');
 
     //?Inicio das rotas da parte de productos
     Route::get('/addProduct', [productController::class, 'addProduct'])->name('addProduct');
@@ -106,6 +104,11 @@ Route::post('/storeClient', [clientController::class, 'storeClient'])->name('sto
 Route::post('/updateClient/{id}', [clientController::class, 'updateClient'])->name('updateClient');
 Route::get('/deleteClient/{id}', [clientController::class, 'deleteClient'])->name('deleteClient');  
 //* Fim das rotas multiplas */
+
+//* Inicio das rotas responsaveis por retornar os dados em json dos inputs */
+Route::get('/getProductDetails', [StockController::class, 'getProductDetails'])->name('getProductDetails');
+Route::get('/getProduct', [StockController::class, 'getProduct'])->name('getProduct');
+//* Fim dos metodos responsaveis pelos metodos JSON */
 
 //?Fim das rotas da parte de admin
 
