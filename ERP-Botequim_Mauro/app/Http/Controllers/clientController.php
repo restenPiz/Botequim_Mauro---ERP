@@ -142,20 +142,20 @@ class clientController extends Controller
 
         }
     }
-    public function storeClientRequest(Request $request)
+    public function storeClientRequest()
     {
         $productRequest = new ProductRequest();
 
         // Atribuir valores do formulário ao pedido
-        $productRequest->Id_stock = $request->input('Id_stock');
-        $productRequest->Price = $request->input('Price');
-        $productRequest->Quantity = $request->input('Quantity');
+        $productRequest->Id_stock = Request::input('Id_stock');
+        $productRequest->Price = Request::input('Price');
+        $productRequest->Quantity = Request::input('Quantity');
     
         // Salvar o pedido
         $productRequest->save();
     
         // Adicionar os clientes ao pedido
-        foreach ($request->input('Id_client') as $clientId) {
+        foreach (Request::input('Id_client') as $clientId) {
             $productRequest->clients()->attach($clientId);
         }
         Alert::success('Adicionado!','O producto foi adicionado na lista de pedidos!');
