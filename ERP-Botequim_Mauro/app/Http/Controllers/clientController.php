@@ -144,15 +144,18 @@ class clientController extends Controller
     }
     public function storeClientRequest()
     {
-        for ($i = 0; $i < sizeof(Request::input('Id_user')); $i++) {
+        for ($i = 0; $i < sizeof(Request::input('Id_client')); $i++) {
 
-            $department = new member_department();
+            $request = new ProductRequest();
 
-            $department->Id_department = Request::input('Id_department');
-            $department->Id_user = Request::input('Id_user')[$i];
-            $department->save();
+            $request->Id_stock = Request::input('Id_stock');
+            $request->Id_client = Request::input('Id_client')[$i];
+            $request->Price = Request::input('Price');
+            $request->Quantity = Request::input('Quantity');
+
+            $request->save();
         }
-        Alert::success('Conectado!','O seu membro foi conectado ao departamento!');
+        Alert::success('Adicionado!','O producto foi adicionado na lista de pedidos!');
 
         return redirect()->back();
     }
