@@ -71,7 +71,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function() {
     Route::get('/allDebit/{id}', [debitController::class, 'allDebit'])->name('allDebit');
     Route::post('/updateDebit/{id}', [debitController::class, 'updateDebit'])->name('updateDebit');
     Route::get('/deleteDebit/{id}', [debitController::class, 'deleteDebit'])->name('deleteDebit');
-    Route::get('/getDebit', [debitController::class, 'getDebit'])->name('getDebit');
 
     //?Inicio das rotas da parte de clientes
     Route::get('/allClient', [clientController::class, 'addClient'])->name('addClient'); 
@@ -109,6 +108,7 @@ Route::get('/deleteClient/{id}', [clientController::class, 'deleteClient'])->nam
 Route::get('/getProductDetails', [StockController::class, 'getProductDetails'])->name('getProductDetails');
 Route::get('/getRequest', [StockController::class, 'getRequest'])->name('getRequest');
 Route::get('/getProduct', [StockController::class, 'getProduct'])->name('getProduct');
+Route::get('/getDebit', [debitController::class, 'getDebit'])->name('getDebit');
 //* Fim dos metodos responsaveis pelos metodos JSON */
 
 //?Fim das rotas da parte de admin

@@ -346,7 +346,7 @@
         function prod(product) {
             var Id_product = product.value;
 
-            $.get('http://127.0.0.1:8000/admin/getRequest?id=' + Id_product, function(data) {
+            $.get('http://127.0.0.1:8000/getRequest?id=' + Id_product, function(data) {
                 console.log(data);
 
                 $('#Price').val(data.Price);
