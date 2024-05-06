@@ -142,4 +142,18 @@ class clientController extends Controller
 
         }
     }
+    public function storeClientRequest()
+    {
+        for ($i = 0; $i < sizeof(Request::input('Id_user')); $i++) {
+
+            $department = new member_department();
+
+            $department->Id_department = Request::input('Id_department');
+            $department->Id_user = Request::input('Id_user')[$i];
+            $department->save();
+        }
+        Alert::success('Conectado!','O seu membro foi conectado ao departamento!');
+
+        return redirect()->back();
+    }
 }
