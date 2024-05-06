@@ -101,4 +101,21 @@ class stockController extends Controller
             return response()->json(['error' => 'Produto não encontrado'], 404);
         }
     }
+    public function getRequest()
+    {
+        // $input = Request::input('Product_name');
+
+        // $product = Product::where('Product_name', $input)->first();
+        $input= Request::input('id');
+
+            $product=Product::where('id',$input)->first();
+
+        if ($product) {
+            // Retorna os detalhes do produto como JSON
+            return response()->json($product);
+        } else {
+            // Retorna uma resposta indicando que o produto não foi encontrado
+            return response()->json(['error' => 'Produto não encontrado'], 404);
+        }
+    }
 }

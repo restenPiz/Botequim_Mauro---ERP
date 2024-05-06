@@ -107,6 +107,7 @@ Route::get('/deleteClient/{id}', [clientController::class, 'deleteClient'])->nam
 
 //* Inicio das rotas responsaveis por retornar os dados em json dos inputs */
 Route::get('/getProductDetails', [StockController::class, 'getProductDetails'])->name('getProductDetails');
+Route::get('/getRequest', [StockController::class, 'getRequest'])->name('getRequest');
 Route::get('/getProduct', [StockController::class, 'getProduct'])->name('getProduct');
 //* Fim dos metodos responsaveis pelos metodos JSON */
 
