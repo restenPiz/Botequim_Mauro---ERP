@@ -12,7 +12,7 @@ class Request extends Model
     protected $table='requests';
 
     protected $fillable=['Product_price','Quantity'
-    ,'Id_client'];
+    ,'Id_client','Id_stock'];
 
     //*Inicio dos relacionamentos das chaves estrangeiras
     public function clients()

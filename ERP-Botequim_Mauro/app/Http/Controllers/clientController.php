@@ -144,11 +144,11 @@ class clientController extends Controller
     }
     public function storeClientRequest()
     {
-        $productRequest = new ProductRequest();
+        $productRequest = new \App\Models\Request();
 
         // Atribuir valores do formulário ao pedido
         $productRequest->Id_stock = Request::input('Id_stock');
-        $productRequest->Price = Request::input('Price');
+        $productRequest->Price = Request::input('Product_price');
         $productRequest->Quantity = Request::input('Quantity');
     
         // Salvar o pedido
