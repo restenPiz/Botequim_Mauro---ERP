@@ -9,8 +9,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('requests', function (Blueprint $table) {
+            //?Inicio da chave estrangeira do id do cliente
             $table->unsignedBigInteger('Id_client');
             $table->foreign('Id_client')->references('id')->on('clients');
+
+            //?Inicio da chave estrangeira do id do producto
+            $table->unsignedBigInteger('Id_stock');
+            $table->foreign('Id_stock')->references('id')->on('stocks');
         });
     }
 
