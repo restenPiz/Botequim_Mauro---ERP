@@ -155,8 +155,8 @@ class clientController extends Controller
         $productRequest->save();
     
         // Adicionar os clientes ao pedido
-        foreach (Request::input('Id_client') as $clientId) {
-            $productRequest->clients()->attach($clientId);
+        foreach (Request::input('Id_stock') as $productId) {
+            $productRequest->products()->attach($productId);
         }
         Alert::success('Adicionado!','O producto foi adicionado na lista de pedidos!');
 
