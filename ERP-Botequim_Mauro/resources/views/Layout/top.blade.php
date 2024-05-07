@@ -311,7 +311,7 @@
 
             var Product_name = product.value;
 
-            $.get('http://127.0.0.1:8000/admin/getProductDetails?id=' + Product_name, function(data) {
+            $.get('http://127.0.0.1:8000/getProductDetails?id=' + Product_name, function(data) {
                 console.log(data);
 
                 // Atualiza os campos do formulário com os detalhes do produto
