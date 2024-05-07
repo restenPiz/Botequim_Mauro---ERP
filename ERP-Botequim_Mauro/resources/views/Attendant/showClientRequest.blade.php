@@ -30,7 +30,7 @@
                                             </div><!-- /form column -->
                                             <div class="col-md-12 mb-3">
                                                 <label for="input01">Nome do Producto</label>
-                                                <select class="form-control" name="Id_stock[]" id="Id_product"
+                                                <select class="form-control" name="Id_stock" id="Id_product"
                                                     onchange="prod(this);">
                                                     <option>--Selecione o Producto --</option>
                                                     @foreach ($stocks as $product)
@@ -99,7 +99,7 @@
                                             <tbody>
                                                 @foreach ($requests as $request)
                                                 <tr>
-                                                    <td class="align-middle"> {{ $request->Product_name }} </td>
+                                                    <td class="align-middle"> {{ $request->Id_product }} </td>
                                                     <td class="align-middle"> {{ $request->Product_price }} MT</td>
                                                     <td class="align-middle"> {{ $request->Quantity }} </td>
                                                     <td class="align-middle"> 
