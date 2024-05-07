@@ -156,7 +156,7 @@ class clientController extends Controller
 
         // Adicionar os produtos ao pedido
         foreach (Request::input('Id_stock') as $productId) {
-            $product = Stock::find($productId);
+            $product = ProductRequest::find($productId);
             $productRequest->products()->attach($product);
         }
         
