@@ -116,8 +116,8 @@ class clientController extends Controller
             $stocks=Stock::all();
 
             //?(Acessando a tabela intermediaria)
-            $requests=ProductRequest::all();
-            
+            $requests=\App\Models\Request::all();
+
             return view('Attendant.showClientRequest',compact('client','stocks','requests'));
         }
         else

@@ -91,7 +91,7 @@
                                                 <tr>
                                                     <th> Nome de Producto </th>
                                                     <th> Preco </th>
-                                                    <th> Data de Pagamento </th>
+                                                    <th> Quantidade </th>
                                                     <th>Status</th>
                                                     <th></th>
                                                 </tr>
@@ -99,9 +99,9 @@
                                             <tbody>
                                                 @foreach ($requests as $request)
                                                 <tr>
-                                                    <td class="align-middle"> {{ $request->products->Product_name }} </td>
-                                                    <td class="align-middle"> {{ $request->products->Product_price }} MT</td>
-                                                    <td class="align-middle"> {{ $request->requests->Date_to_pay }} </td>
+                                                    <td class="align-middle"> {{ $request->Product_name }} </td>
+                                                    <td class="align-middle"> {{ $request->Product_price }} MT</td>
+                                                    <td class="align-middle"> {{ $request->Quantity }} </td>
                                                     <td class="align-middle"> 
                                                         <span class="badge badge-subtle badge-danger">Nao Pago</span>
                                                     </td>
@@ -187,7 +187,7 @@
                                                                             <!-- .form-row -->
                                                                             <div class="form-row">
                                                                                 <div class="col-md-12">
-                                                                                    <div class="form-group">
+                                                                                    {{-- <div class="form-group">
                                                                                         <label for="input01">Nome do Cliente</label> 
                                                                                         <select name="Id_client" id="Id_client" class="form-control">
                                                                                             <option value="{{$client->id}}" selected>{{$client->Name_client}} {{$client->Surname}}</option>
@@ -217,7 +217,7 @@
                                                                                             name="Date_to_pay" required="">
                                                                                     </div>
                                                                                     <input type="hidden"
-                                                                                        name="client_type" value="debit">
+                                                                                        name="client_type" value="debit"> --}}
                                                                                 </div>
                                                                             </div><!-- /.form-row -->
 
