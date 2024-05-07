@@ -21,8 +21,8 @@ class Request extends Model
     }
      
     //*Inicio do metodo do relacionamento de muito para muitos
-    public function product()
+    public function products()
     {
-        return $this->belongsToMany(Stock::class, 'Id_product','Id_request');
+        return $this->belongsToMany(Stock::class, 'Id_stock','Id_request');
     }
 }

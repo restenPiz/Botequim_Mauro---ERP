@@ -148,17 +148,19 @@ class clientController extends Controller
 
         // Atribuir valores do formulário ao pedido
         $productRequest->Id_client = Request::input('Id_client');
-        $productRequest->Price = Request::input('Product_price');
+        $productRequest->Product_price = Request::input('Product_price');
         $productRequest->Quantity = Request::input('Quantity');
-    
+
         // Salvar o pedido
         $productRequest->save();
-    
-        // Adicionar os clientes ao pedido
+
+        // Adicionar os produtos ao pedido
         foreach (Request::input('Id_stock') as $productId) {
-            $productRequest->products()->attach($productId);
+            $product = Stock::find($productId);
+            $productRequest->products()->attach($product);
         }
-        Alert::success('Adicionado!','O producto foi adicionado na lista de pedidos!');
+        
+        Alert::success('Adicionado!', 'O produto foi adicionado na lista de pedidos!');
 
         return redirect()->back();
     }
