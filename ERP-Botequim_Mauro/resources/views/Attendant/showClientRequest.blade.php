@@ -99,7 +99,7 @@
                                             <tbody>
                                                 @foreach ($requests as $request)
                                                 <tr>
-                                                    <td class="align-middle"> {{ $request->Id_product }} </td>
+                                                    <td class="align-middle"> {{ $request->products->Id_product }} </td>
                                                     <td class="align-middle"> {{ $request->Product_price }} MT</td>
                                                     <td class="align-middle"> {{ $request->Quantity }} </td>
                                                     <td class="align-middle"> 
