@@ -116,7 +116,7 @@ class clientController extends Controller
             $stocks=Stock::all();
 
             //?(Acessando a tabela intermediaria)
-            $requests=\App\Models\Request::all();
+            $requests=ProductRequest::all();
 
             return view('Attendant.showClientRequest',compact('client','stocks','requests'));
         }
@@ -144,7 +144,7 @@ class clientController extends Controller
     }
     public function storeClientRequest()
     {
-        $productRequest = new \App\Models\Request();
+        $productRequest = new ProductRequest;
 
         // Atribuir valores do formulário ao pedido
         $productRequest->Id_client = Request::input('Id_client');

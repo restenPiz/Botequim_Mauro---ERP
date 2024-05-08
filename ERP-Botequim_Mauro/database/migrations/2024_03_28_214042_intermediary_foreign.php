@@ -14,6 +14,9 @@ return new class extends Migration
             
             $table->unsignedBigInteger('Id_request')->unsigned();
             $table->foreign('Id_request')->references('id')->on('requests');
+            
+            $table->unsignedBigInteger('Id_client')->unsigned();
+            $table->foreign('Id_client')->references('id')->on('clients');
 
             //?Inicio das colunas alternativas
             $table->string('Quantity');
