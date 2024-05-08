@@ -21,4 +21,8 @@ class ProductRequest extends Model
     public function requests() {
         return $this->belongsTo(Request::class,'Id_request','id');
     }
+    public function clients()
+    {
+        return $this->belongsTo(Client::class, 'Id_client', 'id');
+    }
 }

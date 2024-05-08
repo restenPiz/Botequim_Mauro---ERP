@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\ProductRequest;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -27,5 +28,9 @@ class Client extends Model
     public function request()
     {
         return $this->hasMany(Request::class);   
+    }
+    public function requests()
+    {
+        return $this->hasMany(ProductRequest::class);   
     }
 }
