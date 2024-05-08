@@ -113,7 +113,7 @@ class clientController extends Controller
         {
             $client=Client::where('client_type','request')->first();
             
-            $stocks=Stock::all();
+            $stocks=Stock::orderBy('id','desc')->get();
 
             //?(Acessando a tabela intermediaria)
             $requests=ProductRequest::all();

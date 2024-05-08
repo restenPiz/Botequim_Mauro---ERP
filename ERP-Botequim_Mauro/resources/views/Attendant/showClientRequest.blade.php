@@ -34,7 +34,7 @@
                                                     onchange="prod(this);">
                                                     <option>--Selecione o Producto --</option>
                                                     @foreach ($stocks as $product)
-                                                        <option value="{{ $product->Id_product }}">
+                                                        <option value="{{ $product->product->id }}">
                                                             {{ $product->product->Product_name }}</option>
                                                     @endforeach
                                                 </select>
