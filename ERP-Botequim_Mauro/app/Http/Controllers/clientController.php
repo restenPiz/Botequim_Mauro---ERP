@@ -157,9 +157,9 @@ class clientController extends Controller
 
         return redirect()->back();
     }
-    public function invoiceRequest($id)
+    public function invoiceRequest()
     {
-        $products=ProductRequest::find($id);
+        $products=ProductRequest::all();
 
         return view('Attendant.invoiceRequest',compact('products'));
     }
