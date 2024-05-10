@@ -92,6 +92,7 @@ Route::group(['prefix' => 'attendant', 'middleware' => ['role:attendant']], func
     //?Inicio das rotas da parte de cliente (Concretamente na parte de pedidos)
     Route::get('/addClientRequest', [clientController::class, 'addClientRequest'])->name('addClientRequest');
     Route::get('/showClientRequest/{id}', [clientController::class, 'showClientRequest'])->name('showClientRequest');
+    Route::get('/invoiceRequest/{id}', [clientController::class, 'invoiceRequest'])->name('invoiceRequest');
     Route::post('/storeClientRequest', [clientController::class, 'storeClientRequest'])->name('storeClientRequest');
     Route::post('/updateClientRequest', [clientController::class, 'updateClientRequest'])->name('updateClientRequest');
     Route::get('/deleteClientRequest/{id}', [clientController::class, 'deleteClientRequest'])->name('deleteClientRequest');
