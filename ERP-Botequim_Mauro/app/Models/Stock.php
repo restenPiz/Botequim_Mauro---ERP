@@ -21,4 +21,8 @@ class Stock extends Model
     {
         return $this->belongsTo(Product::class,'Id_product','id');
     }
+    public function requests()
+    {
+        return $this->belongsToMany(Request::class,'Id_product','id');
+    }
 }
