@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Debit;
 use App\Models\Product;
+use App\Models\Stock;
 use Illuminate\Support\Facades\DB;
 use RealRashid\SweetAlert\Facades\Alert;
 use Request;
@@ -14,7 +15,7 @@ class debitController extends Controller
     {
         $input= Request::input('id');
 
-        $product=Product::where('id',$input)->first();
+        $product=Stock::where('Id_product',$input)->first();
 
         if ($product) {
             // Retorna os detalhes do produto como JSON

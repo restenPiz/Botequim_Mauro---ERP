@@ -1,9 +1,9 @@
 @extends('Layout.Another')
 @section('content')
     {{-- inicio do recibo de pedidos --}}
-    <div class="wrapper">
+
         <!-- .page -->
-        <div class="page has-sidebar has-sidebar-expand-xl">
+        <div class="">
             <!-- .page-inner -->
             <div class="page-inner">
                 <!-- .page-title-bar -->
