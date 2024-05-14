@@ -74,7 +74,7 @@
                                     <div class="btn-toolbar">
                                         <a href="{{route('invoiceRequest')}}" type="button" class="btn btn-light"><i
                                                 class="oi oi-data-transfer-download"></i> <span
-                                                class="ml-1">Exportar</span></a>
+                                                class="ml-1">Imprimir</span></a>
                                     </div><!-- /.btn-toolbar -->
                                 </div><!-- /title and toolbar -->
                             </header><!-- /.page-title-bar -->
@@ -261,9 +261,7 @@
                             {{--Inicio da parte de butao de pagar--}}
                             <div class="col">
                                 <button type="submit" name="submit"
-                                class="btn btn-success text-nowrap ml-auto" onclick="enableField()">Pagar Divida</button>
-                                <button type="submit" name="submit"
-                                class="btn btn-danger text-nowrap ml-auto" onclick="enableField()">Eliminar Todos Productos</button>
+                                class="btn btn-success text-nowrap ml-auto" onclick="enableField()">Efectuar Pagamento</button>
                             </div>
                         {{-- Fim da parte de butao de pagar --}}
                     </div>
