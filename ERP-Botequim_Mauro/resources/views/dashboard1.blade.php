@@ -98,11 +98,11 @@
                                 <!-- title and toolbar -->
                                 <div class="d-md-flex align-items-md-start">
                                     <h1 class="page-title mr-sm-auto"> Lista de Productos Por Vender</h1><!-- .btn-toolbar -->
-                                    <div class="btn-toolbar">
+                                    {{-- <div class="btn-toolbar">
                                         <a href="" type="button" class="btn btn-light"><i
                                                 class="oi oi-data-transfer-download"></i> <span
                                                 class="ml-1">Imprimir</span></a>
-                                    </div><!-- /.btn-toolbar -->
+                                    </div><!-- /.btn-toolbar --> --}}
                                 </div><!-- /title and toolbar -->
                             </header><!-- /.page-title-bar -->
                             <!-- .page-section -->
@@ -119,7 +119,8 @@
                                                     <th> Nome de Producto </th>
                                                     <th> Preco </th>
                                                     <th> Quantidade </th>
-                                                    <th>Status</th>
+                                                    <th>Tipo de Pagamento</th>
+                                                    <th>Valor a Pagar</th>
                                                     <th></th>
                                                 </tr>
                                             </thead>
@@ -129,8 +130,9 @@
                                                     </td>
                                                     <td class="align-middle"> MT</td>
                                                     <td class="align-middle"> </td>
+                                                    <td class="align-middle"> </td>
+                                                    <td class="align-middle"> </td>
                                                     <td class="align-middle">
-                                                        <span class="badge badge-subtle badge-danger">Nao Pago</span>
                                                     </td>
                                                     <td class="align-middle text-right">
                                                         <button type="button" class="btn btn-sm btn-icon btn-secondary"
