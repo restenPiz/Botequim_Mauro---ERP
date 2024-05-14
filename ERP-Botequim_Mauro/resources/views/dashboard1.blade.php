@@ -31,6 +31,10 @@
                                                 <select class="form-control" name="Id_stock" id="Id_product"
                                                     onchange="prod(this);">
                                                     <option>--Selecione o Producto --</option>
+                                                    @foreach ($stocks as $product)
+                                                        <option value="{{ $product->product->id }}">
+                                                            {{ $product->product->Product_name }}</option>
+                                                    @endforeach
                                                 </select>
                                             </div>
                                             <div class="col-md-12 mb-3">
@@ -59,15 +63,17 @@
                                             <!-- form column -->
                                             <div class="col-md-12 mb-3">
                                                 <label for="input01">Tipo de Pagamento</label>
-                                                <select class="form-control" name="Id_stock" id="Id_product"
-                                                    onchange="prod(this);">
+                                                <select class="form-control" name="Id_payment">
                                                     <option>--Selecione o Tipo de Pagamento --</option>
+                                                    @foreach ($payments as $payment)
+                                                    <option value="{{$payment->id}}">{{$payment->Name_payment}}</option>
+                                                    @endforeach
                                                 </select>
                                             </div>
                                             <div class="col-md-12 mb-3">
                                                 <label for="input02">Valor a Pagar</label> <input type="text"
                                                     class="form-control" placeholder="Valor a Pagar" id="input02"
-                                                    name="Quantity" required="">
+                                                    name="Amount" required="">
                                             </div><!-- /form column -->
                                         </div>
                                     </div><!-- /.card-body -->
@@ -91,7 +97,7 @@
                                 <!-- /floating action -->
                                 <!-- title and toolbar -->
                                 <div class="d-md-flex align-items-md-start">
-                                    <h1 class="page-title mr-sm-auto"> Lista de Vendas </h1><!-- .btn-toolbar -->
+                                    <h1 class="page-title mr-sm-auto"> Lista de Productos Por Vender</h1><!-- .btn-toolbar -->
                                     <div class="btn-toolbar">
                                         <a href="" type="button" class="btn btn-light"><i
                                                 class="oi oi-data-transfer-download"></i> <span

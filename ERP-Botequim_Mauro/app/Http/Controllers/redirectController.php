@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Payment;
+use App\Models\Stock;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -16,7 +18,11 @@ class redirectController extends Controller
         }
         if(Auth::user()->hasRole('attendant'))
         {
-            return view('dashboard1');
+            $payments=Payment::all();
+
+            $stocks=Stock::all();
+
+            return view('dashboard1',compact('payments','stocks'));
         }
         if(Auth::user()->hasRole('stock_manager'))
         {

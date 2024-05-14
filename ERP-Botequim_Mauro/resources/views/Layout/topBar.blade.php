@@ -648,6 +648,82 @@
                 });
             }
         </script>
+        <script>
+            //Inicio da function que retornar os produtos em json
+            function prod(product) {
+                var Id_product = product.value;
+    
+                $.get('http://127.0.0.1:8000/getDebit?id=' + Id_product, function(data) {
+                    console.log(data);
+    
+                    $('#Price').val(data.Price);
+                }); 
+            }
+    
+            function enableField() {    
+                $('#Price').prop('disabled', false);
+    
+                setTimeout(function() {
+                    $('#Price').prop('disabled', true);
+                }, 1000); 
+            }
+        </script>
+    
+        <script>
+            $(document).ready(function() {
+                var fieldsDisabled = localStorage.getItem('fieldsDisabled');
+                if (fieldsDisabled) {
+                    // Desabilita os campos
+                    $('#Price').val(JSON.parse(fieldsDisabled).Code).prop('disabled', true);
+                    $('#Id_client').val(JSON.parse(fieldsDisabled).Code).prop('disabled', true);
+                }
+            });
+        </script>
+    
+        <script>
+            $(document).ready(function() {
+                var fieldsDisabled = localStorage.getItem('fieldsDisabled');
+                if (fieldsDisabled) {
+                    // Desabilita os campos
+                    $('#Quantity').val(JSON.parse(fieldsDisabled).Quantity).prop('disabled', true);
+                    $('#Code').val(JSON.parse(fieldsDisabled).Code).prop('disabled', true);
+                    $('#Price').val(JSON.parse(fieldsDisabled).Price).prop('disabled', true);
+                    $('#Entry_date').val(JSON.parse(fieldsDisabled).Entry_date).prop('disabled', true);
+                    $('#Expiry_date').val(JSON.parse(fieldsDisabled).Expiry_date).prop('disabled', true);
+                }
+            });
+        </script>
+    
+        <script>
+    
+            //Inicio do script para editar o modal de editar o producto na divida
+            function prodi(product) {
+                var Id_product = product.value;
+    
+                $.get('http://127.0.0.1:8000/admin/getDebit?Id_product=' + Id_product, function(data) {
+                    console.log(data);
+    
+                    $('#Priced').val(data.Price);
+                }); 
+            }
+    
+            function enableField() {    
+                $('#Priced').prop('disabled', false);
+    
+                setTimeout(function() {
+                    $('#Priced').prop('disabled', true);
+                }, 1000); 
+            }
+        </script>
+        <script>
+            $(document).ready(function() {
+                var fieldsDisabled = localStorage.getItem('fieldsDisabled');
+                if (fieldsDisabled) {
+                    // Desabilita os campos
+                    $('#Priced').val(JSON.parse(fieldsDisabled).Code).prop('disabled', true);
+                }
+            });
+        </script>    
 
         <script src="../assets/vendor/jquery/jquery.min.js"></script>
         <script src="../assets/vendor/popper.js/umd/popper.min.js"></script>
