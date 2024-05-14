@@ -164,7 +164,7 @@ class clientController extends Controller
     }
     public function invoiceRequest($id)
     {
-        $client=Client::where('client_type','request')->first();
+        $clients=Client::where('client_type','request')->first();
             
         $stocks=Stock::orderBy('Id_product','asc')->get();
 
@@ -175,7 +175,7 @@ class clientController extends Controller
         ->where('Id_client', $id)
         ->sum('Product_price');
 
-        return view('Attendant.invoiceRequest',compact('requests','client','stocks','count'));
+        return view('Attendant.invoiceRequest',compact('requests','clients','stocks','count',));
     }
 }
 

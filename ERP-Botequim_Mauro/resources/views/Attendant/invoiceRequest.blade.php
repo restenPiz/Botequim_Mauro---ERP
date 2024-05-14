@@ -4,7 +4,7 @@
 
     <main class="app-main">
         <!-- .wrapper -->
-        <div class="wrapper" style="width: 55rem">
+        <div class="wrapper" style="width: 55rem;height:150vh">
             <!-- .page -->
             <div class="page ">
                 <!-- .page-inner -->
@@ -57,8 +57,7 @@
                                             <!-- .col -->
                                             <div class="col d-flex">
                                                 <h2 class="invoice-brand align-self-center">
-                                                    <img src="assets/images/brand-logo.png" width="124" alt="">
-                                                    <span class="sr-only">Invoice Brand</span>
+                                                    <img src="/../assets/logo1.png" width="300" alt="">
                                                 </h2>
                                             </div><!-- /.col -->
                                             <!-- .col -->
@@ -67,8 +66,8 @@
                                                     <tbody>
                                                         <tr>
                                                             <td colspan="2">
-                                                                <small>Amount (USD)</small>
-                                                                <h5> $3.096,00 </h5>
+                                                                <small>Total (MT)</small>
+                                                                <h5> {{$count}} MT </h5>
                                                             </td>
                                                         </tr>
                                                         <tr>
@@ -95,9 +94,9 @@
                                                 <!-- .invoice-sender -->
                                                 <div class="invoice-sender">
                                                     <dl>
-                                                        <dt> From: </dt>
-                                                        <dd> Stilearning </dd>
-                                                        <dd> 983 Kunde Glens, Pourosmouth<br> AK 68019-8335 </dd>
+                                                        <dt> De: </dt>
+                                                        <dd> Botequim Mauro </dd>
+                                                        <dd> Espungabera<br> Provincia de Manica </dd>
                                                     </dl>
                                                 </div><!-- /.invoice-recipient -->
                                             </div><!-- /.col -->
@@ -106,50 +105,46 @@
                                                 <!-- .invoice-recipient -->
                                                 <div class="invoice-recipient">
                                                     <dl>
-                                                        <dt> Billed To: </dt>
-                                                        <dd> Ron-tech </dd>
-                                                        <dd> 3272 Mills Valleys Suite 412, Port Willis<br> NV 69859 </dd>
+                                                        <dt> Direcionado para: </dt>
+                                                        <dd> {{$clients->Name_client}} </dd>
+                                                        <dd> {{$clients->Household}} </dd>
                                                     </dl>
                                                 </div><!-- /.invoice-recipient -->
                                             </div><!-- /.col -->
                                         </div><!-- /grid row -->
                                         <table class="table table-sm">
                                             <caption class="invoice-title">
-                                                <span>Invoice</span><br>
-                                                <span class="text-primary">Looper Admin Theme Custom Design</span>
+                                                <span>Lista de Pedidos - </span><span class="text-primary">Botequim Mauro</span>
+                                                
                                             </caption>
                                             <thead>
                                                 <tr>
-                                                    <th style="min-width: 375px"> Description </th>
+                                                    <th style="min-width: 375px"> Productos </th>
                                                     <th class="text-right"> Qty </th>
                                                     <th> Price </th>
-                                                    <th class="text-right"> Amount (USD) </th>
+                                                    <th class="text-right"> Valor (MT) </th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td> Create mobile app </td>
-                                                    <td class="text-right"> 1 </td>
-                                                    <td> $3.000,00 </td>
-                                                    <td class="text-right"> $3.000,00 </td>
-                                                </tr>
-                                                <tr>
-                                                    <td> Looper Admin Theme (Standard License) </td>
-                                                    <td class="text-right"> 4 </td>
-                                                    <td> $49,00 </td>
-                                                    <td class="text-right"> $196,00 </td>
-                                                </tr><!-- fake border -->
-                                                <tr>
-                                                    <td colspan="4"></td>
-                                                </tr>
+                                                @foreach ($requests as $request)
+                                                    <tr>
+                                                        <td> {{ $request->products->product->Product_name }} </td>
+                                                        <td class="text-right"> {{ $request->Quantity }} </td>
+                                                        <td> {{ $request->Product_price }} MT </td>
+                                                        <td class="text-right"> {{ $request->Product_price * $request->Quantity }} MT </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="4"></td>
+                                                    </tr>
+                                                @endforeach
                                             </tbody>
                                             <tfoot class="table-borderless">
                                                 <tr>
                                                     <th colspan="2"></th>
                                                     <th> Total </th>
-                                                    <th class="text-right"> $3.196,00 </th>
+                                                    <th class="text-right"> {{$count}} MT </th>
                                                 </tr>
-                                                <tr>
+                                                {{-- <tr>
                                                     <th colspan="2"></th>
                                                     <th> Coupon </th>
                                                     <th class="text-right"> $100,00 </th>
@@ -158,7 +153,7 @@
                                                     <th colspan="2"></th>
                                                     <th> Due </th>
                                                     <th class="text-right"> $3.096,00 </th>
-                                                </tr>
+                                                </tr> --}}
                                             </tfoot>
                                         </table>
                                     </div><!-- /.invoice-body -->
