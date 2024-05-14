@@ -162,11 +162,20 @@ class clientController extends Controller
 
         // return redirect()->back();
     }
-    public function invoiceRequest()
+    public function invoiceRequest($id)
     {
-        $products=ProductRequest::all();
+        $client=Client::where('client_type','request')->first();
+            
+        $stocks=Stock::orderBy('Id_product','asc')->get();
 
-        return view('Attendant.invoiceRequest',compact('products'));
+        //?(Acessando a tabela intermediaria)
+        $requests=ProductRequest::all();
+
+        $count=DB::table('product_requests')
+        ->where('Id_client', $id)
+        ->sum('Product_price');
+
+        return view('Attendant.invoiceRequest',compact('requests','client','stocks','count'));
     }
 }
 
