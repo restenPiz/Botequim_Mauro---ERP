@@ -12,10 +12,10 @@
 
                 <div class="row">
                     <!-- grid column -->
-                    <form method="post" action="{{ route('storeClientRequest') }}">
-                        @csrf
-                        <div class="col-lg-4">
 
+                    <div class="col-lg-4">
+                        <form method="post" action="{{ route('storeClientRequest') }}">
+                            @csrf
                             <div class="col">
                                 <!-- .card -->
                                 <div class="card card-fluid">
@@ -77,9 +77,9 @@
                                 <button type="submit" name="submit" class="btn btn-primary text-nowrap ml-auto"
                                     onclick="enableField()">Adicionar Producto</button>
                             </div>
+                        </form>
+                    </div>
 
-                        </div>
-                    </form>
                     {{-- Inicio da tabela de todos clientes --}}
 
                     <div class="col-lg-8">
