@@ -4,22 +4,22 @@
 
     <main class="app-main">
         <!-- .wrapper -->
-        <div class="wrapper">
+        <div class="wrapper" style="width: 55rem">
             <!-- .page -->
-            <div class="page has-sidebar has-sidebar-expand-xl">
+            <div class="page ">
                 <!-- .page-inner -->
                 <div class="page-inner">
                     <!-- .page-title-bar -->
                     <header class="page-title-bar">
                         <!-- .breadcrumb -->
-                        {{-- <nav aria-label="breadcrumb">
+                        <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item active">
                                     <a href="page-invoices.html"><i
-                                            class="breadcrumb-icon fa fa-angle-left mr-2"></i>Invoices</a>
+                                            class="breadcrumb-icon fa fa-angle-left mr-2"></i>Voltar</a>
                                 </li>
                             </ol>
-                        </nav><!-- /.breadcrumb --> --}}
+                        </nav><!-- /.breadcrumb -->
                         <div class="d-md-flex">
                             <h1 class="page-title"> INV-65D9E592 </h1>
                             <div class="ml-auto">
