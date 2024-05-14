@@ -242,20 +242,15 @@
                                                 @endforeach
                                                 {{-- Fim do modal de editar --}}
                                             </tbody>
-                                            {{-- <tfoot>
+                                            <tfoot>
                                                 <tr>
-                                                    <td class="align-middle"><h5>Valor da Divida:</h5></td>
+                                                    <td class="align-middle"><h5>Valor Total:</h5></td>
                                                     <td class="align-middle"><h5>{{$count}} MT</h5></td>
                                                 </tr>
-                                            </tfoot> --}}
+                                            </tfoot>
                                         </table>
                                     </div>
                                 </div>
-
-                                {{-- <div class="card-footer">
-                                    <a href="{{route('addProduct')}}" class="card-footer-item"><i
-                                            class="fa fa-plus-circle mr-1"></i> Adicionar Producto</a>
-                                </div> --}}
 
                             </div>
                             {{--Inicio da parte de butao de pagar--}}

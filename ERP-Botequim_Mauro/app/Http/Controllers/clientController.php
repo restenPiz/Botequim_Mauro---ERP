@@ -118,7 +118,11 @@ class clientController extends Controller
             //?(Acessando a tabela intermediaria)
             $requests=ProductRequest::all();
 
-            return view('Attendant.showClientRequest',compact('client','stocks','requests'));
+            $count=DB::table('product_requests')
+            ->where('Id_client', $id)
+            ->sum('Product_price');
+
+            return view('Attendant.showClientRequest',compact('client','stocks','requests','count'));
         }
         else
         {
