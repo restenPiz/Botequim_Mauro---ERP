@@ -11,6 +11,8 @@ return new class extends Migration
         Schema::create('sale__histories', function (Blueprint $table) {
             $table->id();
             $table->string('Product_price');
+            $table->string('Total_price');
+            $table->string('Quantity');
 
             //*Inicio da chave estrangeira
         /*    $table->unsignedBigInteger('Id_stock')->unsigned();

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\productController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\saleController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\userController;
 use App\Http\Controllers\eventController;
@@ -96,6 +97,13 @@ Route::group(['prefix' => 'attendant', 'middleware' => ['role:attendant']], func
     Route::post('/storeClientRequest', [clientController::class, 'storeClientRequest'])->name('storeClientRequest');
     Route::post('/updateClientRequest', [clientController::class, 'updateClientRequest'])->name('updateClientRequest');
     Route::get('/deleteClientRequest/{id}', [clientController::class, 'deleteClientRequest'])->name('deleteClientRequest');
+
+    //?Inicio das rotas de vendas
+    Route::post('/storeSale', [saleController::class, 'storeSale'])->name('storeSale');
+    Route::post('/updateSale/{id}', [saleController::class, 'storeSale'])->name('storeSale');
+    Route::get('/deleteSale/{id}', [saleController::class, 'storeSale'])->name('storeSale');
+    //*Inicio da rota de insercao na tabela de vendas
+    Route::get('/storeSaleHistory', [saleController::class, 'storeSaleHistory'])->name('storeSaleHistory');
 
 });
 
