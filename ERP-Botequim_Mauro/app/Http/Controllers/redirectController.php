@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Payment;
+use App\Models\Sale;
 use App\Models\Stock;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -22,7 +23,9 @@ class redirectController extends Controller
 
             $stocks=Stock::all();
 
-            return view('dashboard1',compact('payments','stocks'));
+            $sales=Sale::all();
+
+            return view('dashboard1',compact('payments','stocks','sales'));
         }
         if(Auth::user()->hasRole('stock_manager'))
         {

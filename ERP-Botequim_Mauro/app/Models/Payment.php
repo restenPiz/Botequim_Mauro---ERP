@@ -14,4 +14,8 @@ class Payment extends Model
     protected $fillable=[
         'Name_payment','Code'
     ];
+    public function sales()
+    {
+        return $this->hasMany(Sale::class,'Id_payment','id');   
+    }
 }

@@ -660,22 +660,19 @@
                 }); 
             }
     
-            function enableField() {    
+            function enableFields() {    
                 $('#Price').prop('disabled', false);
     
                 setTimeout(function() {
                     $('#Price').prop('disabled', true);
                 }, 1000); 
             }
-        </script>
-    
-        <script>
+        
             $(document).ready(function() {
                 var fieldsDisabled = localStorage.getItem('fieldsDisabled');
                 if (fieldsDisabled) {
                     // Desabilita os campos
                     $('#Price').val(JSON.parse(fieldsDisabled).Code).prop('disabled', true);
-                    $('#Id_client').val(JSON.parse(fieldsDisabled).Code).prop('disabled', true);
                 }
             });
         </script>

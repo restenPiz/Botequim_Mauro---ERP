@@ -81,7 +81,7 @@
                             </div>
                             <div class="col">
                                 <button type="submit" name="submit" class="btn btn-primary text-nowrap ml-auto"
-                                    onclick="enableField()">Adicionar Producto</button>
+                                onclick="enableFields()">Adicionar Producto</button>
                             </div>
                         </form>
                     </div>
@@ -125,26 +125,27 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td class="align-middle">
-                                                    </td>
-                                                    <td class="align-middle"> MT</td>
-                                                    <td class="align-middle"> </td>
-                                                    <td class="align-middle"> </td>
-                                                    <td class="align-middle"> </td>
-                                                    <td class="align-middle">
-                                                    </td>
-                                                    <td class="align-middle text-right">
-                                                        <button type="button" class="btn btn-sm btn-icon btn-secondary"
-                                                            data-toggle="modal" data-target="#clientNewModal"><i
-                                                                class="fa fa-pencil-alt"></i> <span
-                                                                class="sr-only">Edit</span></button>
-                                                        <button type="button" class="btn btn-sm btn-icon btn-secondary"><i
-                                                                class="far fa-trash-alt" data-target="#deleteRecordModal"
-                                                                data-toggle="modal"></i> <span
-                                                                class="sr-only">Remove</span></button>
-                                                    </td>
-                                                </tr>
+                                                @foreach ($sales as $sale)
+                                                    <tr>
+                                                        <td class="align-middle">
+                                                        </td>
+                                                        <td class="align-middle">{{$sale->stocks->id}} </td>
+                                                        <td class="align-middle"> {{$sale->Product_price}}</td>
+                                                        <td class="align-middle"> {{$sale->Quantidade}}</td>
+                                                        <td class="align-middle">{{$sale->payments->Name_payment}} </td>
+                                                        <td class="align-middle">{{$sale->Total_price}}</td>
+                                                        <td class="align-middle text-right">
+                                                            <button type="button" class="btn btn-sm btn-icon btn-secondary"
+                                                                data-toggle="modal" data-target="#clientNewModal"><i
+                                                                    class="fa fa-pencil-alt"></i> <span
+                                                                    class="sr-only">Edit</span></button>
+                                                            <button type="button" class="btn btn-sm btn-icon btn-secondary"><i
+                                                                    class="far fa-trash-alt" data-target="#deleteRecordModal"
+                                                                    data-toggle="modal"></i> <span
+                                                                    class="sr-only">Remove</span></button>
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
                                                 {{-- Fim do modal de editar --}}
                                             </tbody>
                                             <tfoot>

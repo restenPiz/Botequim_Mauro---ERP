@@ -25,4 +25,8 @@ class Stock extends Model
     {
         return $this->belongsToMany(Request::class,'Id_product','id');
     }
+    public function sales()
+    {
+        return $this->hasMany(Sale::class,'Id_stock','id');   
+    }
 }

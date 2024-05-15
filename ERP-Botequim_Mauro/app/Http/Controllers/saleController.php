@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Sale;
+use App\Models\Stock;
 use RealRashid\SweetAlert\Facades\Alert;
 use Request;
 
@@ -22,7 +23,7 @@ class saleController extends Controller
 
         Alert::success('Adicionado!','Producto adicionado na lista de vendas!');
 
-        return view('dashboard1',compact('sales'));
+        return back();
     }
     public function updateSale($id)
     {
@@ -38,7 +39,7 @@ class saleController extends Controller
 
         Alert::success('Actualizado!','Producto actualizado na lista de vendas!');
 
-        return view('dashboard1',compact('sales'));
+        return back();
     }
     public function deleteSale($id)
     {

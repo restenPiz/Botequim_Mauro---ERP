@@ -18,14 +18,10 @@ class Sale extends Model
     //*Inicio das chaves estrangeiras
     public function stocks()
     {
-        return $this->hasMany(Stock::class);   
+        return $this->belongsTo(Stock::class,'Id_stock','id');   
     }
     public function payments()
     {
-        return $this->hasMany(Payment::class);
-    }
-    public function name($id)
-    {
-        return Payment::find($id)->Name_payment;
+        return $this->belongsTo(Payment::class,'Id_payment','id');
     }
 }
