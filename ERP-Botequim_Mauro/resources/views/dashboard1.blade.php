@@ -14,7 +14,7 @@
                     <!-- grid column -->
 
                     <div class="col-lg-4">
-                        <form method="post" action="{{ route('storeClientRequest') }}">
+                        <form method="post" action="{{ route('storeSale') }}">
                             @csrf
                             <div class="col">
                                 <!-- .card -->
@@ -73,7 +73,7 @@
                                             <div class="col-md-12 mb-3">
                                                 <label for="input02">Valor a Pagar</label> <input type="text"
                                                     class="form-control" placeholder="Valor a Pagar" id="input02"
-                                                    name="Amount" required="">
+                                                    name="Total_price" required="">
                                             </div><!-- /form column -->
                                         </div>
                                     </div><!-- /.card-body -->
