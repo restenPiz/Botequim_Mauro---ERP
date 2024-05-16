@@ -11,17 +11,15 @@ class Sale_History extends Model
 
     protected $table='sale__histories';
 
-    protected $fillable=['Product_price','Id_stock'];
+    protected $fillable=['Product_price','Id_stock','Id_payment','Total_price'];
 
     //*Inicio da chave estrangeira
     public function stocks()
     {
-        return $this->hasMany(Stock::class);   
+        return $this->belongsTo(Stock::class,'Id_stock','id');   
     }
-
-    //*Metodo responsavel por retornar o codigo do stock
-    public function name($id)
+    public function payments()
     {
-        return Stock::find($id)->Stock_code;
+        return $this->belongsTo(Payment::class,'Id_payment','id');   
     }
 }

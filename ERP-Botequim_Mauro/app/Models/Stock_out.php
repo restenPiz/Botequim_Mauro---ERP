@@ -20,10 +20,6 @@ class Stock_out extends Model
     {
         return $this->hasMany(Product::class);
     }
-    public function name($id)
-    {
-        return Product::find($id)->Product_name;
-    }
     //*Inicio do relacionamento de muito para muitos com a tabela de Pedidos
     public function request()
     {
