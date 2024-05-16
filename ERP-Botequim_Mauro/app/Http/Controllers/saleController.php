@@ -76,6 +76,12 @@ class saleController extends Controller
 
         return back();
     }
-
     //?Fim dos metodos de conclusao de venda
+
+    public function allSale()
+    {
+        $sales=Sale_History::all();
+
+        return view('Attendant.allSale',compact('sales'));
+    }
 }
