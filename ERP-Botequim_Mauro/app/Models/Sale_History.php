@@ -11,7 +11,7 @@ class Sale_History extends Model
 
     protected $table='sale__histories';
 
-    protected $fillable=['Product_price','Id_stock','Id_payment','Total_price'];
+    protected $fillable=['Product_price','Quantity','Id_stock','Id_payment','Total_price'];
 
     //*Inicio da chave estrangeira
     public function stocks()

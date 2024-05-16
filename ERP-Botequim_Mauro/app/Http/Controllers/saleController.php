@@ -60,7 +60,7 @@ class saleController extends Controller
             Sale_History::create([
                 'Product_price' => $sale->Product_price, // calcular o total_price
                 'Quantity' => $sale->Quantity,
-                'Total_price'=>Request::input('Total_price') * $sale->Quantity,
+                'Total_price'=>Request::input('Total_price'),
                 'Id_payment'=>Request::input('Id_payment'),
             ]);
         }
