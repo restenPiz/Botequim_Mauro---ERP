@@ -15,10 +15,6 @@ return new class extends Migration
             $table->string('Quantity');
             $table->string('Amount');
 
-            //*Inicio da chave estrangeira
-        /*    $table->unsignedBigInteger('Id_stock')->unsigned();
-            $table->foreign('Id_stock')->references('id')->on('stocks');
-*/
             $table->timestamps();
         });
     }

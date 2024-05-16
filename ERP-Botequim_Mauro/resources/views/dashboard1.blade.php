@@ -102,6 +102,7 @@
                                                             <th> Nome de Producto </th>
                                                             <th> Preco </th>
                                                             <th> Quantidade </th>
+                                                            <th>Valor de Compra</th>
                                                             <th></th>
                                                         </tr>
                                                     </thead>
@@ -113,6 +114,7 @@
                                                                 <td class="align-middle"> {{ $sale->Product_price }}
                                                                 </td>
                                                                 <td class="align-middle"> {{ $sale->Quantity }}</td>
+                                                                <td class="align-middle"> {{ $sale->Amount }}</td>
                                                                 <td class="align-middle text-right">
                                                                     <button type="button"
                                                                         class="btn btn-sm btn-icon btn-secondary"
@@ -206,8 +208,8 @@
                                                             <td class="align-middle">
                                                                 <button class="btn text-nowrap ml-auto"
                                                                     style="background-color: black;color:white; border-radius:0;
-                                                                    width:250%">Valor
-                                                                    Total: 1000MT</button>
+                                                                    width:330%">Valor
+                                                                    Total: {{$amount}} MT</button>
                                                             </td>
                                                         </div>
                                                     </tfoot>

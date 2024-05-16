@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Payment;
 use App\Models\Sale;
 use App\Models\Stock;
+use DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -25,7 +26,10 @@ class redirectController extends Controller
 
             $sales=Sale::all();
 
-            return view('dashboard1',compact('payments','stocks','sales'));
+            $amount=DB::table('sales')
+            ->sum('Amount');
+
+            return view('dashboard1',compact('payments','stocks','sales','amount'));
         }
         if(Auth::user()->hasRole('stock_manager'))
         {

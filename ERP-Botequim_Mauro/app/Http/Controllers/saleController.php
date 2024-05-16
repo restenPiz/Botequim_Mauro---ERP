@@ -17,6 +17,7 @@ class saleController extends Controller
         $sales->Product_price=Request::input('Product_price');
         $sales->Quantity=Request::input('Quantity');
         $sales->Id_stock=Request::input('Id_stock');
+        $sales->Amount= $sales->Product_price * $sales->Quantity;
 
         $sales->save();
 
@@ -31,6 +32,7 @@ class saleController extends Controller
         $sales->Product_price=Request::input('Product_price');
         $sales->Quantity=Request::input('Quantity');
         $sales->Id_stock=Request::input('Id_stock');
+        $sales->Amount= $sales->Product_price * $sales->Quantity;
 
         $sales->save();
 
@@ -61,6 +63,7 @@ class saleController extends Controller
                 'Product_price' => $sale->Product_price, // calcular o total_price
                 'Quantity' => $sale->Quantity,
                 'Id_stock' => $sale->Id_stock,
+                'Amount'=> $sale->Product_price * $sale->Quantity,
                 'Total_price'=>Request::input('Total_price'),
                 'Id_payment'=>Request::input('Id_payment'),
             ]);
