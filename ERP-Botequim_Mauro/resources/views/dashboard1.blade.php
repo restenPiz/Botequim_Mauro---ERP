@@ -102,8 +102,6 @@
                                                             <th> Nome de Producto </th>
                                                             <th> Preco </th>
                                                             <th> Quantidade </th>
-                                                            <th>Tipo de Pagamento</th>
-                                                            <th>Valor a Pagar</th>
                                                             <th></th>
                                                         </tr>
                                                     </thead>
@@ -115,10 +113,6 @@
                                                                 <td class="align-middle"> {{ $sale->Product_price }}
                                                                 </td>
                                                                 <td class="align-middle"> {{ $sale->Quantity }}</td>
-                                                                <td class="align-middle">
-                                                                    {{ $sale->payments->Name_payment }}
-                                                                </td>
-                                                                <td class="align-middle">{{ $sale->Total_price }}</td>
                                                                 <td class="align-middle text-right">
                                                                     <button type="button"
                                                                         class="btn btn-sm btn-icon btn-secondary"
@@ -133,6 +127,19 @@
                                                                             class="sr-only">Remove</span></button>
                                                                 </td>
                                                             </tr>
+
+                                                            {{--Inicio do modal de conclusao de venda--}}
+
+                                                            {{--Fim do modal de conclusao de venda--}}
+
+                                                            {{--Inicio do modal de edicao de productos--}}
+
+                                                            {{--Fim do modal de edicao de productos--}}
+
+                                                            {{--Inicio do modal de remocao de productos--}}
+
+                                                            {{--Fim do modal de remocao de productos--}}
+
                                                         @endforeach
                                                         {{-- Fim do modal de editar --}}
                                                     </tbody>
@@ -141,7 +148,7 @@
                                                             <td class="align-middle">
                                                                 <button class="btn text-nowrap ml-auto"
                                                                     style="background-color: black;color:white; border-radius:0;
-                                                                    width:422%">Valor
+                                                                    width:250%">Valor
                                                                     Total: 1000MT</button>
                                                             </td>
                                                         </div>
