@@ -219,7 +219,7 @@
 
                                     </div>
                                     <button type="submit" name="submit" class="btn btn-success text-nowrap ml-auto"
-                                    data-toggle="modal" data-target="#clientNewModal" style="border-radius: 0">Concluir
+                                    data-toggle="modal" data-target="#clientNewModal" style="border-radius: 0">Efectuar
                                         Venda</button>
                                     <button type="submit" name="submit" class="btn btn-danger text-nowrap ml-auto"
                                         onclick="enableField()" style="border-radius: 0">Eliminar todos productos</button>
