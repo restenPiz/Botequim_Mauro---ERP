@@ -27,6 +27,6 @@ class Stock extends Model
     }
     public function sales()
     {
-        return $this->belongsTo(Sale::class,'Id_stock','id');   
+        return $this->hasMany(Sale::class,'Id_stock','id');   
     }
 }
