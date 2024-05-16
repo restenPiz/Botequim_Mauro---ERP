@@ -166,7 +166,7 @@
                                                                                                 </div>
                                                                                                 <div class="form-group">
                                                                                                     <label for="cnContactEmail">Valor a Pagar</label>
-                                                                                                    <input type="text"
+                                                                                                    <input type="text" placeholder="Valor a Pagar"
                                                                                                         class="form-control"
                                                                                                         name="Total_price">
                                                                                                 </div>

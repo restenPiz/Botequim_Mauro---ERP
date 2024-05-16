@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('sales', function (Blueprint $table) {
             $table->id();
             $table->string('Product_price');
-            $table->string('Total_price');
             $table->string('Quantity');
 
             //*Inicio das chaves estrangeiras

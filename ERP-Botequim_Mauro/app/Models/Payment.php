@@ -16,6 +16,6 @@ class Payment extends Model
     ];
     public function sales()
     {
-        return $this->hasMany(Sale::class,'Id_payment','id');   
+        return $this->hasMany(Sale_History::class,'Id_payment','id');   
     }
 }
