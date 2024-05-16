@@ -14,10 +14,8 @@ class saleController extends Controller
         $sales=new Sale();
 
         $sales->Product_price=Request::input('Product_price');
-        $sales->Total_price=Request::input('Total_price');
         $sales->Quantity=Request::input('Quantity');
         $sales->Id_stock=Request::input('Id_stock');
-        $sales->Id_payment=Request::input('Id_payment');
 
         $sales->save();
 
@@ -30,10 +28,8 @@ class saleController extends Controller
         $sales=Sale::findOrFail($id);
 
         $sales->Product_price=Request::input('Product_price');
-        $sales->Total_price=Request::input('Total_price');
         $sales->Quantity=Request::input('Quantity');
         $sales->Id_stock=Request::input('Id_stock');
-        $sales->Id_payment=Request::input('Id_payment');
 
         $sales->save();
 
