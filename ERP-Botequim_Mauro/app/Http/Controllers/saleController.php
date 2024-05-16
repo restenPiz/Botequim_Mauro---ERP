@@ -47,4 +47,13 @@ class saleController extends Controller
 
         return back();
     }
+
+    //?Inicio dos metodos de conclusao de vendas
+
+    public function storeSaleHistory()
+    {
+        
+    }
+
+    //?Fim dos metodos de conclusao de venda
 }
