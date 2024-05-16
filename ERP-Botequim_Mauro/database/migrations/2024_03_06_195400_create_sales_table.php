@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('Product_price');
             $table->string('Quantity');
+            $table->string('Amount');
 
             //*Inicio das chaves estrangeiras
         /*    $table->unsignedBigInteger('Id_stock')->unsigned();

@@ -13,6 +13,7 @@ return new class extends Migration
             $table->string('Product_price');
             $table->string('Total_price');
             $table->string('Quantity');
+            $table->string('Amount');
 
             //*Inicio da chave estrangeira
         /*    $table->unsignedBigInteger('Id_stock')->unsigned();
