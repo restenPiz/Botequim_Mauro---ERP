@@ -8,12 +8,9 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::table('sale__histories', function (Blueprint $table) {
+        Schema::table('sales', function (Blueprint $table) {
             $table->unsignedBigInteger('Id_stock')->unsigned();
             $table->foreign('Id_stock')->references('id')->on('stocks');
-
-            $table->unsignedBigInteger('Id_payment')->unsigned();
-            $table->foreign('Id_payment')->references('id')->on('payments');
         });
     }
 
