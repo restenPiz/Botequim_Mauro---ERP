@@ -23,6 +23,6 @@ class Product extends Model
     //*Metodo responsavel por encontrar o nome da categoria
     public function stock()
     {
-        return $this->hasMany(Stock::class,'Id_product');
+        return $this->hasMany(Stock::class,'Id_product','id');
     }
 }

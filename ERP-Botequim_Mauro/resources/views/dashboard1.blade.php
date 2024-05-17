@@ -171,36 +171,51 @@
                                                                             <div class="modal-header">
                                                                                 <h6 id="clientNewModalLabel"
                                                                                     class="modal-title inline-editable">
-                                                                                    <span class="sr-only">Formulario de Venda</span>
+                                                                                    <span class="sr-only">Formulario de Actualizacao
+                                                                                        de Productos</span>
                                                                                 </h6>
                                                                             </div><!-- /.modal-header -->
                                                                             <!-- .modal-body -->
                                                                             <div class="modal-body">
                                                                                 <!-- .form-row -->
                                                                                 <div class="form-row">
-                                                                                    <div class="modal-body">
-                                                                                        <!-- .form-row -->
-                                                                                        <div class="form-row">
-                                                                                            <div class="col-md-12">
-                                                                                                <div class="form-group">
-                                                                                                </div>
-                                                                                                <div class="form-group">
-                                                                                                    <label for="cnContactEmail">Valor a Pagar</label>
-                                                                                                    <input type="text" placeholder="Valor a Pagar"
-                                                                                                        class="form-control"
-                                                                                                        name="Total_price">
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div><!-- /.form-row -->
-            
+                                                                                    <div class="col-md-12">
+                                                                                        <div class="form-group">
+                                                                                            <label>Nome de Producto</label>
+                                                                                            <select class="form-control" name="Id_product" id="Id_product" onchange="prod(this);">
+                                                                                                <option value="{{$stocks->Id_product}}">{{$stocks->product->Product_name}}</option>
+                                                                                                @foreach ($stocks as $stocks)
+                                                                                                    <option value="{{ $stock->product->id }}">{{ $stock->product->Product_name }}</option>
+                                                                                                @endforeach
+                                                                                            </select> 
+                                                                                        </div>
+                                                                                        <div class="form-group">
+                                                                                            <label for="cnContactName">Quantidade</label>
+                                                                                            <input type="text" 
+                                                                                                class="form-control"
+                                                                                                name="Quantity" id="quantity"
+                                                                                                placeholder="{{ $stock->Quantity }}" value="{{ $stock->Quantity }}">
+                                                                                        </div>
                                                                                     </div>
+                                                                                    <div class="col-md-12">
+                                                                                        <div class="form-group">
+                                                                                            <label for="cnContactName">Preco</label>
+                                                                                            <input type="text" id="price"
+                                                                                                class="form-control"
+                                                                                                name="Price" value=""
+                                                                                                placeholder="{{ $stock->Price }}" disabled>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <input type="hidden" name="id"
+                                                                                        value="{{ $stock->id }}">
                                                                                 </div><!-- /.form-row -->
-            
+        
                                                                             </div><!-- /.modal-body -->
                                                                             <!-- .modal-footer -->
                                                                             <div class="modal-footer">
                                                                                 <button type="submit" name="submit"
-                                                                                    class="btn btn-primary">Concluir Venda</button>
+                                                                                    class="btn btn-primary" onclick="enableField()">Actualizar
+                                                                                    Producto</button>
                                                                                 <button type="button" class="btn btn-light"
                                                                                     data-dismiss="modal">Fechar</button>
                                                                             </div><!-- /.modal-footer -->
