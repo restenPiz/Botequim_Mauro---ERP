@@ -593,7 +593,7 @@
 
                                 <li class="menu-header">Venda </li><!-- /.menu-header -->
                                 <li class="menu-item">
-                                    <a href="index-2.html" class="menu-link"><span
+                                    <a href="{{route('allSale')}}" class="menu-link"><span
                                             class="menu-icon fas fa-money-check"></span>
                                         <span class="menu-text">Todas Vendas</span></a>
                                 </li><!-- /.menu-item -->
