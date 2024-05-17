@@ -1,4 +1,4 @@
-@extends('Layout.top')
+@extends('Layout.topBar')
 @section('content')
     {{-- Inicio da parte de vendas do atendente --}}
 
