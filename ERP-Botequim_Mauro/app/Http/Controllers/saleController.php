@@ -82,13 +82,10 @@ class saleController extends Controller
         // Obter o valor pago pelo cliente (Total_price)
         $valorPago = Request::input('Total_price');
 
-        // Calcular o valor do IVA (por exemplo, 20%)
-        $iva = $totalPrice * 0.20;
+        $iva = $totalPrice * 0.17;
 
-        // Calcular o troco
         $troco = $valorPago - ($totalPrice + $iva);
 
-        // Iterar sobre as vendas e mover os dados para a tabela sale_histories
         $sales = Sale::all();
         foreach ($sales as $sale) {
             Sale_History::create([
@@ -101,6 +98,13 @@ class saleController extends Controller
                 'Troco' => $troco,
                 'Id_payment'=>Request::input('Id_payment'),
             ]);
+
+            //?metodo responsavel por reduzir a quantidade de productos no stock
+            $stock = Stock::find($sale-&gt;Id_stock);
+            if ($stock) {
+                $stock-&gt;Quantity -= $sale-&gt;Quantity;
+                $stock-&gt;save();
+            }
         }
 
         // Deletar os dados da tabela sales
