@@ -100,10 +100,10 @@ class saleController extends Controller
             ]);
 
             //?metodo responsavel por reduzir a quantidade de productos no stock
-            $stock = Stock::find($sale-&gt;Id_stock);
+            $stock = Stock::find($sale->Id_stock);
             if ($stock) {
-                $stock-&gt;Quantity -= $sale-&gt;Quantity;
-                $stock-&gt;save();
+                $stock->Quantity -= $sale->Quantity;
+                $stock->save();
             }
         }
 
