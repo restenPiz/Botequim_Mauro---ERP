@@ -1,4 +1,4 @@
-@extends('Layout.topBar')
+@extends('Layout.top')
 @section('content')
 
 {{--Inicio da parte de administrador--}}
@@ -20,7 +20,7 @@
                                     class="fa fa-plus"></span></button> <!-- /floating action -->
                             <!-- title and toolbar -->
                             <div class="d-md-flex align-items-md-start">
-                                <h1 class="page-title mr-sm-auto"> Todas Vendas </h1><!-- .btn-toolbar -->
+                                <h1 class="page-title mr-sm-auto"> Stock de Saida </h1><!-- .btn-toolbar -->
                                 <div class="btn-toolbar">
                                     <button type="button" class="btn btn-light"><i
                                             class="oi oi-data-transfer-download"></i> <span
@@ -61,13 +61,8 @@
                                             <tr>
                                                 <th> Nome do Producto </th>
                                                 <th> Quantidade </th>
-                                                <th> Metodo de Pagamento </th>
                                                 <th> Preco de Venda </th>
-                                                <th> Valor Total </th>
-                                                <th> Valor Pago </th>
-                                                <th> Troco </th>
-                                                <th> IVA </th>
-                                                <th> Data de Venda </th>
+                                                <th> Data de Saida </th>
                                                 <th></th>
                                             </tr>
                                         </thead>
@@ -76,20 +71,7 @@
                                                 <tr>
                                                     <td class="align-middle"> {{ $product->stocks->product->Product_name }} </td>
                                                     <td class="align-middle"> {{ $product->Quantity }} </td>
-                                                    <td class="align-middle"> 
-                                                        <span class="badge badge-subtle badge-success">{{$product->payments->Name_payment}}</span>
-                                                    </td>
                                                     <td class="align-middle"> {{ $product->Product_price }} </td>
-                                                    <td class="align-middle"> {{ $product->Amount }} </td>
-                                                    <td class="align-middle"> 
-                                                        <span class="badge badge-subtle badge-primary">{{ $product->Total_price }}
-                                                        </span></td>
-                                                    <td class="align-middle"> {{
-                                                        
-                                                        $troco=$product->Total_price - $product->Amount
-                                                        
-                                                    }} </td>
-                                                    <td class="align-middle"> {{ $iva }} </td>
                                                     <td class="align-middle"> 
                                                         <span class="badge badge-subtle badge-warning">{{$product->created_at}}</span>
                                                     </td>
@@ -105,11 +87,6 @@
                                     </table>
                                 </div><!-- /.table-responsive -->
                             </div><!-- /.card-body -->
-                            <!-- .card-footer -->
-                            <div class="card-footer">
-                                <a href="{{route('dashboard')}}" class="card-footer-item"><i
-                                        class="fa fa-plus-circle mr-1"></i> Adicionar Venda</a>
-                            </div><!-- /.card-footer -->
                         </div>
                         {{-- End of table section --}}
 
