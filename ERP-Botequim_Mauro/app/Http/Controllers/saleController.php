@@ -55,31 +55,10 @@ class saleController extends Controller
 
     public function storeSaleHistory()
     {
-        // $sales = Sale::all();
-
-        // // Iterar sobre as vendas e mover os dados para a tabela sale_histories
-        // foreach ($sales as $sale) {
-        //     Sale_History::create([
-        //         'Product_price' => $sale->Product_price, // calcular o total_price
-        //         'Quantity' => $sale->Quantity,
-        //         'Id_stock' => $sale->Id_stock,
-        //         'Amount'=> $sale->Product_price * $sale->Quantity,
-        //         'Total_price'=>Request::input('Total_price'),
-        //         'Id_payment'=>Request::input('Id_payment'),
-        //     ]);
-        // }
-
-        // // Deletar os dados da tabela sales
-        // Sale::truncate();
-
-        // Alert::success('Vendido','O producto foi vendido com sucesso!');
-
-        // return back();
-
-        // Calcular o preço total da venda com base nos produtos vendidos
+        //? Calcular o preço total da venda com base nos produtos vendidos
         $totalPrice = Sale::sum('Product_price');
 
-        // Obter o valor pago pelo cliente (Total_price)
+        //? Obter o valor pago pelo cliente (Total_price)
         $valorPago = Request::input('Total_price');
 
         $iva = $totalPrice * 0.17;
@@ -107,7 +86,6 @@ class saleController extends Controller
             }
         }
 
-        // Deletar os dados da tabela sales
         Sale::truncate();
 
         Alert::success('Vendido','O produto foi vendido com sucesso!');
