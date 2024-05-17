@@ -76,8 +76,8 @@ class saleController extends Controller
 
         // return back();
 
-    // Calcular o preço total da venda com base nos produtos vendidos
-    $totalPrice = Sale::sum('Product_price');
+        // Calcular o preço total da venda com base nos produtos vendidos
+        $totalPrice = Sale::sum('Product_price');
 
         // Obter o valor pago pelo cliente (Total_price)
         $valorPago = Request::input('Total_price');
