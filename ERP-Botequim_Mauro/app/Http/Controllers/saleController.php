@@ -36,7 +36,7 @@ class saleController extends Controller
 
         $sales->save();
 
-        Alert::success('Actualizado!','Producto actualizado na lista de vendas!');
+        Alert::success('Actualizado!','Producto actualizado com sucesso!');
 
         return back();
     }
