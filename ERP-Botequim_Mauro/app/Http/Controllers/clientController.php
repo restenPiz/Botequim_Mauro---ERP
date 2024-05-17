@@ -151,7 +151,6 @@ class clientController extends Controller
         $productRequest = new ProductRequest();
 
         $productRequest->Id_client = Request::input('Id_client');
-        $productRequest->Id_request = Request::input('Id_request');
         $productRequest->Id_stock = Request::input('Id_stock');
         $productRequest->Product_price = Request::input('Product_price');
         $productRequest->Quantity = Request::input('Quantity');
