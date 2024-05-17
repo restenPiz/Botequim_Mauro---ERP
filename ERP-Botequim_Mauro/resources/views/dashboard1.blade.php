@@ -108,7 +108,7 @@
                                                                 <td class="align-middle text-right">
                                                                     <button type="button"
                                                                         class="btn btn-sm btn-icon btn-secondary"
-                                                                        data-toggle="modal" data-target="#clientNewModal"><i
+                                                                        data-toggle="modal" data-target="#clientNewModal{{$sale->id}}"><i
                                                                             class="fa fa-pencil-alt"></i> <span
                                                                             class="sr-only">Edit</span></button>
                                                                     <button type="button"
@@ -156,7 +156,7 @@
                                                             {{--Fim do modal de remocao de productos--}}
 
                                                             {{--Inicio do modal de edicao de productos--}}
-                                                            <div class="modal fade" id="clientNewModal"
+                                                            <div class="modal fade" id="clientNewModal{{$sale->id}}"
                                                                 tabindex="-1" role="dialog" aria-labelledby="clientNewModalLabel"
                                                                 aria-hidden="true">
                                                                 <!-- .modal-dialog -->
@@ -183,13 +183,6 @@
                                                                                         <div class="form-row">
                                                                                             <div class="col-md-12">
                                                                                                 <div class="form-group">
-                                                                                                    <label for="input01">Tipo de Pagamento</label> 
-                                                                                                    <select class="form-control" name="Id_payment" id="Id_payment">
-                                                                                                        <option selected>-- Selecione a opcao --</option>
-                                                                                                        @foreach ($payments as $payment)
-                                                                                                        <option value="{{$payment->id}}">{{$payment->Name_payment}}</option>
-                                                                                                        @endforeach
-                                                                                                    </select>
                                                                                                 </div>
                                                                                                 <div class="form-group">
                                                                                                     <label for="cnContactEmail">Valor a Pagar</label>
