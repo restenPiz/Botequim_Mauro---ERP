@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Sale_History;
 use App\Models\Stock;
 use Illuminate\Support\Facades\DB;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -116,5 +117,11 @@ class stockController extends Controller
             // Retorna uma resposta indicando que o produto não foi encontrado
             return response()->json(['error' => 'Produto não encontrado'], 404);
         }
+    }
+    public function allStockOut()
+    {
+        $products=Sale_History::all();
+
+        return view('Admin.allStockOut',compact('products'));
     }
 }
