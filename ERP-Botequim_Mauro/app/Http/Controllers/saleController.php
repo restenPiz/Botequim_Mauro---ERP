@@ -96,8 +96,13 @@ class saleController extends Controller
 
     public function allSale()
     {
-        $sales=Sale_History::all();
+        $products=Sale_History::all();
 
-        return view('Attendant.allSale',compact('sales'));
+        $totalPrice = Sale::sum('Product_price');
+        $iva = $totalPrice * 0.17;
+
+        $troco=$products->Total_price-($totalPrice + $iva);
+
+        return view('Attendant.allSale',compact('products','iva','troco'));
     }
 }
