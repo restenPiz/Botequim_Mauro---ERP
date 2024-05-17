@@ -144,7 +144,7 @@
                                     de Ajuda</a>
                             </div><!-- /.dropdown-menu -->
                         </div><!-- /.btn-account -->
-                    </div><!-- /.top-bar-item -->`
+                    </div><!-- /.top-bar-item -->
                 </div><!-- /.top-bar-list -->
             </div><!-- /.top-bar -->
         </header><!-- /.app-header -->
@@ -206,16 +206,6 @@
                                 </ul><!-- /child menu -->
                             </li><!-- /.menu-item -->
                             <!-- .menu-item -->
-                            <li class="menu-item has-child">
-                                <a href="#" class="menu-link"><span class="menu-icon oi oi-browser"></span>
-                                    <span class="menu-text">Evento</span> {{-- <span
-                                        class="badge badge-warning">New</span> --}}</a> <!-- child menu -->
-                                <ul class="menu">
-                                    <li class="menu-item">
-                                        <a href="{{route('allEvent')}}" class="menu-link">Todos Eventos</a>
-                                    </li>
-                                </ul><!-- /child menu -->
-                            </li><!-- /.menu-item --><!-- .menu-item -->
                             <li class="menu-item has-child">
                                 <a href="#" class="menu-link"><span class="menu-icon oi oi-pencil"></span>
                                     <span class="menu-text">Dividas</span> {{-- <span
@@ -602,7 +592,7 @@
                                     de Ajuda</a>
                             </div><!-- /.dropdown-menu -->
                         </div><!-- /.btn-account -->
-                    </div><!-- /.top-bar-item -->`
+                    </div><!-- /.top-bar-item -->
                 </div><!-- /.top-bar-list -->
             </div><!-- /.top-bar -->
         </header><!-- /.app-header -->

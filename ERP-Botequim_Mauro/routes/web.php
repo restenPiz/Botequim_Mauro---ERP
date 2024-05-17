@@ -105,7 +105,6 @@ Route::group(['prefix' => 'attendant', 'middleware' => ['role:attendant']], func
     //*Inicio da rota de insercao na tabela de vendas
     Route::post('/storeSaleHistory', [saleController::class, 'storeSaleHistory'])->name('storeSaleHistory');
     //*Fim das rotas de insercao na tabela de vendas
-    Route::get('/allSale', [saleController::class, 'allSale'])->name('allSale');
 
 });
 
@@ -121,6 +120,9 @@ Route::get('/getRequest', [StockController::class, 'getRequest'])->name('getRequ
 Route::get('/getProduct', [StockController::class, 'getProduct'])->name('getProduct');
 Route::get('/getDebit', [debitController::class, 'getDebit'])->name('getDebit');
 //* Fim dos metodos responsaveis pelos metodos JSON */
+
+//*Inicio da rota de todas vendas
+Route::get('/allSale', [saleController::class, 'allSale'])->name('allSale');
 
 //?Fim das rotas da parte de admin
 
