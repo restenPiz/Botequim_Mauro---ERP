@@ -102,7 +102,7 @@ Route::group(['prefix' => 'attendant', 'middleware' => ['role:attendant']], func
 
     //?Inicio das rotas de vendas
     Route::post('/storeSale', [saleController::class, 'storeSale'])->name('storeSale');
-    // Route::post('/updateSale/{id}', [saleController::class, 'storeSale'])->name('storeSale');
+    Route::post('/updateSale/{id}', [saleController::class, 'updateSale'])->name('updateSale');
     Route::get('/deleteSale/{id}', [saleController::class, 'deleteSale'])->name('deleteSale');
     //*Inicio da rota de insercao na tabela de vendas
     Route::post('/storeSaleHistory', [saleController::class, 'storeSaleHistory'])->name('storeSaleHistory');
