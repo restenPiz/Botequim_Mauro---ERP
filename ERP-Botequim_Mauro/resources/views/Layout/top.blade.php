@@ -255,7 +255,7 @@
                                         <a href="{{route('allStock')}}" class="menu-link">Entrada de Productos</a>
                                     </li>
                                     <li class="menu-item">
-                                        <a href="{{route('allStock')}}" class="menu-link">Saida de Productos</a>
+                                        <a href="{{route('allStockOut')}}" class="menu-link">Saida de Productos</a>
                                     </li>
                                 </ul><!-- /child menu -->
                             </li>
