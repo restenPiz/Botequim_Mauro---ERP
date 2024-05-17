@@ -81,8 +81,8 @@
                                                         <td class="align-middle"> {{ $product->Total_price }} </td>
                                                         <td class="align-middle"> {{
                                                             
-                                                            $troco=$product->Total_price - ($totalPrice + $iva)
-
+                                                            $troco=$product->Total_price - $product->Amount
+                                                            
                                                         }} </td>
                                                         <td class="align-middle"> 
                                                             <span class="badge badge-subtle badge-warning">{{$product->created_at}}</span>

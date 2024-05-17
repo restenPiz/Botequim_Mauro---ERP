@@ -66,6 +66,13 @@ class saleController extends Controller
         $troco = $valorPago - ($totalPrice + $iva);
 
         $sales = Sale::all();
+
+        // Verificar se o valor pago é suficiente
+        if ($valorPago -> $totalPrice + $iva) {
+            Alert::error('Erro','O valor pago é insuficiente para a venda!');
+            return back();
+        }
+        
         foreach ($sales as $sale) {
             Sale_History::create([
                 'Product_price' => $sale->Product_price,
