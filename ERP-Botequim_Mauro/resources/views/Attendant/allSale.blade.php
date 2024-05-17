@@ -84,7 +84,9 @@
                                                             $troco=$product->Total_price - ($totalPrice + $iva)
 
                                                         }} </td>
-                                                        <td class="align-middle"> {{$product->created_at}}</td>
+                                                        <td class="align-middle"> 
+                                                            <span class="badge badge-subtle badge-warning">{{$product->created_at}}</span>
+                                                        </td>
                                                     </tr>
 
                                                 @endforeach
