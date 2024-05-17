@@ -148,19 +148,18 @@ class clientController extends Controller
     }
     public function storeClientRequest()
     {
-        dd(Request::all());
-        // $productRequest = new ProductRequest();
+        $productRequest = new ProductRequest();
 
-        // $productRequest->Id_client = Request::input('Id_client');
-        // $productRequest->Id_stock = Request::input('Id_stock');
-        // $productRequest->Product_price = Request::input('Product_price');
-        // $productRequest->Quantity = Request::input('Quantity');
+        $productRequest->Id_client = Request::input('Id_client');
+        $productRequest->Id_stock = Request::input('Id_stock');
+        $productRequest->Product_price = Request::input('Product_price');
+        $productRequest->Quantity = Request::input('Quantity');
 
-        // $productRequest->save();
+        $productRequest->save();
         
-        // Alert::success('Adicionado!', 'O produto foi adicionado na lista de pedidos!');
+        Alert::success('Adicionado!', 'O produto foi adicionado na lista de pedidos!');
 
-        // return redirect()->back();
+        return redirect()->back();
     }
     public function invoiceRequest($id)
     {

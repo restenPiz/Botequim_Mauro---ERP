@@ -101,8 +101,8 @@ class saleController extends Controller
         $totalPrice = Sale::sum('Product_price');
         $iva = $totalPrice * 0.17;
 
-        $troco=$products->Total_price-($totalPrice + $iva);
+        // $troco=$products->Total_price - ($totalPrice + $iva);
 
-        return view('Attendant.allSale',compact('products','iva','troco'));
+        return view('Attendant.allSale',compact('products','totalPrice','iva'));
     }
 }
