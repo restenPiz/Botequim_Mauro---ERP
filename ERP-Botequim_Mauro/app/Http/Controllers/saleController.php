@@ -91,7 +91,6 @@ class saleController extends Controller
         Alert::success('Vendido','O produto foi vendido com sucesso!');
 
         return back();
-
     }
     //?Fim dos metodos de conclusao de venda
 

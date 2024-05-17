@@ -590,18 +590,6 @@
                                     </ul><!-- /child menu -->
                                 </li><!-- /.menu-item -->
                                 <!-- .menu-header -->
-                                <li class="menu-header">Stock </li><!-- /.menu-header -->
-
-                                <li class="menu-item has-child">
-                                    <a href="#" class="menu-link"><span class="menu-icon oi oi-list-rich"></span>
-                                        <span class="menu-text">Stock</span> {{-- <span
-                                    class="badge badge-warning">New</span> --}}</a> <!-- child menu -->
-                                    <ul class="menu">
-                                        <li class="menu-item">
-                                            <a href="{{ route('allStock') }}" class="menu-link">Saida de Productos</a>
-                                        </li>
-                                    </ul><!-- /child menu -->
-                                </li>
 
                                 <li class="menu-header">Venda </li><!-- /.menu-header -->
                                 <li class="menu-item">
