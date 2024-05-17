@@ -65,6 +65,7 @@
                                                     <th> Valor Total </th>
                                                     <th> Valor Pago </th>
                                                     <th> Troco </th>
+                                                    <th> IVA </th>
                                                     <th> Data de Venda </th>
                                                 </tr>
                                             </thead>
@@ -78,12 +79,15 @@
                                                         </td>
                                                         <td class="align-middle"> {{ $product->Product_price }} </td>
                                                         <td class="align-middle"> {{ $product->Amount }} </td>
-                                                        <td class="align-middle"> {{ $product->Total_price }} </td>
+                                                        <td class="align-middle"> 
+                                                            <span class="badge badge-subtle badge-primary">{{ $product->Total_price }}
+                                                            </span></td>
                                                         <td class="align-middle"> {{
                                                             
                                                             $troco=$product->Total_price - $product->Amount
                                                             
                                                         }} </td>
+                                                        <td class="align-middle"> {{ $iva }} </td>
                                                         <td class="align-middle"> 
                                                             <span class="badge badge-subtle badge-warning">{{$product->created_at}}</span>
                                                         </td>

@@ -55,10 +55,11 @@ class saleController extends Controller
 
     public function storeSaleHistory()
     {
-        //? Calcular o preço total da venda com base nos produtos vendidos
-        $totalPrice = Sale::sum('Product_price');
+        //* Calcular o preço total da venda com base nos produtos vendidos
+        // $totalPrice = Sale::sum('Product_price');
+        $totalPrice = Sale::sum('Amount');
 
-        //? Obter o valor pago pelo cliente (Total_price)
+        //* Obter o valor pago pelo cliente (Total_price)
         $valorPago = Request::input('Total_price');
 
         $iva = $totalPrice * 0.17;
@@ -67,8 +68,8 @@ class saleController extends Controller
 
         $sales = Sale::all();
 
-        // Verificar se o valor pago é suficiente
-        if ($valorPago -> $totalPrice + $iva) {
+        //* Verificar se o valor pago é suficiente
+        if ($valorPago < $totalPrice) {
             Alert::error('Erro','O valor pago é insuficiente para a venda!');
             return back();
         }
@@ -79,13 +80,13 @@ class saleController extends Controller
                 'Quantity' => $sale->Quantity,
                 'Id_stock' => $sale->Id_stock,
                 'Amount'=> $sale->Product_price * $sale->Quantity,
-                'Total_price'=> $totalPrice,
+                'Total_price'=> $valorPago,
                 'IVA' => $iva,
                 'Troco' => $troco,
                 'Id_payment'=>Request::input('Id_payment'),
             ]);
 
-            //?metodo responsavel por reduzir a quantidade de productos no stock
+            //*metodo responsavel por reduzir a quantidade de productos no stock
             $stock = Stock::find($sale->Id_stock);
             if ($stock) {
                 $stock->Quantity -= $sale->Quantity;

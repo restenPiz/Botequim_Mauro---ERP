@@ -29,7 +29,11 @@ class redirectController extends Controller
             $amount=DB::table('sales')
             ->sum('Amount');
 
-            return view('dashboard1',compact('payments','stocks','sales','amount'));
+            $totalPrice = Sale::sum('Amount');
+
+            $iva = $totalPrice * 0.17;
+
+            return view('dashboard1',compact('payments','stocks','sales','amount','iva'));
         }
         if(Auth::user()->hasRole('stock_manager'))
         {

@@ -49,6 +49,7 @@
                                                     class="form-control" placeholder="Quantidade" id="input02"
                                                     name="Quantity" required="">
                                             </div><!-- /form column -->
+                                            <input type="hidden" name="Id_request" value="1">
                                         </div>
                                         <button type="submit" name="submit" class="btn btn-primary text-nowrap ml-auto"
                                             onclick="enableFields()">Adicionar Pedido</button>
