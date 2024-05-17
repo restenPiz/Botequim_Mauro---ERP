@@ -188,6 +188,7 @@
                                                     <th> Troco </th>
                                                     <th> IVA </th>
                                                     <th> Data de Venda </th>
+                                                    <th></th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -211,6 +212,11 @@
                                                         <td class="align-middle"> {{ $iva }} </td>
                                                         <td class="align-middle"> 
                                                             <span class="badge badge-subtle badge-warning">{{$product->created_at}}</span>
+                                                        </td>
+                                                        <td class="align-middle text-right"> <button
+                                                                type="button" class="btn btn-sm btn-icon btn-secondary"><i
+                                                                    class="far fa-trash-alt" data-target="#deleteRecordModal{{ $product->id }}" data-toggle="modal"></i> <span
+                                                                    class="sr-only">Remove</span></button>
                                                         </td>
                                                     </tr>
 
