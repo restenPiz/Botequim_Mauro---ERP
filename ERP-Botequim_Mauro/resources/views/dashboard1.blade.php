@@ -182,7 +182,7 @@
                                                                                     <div class="col-md-12">
                                                                                         <div class="form-group">
                                                                                             <label>Nome de Producto</label>
-                                                                                            <select class="form-control" name="Id_product" id="Id_product" onchange="prod(this);">
+                                                                                            <select class="form-control" name="Id_stock" id="Id_product" onchange="pro(this);">
                                                                                                 <option value="{{ $sale->stocks->product->id }}">{{ $sale->stocks->product->Product_name }}</option>
                                         
                                                                                                 @foreach ($stocks as $stock) <!-- Corrigido duplicação de variável -->
@@ -191,21 +191,21 @@
                                                                                             </select>
                                                                                         </div>
                                                                                         
+                                                                                        <div class="col-md-12">
+                                                                                            <div class="form-group">
+                                                                                                <label for="cnContactName">Preco</label>
+                                                                                                <input type="text" id="Price"
+                                                                                                    class="form-control"
+                                                                                                    name="Price" value="{{$sale->Price}}"
+                                                                                                    placeholder="{{ $sale->Price }}" disabled>
+                                                                                            </div>
+                                                                                        </div>
                                                                                         <div class="form-group">
                                                                                             <label for="cnContactName">Quantidade</label>
                                                                                             <input type="text" 
                                                                                                 class="form-control"
                                                                                                 name="Quantity" id="quantity"
                                                                                                 placeholder="{{ $sale->Quantity }}" value="{{ $sale->Quantity }}">
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="col-md-12">
-                                                                                        <div class="form-group">
-                                                                                            <label for="cnContactName">Preco</label>
-                                                                                            <input type="text" id="price"
-                                                                                                class="form-control"
-                                                                                                name="Price" value="{{$sale->Price}}"
-                                                                                                placeholder="{{ $sale->Price }}" disabled>
                                                                                         </div>
                                                                                     </div>
                                                                                     <input type="hidden" name="id"
@@ -216,7 +216,7 @@
                                                                             <!-- .modal-footer -->
                                                                             <div class="modal-footer">
                                                                                 <button type="submit" name="submit"
-                                                                                    class="btn btn-primary" onclick="enableField()">Actualizar
+                                                                                    class="btn btn-primary" onclick="enableFieldss()">Actualizar
                                                                                     Producto</button>
                                                                                 <button type="button" class="btn btn-light"
                                                                                     data-dismiss="modal">Fechar</button>

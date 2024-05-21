@@ -654,6 +654,35 @@
                 }
             });
         </script>
+
+        <script>
+            //Inicio da function que retornar os produtos em json
+            function pro(product) {
+                var Id_product = product.value;
+
+                $.get('http://127.0.0.1:8000/getDebit?id=' + Id_product, function(data) {
+                    console.log(data);
+
+                    $('#Price').val(data.Price);
+                }); 
+            }
+
+            function enableFieldss() {    
+                $('#Price').prop('disabled', false);
+
+                setTimeout(function() {
+                    $('#Price').prop('disabled', true);
+                }, 1000); 
+            }
+
+            $(document).ready(function() {
+                var fieldsDisabled = localStorage.getItem('fieldsDisabled');
+                if (fieldsDisabled) {
+                    // Desabilita os campos
+                    $('#Price').val(JSON.parse(fieldsDisabled).Code).prop('disabled', true);
+                }
+            });
+        </script>
     
         <script>
             $(document).ready(function() {
