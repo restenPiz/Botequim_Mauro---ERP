@@ -183,12 +183,17 @@
                                                                                         <div class="form-group">
                                                                                             <label>Nome de Producto</label>
                                                                                             <select class="form-control" name="Id_product" id="Id_product" onchange="prod(this);">
-                                                                                                <option value="{{$stocks->Id_product}}">{{$stocks->product->Product_name}}</option>
-                                                                                                @foreach ($stocks as $stocks)
+                                                                                                @if($sales->isNotEmpty()) <!-- Verifica se $sales não está vazio -->
+                                                                                                    @foreach ($sales as $sale)
+                                                                                                        <option value="{{ $sale->stocks->product->id }}">{{ $sale->stocks->product->Product_name }}</option>
+                                                                                                    @endforeach
+                                                                                                @endif
+                                                                                                @foreach ($stocks as $stock) <!-- Corrigido duplicação de variável -->
                                                                                                     <option value="{{ $stock->product->id }}">{{ $stock->product->Product_name }}</option>
                                                                                                 @endforeach
-                                                                                            </select> 
+                                                                                            </select>
                                                                                         </div>
+                                                                                        
                                                                                         <div class="form-group">
                                                                                             <label for="cnContactName">Quantidade</label>
                                                                                             <input type="text" 

@@ -30,3 +30,4 @@ class Stock extends Model
         return $this->hasMany(Sale::class,'Id_stock','id');   
     }
 }
+
