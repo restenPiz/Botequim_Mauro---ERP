@@ -185,7 +185,7 @@
                                                                                             <select class="form-control" name="Id_product" id="Id_product" onchange="prod(this);">
                                                                                                 @if($sales->isNotEmpty()) <!-- Verifica se $sales não está vazio -->
                                                                                                     @foreach ($sales as $sale)
-                                                                                                        <option value="{{ $sale->stocks->product->id }}">{{ $sale->stocks->product->Product_name }}</option>
+                                                                                                        <option value="{{ $sale->product->id }}">{{ $sale->product->Product_name }}</option>
                                                                                                     @endforeach
                                                                                                 @endif
                                                                                                 @foreach ($stocks as $stock) <!-- Corrigido duplicação de variável -->

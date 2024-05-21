@@ -22,7 +22,7 @@ class redirectController extends Controller
         {
             $payments=Payment::all();
 
-            $stocks=Stock::all();
+            $stocks=Stock::with('product')->get();
 
             $sales=Sale::with('stocks.product')->get();
 
