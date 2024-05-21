@@ -108,7 +108,8 @@
                                                                 <td class="align-middle text-right">
                                                                     <button type="button"
                                                                         class="btn btn-sm btn-icon btn-secondary"
-                                                                        data-toggle="modal" data-target="#clientNewModal{{$sale->id}}"><i
+                                                                        data-toggle="modal"
+                                                                        data-target="#clientNewModal{{ $sale->id }}"><i
                                                                             class="fa fa-pencil-alt"></i> <span
                                                                             class="sr-only">Edit</span></button>
                                                                     <button type="button"
@@ -120,32 +121,41 @@
                                                                 </td>
                                                             </tr>
 
-                                                            {{--Inicio do modal de remocao de productos--}}
-                                                            <div class="modal fade zoomIn" id="deleteRecordModal{{ $sale->id }}"
-                                                                tabindex="-1" aria-hidden="true">
+                                                            {{-- Inicio do modal de remocao de productos --}}
+                                                            <div class="modal fade zoomIn"
+                                                                id="deleteRecordModal{{ $sale->id }}" tabindex="-1"
+                                                                aria-hidden="true">
                                                                 <div class="modal-dialog modal-dialog-centered">
                                                                     <div class="modal-content">
-                                                                        <form action="{{route('deleteSale',['id'=>$sale->id])}}" method="get">
+                                                                        <form
+                                                                            action="{{ route('deleteSale', ['id' => $sale->id]) }}"
+                                                                            method="get">
                                                                             @csrf
                                                                             @method('DELETE')
                                                                             <div class="modal-body">
                                                                                 <div class="mt-2 text-center">
-                                                                                    <lord-icon src="https://cdn.lordicon.com/gsqxdxog.json"
+                                                                                    <lord-icon
+                                                                                        src="https://cdn.lordicon.com/gsqxdxog.json"
                                                                                         trigger="loop"
                                                                                         colors="primary:#f7b84b,secondary:#f06548"
                                                                                         style="width:100px;height:100px">
                                                                                     </lord-icon>
-                                                                                    <div class="mt-4 pt-2 fs-15 mx-4 mx-sm-5">
+                                                                                    <div
+                                                                                        class="mt-4 pt-2 fs-15 mx-4 mx-sm-5">
                                                                                         <h4>Voce tem certeza ?</h4>
-                                                                                        <p class="text-muted mx-4 mb-0">Voce pretende eliminar
-                                                                                         este producto ?</p>
+                                                                                        <p class="text-muted mx-4 mb-0">Voce
+                                                                                            pretende eliminar
+                                                                                            este producto ?</p>
                                                                                     </div>
                                                                                 </div>
-                                                                                <div class="d-flex gap-2 justify-content-center mt-4 mb-2">
-                                                                                    <button type="button" class="btn w-sm btn-light"
+                                                                                <div
+                                                                                    class="d-flex gap-2 justify-content-center mt-4 mb-2">
+                                                                                    <button type="button"
+                                                                                        class="btn w-sm btn-light"
                                                                                         data-bs-dismiss="modal">Fechar</button>
                                                                                     <button type="submit" name="submit"
-                                                                                        class="btn w-sm btn-danger " id="delete-record">Sim,
+                                                                                        class="btn w-sm btn-danger "
+                                                                                        id="delete-record">Sim,
                                                                                         elimine!</button>
                                                                                 </div>
                                                                             </div>
@@ -153,25 +163,26 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            {{--Fim do modal de remocao de productos--}}
+                                                            {{-- Fim do modal de remocao de productos --}}
 
-                                                            {{--Inicio do modal de edicao de productos--}}
-                                                            <div class="modal fade" id="clientNewModal{{$sale->id}}"
-                                                                tabindex="-1" role="dialog" aria-labelledby="clientNewModalLabel"
-                                                                aria-hidden="true">
+                                                            {{-- Inicio do modal de edicao de productos --}}
+                                                            <div class="modal fade" id="clientNewModal{{ $sale->id }}"
+                                                                tabindex="-1" role="dialog"
+                                                                aria-labelledby="clientNewModalLabel" aria-hidden="true">
                                                                 <!-- .modal-dialog -->
                                                                 <div class="modal-dialog" role="document">
                                                                     <!-- .modal-content -->
                                                                     <form action="{{ route('storeSaleHistory') }}"
                                                                         method="post">
                                                                         @csrf
-            
+
                                                                         <div class="modal-content">
                                                                             <!-- .modal-header -->
                                                                             <div class="modal-header">
                                                                                 <h6 id="clientNewModalLabel"
                                                                                     class="modal-title inline-editable">
-                                                                                    <span class="sr-only">Formulario de Actualizacao
+                                                                                    <span class="sr-only">Formulario de
+                                                                                        Actualizacao
                                                                                         de Productos</span>
                                                                                 </h6>
                                                                             </div><!-- /.modal-header -->
@@ -179,60 +190,81 @@
                                                                             <div class="modal-body">
                                                                                 <!-- .form-row -->
                                                                                 <div class="form-row">
-                                                                                    <div class="col-md-12">
-                                                                                        <div class="form-group">
-                                                                                            <label>Nome de Producto</label>
-                                                                                            <select class="form-control" name="Id_product" id="Id_product" onchange="prod(this);">
-                                                                                                @if($sales->isNotEmpty()) <!-- Verifica se $sales não está vazio -->
-                                                                                                    @foreach ($sales as $sale)
-                                                                                                        <option value="{{ $sale->product->id }}">{{ $sale->product->Product_name }}</option>
+                                                                                    @foreach ($sales as $sale)
+                                                                                        <div class="col-md-12">
+                                                                                            <div class="form-group">
+                                                                                                <label>Nome de
+                                                                                                    Producto</label>
+                                                                                                <select
+                                                                                                    class="form-control"
+                                                                                                    name="Id_product"
+                                                                                                    id="Id_product"
+                                                                                                    onchange="prod(this);">
+                                                                                                    <option
+                                                                                                        value="{{ $sale->stocks->product->id }}">
+                                                                                                        {{ $sale->stocks->product->Product_name }}
+                                                                                                    </option>
+
+                                                                                                    @foreach ($stocks as $stock)
+                                                                                                        <!-- Corrigido duplicação de variável -->
+                                                                                                        <option
+                                                                                                            value="{{ $stock->product->id }}">
+                                                                                                            {{ $stock->product->Product_name }}
+                                                                                                        </option>
                                                                                                     @endforeach
-                                                                                                @endif
-                                                                                                @foreach ($stocks as $stock) <!-- Corrigido duplicação de variável -->
-                                                                                                    <option value="{{ $stock->product->id }}">{{ $stock->product->Product_name }}</option>
-                                                                                                @endforeach
-                                                                                            </select>
+                                                                                                </select>
+                                                                                            </div>
+
+                                                                                            <div class="form-group">
+                                                                                                <label
+                                                                                                    for="cnContactName">Quantidade</label>
+                                                                                                <input type="text"
+                                                                                                    class="form-control"
+                                                                                                    name="Quantity"
+                                                                                                    id="quantity"
+                                                                                                    placeholder="{{ $sale->Quantity }}"
+                                                                                                    value="{{ $sale->Quantity }}">
+                                                                                            </div>
                                                                                         </div>
-                                                                                        
-                                                                                        <div class="form-group">
-                                                                                            <label for="cnContactName">Quantidade</label>
-                                                                                            <input type="text" 
-                                                                                                class="form-control"
-                                                                                                name="Quantity" id="quantity"
-                                                                                                placeholder="{{ $sales->Quantity }}" value="{{ $sales->Quantity }}">
+                                                                                        <div class="col-md-12">
+                                                                                            <div class="form-group">
+                                                                                                <label
+                                                                                                    for="cnContactName">Preco</label>
+                                                                                                <input type="text"
+                                                                                                    id="price"
+                                                                                                    class="form-control"
+                                                                                                    name="Price"
+                                                                                                    value=""
+                                                                                                    placeholder="{{ $sale->Price }}"
+                                                                                                    disabled>
+                                                                                            </div>
                                                                                         </div>
-                                                                                    </div>
-                                                                                    <div class="col-md-12">
-                                                                                        <div class="form-group">
-                                                                                            <label for="cnContactName">Preco</label>
-                                                                                            <input type="text" id="price"
-                                                                                                class="form-control"
-                                                                                                name="Price" value=""
-                                                                                                placeholder="{{ $sales->Price }}" disabled>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <input type="hidden" name="id"
-                                                                                        value="{{ $sales->id }}">
+                                                                                        <input type="hidden"
+                                                                                            name="id"
+                                                                                            value="{{ $sale->id }}">
+                                                                                    @endforeach
                                                                                 </div><!-- /.form-row -->
-        
+
                                                                             </div><!-- /.modal-body -->
                                                                             <!-- .modal-footer -->
                                                                             <div class="modal-footer">
                                                                                 <button type="submit" name="submit"
-                                                                                    class="btn btn-primary" onclick="enableField()">Actualizar
+                                                                                    class="btn btn-primary"
+                                                                                    onclick="enableField()">Actualizar
                                                                                     Producto</button>
-                                                                                <button type="button" class="btn btn-light"
+                                                                                <button type="button"
+                                                                                    class="btn btn-light"
                                                                                     data-dismiss="modal">Fechar</button>
                                                                             </div><!-- /.modal-footer -->
                                                                         </div><!-- /.modal-content -->
                                                                     </form>
                                                                 </div><!-- /.modal-dialog -->
                                                             </div>
-                                                            {{--Fim do modal de edicao de productos--}}
+                                                            {{-- Fim do modal de edicao de productos --}}
 
-                                                            {{--Inicio do modal de conclusao de venda--}}
-                                                            <div class="modal fade" id="clientNewModal"
-                                                                tabindex="-1" role="dialog" aria-labelledby="clientNewModalLabel"
+                                                            {{-- Inicio do modal de conclusao de venda --}}
+                                                            <div class="modal fade" id="clientNewModal" tabindex="-1"
+                                                                role="dialog" aria-labelledby="clientNewModalLabel"
                                                                 aria-hidden="true">
                                                                 <!-- .modal-dialog -->
                                                                 <div class="modal-dialog" role="document">
@@ -240,13 +272,14 @@
                                                                     <form action="{{ route('storeSaleHistory') }}"
                                                                         method="post">
                                                                         @csrf
-            
+
                                                                         <div class="modal-content">
                                                                             <!-- .modal-header -->
                                                                             <div class="modal-header">
                                                                                 <h6 id="clientNewModalLabel"
                                                                                     class="modal-title inline-editable">
-                                                                                    <span class="sr-only">Formulario de Venda</span>
+                                                                                    <span class="sr-only">Formulario de
+                                                                                        Venda</span>
                                                                                 </h6>
                                                                             </div><!-- /.modal-header -->
                                                                             <!-- .modal-body -->
@@ -258,39 +291,55 @@
                                                                                         <div class="form-row">
                                                                                             <div class="col-md-12">
                                                                                                 <div class="form-group">
-                                                                                                    <label for="input01">Tipo de Pagamento</label> 
-                                                                                                    <select class="form-control" name="Id_payment" id="Id_payment">
-                                                                                                        <option selected>-- Selecione a opcao --</option>
+                                                                                                    <label
+                                                                                                        for="input01">Tipo
+                                                                                                        de Pagamento</label>
+                                                                                                    <select
+                                                                                                        class="form-control"
+                                                                                                        name="Id_payment"
+                                                                                                        id="Id_payment">
+                                                                                                        <option selected>--
+                                                                                                            Selecione a
+                                                                                                            opcao --
+                                                                                                        </option>
                                                                                                         @foreach ($payments as $payment)
-                                                                                                        <option value="{{$payment->id}}">{{$payment->Name_payment}}</option>
+                                                                                                            <option
+                                                                                                                value="{{ $payment->id }}">
+                                                                                                                {{ $payment->Name_payment }}
+                                                                                                            </option>
                                                                                                         @endforeach
                                                                                                     </select>
                                                                                                 </div>
                                                                                                 <div class="form-group">
-                                                                                                    <label for="cnContactEmail">Valor a Pagar</label>
-                                                                                                    <input type="text" placeholder="Valor a Pagar"
+                                                                                                    <label
+                                                                                                        for="cnContactEmail">Valor
+                                                                                                        a Pagar</label>
+                                                                                                    <input type="text"
+                                                                                                        placeholder="Valor a Pagar"
                                                                                                         class="form-control"
                                                                                                         name="Total_price">
                                                                                                 </div>
                                                                                             </div>
                                                                                         </div><!-- /.form-row -->
-            
+
                                                                                     </div>
                                                                                 </div><!-- /.form-row -->
-            
+
                                                                             </div><!-- /.modal-body -->
                                                                             <!-- .modal-footer -->
                                                                             <div class="modal-footer">
                                                                                 <button type="submit" name="submit"
-                                                                                    class="btn btn-primary">Concluir Venda</button>
-                                                                                <button type="button" class="btn btn-light"
+                                                                                    class="btn btn-primary">Concluir
+                                                                                    Venda</button>
+                                                                                <button type="button"
+                                                                                    class="btn btn-light"
                                                                                     data-dismiss="modal">Fechar</button>
                                                                             </div><!-- /.modal-footer -->
                                                                         </div><!-- /.modal-content -->
                                                                     </form>
                                                                 </div><!-- /.modal-dialog -->
                                                             </div>
-                                                            {{--Fim do modal de conclusao de venda--}}
+                                                            {{-- Fim do modal de conclusao de venda --}}
                                                         @endforeach
                                                         {{-- Fim do modal de editar --}}
                                                     </tbody>
@@ -300,7 +349,7 @@
                                                                 <button class="btn text-nowrap ml-auto"
                                                                     style="background-color: black;color:white; border-radius:0;
                                                                     width:330%">Valor
-                                                                    Total: {{$amount}} MT</button>
+                                                                    Total: {{ $amount }} MT</button>
                                                             </td>
                                                         </div>
                                                     </tfoot>
@@ -312,19 +361,20 @@
 
                                     </div>
                                     <button type="submit" name="submit" class="btn btn-success text-nowrap ml-auto"
-                                    data-toggle="modal" data-target="#clientNewModal" style="border-radius: 0">Efectuar
+                                        data-toggle="modal" data-target="#clientNewModal"
+                                        style="border-radius: 0">Efectuar
                                         Venda</button>
                                     <button type="submit" name="submit" class="btn btn-danger text-nowrap ml-auto"
                                         onclick="enableField()" style="border-radius: 0">Eliminar todos productos</button>
+                                </div>
+
+
+                                {{-- Fim da tabela de todos clientes --}}
                             </div>
-
-
-                            {{-- Fim da tabela de todos clientes --}}
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
         </div>
 
         {{-- Fim da parte de vendas do atendente --}}
