@@ -199,7 +199,7 @@
                                                                                             <input type="text" 
                                                                                                 class="form-control"
                                                                                                 name="Quantity" id="quantity"
-                                                                                                placeholder="{{ $stock->Quantity }}" value="{{ $stock->Quantity }}">
+                                                                                                placeholder="{{ $sales->Quantity }}" value="{{ $sales->Quantity }}">
                                                                                         </div>
                                                                                     </div>
                                                                                     <div class="col-md-12">
@@ -208,11 +208,11 @@
                                                                                             <input type="text" id="price"
                                                                                                 class="form-control"
                                                                                                 name="Price" value=""
-                                                                                                placeholder="{{ $stock->Price }}" disabled>
+                                                                                                placeholder="{{ $sales->Price }}" disabled>
                                                                                         </div>
                                                                                     </div>
                                                                                     <input type="hidden" name="id"
-                                                                                        value="{{ $stock->id }}">
+                                                                                        value="{{ $sales->id }}">
                                                                                 </div><!-- /.form-row -->
         
                                                                             </div><!-- /.modal-body -->
