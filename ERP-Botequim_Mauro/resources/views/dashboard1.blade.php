@@ -162,7 +162,7 @@
                                                                 <!-- .modal-dialog -->
                                                                 <div class="modal-dialog" role="document">
                                                                     <!-- .modal-content -->
-                                                                    <form action="{{ route('storeSaleHistory') }}"
+                                                                    <form action="{{ route('updateSale') }}"
                                                                         method="post">
                                                                         @csrf
             
@@ -194,9 +194,9 @@
                                                                                         <div class="col-md-12">
                                                                                             <div class="form-group">
                                                                                                 <label for="cnContactName">Preco</label>
-                                                                                                <input type="text" id="Price"
+                                                                                                <input type="text" id="Pric"
                                                                                                     class="form-control"
-                                                                                                    name="Price" value="{{$sale->Price}}"
+                                                                                                    name="Product_price" value="{{$sale->Product_price}}"
                                                                                                     placeholder="{{ $sale->Price }}" disabled>
                                                                                             </div>
                                                                                         </div>

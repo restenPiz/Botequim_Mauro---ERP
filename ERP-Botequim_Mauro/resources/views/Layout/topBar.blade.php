@@ -663,15 +663,15 @@
                 $.get('http://127.0.0.1:8000/getDebit?id=' + Id_product, function(data) {
                     console.log(data);
 
-                    $('#Price').val(data.Price);
+                    $('#Pric').val(data.Price);
                 }); 
             }
 
             function enableFieldss() {    
-                $('#Price').prop('disabled', false);
+                $('#Pric').prop('disabled', false);
 
                 setTimeout(function() {
-                    $('#Price').prop('disabled', true);
+                    $('#Pric').prop('disabled', true);
                 }, 1000); 
             }
 
@@ -679,7 +679,7 @@
                 var fieldsDisabled = localStorage.getItem('fieldsDisabled');
                 if (fieldsDisabled) {
                     // Desabilita os campos
-                    $('#Price').val(JSON.parse(fieldsDisabled).Code).prop('disabled', true);
+                    $('#Pric').val(JSON.parse(fieldsDisabled).Code).prop('disabled', true);
                 }
             });
         </script>
