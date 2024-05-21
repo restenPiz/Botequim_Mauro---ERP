@@ -24,7 +24,7 @@ class redirectController extends Controller
 
             $stocks=Stock::all();
 
-            $sales=Sale::with('stock.product')->get();
+            $sales=Sale::with('stocks.product')->get();
 
             $amount=DB::table('sales')
             ->sum('Amount');
