@@ -667,7 +667,7 @@
                 }); 
             }
 
-            function enableFieldss() {    
+            function enable() {    
                 $('#Pric').prop('disabled', false);
 
                 setTimeout(function() {

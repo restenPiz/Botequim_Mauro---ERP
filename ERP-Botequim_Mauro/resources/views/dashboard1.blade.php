@@ -162,7 +162,7 @@
                                                                 <!-- .modal-dialog -->
                                                                 <div class="modal-dialog" role="document">
                                                                     <!-- .modal-content -->
-                                                                    <form action="{{ route('updateSale') }}"
+                                                                    <form action="{{ route('updateSale',['id'=>$sale->id]) }}"
                                                                         method="post">
                                                                         @csrf
             
@@ -184,21 +184,18 @@
                                                                                             <label>Nome de Producto</label>
                                                                                             <select class="form-control" name="Id_stock" id="Id_product" onchange="pro(this);">
                                                                                                 <option value="{{ $sale->stocks->product->id }}">{{ $sale->stocks->product->Product_name }}</option>
-                                        
+                                                                                                <option>---------- ---------</option>
                                                                                                 @foreach ($stocks as $stock) <!-- Corrigido duplicação de variável -->
                                                                                                     <option value="{{ $stock->product->id }}">{{ $stock->product->Product_name }}</option>
                                                                                                 @endforeach
                                                                                             </select>
                                                                                         </div>
-                                                                                        
-                                                                                        <div class="col-md-12">
-                                                                                            <div class="form-group">
-                                                                                                <label for="cnContactName">Preco</label>
-                                                                                                <input type="text" id="Pric"
-                                                                                                    class="form-control"
-                                                                                                    name="Product_price" value="{{$sale->Product_price}}"
-                                                                                                    placeholder="{{ $sale->Price }}" disabled>
-                                                                                            </div>
+                                                                                        <div class="form-group">
+                                                                                            <label>Preco</label>
+                                                                                            <input type="text" id="Pric"
+                                                                                                class="form-control"
+                                                                                                name="Product_price"
+                                                                                                placeholder="{{ $sale->Product_price }}"  value="" disabled>
                                                                                         </div>
                                                                                         <div class="form-group">
                                                                                             <label for="cnContactName">Quantidade</label>
@@ -216,7 +213,7 @@
                                                                             <!-- .modal-footer -->
                                                                             <div class="modal-footer">
                                                                                 <button type="submit" name="submit"
-                                                                                    class="btn btn-primary" onclick="enableFieldss()">Actualizar
+                                                                                    class="btn btn-primary" onclick="enable()">Actualizar
                                                                                     Producto</button>
                                                                                 <button type="button" class="btn btn-light"
                                                                                     data-dismiss="modal">Fechar</button>
