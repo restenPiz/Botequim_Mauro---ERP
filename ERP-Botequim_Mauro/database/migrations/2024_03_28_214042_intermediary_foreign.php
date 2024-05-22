@@ -21,6 +21,7 @@ return new class extends Migration
             //?Inicio das colunas alternativas
             $table->string('Quantity');
             $table->string('Product_price');
+            $table->string('Amount');
         });
     }
     
