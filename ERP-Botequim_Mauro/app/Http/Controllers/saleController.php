@@ -113,4 +113,14 @@ class saleController extends Controller
 
         return view('Attendant.allSale',compact('products','totalPrice','iva'));
     }
+    public function deleteAllSale()
+    {
+        $products=Sale::all();
+
+        $products->delete();
+
+        Alert::success('Eliminado','Productos eliminados com sucesso!');
+
+        return back();
+    }
 }
