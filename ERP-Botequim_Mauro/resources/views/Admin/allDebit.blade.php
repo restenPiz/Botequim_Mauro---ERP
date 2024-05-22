@@ -39,8 +39,8 @@
                                             <div class="col-md-12 mb-3">
                                                 <label for="input02">Preco do Producto</label> 
                                                 <input type="text"
-                                                    class="form-control" placeholder="Preco do Producto" id="Product_price"
-                                                    name="Price" value="" disabled>
+                                                    class="form-control" placeholder="Preco do Producto" id="Price"
+                                                    name="Product_price" value="" disabled>
                                             </div><!-- /form column -->
                                             <div class="col-md-12 mb-3">
                                                 <label for="input01">Quantidade</label> 
@@ -115,7 +115,8 @@
                                                     <th> Nome de Producto </th>
                                                     <th> Preco </th>
                                                     <th> Data de Pagamento </th>
-                                                    <th>Status</th>
+                                                    <th>Quantidade</th>
+                                                    <th>Valor Total</th>
                                                     <th></th>
                                                 </tr>
                                             </thead>
@@ -126,7 +127,10 @@
                                                     <td class="align-middle"> {{ $debit->Price }} MT</td>
                                                     <td class="align-middle"> {{ $debit->Date_to_pay }} </td>
                                                     <td class="align-middle"> 
-                                                        <span class="badge badge-subtle badge-danger">Nao Pago</span>
+                                                        {{$debit->Quantity}}
+                                                    </td>
+                                                    <td class="align-middle"> 
+                                                        {{$debit->Amount}}
                                                     </td>
                                                     <td class="align-middle text-right">
                                                         <button type="button" class="btn btn-sm btn-icon btn-secondary"
