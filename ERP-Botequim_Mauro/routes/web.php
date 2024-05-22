@@ -75,7 +75,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function() {
     Route::post('/updateDebit/{id}', [debitController::class, 'updateDebit'])->name('updateDebit');
     Route::get('/deleteDebit/{id}', [debitController::class, 'deleteDebit'])->name('deleteDebit');
     //*Inicio da rota para eliminar todos os productos na tabela de dividas
-    Route::post('/deleteAllDebit', [debitController::class, 'deleteAllDebit'])->name('deleteAllDebit');
+    Route::get('/deleteAllDebit', [debitController::class, 'deleteAllDebit'])->name('deleteAllDebit');
 
     //?Inicio das rotas da parte de clientes
     Route::get('/allClient', [clientController::class, 'addClient'])->name('addClient'); 

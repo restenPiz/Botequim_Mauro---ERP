@@ -83,10 +83,12 @@ class clientController extends Controller
         $count=DB::table('debits')
             ->where('Id_client', $id)
             ->sum('Amount');
+        
+        $payments=Payment::all();
 
         return view('Admin.allDebit', [
             'client' => Client::findOrFail($id)
-        ],compact('products','debits','count'));
+        ],compact('products','debits','count','payments'));
     }
     //?Inicio do metodo de adicionar os pedidos de clientes
     public function addClientRequest()

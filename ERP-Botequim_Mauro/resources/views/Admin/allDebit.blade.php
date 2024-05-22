@@ -354,8 +354,8 @@
                                 <button type="submit" name="submit"
                                 class="btn btn-success text-nowrap ml-auto"
                                 data-toggle="modal" data-target="#clientNewModal">Pagar Divida</button>
-                                <button type="submit" name="submit"
-                                class="btn btn-danger text-nowrap ml-auto" onclick="enableField()">Eliminar Todos Productos</button>
+                                <a href="{{route('deleteAllDebit')}}" type="submit" name="submit"
+                                class="btn btn-danger text-nowrap ml-auto">Eliminar Todos Productos</a>
                             </div>
                             {{--Fim da parte de butao de pagar--}}
                         </div>
