@@ -268,9 +268,68 @@
                                                 </div>
 
                                                 {{--Inicio do modal de conclusao de venda--}}
+                                                {{--Inicio do modal de conclusao de venda--}}
+                                                <div class="modal fade" id="clientNewModal"
+                                                tabindex="-1" role="dialog" aria-labelledby="clientNewModalLabel"
+                                                aria-hidden="true">
+                                                <!-- .modal-dialog -->
+                                                <div class="modal-dialog" role="document">
+                                                    <!-- .modal-content -->
+                                                    <form action="{{ route('storeSaleHistory') }}"
+                                                        method="post">
+                                                        @csrf
 
+                                                        <div class="modal-content">
+                                                            <!-- .modal-header -->
+                                                            <div class="modal-header">
+                                                                <h6 id="clientNewModalLabel"
+                                                                    class="modal-title inline-editable">
+                                                                    <span class="sr-only">Formulario de Venda</span>
+                                                                </h6>
+                                                            </div><!-- /.modal-header -->
+                                                            <!-- .modal-body -->
+                                                            <div class="modal-body">
+                                                                <!-- .form-row -->
+                                                                <div class="form-row">
+                                                                    <div class="modal-body">
+                                                                        <!-- .form-row -->
+                                                                        <div class="form-row">
+                                                                            <div class="col-md-12">
+                                                                                <div class="form-group">
+                                                                                    <label for="input01">Tipo de Pagamento</label> 
+                                                                                    <select class="form-control" name="Id_payment" id="Id_payment">
+                                                                                        <option selected>-- Selecione a opcao --</option>
+                                                                                        @foreach ($payments as $payment)
+                                                                                        <option value="{{$payment->id}}">{{$payment->Name_payment}}</option>
+                                                                                        @endforeach
+                                                                                    </select>
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                    <label for="cnContactEmail">Valor a Pagar</label>
+                                                                                    <input type="text" placeholder="Valor a Pagar"
+                                                                                        class="form-control"
+                                                                                        name="Total_price">
+                                                                                </div>
+                                                                            </div>
+                                                                        </div><!-- /.form-row -->
+
+                                                                    </div>
+                                                                </div><!-- /.form-row -->
+
+                                                            </div><!-- /.modal-body -->
+                                                            <!-- .modal-footer -->
+                                                            <div class="modal-footer">
+                                                                <button type="submit" name="submit"
+                                                                    class="btn btn-primary">Concluir Venda</button>
+                                                                <button type="button" class="btn btn-light"
+                                                                    data-dismiss="modal">Fechar</button>
+                                                            </div><!-- /.modal-footer -->
+                                                        </div><!-- /.modal-content -->
+                                                    </form>
+                                                </div><!-- /.modal-dialog -->
+                                                </div>
                                                 {{--Fim do modal de conclusao de venda--}}
-                                                
+
                                                 @endforeach
                                                 {{-- Fim do modal de editar --}}
                                             </tbody>
