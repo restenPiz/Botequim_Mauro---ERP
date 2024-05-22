@@ -95,7 +95,7 @@ class debitController extends Controller
         
         $count=DB::table('debits')
             ->where('Id_client', $id)
-            ->sum('Product_price');
+            ->sum('Amount');
         
 
         return view('Admin.allDebit',compact('debits','count'));
