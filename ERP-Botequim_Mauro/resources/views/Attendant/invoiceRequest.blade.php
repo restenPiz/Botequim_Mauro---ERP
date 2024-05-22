@@ -23,7 +23,7 @@
                         <div class="d-md-flex">
                             <h1 class="page-title"> INV-65D9E592 </h1>
                             <div class="ml-auto">
-                                <button type="button" class="btn btn-primary">Efectuar Pagamento</button>
+                                <button type="button" data-toggle="modal" data-target="#clientNewModal" class="btn btn-primary">Efectuar Pagamento</button>
                             </div>
                         </div>
                     </header><!-- /.page-title-bar -->
