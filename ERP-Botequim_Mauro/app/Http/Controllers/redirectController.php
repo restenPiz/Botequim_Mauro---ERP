@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Payment;
+use App\Models\Product;
 use App\Models\Sale;
 use App\Models\Stock;
 use DB;
@@ -37,7 +39,11 @@ class redirectController extends Controller
         }
         if(Auth::user()->hasRole('stock_manager'))
         {
-            return view('dashboard2');
+            $products=Product::all();
+
+            $categories=Category::all();
+
+            return view('dashboard2',compact('products','categories'));
         }
         if(Auth::user()->hasRole('accountant'))
         {
