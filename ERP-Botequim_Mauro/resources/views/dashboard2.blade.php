@@ -19,7 +19,7 @@
                             </p>
                             <div class="metric-row">
                                 <!-- metric column -->
-                                <div class="col-12 col-sm-6 col-lg-3">
+                                {{-- <div class="col-12 col-sm-6 col-lg-3">
                                     <!-- .metric -->
                                     <div class="card-metric">
                                         <div class="metric">
@@ -29,40 +29,40 @@
                                             <h2 class="metric-label"> Teams </h2>
                                         </div>
                                     </div><!-- /.metric -->
-                                </div><!-- /metric column -->
+                                </div><!-- /metric column --> --}}
                                 <!-- metric column -->
-                                <div class="col-12 col-sm-6 col-lg-3">
+                                <div class="col-12 col-sm-6 col-lg-4">
                                     <!-- .metric -->
                                     <div class="card-metric">
                                         <div class="metric">
                                             <p class="metric-value h3">
                                                 <sub><i class="oi oi-fork"></i></sub> <span class="value">47</span>
                                             </p>
-                                            <h2 class="metric-label"> Projects </h2>
+                                            <h2 class="metric-label"> Productos no Stock </h2>
                                         </div>
                                     </div><!-- /.metric -->
                                 </div><!-- /metric column -->
                                 <!-- metric column -->
-                                <div class="col-12 col-sm-6 col-lg-3">
+                                <div class="col-12 col-sm-6 col-lg-4">
                                     <!-- .metric -->
                                     <div class="card-metric">
                                         <div class="metric">
                                             <p class="metric-value h3">
                                                 <sub><i class="fa fa-tasks"></i></sub> <span class="value">64</span>
                                             </p>
-                                            <h2 class="metric-label"> Active Tasks </h2>
+                                            <h2 class="metric-label"> Todos Productos </h2>
                                         </div>
                                     </div><!-- /.metric -->
                                 </div><!-- /metric column -->
                                 <!-- metric column -->
-                                <div class="col-12 col-sm-6 col-lg-3">
+                                <div class="col-12 col-sm-6 col-lg-4">
                                     <!-- .metric -->
                                     <div class="card-metric">
                                         <div class="metric">
                                             <p class="metric-value h3">
                                                 <sub><i class="oi oi-timer"></i></sub> <span class="value">8</span>
                                             </p>
-                                            <h2 class="metric-label"> Ongoing Tasks </h2>
+                                            <h2 class="metric-label"> Productos Vendidos </h2>
                                         </div>
                                     </div><!-- /.metric -->
                                 </div><!-- /metric column -->

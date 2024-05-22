@@ -46,29 +46,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function() {
     Route::get('/deleteEvent/{id}', [eventController::class, 'deleteEvent'])->name('deleteEvent');
     Route::post('/storeEvent', [eventController::class, 'storeEvent'])->name('storeEvent');
 
-    //?Inicio das rotas de categoria
-    Route::get('/addCategories', [categoriesController::class, 'addCategories'])->name('addCategories');
-    Route::post('/storeCategories', [categoriesController::class, 'storeCategories'])->name('storeCategories');
-    Route::get('/allCategories', [categoriesController::class, 'allCategories'])->name('allCategories');
-    Route::post('/updateCategories/{id}', [categoriesController::class, 'updateCategories'])->name('updateCategories');
-    Route::get('/deleteCategories/{id}', [categoriesController::class, 'deleteCategories'])->name('deleteCategories');
-
-    //?Inicio das rotas da parte de stock de entrada e saida
-    Route::get('/addStock', [stockController::class, 'addStock'])->name('addStock');
-    Route::post('/storeStock', [stockController::class, 'storeStock'])->name('storeStock');
-    Route::get('/allStock', [stockController::class, 'allStock'])->name('allStock');
-    Route::post('/updateStock/{id}', [stockController::class, 'updateStock'])->name('updateStock');
-    Route::get('/deleteStock/{id}', [stockController::class, 'deleteStock'])->name('deleteStock');
-    //*Inicio da rota de stock de saida
-    Route::get('/allStockOut', [stockController::class, 'allStockOut'])->name('allStockOut');
-
-    //?Inicio das rotas da parte de productos
-    Route::get('/addProduct', [productController::class, 'addProduct'])->name('addProduct');
-    Route::post('/storeProduct', [productController::class, 'storeProduct'])->name('storeProduct');
-    Route::get('/allProduct', [productController::class, 'allProduct'])->name('allProduct');
-    Route::post('/updateProduct/{id}', [productController::class, 'updateProduct'])->name('updateProduct');
-    Route::get('/deleteProduct/{id}', [productController::class, 'deleteProduct'])->name('deleteProduct');
-
     //?Inicio das rotas da parte de dividas
     Route::post('/storeDebit', [debitController::class, 'storeDebit'])->name('storeDebit');
     Route::get('/allDebit/{id}', [debitController::class, 'allDebit'])->name('allDebit');
@@ -90,6 +67,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function() {
     //?Inicio das rotas da parte de relatorio
     Route::get('/allReport', [reportController::class, 'addReport'])->name('addReport');
 });
+//?Fim das rotas da parte de administrador
 
 //?Inicio das rotas da parte do atendente
 Route::group(['prefix' => 'attendant', 'middleware' => ['role:attendant']], function() {
@@ -133,8 +111,28 @@ Route::get('/allSale', [saleController::class, 'allSale'])->name('allSale');
 Route::post('/storeSaleRequest', [saleController::class, 'storeSaleRequest'])->name('storeSaleRequest');
 
 //*Inicio das rotas da parte de stock tanto para o administrador como para o gestor de stock
+    //?Inicio das rotas de categoria
+    Route::get('/addCategories', [categoriesController::class, 'addCategories'])->name('addCategories');
+    Route::post('/storeCategories', [categoriesController::class, 'storeCategories'])->name('storeCategories');
+    Route::get('/allCategories', [categoriesController::class, 'allCategories'])->name('allCategories');
+    Route::post('/updateCategories/{id}', [categoriesController::class, 'updateCategories'])->name('updateCategories');
+    Route::get('/deleteCategories/{id}', [categoriesController::class, 'deleteCategories'])->name('deleteCategories');
 
-//?Fim das rotas da parte de admin
+    //?Inicio das rotas da parte de stock de entrada e saida
+    Route::get('/addStock', [stockController::class, 'addStock'])->name('addStock');
+    Route::post('/storeStock', [stockController::class, 'storeStock'])->name('storeStock');
+    Route::get('/allStock', [stockController::class, 'allStock'])->name('allStock');
+    Route::post('/updateStock/{id}', [stockController::class, 'updateStock'])->name('updateStock');
+    Route::get('/deleteStock/{id}', [stockController::class, 'deleteStock'])->name('deleteStock');
+    //*Inicio da rota de stock de saida
+    Route::get('/allStockOut', [stockController::class, 'allStockOut'])->name('allStockOut');
+
+    //?Inicio das rotas da parte de productos
+    Route::get('/addProduct', [productController::class, 'addProduct'])->name('addProduct');
+    Route::post('/storeProduct', [productController::class, 'storeProduct'])->name('storeProduct');
+    Route::get('/allProduct', [productController::class, 'allProduct'])->name('allProduct');
+    Route::post('/updateProduct/{id}', [productController::class, 'updateProduct'])->name('updateProduct');
+    Route::get('/deleteProduct/{id}', [productController::class, 'deleteProduct'])->name('deleteProduct');
 
 require __DIR__.'/auth.php';
 

@@ -746,7 +746,7 @@
 
 @endrole
 
-@role('stock-manager')
+@role('stock_manager')
 
     <!DOCTYPE html>
     <html lang="en">
@@ -932,26 +932,48 @@
                         <ul class="menu">
                             <!-- .menu-item -->
                             <li class="menu-item has-active">
-                                <a href="{{route('dashboard')}}" class="menu-link"><span class="menu-icon fas fa-home"></span>
+                                <a href="{{ route('dashboard') }}" class="menu-link"><span
+                                        class="menu-icon fas fa-home"></span>
                                     <span class="menu-text">Inicio</span></a>
-                            </li><!-- /.menu-item -->
-                            
+                            </li>
                             <li class="menu-item has-child">
-                                <a href="#" class="menu-link"><span class="menu-icon far fa-user"></span> <span
-                                        class="menu-text">Pedidos</span> {{-- <span
-                                        class="badge badge-warning">New</span> --}}</a> <!-- child menu -->
+                                <a href="#" class="menu-link"><span
+                                        class="menu-icon oi oi-puzzle-piece"></span> <span
+                                        class="menu-text">Categorias</span> {{-- <span
+                                    class="badge badge-warning">New</span> --}}</a>
+                                <!-- child menu -->
                                 <ul class="menu">
                                     <li class="menu-item">
-                                        <a href="{{route('addClientRequest')}}" class="menu-link">Verificar Pedidos</a>
+                                        <a href="{{ route('allCategories') }}" class="menu-link">Verificar
+                                            Categorias</a>
                                     </li>
                                 </ul><!-- /child menu -->
-                            </li><!-- /.menu-item -->
-                            
-                            <li class="menu-header">Venda </li><!-- /.menu-header -->
-                            <li class="menu-item">
-                                <a href="{{route('allSale')}}" class="menu-link"><span class="menu-icon fas fa-money-check"></span>
-                                    <span class="menu-text">Todas Vendas</span></a>
-                            </li><!-- /.menu-item -->
+                            </li><!-- /.menu-item --><!-- .menu-item -->
+
+                            <li class="menu-item has-child">
+                                <a href="#" class="menu-link"><span class="menu-icon fas fa-table"></span>
+                                    <span class="menu-text">Producto</span> {{-- <span
+                                    class="badge badge-warning">New</span> --}}</a>
+                                <!-- child menu -->
+                                <ul class="menu">
+                                    <li class="menu-item">
+                                        <a href="{{ route('allProduct') }}" class="menu-link">Verificar Productos</a>
+                                    </li>
+                                </ul><!-- /child menu -->
+                            </li><!-- /.menu-item --><!-- .menu-item -->
+                            <li class="menu-item has-child">
+                                <a href="#" class="menu-link"><span class="menu-icon oi oi-list-rich"></span>
+                                    <span class="menu-text">Stock</span> {{-- <span
+                                    class="badge badge-warning">New</span> --}}</a> <!-- child menu -->
+                                <ul class="menu">
+                                    <li class="menu-item">
+                                        <a href="{{ route('allStock') }}" class="menu-link">Entrada de Productos</a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a href="{{ route('allStockOut') }}" class="menu-link">Saida de Productos</a>
+                                    </li>
+                                </ul><!-- /child menu -->
+                            </li>
                             
                         </ul><!-- /.menu --><!-- /.menu -->
                     </nav><!-- /.stacked-menu -->
