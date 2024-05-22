@@ -117,9 +117,7 @@ class clientController extends Controller
             $stocks=Stock::orderBy('Id_product','asc')->get();
 
             //?(Acessando a tabela intermediaria)
-            $requests=DB::table('product_requests')
-                ->where('Id_client',$id)
-                ->get();
+            $requests=ProductRequest::where('Id_client',$id)->get();
 
             $product_price=Stock::first();
 
@@ -177,7 +175,7 @@ class clientController extends Controller
         $stocks=Stock::orderBy('Id_product','asc')->get();
 
         //?(Acessando a tabela intermediaria)
-        $requests=ProductRequest::all();
+        $requests=ProductRequest::where('Id_client',$id)->get();
 
         $payments=Payment::all();
 
