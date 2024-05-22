@@ -87,6 +87,16 @@ class debitController extends Controller
 
         return back();
     }
+
+    //*Inicio do metodo que elimina todos os productos da tabela de dividas
+    public function deleteAllDebit()
+    {
+        Debit::truncate();
+
+        Alert::success('Eliminados','Os productos foram eliminados com sucesso!');
+
+        return back();
+    }
     public function allDebit($id)
     {
         $debits=DB::table('debits')
