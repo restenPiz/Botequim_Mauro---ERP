@@ -107,7 +107,6 @@ Route::group(['prefix' => 'attendant', 'middleware' => ['role:attendant']], func
     Route::get('/deleteAllSale', [saleController::class, 'deleteAllSale'])->name('deleteAllSale');
     //*Inicio da rota de insercao na tabela de vendas
     Route::post('/storeSaleHistory', [saleController::class, 'storeSaleHistory'])->name('storeSaleHistory');
-    Route::post('/storeSaleRequest', [saleController::class, 'storeSaleRequest'])->name('storeSaleRequest');
     //*Fim das rotas de insercao na tabela de vendas
 
 });
@@ -127,6 +126,9 @@ Route::get('/getDebit', [debitController::class, 'getDebit'])->name('getDebit');
 
 //*Inicio da rota de todas vendas
 Route::get('/allSale', [saleController::class, 'allSale'])->name('allSale');
+
+//*Inicio da rota responsavel por adicionar as vendas dos pedidos e das dividas
+Route::post('/storeSaleRequest', [saleController::class, 'storeSaleRequest'])->name('storeSaleRequest');
 
 //?Fim das rotas da parte de admin
 
