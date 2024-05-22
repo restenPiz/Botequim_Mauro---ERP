@@ -115,9 +115,7 @@ class saleController extends Controller
     }
     public function deleteAllSale()
     {
-        $products=Sale::all();
-
-        $products->delete();
+        Sale::truncate();
 
         Alert::success('Eliminado','Productos eliminados com sucesso!');
 

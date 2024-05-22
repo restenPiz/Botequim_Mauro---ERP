@@ -307,11 +307,10 @@
                                     <button type="submit" name="submit" class="btn btn-success text-nowrap ml-auto"
                                     data-toggle="modal" data-target="#clientNewModal" style="border-radius: 0">Efectuar
                                         Venda</button>
-                                    <form action="{{route('deleteAllSale')}}" method="get">
-                                        @csrf
-                                        <button type="submit" name="submit" class="btn btn-danger text-nowrap ml-auto"
-                                        onclick="enableField()" style="border-radius: 0">Eliminar todos productos</button>
-                                    </form>
+                                    
+                                    <a href="{{route('deleteAllSale')}}" type="submit" name="submit" class="btn btn-danger text-nowrap ml-auto"
+                                    onclick="enableField()" style="border-radius: 0">Eliminar todos productos</a>
+                                
                             </div>
 
 
