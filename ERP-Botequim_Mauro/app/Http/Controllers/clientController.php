@@ -112,7 +112,7 @@ class clientController extends Controller
     {
         if(Auth::user()->hasRole('attendant'))
         {
-            $client=Client::where('client_type','request')->get();
+            $client=Client::where('id',$id)->first();
             
             $stocks=Stock::orderBy('Id_product','asc')->get();
 
@@ -170,7 +170,7 @@ class clientController extends Controller
     }
     public function invoiceRequest($id)
     {
-        $clients=Client::where('client_type','request')->get();
+        $clients=Client::where('id',$id)->first();
             
         $stocks=Stock::orderBy('Id_product','asc')->get();
 
