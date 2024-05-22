@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Client;
 use App\Models\Debit;
+use App\Models\Payment;
 use App\Models\Product;
 use App\Models\ProductRequest;
 use App\Models\Stock;
@@ -120,13 +121,15 @@ class clientController extends Controller
 
             $product_price=Stock::first();
 
+            $payments=Payment::all();
+
             $amount=$product_price->Product_price * $product_price->Quantity;
 
             $count=DB::table('product_requests')
             ->where('Id_client', $id)
             ->sum('Product_price');
 
-            return view('Attendant.showClientRequest',compact('client','stocks','requests','count','amount'));
+            return view('Attendant.showClientRequest',compact('client','stocks','requests','count','amount','payments'));
         }
         else
         {
