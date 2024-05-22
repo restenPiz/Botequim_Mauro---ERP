@@ -335,7 +335,7 @@
                                             </tbody>
                                             <tfoot>
                                                 <tr>
-                                                    <td class="align-middle"><h5>Valor da Divida:</h5></td>
+                                                    <td class="align-middle"><h5>Valor Total da Divida:</h5></td>
                                                     <td class="align-middle"><h5>{{$count}} MT</h5></td>
                                                 </tr>
                                             </tfoot>
