@@ -29,9 +29,11 @@ class debitController extends Controller
     {
         $debit=new Debit();
 
-        $debit->Price=Request::input('Price');
+        $debit->Product_price=Request::input('Product_price');
         $debit->Id_stock=Request::input('Id_stock');
         $debit->Id_client=Request::input('Id_client');
+        $debit->Quantity=Request::input('Quantity');
+        $debit->Amount=Request::input('Amount');
         $debit->Date_to_pay=Request::input('Date_to_pay');
 
         $debit->save();
@@ -44,9 +46,11 @@ class debitController extends Controller
     {
         $debit=Debit::findOrFail($id);
 
-        $debit->Price=Request::input('Price');
+        $debit->Product_price=Request::input('Product_price');
         $debit->Id_stock=Request::input('Id_stock');
         $debit->Id_client=Request::input('Id_client');
+        $debit->Quantity=Request::input('Quantity');
+        $debit->Amount=Request::input('Amount');
         $debit->Date_to_pay=Request::input('Date_to_pay');
 
         $debit->save();
@@ -73,7 +77,7 @@ class debitController extends Controller
         
         $count=DB::table('debits')
             ->where('Id_client', $id)
-            ->sum('Price');
+            ->sum('Product_price');
         
 
         return view('Admin.allDebit',compact('debits','count'));

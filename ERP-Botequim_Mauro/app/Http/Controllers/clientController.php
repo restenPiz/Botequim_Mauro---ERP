@@ -82,7 +82,7 @@ class clientController extends Controller
 
         $count=DB::table('debits')
             ->where('Id_client', $id)
-            ->sum('Price');
+            ->sum('Product_price');
 
         return view('Admin.allDebit', [
             'client' => Client::findOrFail($id)
