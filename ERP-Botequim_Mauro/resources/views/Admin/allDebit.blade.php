@@ -46,7 +46,7 @@
                                                 <label for="input01">Quantidade</label> 
                                                 <input type="text"
                                                     class="form-control" placeholder="Quantidade" id="Quantity"
-                                                    name="Quantity" value="" disabled>
+                                                    name="Quantity">
                                             </div><!-- /form column -->
                                             <div class="col-md-12 mb-3">
                                                 <label for="input02">Data de Pagamento</label> <input type="date"
