@@ -13,8 +13,10 @@ return new class extends Migration
     {
         Schema::create('debits', function (Blueprint $table) {
             $table->id();
-            $table->string('Price');
+            $table->string('Product_price');
             $table->string('Date_to_pay');
+            $table->string('Quantity');
+            $table->string('Amount');
             $table->timestamps();
         });
     }
