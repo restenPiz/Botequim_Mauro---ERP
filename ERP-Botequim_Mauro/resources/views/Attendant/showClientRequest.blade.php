@@ -93,6 +93,7 @@
                                                     <th> Preco </th>
                                                     <th> Quantidade </th>
                                                     <th>Status</th>
+                                                    <th>Preco Total</th>
                                                     <th></th>
                                                 </tr>
                                             </thead>
@@ -105,6 +106,7 @@
                                                     <td class="align-middle"> 
                                                         <span class="badge badge-subtle badge-danger">Nao Pago</span>
                                                     </td>
+                                                    <td class="align-middle">{{$amount}}</td>
                                                     <td class="align-middle text-right">
                                                         <button type="button" class="btn btn-sm btn-icon btn-secondary"
                                                             data-toggle="modal"
