@@ -266,6 +266,11 @@
                                                         </form>
                                                     </div><!-- /.modal-dialog -->
                                                 </div>
+
+                                                {{--Inicio do modal de conclusao de venda--}}
+
+                                                {{--Fim do modal de conclusao de venda--}}
+                                                
                                                 @endforeach
                                                 {{-- Fim do modal de editar --}}
                                             </tbody>
@@ -288,7 +293,8 @@
                             {{--Inicio da parte de butao de pagar--}}
                             <div class="col">
                                 <button type="submit" name="submit"
-                                class="btn btn-success text-nowrap ml-auto" onclick="enableField()">Pagar Divida</button>
+                                class="btn btn-success text-nowrap ml-auto"
+                                data-toggle="modal" data-target="#clientNewModal">Pagar Divida</button>
                                 <button type="submit" name="submit"
                                 class="btn btn-danger text-nowrap ml-auto" onclick="enableField()">Eliminar Todos Productos</button>
                             </div>
