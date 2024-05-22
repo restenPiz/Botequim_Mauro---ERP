@@ -132,6 +132,8 @@ Route::get('/allSale', [saleController::class, 'allSale'])->name('allSale');
 //*Inicio da rota responsavel por adicionar as vendas dos pedidos e das dividas
 Route::post('/storeSaleRequest', [saleController::class, 'storeSaleRequest'])->name('storeSaleRequest');
 
+//*Inicio das rotas da parte de stock tanto para o administrador como para o gestor de stock
+
 //?Fim das rotas da parte de admin
 
 require __DIR__.'/auth.php';
