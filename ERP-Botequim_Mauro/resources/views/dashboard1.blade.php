@@ -192,8 +192,7 @@
                                                                                         </div>
                                                                                         <div class="form-group">
                                                                                             <label>Preco</label>
-                                                                                            <input type="text" id="Pric"
-                                                                                                class="form-control"
+                                                                                            <input type="text" id="Pric" class="form-control"
                                                                                                 name="Product_price"
                                                                                                 placeholder="{{ $sale->Product_price }}"  value="" disabled>
                                                                                         </div>
