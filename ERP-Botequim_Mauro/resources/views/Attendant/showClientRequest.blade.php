@@ -320,7 +320,7 @@
                             {{--Inicio da parte de butao de pagar--}}
                             <div class="col">
                                 <button type="submit" name="submit"
-                                class="btn btn-success text-nowrap ml-auto" onclick="enableField()">Efectuar Pagamento</button>
+                                class="btn btn-success text-nowrap ml-auto" data-toggle="modal" data-target="#clientNewModal">Efectuar Pagamento</button>
                             </div>
                         {{-- Fim da parte de butao de pagar --}}
                     </div>
