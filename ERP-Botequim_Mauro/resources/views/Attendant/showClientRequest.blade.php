@@ -106,7 +106,7 @@
                                                     <td class="align-middle"> 
                                                         <span class="badge badge-subtle badge-danger">Nao Pago</span>
                                                     </td>
-                                                    <td class="align-middle">{{$amount}}</td>
+                                                    <td class="align-middle">{{$request->Amount}}</td>
                                                     <td class="align-middle text-right">
                                                         <button type="button" class="btn btn-sm btn-icon btn-secondary"
                                                             data-toggle="modal"

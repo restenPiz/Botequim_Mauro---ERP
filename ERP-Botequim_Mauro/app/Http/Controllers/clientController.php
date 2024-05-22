@@ -129,7 +129,7 @@ class clientController extends Controller
 
             $count=DB::table('product_requests')
                 ->where('Id_client', $id)
-                ->sum('Product_price');
+                ->sum('Amount');
 
             return view('Attendant.showClientRequest',compact('client','stocks','requests','count','amount','payments'));
         }
