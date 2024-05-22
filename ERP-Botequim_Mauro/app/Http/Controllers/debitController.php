@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Debit;
 use App\Models\Product;
 use App\Models\Stock;
+use Auth;
 use Illuminate\Support\Facades\DB;
 use RealRashid\SweetAlert\Facades\Alert;
 use Request;
@@ -13,16 +14,33 @@ class debitController extends Controller
 {
     public function getDebit()
     {
-        $input= Request::input('id');
+        if(Auth::user()->hasRole('admin'))
+        {
+            $input= Request::input('Id_product');
 
-        $product=Stock::where('Id_product',$input)->first();
+            $product=Stock::where('Id_product',$input)->first();
 
-        if ($product) {
-            // Retorna os detalhes do produto como JSON
-            return response()->json($product);
-        } else {
-            // Retorna uma resposta indicando que o produto não foi encontrado
-            return response()->json(['error' => 'Produto não encontrado'], 404);
+            if ($product) {
+                // Retorna os detalhes do produto como JSON
+                return response()->json($product);
+            } else {
+                // Retorna uma resposta indicando que o produto não foi encontrado
+                return response()->json(['error' => 'Produto não encontrado'], 404);
+            }
+        }
+        elseif(Auth::user()->hasRole('attendant'))
+        {
+            $input= Request::input('id');
+
+            $product=Stock::where('Id_product',$input)->first();
+
+            if ($product) {
+                // Retorna os detalhes do produto como JSON
+                return response()->json($product);
+            } else {
+                // Retorna uma resposta indicando que o produto não foi encontrado
+                return response()->json(['error' => 'Produto não encontrado'], 404);
+            }
         }
     }
     public function storeDebit()
@@ -33,7 +51,7 @@ class debitController extends Controller
         $debit->Id_stock=Request::input('Id_stock');
         $debit->Id_client=Request::input('Id_client');
         $debit->Quantity=Request::input('Quantity');
-        $debit->Amount=Request::input('Amount');
+        $debit->Amount=$debit->Product_price * $debit->Quantity;;
         $debit->Date_to_pay=Request::input('Date_to_pay');
 
         $debit->save();
@@ -50,7 +68,7 @@ class debitController extends Controller
         $debit->Id_stock=Request::input('Id_stock');
         $debit->Id_client=Request::input('Id_client');
         $debit->Quantity=Request::input('Quantity');
-        $debit->Amount=Request::input('Amount');
+        $debit->Amount=$debit->Product_price * $debit->Quantity;;
         $debit->Date_to_pay=Request::input('Date_to_pay');
 
         $debit->save();

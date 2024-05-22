@@ -333,10 +333,10 @@
 
     <script>
         //Inicio da function que retornar os produtos em json
-        function prod(product) {
+        function prox(product) {
             var Id_product = product.value;
 
-            $.get('http://127.0.0.1:8000/attendant/getDebit?Id_product=' + Id_product, function(data) {
+            $.get('http://127.0.0.1:8000/getDebit?Id_product=' + Id_product, function(data) {
                 console.log(data);
 
                 $('#Price').val(data.Price);
@@ -442,8 +442,6 @@
 </body>
 
 </html>
-
-
 @endrole
 
 @role('attendant')
