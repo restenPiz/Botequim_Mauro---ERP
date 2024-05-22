@@ -137,7 +137,7 @@ class saleController extends Controller
 
         $troco = $valorPago - ($totalPrice + $iva);
 
-        $sales = Sale::all();
+        $sales = ProductRequest::all();
 
         //* Verificar se o valor pago é suficiente
         if ($valorPago < $totalPrice) {
