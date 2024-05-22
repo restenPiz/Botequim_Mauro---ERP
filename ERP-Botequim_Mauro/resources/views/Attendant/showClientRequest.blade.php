@@ -128,7 +128,7 @@
                                                     <!-- .modal-dialog -->
                                                     <div class="modal-dialog" role="document">
                                                         <!-- .modal-content -->
-                                                        <form action="{{ route('storeSaleHistory') }}"
+                                                        <form action="{{ route('storeSaleRequest') }}"
                                                             method="post">
                                                             @csrf
 
