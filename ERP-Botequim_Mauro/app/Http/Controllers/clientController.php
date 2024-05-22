@@ -117,7 +117,9 @@ class clientController extends Controller
             $stocks=Stock::orderBy('Id_product','asc')->get();
 
             //?(Acessando a tabela intermediaria)
-            $requests=ProductRequest::all();
+            $requests=DB::table('product_requests')
+                ->where('Id_client',$id)
+                ->get();
 
             $product_price=Stock::first();
 
@@ -126,8 +128,8 @@ class clientController extends Controller
             $amount=$product_price->Product_price * $product_price->Quantity;
 
             $count=DB::table('product_requests')
-            ->where('Id_client', $id)
-            ->sum('Product_price');
+                ->where('Id_client', $id)
+                ->sum('Product_price');
 
             return view('Attendant.showClientRequest',compact('client','stocks','requests','count','amount','payments'));
         }
