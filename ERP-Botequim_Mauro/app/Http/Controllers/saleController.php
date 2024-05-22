@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ProductRequest;
 use App\Models\Sale;
 use App\Models\Sale_History;
 use App\Models\Stock;
@@ -118,6 +119,55 @@ class saleController extends Controller
         Sale::truncate();
 
         Alert::success('Eliminado','Productos eliminados com sucesso!');
+
+        return back();
+    }
+
+    //?Inicio do metodo que salva as vendas dos pedidos do cliente
+    public function storeSaleRequest()
+    {
+        //* Calcular o preço total da venda com base nos produtos vendidos
+        // $totalPrice = Sale::sum('Product_price');
+        $totalPrice = Sale::sum('Amount');
+
+        //* Obter o valor pago pelo cliente (Total_price)
+        $valorPago = Request::input('Total_price');
+
+        $iva = $totalPrice * 0.17;
+
+        $troco = $valorPago - ($totalPrice + $iva);
+
+        $sales = Sale::all();
+
+        //* Verificar se o valor pago é suficiente
+        if ($valorPago < $totalPrice) {
+            Alert::error('Erro','O valor pago é insuficiente para a venda!');
+            return back();
+        }
+        
+        foreach ($sales as $sale) {
+            Sale_History::create([
+                'Product_price' => $sale->Product_price,
+                'Quantity' => $sale->Quantity,
+                'Id_stock' => $sale->Id_stock,
+                'Amount'=> $sale->Product_price * $sale->Quantity,
+                'Total_price'=> $valorPago,
+                'IVA' => $iva,
+                'Troco' => $troco,
+                'Id_payment'=>Request::input('Id_payment'),
+            ]);
+
+            //*metodo responsavel por reduzir a quantidade de productos no stock
+            $stock = Stock::find($sale->Id_stock);
+            if ($stock) {
+                $stock->Quantity -= $sale->Quantity;
+                $stock->save();
+            }
+        }
+
+        ProductRequest::truncate();
+
+        Alert::success('Vendido','O produto foi vendido com sucesso!');
 
         return back();
     }
