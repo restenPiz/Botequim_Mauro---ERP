@@ -133,6 +133,9 @@ Route::post('/storeSaleRequest', [saleController::class, 'storeSaleRequest'])->n
     Route::post('/updateProduct/{id}', [productController::class, 'updateProduct'])->name('updateProduct');
     Route::get('/deleteProduct/{id}', [productController::class, 'deleteProduct'])->name('deleteProduct');
 
+
+//*Inicio das rotas da seccao de relatorios
+
 require __DIR__.'/auth.php';
 
 //*Fim das rotas do sistema
