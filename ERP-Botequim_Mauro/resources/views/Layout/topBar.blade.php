@@ -1312,7 +1312,7 @@
                                             src="../assets/dif.jpg" alt=""></span> <span
                                         class="account-summary pr-lg-4 d-none d-lg-block"><span
                                             class="account-name">{{ Auth::user()->name }}</span> <span
-                                            class="account-description">Gestor de Stock</span></span></button>
+                                            class="account-description">Contabilista</span></span></button>
                                 <!-- .dropdown-menu -->
                                 <div class="dropdown-menu">
                                     <div class="dropdown-arrow d-lg-none" x-arrow=""></div>
@@ -1344,7 +1344,7 @@
                                     src="../assets/images/avatars/profile.jpg" alt=""></span> <span
                                 class="account-icon"><span class="fa fa-caret-down fa-lg"></span></span> <span
                                 class="account-summary"><span class="account-name">{{ Auth::user()->name }}</span> <span
-                                    class="account-description">Gestor de Stock</span></span></button>
+                                    class="account-description">Contabilista</span></span></button>
                         <!-- /.btn-account -->
                         <!-- .dropdown-aside -->
                         <div id="dropdown-aside" class="dropdown-aside collapse">
