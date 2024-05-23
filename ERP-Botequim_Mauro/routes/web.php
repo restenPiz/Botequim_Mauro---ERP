@@ -106,6 +106,7 @@ Route::get('/getDebit', [debitController::class, 'getDebit'])->name('getDebit');
 
 //*Inicio da rota de todas vendas
 Route::get('/allSale', [saleController::class, 'allSale'])->name('allSale');
+
 //*Inicio da rota responsavel por adicionar as vendas dos pedidos e das dividas
 Route::post('/storeSaleRequest', [saleController::class, 'storeSaleRequest'])->name('storeSaleRequest');
 
@@ -133,10 +134,8 @@ Route::post('/storeSaleRequest', [saleController::class, 'storeSaleRequest'])->n
     Route::post('/updateProduct/{id}', [productController::class, 'updateProduct'])->name('updateProduct');
     Route::get('/deleteProduct/{id}', [productController::class, 'deleteProduct'])->name('deleteProduct');
 
-//*Inicio da rota de todas dividas
-Route::get('/allDebit/{id}', [debitController::class, 'allDebit'])->name('allDebit');
-
-//*Inicio das rotas da seccao de relatorios
+//*Inicio das rotas de dividas da parte do contabilista
+Route::get('/allDebitAccountant', [debitController::class, 'allDebitAccountant'])->name('allDebitAccountant');
 
 require __DIR__.'/auth.php';
 

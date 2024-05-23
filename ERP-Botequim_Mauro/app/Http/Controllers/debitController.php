@@ -110,4 +110,15 @@ class debitController extends Controller
 
         return view('Admin.allDebit',compact('debits','count'));
     }
+    public function allDebitAccountant()
+    {
+        $debits=DB::table('debits')
+            ->get();
+        
+        $count=DB::table('debits')
+            ->sum('Amount');
+        
+
+        return view('Accountant.allDebit',compact('debits','count'));
+    }
 }

@@ -1378,7 +1378,7 @@
                                     <!-- child menu -->
                                     <ul class="menu">
                                         <li class="menu-item">
-                                            <a href="{{ route('allCategories') }}" class="menu-link">Verificar
+                                            <a href="{{ route('allDebitAccountant') }}" class="menu-link">Verificar
                                                 Dividas</a>
                                         </li>
                                     </ul><!-- /child menu -->
