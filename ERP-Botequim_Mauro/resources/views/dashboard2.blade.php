@@ -36,7 +36,7 @@
                                     <div class="card-metric">
                                         <div class="metric">
                                             <p class="metric-value h3">
-                                                <sub><i class="oi oi-fork"></i></sub> <span class="value">47</span>
+                                                <sub><i class="oi oi-fork"></i></sub> <span class="value">{{$stock_in}}</span>
                                             </p>
                                             <h2 class="metric-label"> Productos no Stock </h2>
                                         </div>
@@ -48,7 +48,7 @@
                                     <div class="card-metric">
                                         <div class="metric">
                                             <p class="metric-value h3">
-                                                <sub><i class="fa fa-tasks"></i></sub> <span class="value">64</span>
+                                                <sub><i class="fa fa-tasks"></i></sub> <span class="value">{{$prod}}</span>
                                             </p>
                                             <h2 class="metric-label"> Todos Productos </h2>
                                         </div>
@@ -60,7 +60,7 @@
                                     <div class="card-metric">
                                         <div class="metric">
                                             <p class="metric-value h3">
-                                                <sub><i class="oi oi-timer"></i></sub> <span class="value">8</span>
+                                                <sub><i class="oi oi-timer"></i></sub> <span class="value">{{$stock_out}}</span>
                                             </p>
                                             <h2 class="metric-label"> Productos Vendidos </h2>
                                         </div>

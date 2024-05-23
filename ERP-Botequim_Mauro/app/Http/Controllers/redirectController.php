@@ -10,7 +10,6 @@ use App\Models\Stock;
 use DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use RealRashid\SweetAlert\Facades\Alert;
 
 class redirectController extends Controller
 {
@@ -43,7 +42,17 @@ class redirectController extends Controller
 
             $categories=Category::all();
 
-            return view('dashboard2',compact('products','categories'));
+            //*Inicio dos metodos que vao retornar os dados de somatorios
+            $stock_in=DB::table('stocks')
+                ->count('id');
+            
+            $prod=DB::table('products')
+                ->count('id');
+
+            $stock_out=DB::table('sale__histories')
+                ->count('id');
+
+            return view('dashboard2',compact('products','categories','stock_in','prod','stock_out'));
         }
         if(Auth::user()->hasRole('accountant'))
         {
@@ -51,7 +60,7 @@ class redirectController extends Controller
         }
         else
         {
-            Alert::error('Nao Autenticado!','Tente Novamente');
+            \RealRashid\SweetAlert\Facades\Alert::error('Nao Autenticado!','Tente Novamente');
 
             return back();
         }
