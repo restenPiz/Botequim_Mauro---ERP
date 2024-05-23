@@ -56,7 +56,17 @@ class redirectController extends Controller
         }
         if(Auth::user()->hasRole('accountant'))
         {
-            return view('dashboard3');
+            //*Inicio dos metodos que vao retornar os dados de somatorios
+            $stock_in=DB::table('stocks')
+                ->count('id');
+            
+            $prod=DB::table('products')
+                ->count('id');
+
+            $stock_out=DB::table('sale__histories')
+                ->count('id');
+
+            return view('dashboard3',compact('stock_in','prod','stock_out'));
         }
         else
         {
