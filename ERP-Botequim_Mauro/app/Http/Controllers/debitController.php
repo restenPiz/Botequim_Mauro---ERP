@@ -112,8 +112,7 @@ class debitController extends Controller
     }
     public function allDebitAccountant()
     {
-        $debits=DB::table('debits')
-            ->get();
+        $debits=Debit::all();
         
         $count=DB::table('debits')
             ->sum('Amount');
