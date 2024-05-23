@@ -1178,7 +1178,6 @@
     </html>
 @endrole
 
-
 @role('accountant')
     <!DOCTYPE html>
     <html lang="en">

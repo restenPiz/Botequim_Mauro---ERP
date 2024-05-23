@@ -133,6 +133,8 @@ Route::post('/storeSaleRequest', [saleController::class, 'storeSaleRequest'])->n
     Route::post('/updateProduct/{id}', [productController::class, 'updateProduct'])->name('updateProduct');
     Route::get('/deleteProduct/{id}', [productController::class, 'deleteProduct'])->name('deleteProduct');
 
+//*Inicio da rota de todas dividas
+Route::get('/allDebit/{id}', [debitController::class, 'allDebit'])->name('allDebit');
 
 //*Inicio das rotas da seccao de relatorios
 
