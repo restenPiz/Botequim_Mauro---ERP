@@ -106,7 +106,6 @@ Route::get('/getDebit', [debitController::class, 'getDebit'])->name('getDebit');
 
 //*Inicio da rota de todas vendas
 Route::get('/allSale', [saleController::class, 'allSale'])->name('allSale');
-
 //*Inicio da rota responsavel por adicionar as vendas dos pedidos e das dividas
 Route::post('/storeSaleRequest', [saleController::class, 'storeSaleRequest'])->name('storeSaleRequest');
 
