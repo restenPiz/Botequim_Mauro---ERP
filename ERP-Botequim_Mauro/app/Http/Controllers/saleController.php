@@ -229,9 +229,10 @@ class saleController extends Controller
     public function getSaleDates()
     {
         //* Obtendo os dados de vendas agrupados por data
-        $sales = Sale_History::select(DB::raw('DATE(created_at) as date'), DB::raw('SUM(Product_price * Quantity) as total'))
-                     ->groupBy('date')
-                     ->get();
+        $sales = Sale_History::select(DB::raw('DATE(created_at) as date'),
+            DB::raw('SUM(Product_price * Quantity) as total'))
+                ->groupBy('date')
+                ->get();
 
         return response()->json($sales);
     }
