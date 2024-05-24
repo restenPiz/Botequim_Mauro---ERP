@@ -138,7 +138,7 @@ Route::post('/storeSaleRequest', [saleController::class, 'storeSaleRequest'])->n
 Route::get('/allDebitAccountant', [debitController::class, 'allDebitAccountant'])->name('allDebitAccountant');
 
 //*Inicio das rotas 
-Route::get('/getSalesDates', [SaleController::class, 'getSalesDates'])->name('getSalesDates');
+Route::get('/getSalesDates', [saleController::class, 'getSalesDates'])->name('getSalesDates');
 
 //*Inicio das rotas da parte de relatorios
 

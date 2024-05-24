@@ -109,8 +109,6 @@ function _createClass(Constructor, protoProps, staticProps) {
   return Constructor;
 }
 
-// Dashboard Demo
-// =============================================================
 var DashboardDemo = /*#__PURE__*/function () {
   function DashboardDemo() {
     _classCallCheck(this, DashboardDemo);
@@ -121,19 +119,19 @@ var DashboardDemo = /*#__PURE__*/function () {
   _createClass(DashboardDemo, [{
     key: "init",
     value: function init() {
-      // event handlers
       this.completionTasksChart();
     }
   }, {
     key: "completionTasksChart",
     value: function completionTasksChart() {
-      var self = this; // Preserve `this` context
+      var self = this;
 
-      // Fetch sales data via AJAX
       $.ajax({
-        url: '/sales-data',
+        url: '/getSalesDates',
         method: 'GET',
         success: function (data) {
+          console.log('Sales data:', data); // Log para depuração
+          
           var labels = data.map(function (sale) {
             return sale.date;
           });
@@ -151,8 +149,7 @@ var DashboardDemo = /*#__PURE__*/function () {
             }]
           };
 
-          // Init chart bar
-          var canvas = $('#completion-ttasks')[0].getContext('2d');
+          var canvas = $('#completion-tasks')[0].getContext('2d');
           var chart = new Chart(canvas, {
             type: 'bar',
             data: chartData,
@@ -199,11 +196,6 @@ var DashboardDemo = /*#__PURE__*/function () {
 
   return DashboardDemo;
 }();
-
-/**
- * Keep in mind that your scripts may not always be executed after the theme is completely ready,
- * you might need to observe the `theme:load` event to make sure your scripts are executed after the theme is ready.
- */
 
 $(document).on('theme:init', function () {
   new DashboardDemo();

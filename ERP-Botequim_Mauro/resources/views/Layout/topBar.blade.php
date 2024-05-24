@@ -1554,6 +1554,7 @@
 <script src="assets/vendor/flatpickr/flatpickr.min.js"></script>
 <script src="assets/vendor/easy-pie-chart/jquery.easypiechart.min.js"></script>
 <script src="assets/vendor/chart.js/Chart.min.js"></script> <!-- END PLUGINS JS -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <!-- BEGIN THEME JS -->
 <script src="assets/javascript/theme.min.js"></script> <!-- END THEME JS -->
 <!-- BEGIN PAGE LEVEL JS -->

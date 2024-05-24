@@ -17,7 +17,17 @@ class redirectController extends Controller
     {
         if(Auth::user()->hasRole('admin'))
         {
-            return view('dashboard');   
+            //*Inicio das variaveis que vao retornar os dados de count
+            $stock_in=DB::table('stocks')
+                ->count('id');
+            
+            $stock_out=DB::table('sale__histories')
+                ->count('id');
+            
+            $users=DB::table('users')
+                ->count('id');
+
+            return view('dashboard',compact('stock_in','stock_out','users'));   
         }
         if(Auth::user()->hasRole('attendant'))
         {

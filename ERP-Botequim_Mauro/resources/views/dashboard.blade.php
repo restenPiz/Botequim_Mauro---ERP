@@ -160,7 +160,7 @@
                                             <dl class="d-flex justify-content-between">
                                                 <dt class="text-left">
                                                     <span class="mr-2">Entrada de Productos</span> <small class="text-success"><i
-                                                            class="fa fa-caret-up"></i> 87%</small>
+                                                            class="fa fa-caret-up"></i> {{$stock_in}}</small>
                                                 </dt>
                                                 {{-- <dd class="text-right mb-0">
                                                     <strong>17,400</strong> <small class="text-muted">USD</small>
@@ -169,7 +169,7 @@
                                             <dl class="d-flex justify-content-between mb-0">
                                                 <dt class="text-left">
                                                     <span class="mr-2">Saida de Productos</span> <small class="text-success"><i
-                                                            class="fa fa-caret-up"></i> 24%</small>
+                                                            class="fa fa-caret-up"></i> {{$stock_out}}</small>
                                                 </dt>
                                                 {{-- <dd class="text-right mb-0">
                                                     <strong>5</strong>

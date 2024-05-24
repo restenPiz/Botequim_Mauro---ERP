@@ -226,14 +226,22 @@ class saleController extends Controller
     }
 
     //*Inicio do metodo que retorna dados de vendas para os graficos
-    public function getSaleDates()
+    public function getSalesDates()
     {
         //* Obtendo os dados de vendas agrupados por data
-        $sales = Sale_History::select(DB::raw('DATE(created_at) as date'),
-            DB::raw('SUM(Product_price * Quantity) as total'))
-                ->groupBy('date')
-                ->get();
+        try {
+            \Log::info('Fetching sales data');
+            $sales = Sale_History::select(
+                DB::raw('DATE(created_at) as date'),
+                DB::raw('SUM(Quantity) as total')
+            )->groupBy('date')->get();
+            \Log::info('Sales data fetched: ' . $sales);
 
-        return response()->json($sales);
+            return response()->json($sales);
+        } catch (\Exception $e) {
+            // Log the error for debugging
+            \Log::error('Error fetching sales data: ' . $e->getMessage());
+            return response()->json(['error' => 'Internal Server Error'], 500);
+        }
     }
 }
