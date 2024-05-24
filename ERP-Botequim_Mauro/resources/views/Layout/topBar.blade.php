@@ -295,11 +295,28 @@
                                 </li><!-- /.menu-item -->
 
                                 <li class="menu-header">Relatorio </li><!-- /.menu-header -->
-                                <li class="menu-item">
+                                {{-- <li class="menu-item">
                                     <a href="{{ route('addReport') }}" class="menu-link"><span
                                             class="menu-icon oi oi-bar-chart"></span>
                                         <span class="menu-text">Relatorios</span></a>
-                                </li><!-- /.menu-item -->
+                                </li><!-- /.menu-item --> --}}
+                                
+                                <li class="menu-item has-child">
+                                    <a href="#" class="menu-link"><span
+                                            class="menu-icon oi oi-bar-chart"></span> <span
+                                            class="menu-text">Relatorios</span> {{-- <span
+                                        class="badge badge-warning">New</span> --}}</a>
+                                    <!-- child menu -->
+                                    <ul class="menu">
+                                        <li class="menu-item">
+                                            <a href="{{ route('addReport') }}" class="menu-link">
+                                            <span class="menu-text">Relatorios de Vendas</span></a>
+                                            <a href="{{ route('addReport') }}" class="menu-link">
+                                                <span class="menu-text">Relatorios de Productos</span></a>
+                                        </li>
+                                    </ul><!-- /child menu -->
+                                </li><!-- /.menu-item --><!-- .menu-item -->
+
                             </ul><!-- /.menu --><!-- /.menu -->
                         </nav><!-- /.stacked-menu -->
                     </div><!-- /.aside-menu -->

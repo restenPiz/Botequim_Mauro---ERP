@@ -143,7 +143,7 @@
                                         <!-- .card-body -->
                                         <div class="card-body">
                                         <h3 class="card-title mb-4"> Relatorio de Vendas </h3>
-                                        <div class="chartjs" style="height: 292px">
+                                        <div class="chartjs" style="height: 300px">
                                             <canvas id="completion-tasks"></canvas>
                                         </div>
                                         </div><!-- /.card-body -->
