@@ -92,9 +92,9 @@
                                             <div class="col">
                                                 <!-- .metric -->
                                                 <a href="user-teams.html" class="metric metric-bordered align-items-center">
-                                                    <h2 class="metric-label"> Usuarios </h2>
+                                                    <h2 class="metric-label"> Clientes </h2>
                                                     <p class="metric-value h3">
-                                                        <sub><i class="oi oi-people"></i></sub> <span class="value">8</span>
+                                                        <sub><i class="oi oi-people"></i></sub> <span class="value">{{$clients}}</span>
                                                     </p>
                                                 </a> <!-- /.metric -->
                                             </div><!-- /metric column -->
@@ -104,7 +104,7 @@
                                                 <a href="user-projects.html" class="metric metric-bordered align-items-center">
                                                     <h2 class="metric-label"> Productos </h2>
                                                     <p class="metric-value h3">
-                                                        <sub><i class="oi oi-fork"></i></sub> <span class="value">12</span>
+                                                        <sub><i class="oi oi-fork"></i></sub> <span class="value">{{$products}}</span>
                                                     </p>
                                                 </a> <!-- /.metric -->
                                             </div><!-- /metric column -->
@@ -114,7 +114,7 @@
                                                 <a href="user-tasks.html" class="metric metric-bordered align-items-center">
                                                     <h2 class="metric-label"> Productos no stock </h2>
                                                     <p class="metric-value h3">
-                                                        <sub><i class="fa fa-tasks"></i></sub> <span class="value">64</span>
+                                                        <sub><i class="fa fa-tasks"></i></sub> <span class="value">{{$stock_in}}</span>
                                                     </p>
                                                 </a> <!-- /.metric -->
                                             </div><!-- /metric column -->
@@ -125,10 +125,10 @@
                                         <a href="user-tasks.html" class="metric metric-bordered">
                                             <div class="metric-badge">
                                                 <span class="badge badge-lg badge-success"><span
-                                                        class="oi oi-media-record pulse mr-1"></span> Pedidos</span>
+                                                        class="oi oi-media-record pulse mr-1"></span>Clientes com dividas</span>
                                             </div>
                                             <p class="metric-value h3">
-                                                <sub><i class="oi oi-timer"></i></sub> <span class="value">8</span>
+                                                <sub><i class="oi oi-timer"></i></sub> <span class="value">{{$debits}}</span>
                                             </p>
                                         </a> <!-- /.metric -->
                                     </div><!-- /metric column -->
@@ -197,7 +197,7 @@
                                                             {{-- class="fa fa-caret-up"></i> 24%</small> --}}
                                                 </p>
                                                 <p class="text-center">
-                                                    <strong class="h3">15,000</strong> <span class="text-muted">MT</span>
+                                                    <strong class="h3">{{$totalAmount}}</strong> <span class="text-muted">MT</span>
                                                 </p>
                                             </div>
                                         </div><!-- /.card-body -->

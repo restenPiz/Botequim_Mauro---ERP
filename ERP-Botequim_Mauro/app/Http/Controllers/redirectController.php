@@ -27,7 +27,20 @@ class redirectController extends Controller
             $users=DB::table('users')
                 ->count('id');
 
-            return view('dashboard',compact('stock_in','stock_out','users'));   
+            $totalAmount=DB::table('sale__histories')
+                ->sum('Total_price');
+            
+            $products=DB::table('products')
+                ->count('id');
+
+            $clients=DB::table('clients')
+                ->count('id');
+            
+            $debits=DB::table('clients')
+                ->where('client_type','debit')
+                ->count('id');
+
+            return view('dashboard',compact('stock_in','stock_out','users','totalAmount','products','clients','debits'));   
         }
         if(Auth::user()->hasRole('attendant'))
         {
