@@ -25,7 +25,7 @@ var DashboardDemo = /*#__PURE__*/function () {
     key: "completionTasksChart",
     value: function completionTasksChart() {
       var data = {
-        labels: ['21 Mar', '22 Mar', '23 Mar', '24 Mar', '25 Mar', '26 Mar', '27 Mar'],
+        labels: ['22 Mar', '22 Mar', '23 Mar', '24 Mar', '25 Mar', '26 Mar', '27 Mar'],
         datasets: [{
           backgroundColor: Looper.getColors('brand').indigo,
           borderColor: Looper.getColors('brand').indigo,

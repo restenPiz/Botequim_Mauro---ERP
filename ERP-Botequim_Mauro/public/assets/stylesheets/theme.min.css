@@ -12286,14 +12286,14 @@ td.hljs-ln-code {
     position: fixed;
     right: 1.25rem;
     bottom: 4rem;
-    width: 3.5rem;
-    height: 3.5rem;
+    /* width: 3.5rem; */
+    /* height: 3.5rem; */
     font-size: 1.25rem;
     line-height: 1;
     border-radius: 3rem;
-    border: 0;
+    /* border: 0; */
     z-index: 5;
-    box-shadow: 0 3px 5px -1px rgba(20, 20, 31, .2), 0 6px 10px 0 rgba(20, 20, 31, .14), 0 1px 18px 0 rgba(20, 20, 31, .12)
+    /* box-shadow: 0 3px 5px -1px rgba(20, 20, 31, .2), 0 6px 10px 0 rgba(20, 20, 31, .14), 0 1px 18px 0 rgba(20, 20, 31, .12) */
 }
 
 @media (min-width:768px) {

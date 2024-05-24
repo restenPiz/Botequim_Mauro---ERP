@@ -137,6 +137,12 @@ Route::post('/storeSaleRequest', [saleController::class, 'storeSaleRequest'])->n
 //*Inicio das rotas de dividas da parte do contabilista
 Route::get('/allDebitAccountant', [debitController::class, 'allDebitAccountant'])->name('allDebitAccountant');
 
+//*Inicio das rotas da parte de relatorios
+
+//*Inicio das rotas da parte de perfil
+
+//*Inicio das rotas da parte de envio de notificacoes
+
 require __DIR__.'/auth.php';
 
 //*Fim das rotas do sistema

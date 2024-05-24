@@ -8,6 +8,7 @@ use App\Models\Sale;
 use App\Models\Sale_History;
 use App\Models\Stock;
 use Auth;
+use DB;
 use RealRashid\SweetAlert\Facades\Alert;
 use Request;
 
@@ -222,5 +223,16 @@ class saleController extends Controller
 
             return back();
         }
+    }
+
+    //*Inicio do metodo que retorna dados de vendas para os graficos
+    public function getSaleDates()
+    {
+        //* Obtendo os dados de vendas agrupados por data
+        $sales = Sale_History::select(DB::raw('DATE(created_at) as date'), DB::raw('SUM(Product_price * Quantity) as total'))
+                     ->groupBy('date')
+                     ->get();
+
+        return response()->json($sales);
     }
 }
