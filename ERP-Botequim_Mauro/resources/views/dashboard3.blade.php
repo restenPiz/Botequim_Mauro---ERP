@@ -144,7 +144,6 @@
                             {{-- Inicio dos graficos de relatorios --}}
                             <div class="col-xl-8">
                                 <div class="card card-fluid">
-                                    <!-- .card-body -->
                                     <div class="card-body">
                                     <h3 class="card-title mb-4"> Relatorio de Vendas </h3>
                                     <div class="chartjs" style="height: 292px">
@@ -164,7 +163,7 @@
                                         <dl class="d-flex justify-content-between">
                                             <dt class="text-left">
                                                 <span class="mr-2">Entrada de Productos</span> <small class="text-success"><i
-                                                        class="fa fa-caret-up"></i> 87%</small>
+                                                        class="fa fa-caret-up"></i> {{$stock_in}}</small>
                                             </dt>
                                             {{-- <dd class="text-right mb-0">
                                                 <strong>17,400</strong> <small class="text-muted">USD</small>
@@ -173,7 +172,7 @@
                                         <dl class="d-flex justify-content-between mb-0">
                                             <dt class="text-left">
                                                 <span class="mr-2">Saida de Productos</span> <small class="text-success"><i
-                                                        class="fa fa-caret-up"></i> 24%</small>
+                                                        class="fa fa-caret-up"></i> {{$stock_out}}</small>
                                             </dt>
                                             {{-- <dd class="text-right mb-0">
                                                 <strong>5</strong>
@@ -201,7 +200,7 @@
                                                         {{-- class="fa fa-caret-up"></i> 24%</small> --}}
                                             </p>
                                             <p class="text-center">
-                                                <strong class="h3">15,000</strong> <span class="text-muted">MT</span>
+                                                <strong class="h3">{{$troco}}</strong> <span class="text-muted">MT</span>
                                             </p>
                                         </div>
                                     </div><!-- /.card-body -->

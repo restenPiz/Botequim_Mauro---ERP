@@ -29,6 +29,8 @@ class redirectController extends Controller
 
             $totalAmount=DB::table('sale__histories')
                 ->sum('Total_price');
+            $amount=DB::table('sale__histories')
+                ->sum('Amount');
             
             $products=DB::table('products')
                 ->count('id');
@@ -39,8 +41,10 @@ class redirectController extends Controller
             $debits=DB::table('clients')
                 ->where('client_type','debit')
                 ->count('id');
+            
+            $troco = $totalAmount - $amount;
 
-            return view('dashboard',compact('stock_in','stock_out','users','totalAmount','products','clients','debits'));   
+            return view('dashboard',compact('stock_in','stock_out','users','troco','products','clients','debits'));   
         }
         if(Auth::user()->hasRole('attendant'))
         {
@@ -89,7 +93,27 @@ class redirectController extends Controller
             $stock_out=DB::table('sale__histories')
                 ->count('id');
 
-            return view('dashboard3',compact('stock_in','prod','stock_out'));
+            $users=DB::table('users')
+                ->count('id');
+
+            $totalAmount=DB::table('sale__histories')
+                ->sum('Total_price');
+            $amount=DB::table('sale__histories')
+                ->sum('Amount');
+            
+            $products=DB::table('products')
+                ->count('id');
+
+            $clients=DB::table('clients')
+                ->count('id');
+            
+            $debits=DB::table('clients')
+                ->where('client_type','debit')
+                ->count('id');
+            
+            $troco = $totalAmount - $amount;
+
+            return view('dashboard3',compact('stock_in','prod','stock_out','users','troco','products','clients','debits'));
         }
         else
         {

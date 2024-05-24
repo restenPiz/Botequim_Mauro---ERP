@@ -197,7 +197,7 @@
                                                             {{-- class="fa fa-caret-up"></i> 24%</small> --}}
                                                 </p>
                                                 <p class="text-center">
-                                                    <strong class="h3">{{$totalAmount}}</strong> <span class="text-muted">MT</span>
+                                                    <strong class="h3">{{$troco}}</strong> <span class="text-muted">MT</span>
                                                 </p>
                                             </div>
                                         </div><!-- /.card-body -->
