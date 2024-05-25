@@ -248,12 +248,12 @@ class saleController extends Controller
             // $sales = Sale_History::select(
             //     DB::raw('DATE(created_at) as date'),
             //     DB::raw('SUM(Quantity) as total')
+            //     // DB::raw('SUM(Quantity) as total')
             // )->groupBy('date')->get();
             // \Log::info('Sales data fetched: ' . $sales);
-            $sales = DB::table('sale_histories')
-                ->select(DB::raw('MONTHNAME(created_at) as month'), DB::raw('SUM(Amount) as total'))
-                ->groupBy('month')
-                ->orderByRaw('MIN(created_at)')
+
+            $sales = DB::table('sale__histories')
+                ->select(DB::raw('DATE(created_at) as date'), 'Quantity as total')
                 ->get();
 
             return response()->json($sales);

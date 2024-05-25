@@ -141,6 +141,7 @@ Route::get('/allDebitAccountant', [debitController::class, 'allDebitAccountant']
 Route::get('/getSalesDates', [saleController::class, 'getSalesDates'])->name('getSalesDates');
 
 //*Inicio das rotas da parte de relatorios
+Route::get('/saleReport', [reportController::class, 'saleReport'])->name('saleReport');
 
 //*Inicio das rotas da parte de perfil
 
