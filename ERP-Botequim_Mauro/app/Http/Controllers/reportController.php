@@ -6,8 +6,12 @@ use Illuminate\Http\Request;
 
 class reportController extends Controller
 {
-    public function addReport()
+    public function saleReport()
     {
-        return view("Admin.addReport");
+        return view('Admin.saleReport');
+    }
+    public function productReport()
+    {
+        return view('Admin.productReport');
     }
 }
