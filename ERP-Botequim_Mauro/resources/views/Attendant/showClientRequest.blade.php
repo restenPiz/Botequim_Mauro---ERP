@@ -66,8 +66,6 @@
                         <div class="col">
                             <header class="page-title-bar">
                                 <!-- floating action -->
-                                <button type="button" class="btn btn-success btn-floated"><span
-                                        class="fa fa-plus"></span></button> <!-- /floating action -->
                                 <!-- title and toolbar -->
                                 <div class="d-md-flex align-items-md-start">
                                     <h1 class="page-title mr-sm-auto"> Todos Pedidos de {{$client->Name_client}} {{$client->Surname}} </h1><!-- .btn-toolbar -->
@@ -128,7 +126,7 @@
                                                     <!-- .modal-dialog -->
                                                     <div class="modal-dialog" role="document">
                                                         <!-- .modal-content -->
-                                                        <form action="{{ route('storeSaleRequest') }}"
+                                                        <form action="{{ route('storeSaleRequest',['id'=>$client->id]) }}"
                                                             method="post">
                                                             @csrf
 

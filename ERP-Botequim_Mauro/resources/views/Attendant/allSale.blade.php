@@ -20,8 +20,7 @@
                             {{-- Inicio da tabela de todos eventos --}}
                             <header class="page-title-bar"><!-- /.breadcrumb -->
                                 <!-- floating action -->
-                                <button type="button" class="btn btn-success btn-floated"><span
-                                        class="fa fa-plus"></span></button> <!-- /floating action -->
+                               
                                 <!-- title and toolbar -->
                                 <div class="d-md-flex align-items-md-start">
                                     <h1 class="page-title mr-sm-auto"> Todas Vendas </h1><!-- .btn-toolbar -->
@@ -134,10 +133,7 @@
                         <div class="col">
 
                             {{-- Inicio da tabela de todos eventos --}}
-                            <header class="page-title-bar"><!-- /.breadcrumb -->
-                                <!-- floating action -->
-                                <button type="button" class="btn btn-success btn-floated"><span
-                                        class="fa fa-plus"></span></button> <!-- /floating action -->
+                            <header class="page-title-bar">
                                 <!-- title and toolbar -->
                                 <div class="d-md-flex align-items-md-start">
                                     <h1 class="page-title mr-sm-auto"> Todas Vendas </h1><!-- .btn-toolbar -->
@@ -219,6 +215,8 @@
                                                                     class="sr-only">Remove</span></button>
                                                         </td>
                                                     </tr>
+
+                                                    
 
                                                 @endforeach
                                             </tbody>

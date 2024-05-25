@@ -13,8 +13,8 @@
         <meta property="og:locale" content="en_US">
         <meta name="description" content="Responsive admin theme build on top of Bootstrap 4">
         <meta property="og:description" content="Responsive admin theme build on top of Bootstrap 4">
-        <link rel="canonical" href="index.html">
-        <meta property="og:url" content="index.html">
+        <link rel="canonical" href="#">
+        <meta property="og:url" content="#">
         <meta property="og:site_name" content="Looper - Bootstrap 4 Admin Theme">
         <link rel="apple-touch-icon" sizes="144x144" href="assets/apple-touch-icon.png">
         <link rel="shortcut icon" href="assets/favicon.ico">
@@ -445,8 +445,8 @@
         <meta property="og:locale" content="en_US">
         <meta name="description" content="Responsive admin theme build on top of Bootstrap 4">
         <meta property="og:description" content="Responsive admin theme build on top of Bootstrap 4">
-        <link rel="canonical" href="index.html">
-        <meta property="og:url" content="index.html">
+        <link rel="canonical" href="#">
+        <meta property="og:url" content="#">
         <meta property="og:site_name" content="Looper - Bootstrap 4 Admin Theme">
         <link rel="apple-touch-icon" sizes="144x144" href="assets/apple-touch-icon.png">
         <link rel="shortcut icon" href="assets/favicon.ico">
@@ -495,7 +495,7 @@
                                 <use class="fill-warning" xlink:href="#a"></use>
                             </g>
                         </svg></a> --}}
-                        <a href="index-2.html"><img style="width: 14rem;margin-left:-2.3rem" src="assets/logo.png"></a>
+                        <a href="#"><img style="width: 14rem;margin-left:-2.3rem" src="assets/logo.png"></a>
                 </div><!-- /.top-bar-brand -->
                 <!-- .top-bar-list -->
                 <div class="top-bar-list">
@@ -762,8 +762,8 @@
         <meta property="og:locale" content="en_US">
         <meta name="description" content="Responsive admin theme build on top of Bootstrap 4">
         <meta property="og:description" content="Responsive admin theme build on top of Bootstrap 4">
-        <link rel="canonical" href="index.html">
-        <meta property="og:url" content="index.html">
+        <link rel="canonical" href="#">
+        <meta property="og:url" content="#">
         <meta property="og:site_name" content="Looper - Bootstrap 4 Admin Theme">
         <link rel="apple-touch-icon" sizes="144x144" href="assets/apple-touch-icon.png">
         <link rel="shortcut icon" href="assets/favicon.ico">
@@ -932,7 +932,7 @@
                         <ul class="menu">
                             <!-- .menu-item -->
                             <li class="menu-item has-active">
-                                <a href="{{ route('dashboard') }}" class="menu-link"><span
+                                <a href="{{ route('dashboard') }}"   class="menu-link"><span
                                         class="menu-icon fas fa-home"></span>
                                     <span class="menu-text">Inicio</span></a>
                             </li>

@@ -108,7 +108,7 @@ Route::get('/getDebit', [debitController::class, 'getDebit'])->name('getDebit');
 Route::get('/allSale', [saleController::class, 'allSale'])->name('allSale');
 
 //*Inicio da rota responsavel por adicionar as vendas dos pedidos e das dividas
-Route::post('/storeSaleRequest', [saleController::class, 'storeSaleRequest'])->name('storeSaleRequest');
+Route::post('/storeSaleRequest/{id}', [saleController::class, 'storeSaleRequest'])->name('storeSaleRequest');
 
 //*Inicio das rotas da parte de stock tanto para o administrador como para o gestor de stock
     //?Inicio das rotas de categoria

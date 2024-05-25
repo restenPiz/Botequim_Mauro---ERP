@@ -72,8 +72,6 @@
                             {{-- Inicio da tabela de todos eventos --}}
                             <header class="page-title-bar">
                                 <!-- floating action -->
-                                <button type="button" class="btn btn-success btn-floated"><span
-                                        class="fa fa-plus"></span></button> <!-- /floating action -->
                                 <!-- title and toolbar -->
                                 <div class="d-md-flex align-items-md-start">
                                     <h1 class="page-title mr-sm-auto"> Todas Dividas de {{$client->Name_client}} {{$client->Surname}} </h1><!-- .btn-toolbar -->
@@ -269,13 +267,13 @@
 
                                                 {{--Inicio do modal de conclusao de venda--}}
                                                 {{--Inicio do modal de conclusao de venda--}}
-                                                <div class="modal fade" id="clientNewModal"
+                                                <div class="modal fade" id="clientNewModal{{$client->id}}"
                                                 tabindex="-1" role="dialog" aria-labelledby="clientNewModalLabel"
                                                 aria-hidden="true">
                                                 <!-- .modal-dialog -->
                                                 <div class="modal-dialog" role="document">
                                                     <!-- .modal-content -->
-                                                    <form action="{{ route('storeSaleRequest') }}"
+                                                    <form action="{{ route('storeSaleRequest',['id'=>$client->id]) }}"
                                                         method="post">
                                                         @csrf
 
@@ -353,7 +351,7 @@
                             <div class="col">
                                 <button type="submit" name="submit"
                                 class="btn btn-success text-nowrap ml-auto"
-                                data-toggle="modal" data-target="#clientNewModal">Pagar Divida</button>
+                                data-toggle="modal" data-target="#clientNewModal{{$client->id}}">Pagar Divida</button>
                                 <a href="{{route('deleteAllDebit')}}" type="submit" name="submit"
                                 class="btn btn-danger text-nowrap ml-auto">Eliminar Todos Productos</a>
                             </div>

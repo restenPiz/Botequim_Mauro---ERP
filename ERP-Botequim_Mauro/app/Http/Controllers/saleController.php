@@ -48,7 +48,17 @@ class saleController extends Controller
     {
         $sales=Sale::findOrFail($id);
 
-        $sales->delete();
+        foreach ($sales as $sale) {
+            
+            $sale->delete();
+
+            //*metodo responsavel por acrescentar a quantidade de productos no stock
+            $stock = Stock::find($sale->Id_stock);
+            if ($stock) {
+                $stock->Quantity += $sale->Quantity;
+                $stock->save();
+            }
+        }
 
         Alert::success('Eliminado!','O producto foi eliminado com sucesso!');
 
@@ -127,13 +137,15 @@ class saleController extends Controller
     }
 
     //?Inicio do metodo que salva as vendas dos pedidos do cliente
-    public function storeSaleRequest()
+    public function storeSaleRequest($id)
     {
         if(Auth::user()->hasRole('attendant'))
         {
             //* Calcular o preço total da venda com base nos produtos vendidos
             // $totalPrice = Sale::sum('Product_price');
-            $totalPrice = ProductRequest::sum('Amount');
+            $totalPrice = DB::table('Product_requests')
+                ->where('Id_client',$id)
+                ->sum('Amount');
 
             //* Obter o valor pago pelo cliente (Total_price)
             $valorPago = Request::input('Total_price');
@@ -180,7 +192,9 @@ class saleController extends Controller
         {
             //* Calcular o preço total da venda com base nos produtos vendidos
             // $totalPrice = Sale::sum('Product_price');
-            $totalPrice = Debit::sum('Amount');
+            $totalPrice = DB::table('debits')
+                ->where('Id_client',$id)
+                ->sum('Amount');
 
             //* Obter o valor pago pelo cliente (Total_price)
             $valorPago = Request::input('Total_price');
@@ -230,12 +244,17 @@ class saleController extends Controller
     {
         //* Obtendo os dados de vendas agrupados por data
         try {
-            \Log::info('Fetching sales data');
-            $sales = Sale_History::select(
-                DB::raw('DATE(created_at) as date'),
-                DB::raw('SUM(Quantity) as total')
-            )->groupBy('date')->get();
-            \Log::info('Sales data fetched: ' . $sales);
+            // \Log::info('Fetching sales data');
+            // $sales = Sale_History::select(
+            //     DB::raw('DATE(created_at) as date'),
+            //     DB::raw('SUM(Quantity) as total')
+            // )->groupBy('date')->get();
+            // \Log::info('Sales data fetched: ' . $sales);
+            $sales = DB::table('sale_histories')
+                ->select(DB::raw('MONTHNAME(created_at) as month'), DB::raw('SUM(Amount) as total'))
+                ->groupBy('month')
+                ->orderByRaw('MIN(created_at)')
+                ->get();
 
             return response()->json($sales);
         } catch (\Exception $e) {
