@@ -142,6 +142,7 @@ Route::get('/getSalesDates', [saleController::class, 'getSalesDates'])->name('ge
 
 //*Inicio das rotas da parte de relatorios
 Route::get('/saleReport', [reportController::class, 'saleReport'])->name('saleReport');
+Route::get('/productReport', [reportController::class, 'productReport'])->name('productReport');
 
 //*Inicio das rotas da parte de perfil
 
