@@ -263,4 +263,26 @@ class saleController extends Controller
             return response()->json(['error' => 'Internal Server Error'], 500);
         }
     }
+
+    //*Inicio do metodo que retorna os productos mais vendidos
+    public function getTopSellingProducts()
+    {   
+        try{
+            $topSellingProducts = Sale_History::select(
+                'products.Product_name as name',
+                DB::raw('SUM(sale__histories.Quantity) as total_quantity')
+            )
+            ->join('stocks', 'sale__histories.Id_stock', '=', 'stocks.id')
+            ->join('products', 'stocks.Id_product', '=', 'products.id')
+            ->groupBy('products.Product_name')
+            ->orderBy('total_quantity', 'desc')
+            ->get();
+
+            return response()->json($topSellingProducts);
+        } catch (\Exception $e) {
+            // Log the error for debugging
+            \Log::error('Error fetching sales data: ' . $e->getMessage());
+            return response()->json(['error' => 'Internal Server Error'], 500);
+        }
+    }
 }

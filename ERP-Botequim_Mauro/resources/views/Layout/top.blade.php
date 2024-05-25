@@ -271,10 +271,23 @@
                             </li><!-- /.menu-item -->
                             
                             <li class="menu-header">Relatorio </li><!-- /.menu-header -->
-                            <li class="menu-item">
-                                <a href="{{route('addReport')}}" class="menu-link"><span class="menu-icon oi oi-bar-chart"></span>
-                                    <span class="menu-text">Relatorios</span></a>
-                            </li><!-- /.menu-item -->
+                            
+                            <li class="menu-item has-child">
+                                <a href="#" class="menu-link"><span
+                                        class="menu-icon oi oi-bar-chart"></span> <span
+                                        class="menu-text">Relatorios</span> {{-- <span
+                                    class="badge badge-warning">New</span> --}}</a>
+                                <!-- child menu -->
+                                <ul class="menu">
+                                    <li class="menu-item">
+                                        <a href="{{ route('saleReport') }}" class="menu-link">
+                                        <span class="menu-text">Relatorios de Vendas</span></a>
+                                        <a href="{{ route('productReport') }}" class="menu-link">
+                                            <span class="menu-text">Relatorios de Productos</span></a>
+                                    </li>
+                                </ul><!-- /child menu -->
+                            </li><!-- /.menu-item --><!-- .menu-item -->
+
                         </ul><!-- /.menu -->
                     </nav><!-- /.stacked-menu -->
                 </div><!-- /.aside-menu -->
@@ -295,6 +308,33 @@
         {{-- Fim do MainContent --}}
 
     </div><!-- /.app -->
+
+    <script>
+        //?Inicio do metodo que retorna os productos mais vendidos
+        $(document).ready(function() {
+            fetch('/getTopSellingProducts')
+                .then(response => response.json())
+                .then(data => {
+                    if (Array.isArray(data)) {
+                        const tableBody = $('#top-selling-products-table tbody');
+                        tableBody.empty(); // Limpar quaisquer dados existentes
+    
+                        data.forEach(product => {
+                            const row = `<tr>
+                                            <td>${product.name}</td>
+                                            <td>${product.total_quantity}</td>
+                                        </tr>`;
+                            tableBody.append(row);
+                        });
+                    } else {
+                        console.error('Data received is not an array');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching top selling products:', error);
+                });
+        });
+    </script>
 
     <script>
         function productos(product) {

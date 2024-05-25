@@ -144,6 +144,9 @@ Route::get('/getSalesDates', [saleController::class, 'getSalesDates'])->name('ge
 Route::get('/saleReport', [reportController::class, 'saleReport'])->name('saleReport');
 Route::get('/productReport', [reportController::class, 'productReport'])->name('productReport');
 
+//*Inicio do metodo responsavel por retornar os productos mais vendidos
+Route::get('/getTopSellingProducts', [SaleController::class, 'getTopSellingProducts']);
+
 //*Inicio das rotas da parte de perfil
 
 //*Inicio das rotas da parte de envio de notificacoes

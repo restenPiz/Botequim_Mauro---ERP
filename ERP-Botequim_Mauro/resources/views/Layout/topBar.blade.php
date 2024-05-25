@@ -309,9 +309,9 @@
                                     <!-- child menu -->
                                     <ul class="menu">
                                         <li class="menu-item">
-                                            <a href="{{ route('addReport') }}" class="menu-link">
+                                            <a href="{{ route('saleReport') }}" class="menu-link">
                                             <span class="menu-text">Relatorios de Vendas</span></a>
-                                            <a href="{{ route('addReport') }}" class="menu-link">
+                                            <a href="{{ route('productReport') }}" class="menu-link">
                                                 <span class="menu-text">Relatorios de Productos</span></a>
                                         </li>
                                     </ul><!-- /child menu -->
@@ -338,7 +338,6 @@
 
         </div><!-- /.app -->
         <!-- BEGIN BASE JS -->
-
         <script>
             function productos(product) {
 
@@ -386,6 +385,36 @@
         {{-- Inicio do link de sweetAlerta --}}
         @include('sweetalert::alert')
         {{-- Fim do link do sweetAlerta --}}
+
+        <script>
+            //?Inicio do metodo que retorna os productos mais vendidos;
+            $(document).ready(function() {
+                fetch('/getTopSellingProducts')
+                    .then(response => response.json())
+                    .then(data => {
+                        if (Array.isArray(data)) {
+                            const tableBody = $('#top-selling-products-table');
+                            tableBody.empty(); // Limpar quaisquer dados existentes
+
+                            data.forEach(product => {
+                                const row = `<tr>
+                                                <td class="align-middle text-truncate">${product.name}</td>
+                                                <td class="align-middle text-center">${product.total_quantity}</td>
+                                                <td class="align-middle text-center">
+                                                    
+                                                </td>
+                                            </tr>`;
+                                tableBody.append(row);
+                            });
+                        } else {
+                            console.error('Data received is not an array');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error fetching top selling products:', error);
+                    });
+            });
+        </script>
 
     </body>
 
