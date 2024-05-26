@@ -251,28 +251,28 @@
                                     <span class="menu-text">Stock</span> {{-- <span
                                         class="badge badge-warning">New</span> --}}</a> <!-- child menu -->
                                 <ul class="menu">
-                                    <li class="menu-item">
+                                    <li class="menu-item {{ request()->routeIs('allStock') ? 'has-active' : '' }}">
                                         <a href="{{route('allStock')}}" class="menu-link">Entrada de Productos</a>
                                     </li>
-                                    <li class="menu-item">
+                                    <li class="menu-item {{ request()->routeIs('allStockOut') ? 'has-active' : '' }}">
                                         <a href="{{route('allStockOut')}}" class="menu-link">Saida de Productos</a>
                                     </li>
                                 </ul><!-- /child menu -->
                             </li>
                             
                             <li class="menu-header">Venda </li><!-- /.menu-header -->
-                            <li class="menu-item">
+                            <li class="menu-item {{ request()->routeIs('allSale') ? 'has-active' : '' }}">
                                 <a href="{{route('allSale')}}" class="menu-link"><span class="menu-icon fas fa-money-check"></span>
                                     <span class="menu-text">Todas Vendas</span></a>
                             </li><!-- /.menu-item -->
-                            <li class="menu-item">
+                            <li class="menu-item {{ request()->routeIs('addPayment') ? 'has-active' : '' }}">
                                 <a href="{{route('addPayment')}}" class="menu-link"><span class="menu-icon fas fa-money-bill"></span>
                                     <span class="menu-text">Tipos de Pagamentos</span></a>
                             </li><!-- /.menu-item -->
                             
                             <li class="menu-header">Relatorio </li><!-- /.menu-header -->
                             
-                            <li class="menu-item has-child">
+                            <li class="menu-item {{ request()->routeIs('saleReport','productReport') ? 'has-active' : '' }} has-child">
                                 <a href="#" class="menu-link"><span
                                         class="menu-icon oi oi-bar-chart"></span> <span
                                         class="menu-text">Relatorios</span> {{-- <span
