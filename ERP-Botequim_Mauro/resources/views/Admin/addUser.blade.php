@@ -23,36 +23,61 @@
                                         <div class="form-row">
                                             <!-- form column -->
                                             <div class="col-md-12 mb-3">
-                                                <label for="input01">Nome</label> <input type="text"
-                                                    class="form-control" id="input01" placeholder="Digite o seu nome" name="name" required="">
+                                                <label for="input01">Nome</label>
+                                                <input type="text" class="form-control @error('name') is-invalid @enderror" id="input01" placeholder="Digite o seu nome" name="name" value="{{ old('name') }}" required>
+                                                @error('name')
+                                                    <div class="invalid-feedback">
+                                                        <i class="fa fa-exclamation-circle fa-fw"></i> {{ $message }}
+                                                    </div>
+                                                @enderror
                                             </div><!-- /form column -->
                                         </div><!-- /form row -->
                                         <div class="form-row">
                                             <!-- form column -->
                                             <div class="col-md-12 mb-3">
-                                                <label for="input02">Apelido</label> <input type="text"
-                                                    class="form-control" id="input02" placeholder="Digite o seu apelido" name="Surname" required="">
+                                                <label for="input02">Apelido</label>
+                                                <input type="text" class="form-control @error('Surname') is-invalid @enderror" id="input02" placeholder="Digite o seu apelido" name="Surname" value="{{ old('Surname') }}" required>
+                                                @error('Surname')
+                                                    <div class="invalid-feedback">
+                                                        <i class="fa fa-exclamation-circle fa-fw"></i> {{ $message }}
+                                                    </div>
+                                                @enderror
                                             </div><!-- /form column -->
                                         </div>
                                         <div class="form-group">
-                                            <label for="input03">Email</label> <input type="email" class="form-control"
-                                                id="input03" placeholder="Ex: contacto@mauropeniel.info" name="email" required="">
+                                            <label for="input03">Email</label>
+                                            <input type="email" class="form-control @error('email') is-invalid @enderror" id="input03" placeholder="Ex: contacto@mauropeniel.info" name="email" value="{{ old('email') }}" required>
+                                            @error('email')
+                                                <div class="invalid-feedback">
+                                                    <i class="fa fa-exclamation-circle fa-fw"></i> {{ $message }}
+                                                </div>
+                                            @enderror
                                         </div><!-- /.form-group -->
                                         <!-- .form-group -->
                                         <div class="form-group">
-                                            <label for="input04">Senha</label> <input type="password"
-                                                class="form-control" id="input04" placeholder="Digite a sua senha" name="password" required="">
+                                            <label for="input04">Senha</label>
+                                            <input type="password" class="form-control @error('password') is-invalid @enderror" id="input04" placeholder="Digite a sua senha" name="password" required>
+                                            @error('password')
+                                                <div class="invalid-feedback">
+                                                    <i class="fa fa-exclamation-circle fa-fw"></i> {{ $message }}
+                                                </div>
+                                            @enderror
                                         </div><!-- /.form-group -->
-                                        
+                                    
                                         <!-- .form-actions -->
                                         <div class="form-group">
-                                            <label for="input04">Senha de Confirmacao</label> <input type="password"
-                                                class="form-control" id="input04" placeholder="Digite novamente a sua senha" name="password_confirmation" required="">
+                                            <label for="input05">Senha de Confirmação</label>
+                                            <input type="password" class="form-control @error('password_confirmation') is-invalid @enderror" id="input05" placeholder="Digite novamente a sua senha" name="password_confirmation" required>
+                                            @error('password_confirmation')
+                                                <div class="invalid-feedback">
+                                                    <i class="fa fa-exclamation-circle fa-fw"></i> {{ $message }}
+                                                </div>
+                                            @enderror
                                         </div><!-- /.form-group -->
-                                        <input type="hidden" name="user_type" value="Attendant" >
+                                    
+                                        <input type="hidden" name="user_type" value="Attendant">
                                         <div class="form-actions">
-                                            <button type="submit"
-                                               name="submit" class="btn btn-primary ">Adicionar Atendente</button>
+                                            <button type="submit" name="submit" class="btn btn-primary">Adicionar Atendente</button>
                                         </div>
                                     </form><!-- /form -->
                                 </div><!-- /.card-body -->
