@@ -17,8 +17,6 @@
                                 {{-- Inicio da tabela de todos eventos --}}
                                 <header class="page-title-bar"><!-- /.breadcrumb -->
                                     <!-- floating action -->
-                                    <button type="button" class="btn btn-success btn-floated"><span
-                                            class="fa fa-plus"></span></button> <!-- /floating action -->
                                     <!-- title and toolbar -->
                                     <div class="d-md-flex align-items-md-start">
                                         <h1 class="page-title mr-sm-auto"> Stock de Saida </h1><!-- .btn-toolbar -->
@@ -94,6 +92,9 @@
                                                 </tbody>
                                             </table>
                                         </div><!-- /.table-responsive -->
+                                        <div class="d-flex justify-content-center">
+                                            {{ $products->links('vendor.pagination.simple-bootstrap-4') }}
+                                        </div>
                                     </div><!-- /.card-body -->
                                 </div>
                                 {{-- End of table section --}}
@@ -194,6 +195,9 @@
                                                 </tbody>
                                             </table>
                                         </div><!-- /.table-responsive -->
+                                        <div class="d-flex justify-content-center">
+                                            {{ $products->links('vendor.pagination.simple-bootstrap-4') }}
+                                        </div>
                                     </div><!-- /.card-body -->
                                 </div>
                                 {{-- End of table section --}}
@@ -287,6 +291,9 @@
                                                     @endforeach
                                                 </tbody>
                                             </table>
+                                        </div><!-- /.table-responsive -->
+                                        <div class="d-flex justify-content-center">
+                                            {{ $products->links('vendor.pagination.simple-bootstrap-4') }}
                                         </div><!-- /.table-responsive -->
                                     </div><!-- /.card-body -->
                                 </div>

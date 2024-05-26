@@ -120,7 +120,7 @@ class stockController extends Controller
     }
     public function allStockOut()
     {
-        $products=Sale_History::all();
+        $products=Sale_History::Paginate(10);
 
         return view('Admin.allStockOut',compact('products'));
     }

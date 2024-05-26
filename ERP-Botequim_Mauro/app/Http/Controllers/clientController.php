@@ -19,7 +19,7 @@ class clientController extends Controller
     {
         $clients=DB::table('clients')
             ->where('client_type','debit')
-            ->get();
+            ->paginate(5);
         
         return view("Admin.addClient",compact('clients'));
     }

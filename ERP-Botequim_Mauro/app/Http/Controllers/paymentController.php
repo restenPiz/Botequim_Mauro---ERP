@@ -10,7 +10,7 @@ class paymentController extends Controller
 {
     public function addPayment()
     {
-        $payments=Payment::all();
+        $payments=Payment::Paginate(4);
 
         return view("Admin.allPayment",compact('payments'));
     }

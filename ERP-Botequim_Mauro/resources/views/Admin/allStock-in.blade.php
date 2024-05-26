@@ -290,7 +290,7 @@
                                             @endforeach
                                         </tbody>
                                     </table>
-                                </div><!-- /.table-responsive -->
+                                </div>
                             </div><!-- /.card-body -->
                         </div>
                         {{-- End of table section --}}

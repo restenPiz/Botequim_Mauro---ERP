@@ -254,6 +254,9 @@
                                             </tbody>
                                         </table>
                                     </div>
+                                    <div class="d-flex justify-content-center">
+                                        {{ $clients->links('vendor.pagination.simple-bootstrap-4') }}
+                                    </div>
                                 </div>
                             </div>
                         </div>

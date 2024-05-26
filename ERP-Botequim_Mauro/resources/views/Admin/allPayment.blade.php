@@ -169,14 +169,13 @@
                                             <div class="alert alert-warning mx-3"> A tabela esta vazia. Adicione as categorias! </div>
                                         </div>
                                         @endif
+                                    </div>
+                                    
+                                    <div class="d-flex justify-content-center">
+                                        {{ $payments->links('vendor.pagination.simple-bootstrap-4') }}
                                     </div><!-- /.table-responsive -->
                                 </div><!-- /.card-body -->
-                                <!-- .card-footer -->
-                                {{--<div class="card-footer">
-                                    <a href="{{route('addCategories')}}" class="card-footer-item"><i
-                                            class="fa fa-plus-circle mr-1"></i> Adicionar Categoria</a>
-                                </div><!-- /.card-footer -->--}}
-                            </div>
+                                </div>
                             {{-- End of table section --}}
 
                         </div>
