@@ -183,29 +183,29 @@
                         {{-- Inicio do menu navbar --}}
                         <ul class="menu">
                             <!-- .menu-item -->
-                            <li class="menu-item has-active">
+                            <li class="menu-item">
                                 <a href="{{route('dashboard')}}" class="menu-link"><span class="menu-icon fas fa-home"></span>
                                     <span class="menu-text">Inicio</span></a>
                             </li><!-- /.menu-item -->
                             <!-- .menu-item -->
-                            <li class="menu-item has-child">
+                            <li class="menu-item {{ request()->routeIs('addUser','addStockManager','addAcountant') ? 'has-active' : '' }} has-child">
                                 <a href="#" class="menu-link"><span class="menu-icon far fa-user"></span> <span
                                         class="menu-text">Usuarios</span> {{-- <span
                                         class="badge badge-warning">New</span> --}}</a> <!-- child menu -->
                                 <ul class="menu">
-                                    <li class="menu-item">
+                                    <li class="menu-item {{ request()->routeIs('addUser') ? 'has-active' : '' }}">
                                         <a href="{{route('addUser')}}" class="menu-link">Adicionar Atendente</a>
                                     </li>
-                                    
-                                    <li class="menu-item">
+
+                                    <li class="menu-item {{ request()->routeIs('addStockManager') ? 'has-active' : '' }}">
                                         <a href="{{route('addStockManager')}}" class="menu-link">Adicionar Gestor de Stock</a>
                                     </li>
 
-                                    <li class="menu-item">
+                                    <li class="menu-item {{ request()->routeIs('addAcountant') ? 'has-active' : '' }}">
                                         <a href="{{route('addAcountant')}}" class="menu-link">Adicionar Contabilista</a>
                                     </li>
                                 </ul><!-- /child menu -->
-                            </li><!-- /.menu-item -->
+                            </li>
                             <!-- .menu-item -->
                             <li class="menu-item has-child">
                                 <a href="#" class="menu-link"><span class="menu-icon oi oi-pencil"></span>
