@@ -144,11 +144,14 @@ Route::get('/getSalesDates', [saleController::class, 'getSalesDates'])->name('ge
 Route::get('/saleReport', [reportController::class, 'saleReport'])->name('saleReport');
 Route::get('/productReport', [reportController::class, 'productReport'])->name('productReport');
 
-//*Inicio do metodo responsavel por retornar os productos mais vendidos
+//*Inicio do metodos que retornam os dados graficos
 Route::get('/getTopSellingProducts', [SaleController::class, 'getTopSellingProducts']);
 Route::get('/getStockQuantities', [StockController::class, 'getStockQuantities']);
 Route::get('/getBestSellingProducts', [saleController::class, 'getBestSellingProducts']);
 Route::get('/getMonthlySales', [SaleController::class, 'getMonthlySales']);
+
+//*Inicios dos metodos responsaveis por fazer a pesquisa dos dados nas tabelas
+Route::get('/search-products', [productController::class, 'search'])->name('search.products');
 
 //*Inicio das rotas da parte de perfil
 

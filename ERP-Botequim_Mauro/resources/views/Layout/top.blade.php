@@ -311,7 +311,40 @@
 
     </div><!-- /.app -->
 
+    <script src="../assets/vendor/sortablejs/Sortable.min.js"></script> <!-- END PLUGINS JS -->
+    <script src="../assets/vendor/jquery/jquery.min.js"></script>
+    <script src="../assets/vendor/popper.js/umd/popper.min.js"></script>
+    <script src="../assets/vendor/bootstrap/js/bootstrap.min.js"></script> <!-- END BASE JS -->
+    <!-- BEGIN PLUGINS JS -->
+    <script src="../assets/vendor/pace-progress/pace.min.js"></script>
+    <script src="../assets/vendor/stacked-menu/js/stacked-menu.min.js"></script>
+    <script src="../assets/vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <script src="../assets/vendor/flatpickr/flatpickr.min.js"></script>
+    <script src="../assets/vendor/easy-pie-chart/jquery.easypiechart.min.js"></script>
+    <script src="../assets/vendor/chart.js/Chart.min.js"></script> <!-- END PLUGINS JS -->
+    <!-- BEGIN THEME JS -->
+    <script src="../assets/javascript/theme.min.js"></script> <!-- END THEME JS -->
+    <!-- BEGIN PAGE LEVEL JS -->
+    <script src="../assets/javascript/pages/dashboard-demo.js"></script> <!-- END PAGE LEVEL JS -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-116692175-1"></script>
     <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'UA-116692175-1');
+    </script>
+
+    {{-- Inicio do link de sweetAlerta --}}
+    @include('sweetalert::alert')
+    {{-- Fim do link do sweetAlerta --}}
+
+    
+    <script>
+
         //?Inicio do metodo que retorna os productos mais vendidos
         $(document).ready(function() {
             fetch('/getTopSellingProducts')
@@ -438,36 +471,66 @@
             }
         });
     </script>
-    <script src="../assets/vendor/sortablejs/Sortable.min.js"></script> <!-- END PLUGINS JS -->
-    <script src="../assets/vendor/jquery/jquery.min.js"></script>
-    <script src="../assets/vendor/popper.js/umd/popper.min.js"></script>
-    <script src="../assets/vendor/bootstrap/js/bootstrap.min.js"></script> <!-- END BASE JS -->
-    <!-- BEGIN PLUGINS JS -->
-    <script src="../assets/vendor/pace-progress/pace.min.js"></script>
-    <script src="../assets/vendor/stacked-menu/js/stacked-menu.min.js"></script>
-    <script src="../assets/vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-    <script src="../assets/vendor/flatpickr/flatpickr.min.js"></script>
-    <script src="../assets/vendor/easy-pie-chart/jquery.easypiechart.min.js"></script>
-    <script src="../assets/vendor/chart.js/Chart.min.js"></script> <!-- END PLUGINS JS -->
-    <!-- BEGIN THEME JS -->
-    <script src="../assets/javascript/theme.min.js"></script> <!-- END THEME JS -->
-    <!-- BEGIN PAGE LEVEL JS -->
-    <script src="../assets/javascript/pages/dashboard-demo.js"></script> <!-- END PAGE LEVEL JS -->
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-116692175-1"></script>
     <script>
-        window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
-        gtag('config', 'UA-116692175-1');
+              $(document).ready(function () {
+            $('#table-search').on('input', function () {
+                var query = $(this).val();
+                if (query.length > 0) {
+                    $.ajax({
+                        url: "{{ route('search.products') }}",
+                        type: "GET",
+                        data: { query: query },
+                        success: function (data) {
+                            $('#product-list').empty();
+                            if (data.length > 0) {
+                                $.each(data, function (key, product) {
+                                    var row = '<tr>' +
+                                        '<td class="align-middle">' + product.Product_name + '</td>' +
+                                        '<td class="align-middle">' + product.Quantity + '</td>' +
+                                        '<td class="align-middle"><span class="badge badge-subtle badge-success">' + product.Code + '</span></td>' +
+                                        '<td class="align-middle">' + product.Price + '</td>' +
+                                        '<td class="align-middle">' + product.Sale_price + '</td>' +
+                                        '<td class="align-middle">' + product.Entry_date + '</td>' +
+                                        '<td class="align-middle">' + product.Expiry_date + '</td>' +
+                                        '<td class="align-middle"><span class="badge badge-subtle badge-warning">' + product.categoria.Category_name + '</span></td>' +
+                                        '<td class="align-middle text-right">' +
+                                        '<button type="button" class="btn btn-sm btn-icon btn-secondary" data-toggle="modal" data-target="#clientNewModal' + product.id + '"><i class="fa fa-pencil-alt"></i> <span class="sr-only">Edit</span></button> ' +
+                                        '<button type="button" class="btn btn-sm btn-icon btn-secondary"><i class="far fa-trash-alt" data-target="#deleteRecordModal' + product.id + '" data-toggle="modal"></i> <span class="sr-only">Remove</span></button>' +
+                                        '</td>' +
+                                        '</tr>';
+                                    $('#product-list').append(row);
+                                });
+                            } else {
+                                $('#product-list').append('<tr><td colspan="9" class="text-center">Nenhum produto encontrado</td></tr>');
+                            }
+                        },
+                        error: function (xhr, status, error) {
+                            console.error("Erro na requisição AJAX: ", status, error);
+                        }
+                    });
+                } else {
+                    $('#product-list').empty();
+                    @foreach ($products as $product)
+                        var row = '<tr>' +
+                            '<td class="align-middle"> {{ $product->Product_name }} </td>' +
+                            '<td class="align-middle"> {{ $product->Quantity }} </td>' +
+                            '<td class="align-middle"><span class="badge badge-subtle badge-success"> {{ $product->Code }} </span></td>' +
+                            '<td class="align-middle"> {{ $product->Price }} </td>' +
+                            '<td class="align-middle"> {{ $product->Sale_price }} </td>' +
+                            '<td class="align-middle"> {{ $product->Entry_date }} </td>' +
+                            '<td class="align-middle"> {{ $product->Expiry_date }} </td>' +
+                            '<td class="align-middle"><span class="badge badge-subtle badge-warning"> {{ $product->categoria->Category_name }} </span></td>' +
+                            '<td class="align-middle text-right">' +
+                            '<button type="button" class="btn btn-sm btn-icon btn-secondary" data-toggle="modal" data-target="#clientNewModal{{ $product->id }}"><i class="fa fa-pencil-alt"></i> <span class="sr-only">Edit</span></button> ' +
+                            '<button type="button" class="btn btn-sm btn-icon btn-secondary"><i class="far fa-trash-alt" data-target="#deleteRecordModal{{ $product->id }}" data-toggle="modal"></i> <span class="sr-only">Remove</span></button>' +
+                            '</td>' +
+                            '</tr>';
+                        $('#product-list').append(row);
+                    @endforeach
+                }
+            });
+        });
     </script>
-
-    {{-- Inicio do link de sweetAlerta --}}
-    @include('sweetalert::alert')
-    {{-- Fim do link do sweetAlerta --}}
 
 @endrole
     
@@ -751,6 +814,68 @@
     {{-- Inicio do link de sweetAlerta --}}
     @include('sweetalert::alert')
     {{-- Fim do link do sweetAlerta --}}
+
+    <script>
+        $(document).ready(function () {
+      $('#table-search').on('input', function () {
+          var query = $(this).val();
+          if (query.length > 0) {
+              $.ajax({
+                  url: "{{ route('search.products') }}",
+                  type: "GET",
+                  data: { query: query },
+                  success: function (data) {
+                      $('#product-list').empty();
+                      if (data.length > 0) {
+                          $.each(data, function (key, product) {
+                              var row = '<tr>' +
+                                  '<td class="align-middle">' + product.Product_name + '</td>' +
+                                  '<td class="align-middle">' + product.Quantity + '</td>' +
+                                  '<td class="align-middle"><span class="badge badge-subtle badge-success">' + product.Code + '</span></td>' +
+                                  '<td class="align-middle">' + product.Price + '</td>' +
+                                  '<td class="align-middle">' + product.Sale_price + '</td>' +
+                                  '<td class="align-middle">' + product.Entry_date + '</td>' +
+                                  '<td class="align-middle">' + product.Expiry_date + '</td>' +
+                                  '<td class="align-middle"><span class="badge badge-subtle badge-warning">' + product.categoria.Category_name + '</span></td>' +
+                                  '<td class="align-middle text-right">' +
+                                  '<button type="button" class="btn btn-sm btn-icon btn-secondary" data-toggle="modal" data-target="#clientNewModal' + product.id + '"><i class="fa fa-pencil-alt"></i> <span class="sr-only">Edit</span></button> ' +
+                                  '<button type="button" class="btn btn-sm btn-icon btn-secondary"><i class="far fa-trash-alt" data-target="#deleteRecordModal' + product.id + '" data-toggle="modal"></i> <span class="sr-only">Remove</span></button>' +
+                                  '</td>' +
+                                  '</tr>';
+                              $('#product-list').append(row);
+                          });
+                      } else {
+                          $('#product-list').append('<tr><td colspan="9" class="text-center">Nenhum produto encontrado</td></tr>');
+                      }
+                  },
+                  error: function (xhr, status, error) {
+                      console.error("Erro na requisição AJAX: ", status, error);
+                  }
+              });
+          } else {
+              $('#product-list').empty();
+              @foreach ($products as $product)
+                  var row = '<tr>' +
+                      '<td class="align-middle"> {{ $product->Product_name }} </td>' +
+                      '<td class="align-middle"> {{ $product->Quantity }} </td>' +
+                      '<td class="align-middle"><span class="badge badge-subtle badge-success"> {{ $product->Code }} </span></td>' +
+                      '<td class="align-middle"> {{ $product->Price }} </td>' +
+                      '<td class="align-middle"> {{ $product->Sale_price }} </td>' +
+                      '<td class="align-middle"> {{ $product->Entry_date }} </td>' +
+                      '<td class="align-middle"> {{ $product->Expiry_date }} </td>' +
+                      '<td class="align-middle"><span class="badge badge-subtle badge-warning"> {{ $product->categoria->Category_name }} </span></td>' +
+                      '<td class="align-middle text-right">' +
+                      '<button type="button" class="btn btn-sm btn-icon btn-secondary" data-toggle="modal" data-target="#clientNewModal{{ $product->id }}"><i class="fa fa-pencil-alt"></i> <span class="sr-only">Edit</span></button> ' +
+                      '<button type="button" class="btn btn-sm btn-icon btn-secondary"><i class="far fa-trash-alt" data-target="#deleteRecordModal{{ $product->id }}" data-toggle="modal"></i> <span class="sr-only">Remove</span></button>' +
+                      '</td>' +
+                      '</tr>';
+                  $('#product-list').append(row);
+              @endforeach
+          }
+      });
+  });
+</script>
+
 
     <script>
         //Inicio da function que retornar os produtos em json
@@ -1090,6 +1215,68 @@
     {{-- Inicio do link de sweetAlerta --}}
     @include('sweetalert::alert')
     {{-- Fim do link do sweetAlerta --}}
+
+    <script>
+        $(document).ready(function () {
+      $('#table-search').on('input', function () {
+          var query = $(this).val();
+          if (query.length > 0) {
+              $.ajax({
+                  url: "{{ route('search.products') }}",
+                  type: "GET",
+                  data: { query: query },
+                  success: function (data) {
+                      $('#product-list').empty();
+                      if (data.length > 0) {
+                          $.each(data, function (key, product) {
+                              var row = '<tr>' +
+                                  '<td class="align-middle">' + product.Product_name + '</td>' +
+                                  '<td class="align-middle">' + product.Quantity + '</td>' +
+                                  '<td class="align-middle"><span class="badge badge-subtle badge-success">' + product.Code + '</span></td>' +
+                                  '<td class="align-middle">' + product.Price + '</td>' +
+                                  '<td class="align-middle">' + product.Sale_price + '</td>' +
+                                  '<td class="align-middle">' + product.Entry_date + '</td>' +
+                                  '<td class="align-middle">' + product.Expiry_date + '</td>' +
+                                  '<td class="align-middle"><span class="badge badge-subtle badge-warning">' + product.categoria.Category_name + '</span></td>' +
+                                  '<td class="align-middle text-right">' +
+                                  '<button type="button" class="btn btn-sm btn-icon btn-secondary" data-toggle="modal" data-target="#clientNewModal' + product.id + '"><i class="fa fa-pencil-alt"></i> <span class="sr-only">Edit</span></button> ' +
+                                  '<button type="button" class="btn btn-sm btn-icon btn-secondary"><i class="far fa-trash-alt" data-target="#deleteRecordModal' + product.id + '" data-toggle="modal"></i> <span class="sr-only">Remove</span></button>' +
+                                  '</td>' +
+                                  '</tr>';
+                              $('#product-list').append(row);
+                          });
+                      } else {
+                          $('#product-list').append('<tr><td colspan="9" class="text-center">Nenhum produto encontrado</td></tr>');
+                      }
+                  },
+                  error: function (xhr, status, error) {
+                      console.error("Erro na requisição AJAX: ", status, error);
+                  }
+              });
+          } else {
+              $('#product-list').empty();
+              @foreach ($products as $product)
+                  var row = '<tr>' +
+                      '<td class="align-middle"> {{ $product->Product_name }} </td>' +
+                      '<td class="align-middle"> {{ $product->Quantity }} </td>' +
+                      '<td class="align-middle"><span class="badge badge-subtle badge-success"> {{ $product->Code }} </span></td>' +
+                      '<td class="align-middle"> {{ $product->Price }} </td>' +
+                      '<td class="align-middle"> {{ $product->Sale_price }} </td>' +
+                      '<td class="align-middle"> {{ $product->Entry_date }} </td>' +
+                      '<td class="align-middle"> {{ $product->Expiry_date }} </td>' +
+                      '<td class="align-middle"><span class="badge badge-subtle badge-warning"> {{ $product->categoria->Category_name }} </span></td>' +
+                      '<td class="align-middle text-right">' +
+                      '<button type="button" class="btn btn-sm btn-icon btn-secondary" data-toggle="modal" data-target="#clientNewModal{{ $product->id }}"><i class="fa fa-pencil-alt"></i> <span class="sr-only">Edit</span></button> ' +
+                      '<button type="button" class="btn btn-sm btn-icon btn-secondary"><i class="far fa-trash-alt" data-target="#deleteRecordModal{{ $product->id }}" data-toggle="modal"></i> <span class="sr-only">Remove</span></button>' +
+                      '</td>' +
+                      '</tr>';
+                  $('#product-list').append(row);
+              @endforeach
+          }
+      });
+  });
+</script>
+
 
     <script>
         //Inicio da function que retornar os produtos em json
@@ -1437,6 +1624,68 @@
     {{-- Inicio do link de sweetAlerta --}}
     @include('sweetalert::alert')
     {{-- Fim do link do sweetAlerta --}}
+
+    <script>
+        $(document).ready(function () {
+      $('#table-search').on('input', function () {
+          var query = $(this).val();
+          if (query.length > 0) {
+              $.ajax({
+                  url: "{{ route('search.products') }}",
+                  type: "GET",
+                  data: { query: query },
+                  success: function (data) {
+                      $('#product-list').empty();
+                      if (data.length > 0) {
+                          $.each(data, function (key, product) {
+                              var row = '<tr>' +
+                                  '<td class="align-middle">' + product.Product_name + '</td>' +
+                                  '<td class="align-middle">' + product.Quantity + '</td>' +
+                                  '<td class="align-middle"><span class="badge badge-subtle badge-success">' + product.Code + '</span></td>' +
+                                  '<td class="align-middle">' + product.Price + '</td>' +
+                                  '<td class="align-middle">' + product.Sale_price + '</td>' +
+                                  '<td class="align-middle">' + product.Entry_date + '</td>' +
+                                  '<td class="align-middle">' + product.Expiry_date + '</td>' +
+                                  '<td class="align-middle"><span class="badge badge-subtle badge-warning">' + product.categoria.Category_name + '</span></td>' +
+                                  '<td class="align-middle text-right">' +
+                                  '<button type="button" class="btn btn-sm btn-icon btn-secondary" data-toggle="modal" data-target="#clientNewModal' + product.id + '"><i class="fa fa-pencil-alt"></i> <span class="sr-only">Edit</span></button> ' +
+                                  '<button type="button" class="btn btn-sm btn-icon btn-secondary"><i class="far fa-trash-alt" data-target="#deleteRecordModal' + product.id + '" data-toggle="modal"></i> <span class="sr-only">Remove</span></button>' +
+                                  '</td>' +
+                                  '</tr>';
+                              $('#product-list').append(row);
+                          });
+                      } else {
+                          $('#product-list').append('<tr><td colspan="9" class="text-center">Nenhum produto encontrado</td></tr>');
+                      }
+                  },
+                  error: function (xhr, status, error) {
+                      console.error("Erro na requisição AJAX: ", status, error);
+                  }
+              });
+          } else {
+              $('#product-list').empty();
+              @foreach ($products as $product)
+                  var row = '<tr>' +
+                      '<td class="align-middle"> {{ $product->Product_name }} </td>' +
+                      '<td class="align-middle"> {{ $product->Quantity }} </td>' +
+                      '<td class="align-middle"><span class="badge badge-subtle badge-success"> {{ $product->Code }} </span></td>' +
+                      '<td class="align-middle"> {{ $product->Price }} </td>' +
+                      '<td class="align-middle"> {{ $product->Sale_price }} </td>' +
+                      '<td class="align-middle"> {{ $product->Entry_date }} </td>' +
+                      '<td class="align-middle"> {{ $product->Expiry_date }} </td>' +
+                      '<td class="align-middle"><span class="badge badge-subtle badge-warning"> {{ $product->categoria->Category_name }} </span></td>' +
+                      '<td class="align-middle text-right">' +
+                      '<button type="button" class="btn btn-sm btn-icon btn-secondary" data-toggle="modal" data-target="#clientNewModal{{ $product->id }}"><i class="fa fa-pencil-alt"></i> <span class="sr-only">Edit</span></button> ' +
+                      '<button type="button" class="btn btn-sm btn-icon btn-secondary"><i class="far fa-trash-alt" data-target="#deleteRecordModal{{ $product->id }}" data-toggle="modal"></i> <span class="sr-only">Remove</span></button>' +
+                      '</td>' +
+                      '</tr>';
+                  $('#product-list').append(row);
+              @endforeach
+          }
+      });
+  });
+</script>
+
 
     <script>
         //Inicio da function que retornar os produtos em json

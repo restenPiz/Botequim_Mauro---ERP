@@ -72,4 +72,15 @@ class productController extends Controller
 
         return back();
     }
+    //*Inicio do metodo responsavel por fazer a pesquisa dos dados
+    public function search()
+    {
+        $query = Request::get('query');
+        $products = Product::with('categoria') // Ensure the category relationship is loaded
+                            ->where('Product_name', 'like', "%{$query}%")
+                            ->orWhere('Code', 'like', "%{$query}%")
+                            ->get();
+
+        return response()->json($products);
+    }
 }
