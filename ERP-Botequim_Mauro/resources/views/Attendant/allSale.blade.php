@@ -215,13 +215,15 @@
                                                                     class="sr-only">Remove</span></button>
                                                         </td>
                                                     </tr>
-
-                                                    
-
                                                 @endforeach
+                                                
                                             </tbody>
                                         </table>
+                                        
                                     </div><!-- /.table-responsive -->
+                                    <div class="d-flex justify-content-center">
+                                        {{ $products->links('vendor.pagination.simple-bootstrap-4') }}
+                                    </div>
                                 </div><!-- /.card-body -->
                                 <!-- .card-footer -->
                                 <div class="card-footer">

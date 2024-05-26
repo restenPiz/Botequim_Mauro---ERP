@@ -118,7 +118,7 @@ class saleController extends Controller
 
     public function allSale()
     {
-        $products=Sale_History::all();
+        $products=Sale_History::Paginate(8);
 
         $totalPrice = Sale::sum('Product_price');
         $iva = $totalPrice * 0.17;

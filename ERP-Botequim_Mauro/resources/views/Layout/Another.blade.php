@@ -206,13 +206,13 @@
                                 </ul><!-- /child menu -->
                             </li><!-- /.menu-item -->
                             <!-- .menu-item -->
-                            <li class="menu-item {{ request()->routeIs('addClient') ? 'has-active' : '' }} has-child">
+                            <li class="menu-item {{ request()->routeIs('addClient','showClient') ? 'has-active' : '' }} has-child">
                                 <a href="#" class="menu-link"><span class="menu-icon oi oi-pencil"></span>
                                     <span class="menu-text">Dividas</span> {{-- <span
                                         class="badge badge-warning">New</span> --}}</a>
                                 <!-- child menu -->
                                 <ul class="menu">
-                                    <li class="menu-item {{ request()->routeIs('addClient') ? 'has-active' : '' }}">
+                                    <li class="menu-item {{ request()->routeIs('addClient','showClient') ? 'has-active' : '' }}">
                                         <a href="{{route('addClient')}}" class="menu-link">Verificar Dividas</a>
                                     </li>
                                 </ul><!-- /child menu -->
@@ -278,12 +278,12 @@
                                     class="badge badge-warning">New</span> --}}</a>
                                 <!-- child menu -->
                                 <ul class="menu">
-                                    <li class="menu-item {{ request()->routeIs('dashboard') ? 'has-active' : '' }}">
+                                    <li class="menu-item {{ request()->routeIs('saleReport') ? 'has-active' : '' }}">
                                         <a href="{{ route('saleReport') }}" class="menu-link">
                                         <span class="menu-text">Relatorios de Vendas</span></a>
                                     </li>
-                                    <li class="menu-item" {{ request()->routeIs('productReport') ? 'has-active' : '' }}>
-                                        <a href="{{ route('productReport') }}" class="menu-link">
+                                    <li class="menu-item {{ request()->routeIs('productReport') ? 'has-active' : '' }}">
+                                        <a href="{{ route('productReport') }}" class="menu-link {{ request()->routeIs('productReport') ? 'has-active' : '' }}">
                                             <span class="menu-text">Relatorios de Productos</span></a>
                                     </li>
                                 </ul><!-- /child menu -->
@@ -675,19 +675,19 @@
                                     <span class="menu-text">Inicio</span></a>
                             </li><!-- /.menu-item -->
                             
-                            <li class="menu-item {{ request()->routeIs('addClientRequest') ? 'has-active' : '' }} has-child">
+                            <li class="menu-item {{ request()->routeIs('addClientRequest','showClientRequest') ? 'has-active' : '' }} has-child">
                                 <a href="#" class="menu-link"><span class="menu-icon far fa-user"></span> <span
                                         class="menu-text">Pedidos</span> {{-- <span
                                         class="badge badge-warning">New</span> --}}</a> <!-- child menu -->
                                 <ul class="menu">
-                                    <li class="menu-item {{ request()->routeIs('addClientRequest') ? 'has-active' : '' }}">
+                                    <li class="menu-item {{ request()->routeIs('addClientRequest','showClientRequest') ? 'has-active' : '' }}">
                                         <a href="{{route('addClientRequest')}}" class="menu-link">Verificar Pedidos</a>
                                     </li>
                                 </ul><!-- /child menu -->
                             </li><!-- /.menu-item -->
                             
                             <li class="menu-header">Venda </li><!-- /.menu-header -->
-                            <li class="menu-item" {{ request()->routeIs('allSale') ? 'has-active' : '' }}>
+                            <li class="menu-item {{ request()->routeIs('allSale') ? 'has-active' : '' }}">
                                 <a href="{{route('allSale')}}" class="menu-link"><span class="menu-icon fas fa-money-check"></span>
                                     <span class="menu-text">Todas Vendas</span></a>
                             </li><!-- /.menu-item -->

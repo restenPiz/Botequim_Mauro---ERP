@@ -11,7 +11,7 @@ class productController extends Controller
 {
     public function allProduct()
     {
-        $products = Product::all();
+        $products = Product::paginate(10);
         $categories=Category::all();
 
         return view('Admin.allProduct', compact('products','categories'));

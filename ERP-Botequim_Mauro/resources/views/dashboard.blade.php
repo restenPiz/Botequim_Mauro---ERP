@@ -81,10 +81,12 @@
                                     <div class="card card-fluid">
                                         <!-- .card-body -->
                                         <div class="card-body">
-                                        <h3 class="card-title mb-4"> Relatorio de Vendas </h3>
-                                        <div class="chartjs" style="height: 300px">
-                                            <canvas id="completion-tasks"></canvas>
-                                        </div>
+                                            <h3 class="card-title mb-4"> Grafico sobre os productos mais vendidos </h3>
+                                            <div class="chartjs" style="height: 300px">
+                                                {{-- <canvas id="completion-tasks"></canvas> --}}
+                                                <canvas id="topSellingProductsChart" width="400" height="200"></canvas>
+    
+                                            </div>
                                         </div><!-- /.card-body -->
                                     </div><!-- /.card -->
                                 </div><!-- /grid column -->

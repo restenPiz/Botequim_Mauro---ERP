@@ -1,7 +1,6 @@
 @extends('Layout.topBar')
 @section('content')
-
-    {{--inicio da view do contabilista--}}
+    {{-- inicio da view do contabilista --}}
     <main class="app-main">
         <!-- .wrapper -->
         <div class="wrapper">
@@ -17,67 +16,6 @@
                                     class="d-block text-muted">Desfrute desse magnifico sistema!</span>
                             </p>
                             <div class="ml-auto">
-                                <!-- .dropdown -->
-                                {{-- <div class="dropdown">
-                                <button class="btn btn-secondary" data-toggle="dropdown" aria-haspopup="true"
-                                    aria-expanded="false"><span>Esta Semana</span> <i
-                                        class="fa fa-fw fa-caret-down"></i></button> <!-- .dropdown-menu -->
-                                <div class="dropdown-menu dropdown-menu-right dropdown-menu-md stop-propagation">
-                                    <div class="dropdown-arrow"></div><!-- .custom-control -->
-                                    <div class="custom-control custom-radio">
-                                        <input type="radio" class="custom-control-input" id="dpToday"
-                                            name="dpFilter" data-start="2019/03/27" data-end="2019/03/27">
-                                        <label class="custom-control-label d-flex justify-content-between"
-                                            for="dpToday"><span>Today</span> <span class="text-muted">Mar
-                                                27</span></label>
-                                    </div><!-- /.custom-control -->
-                                    <!-- .custom-control -->
-                                    <div class="custom-control custom-radio">
-                                        <input type="radio" class="custom-control-input" id="dpYesterday"
-                                            name="dpFilter" data-start="2019/03/26" data-end="2019/03/26">
-                                        <label class="custom-control-label d-flex justify-content-between"
-                                            for="dpYesterday"><span>Yesterday</span> <span class="text-muted">Mar
-                                                26</span></label>
-                                    </div><!-- /.custom-control -->
-                                    <!-- .custom-control -->
-                                    <div class="custom-control custom-radio">
-                                        <input type="radio" class="custom-control-input" id="dpWeek"
-                                            name="dpFilter" data-start="2019/03/21" data-end="2019/03/27" checked>
-                                        <label class="custom-control-label d-flex justify-content-between"
-                                            for="dpWeek"><span>This Week</span> <span class="text-muted">Mar
-                                                21-27</span></label>
-                                    </div><!-- /.custom-control -->
-                                    <!-- .custom-control -->
-                                    <div class="custom-control custom-radio">
-                                        <input type="radio" class="custom-control-input" id="dpMonth"
-                                            name="dpFilter" data-start="2019/03/01" data-end="2019/03/27">
-                                        <label class="custom-control-label d-flex justify-content-between"
-                                            for="dpMonth"><span>This Month</span> <span class="text-muted">Mar
-                                                1-31</span></label>
-                                    </div><!-- /.custom-control -->
-                                    <!-- .custom-control -->
-                                    <div class="custom-control custom-radio">
-                                        <input type="radio" class="custom-control-input" id="dpYear"
-                                            name="dpFilter" data-start="2019/01/01" data-end="2019/12/31">
-                                        <label class="custom-control-label d-flex justify-content-between"
-                                            for="dpYear"><span>This Year</span> <span
-                                                class="text-muted">2019</span></label>
-                                    </div><!-- /.custom-control -->
-                                    <!-- .custom-control -->
-                                    <div class="custom-control custom-radio">
-                                        <input type="radio" class="custom-control-input" id="dpCustom"
-                                            name="dpFilter" data-start="2019/03/27" data-end="2019/03/27">
-                                        <label class="custom-control-label" for="dpCustom">Custom</label>
-                                        <div class="custom-control-hint my-1">
-                                            <!-- datepicker:range -->
-                                            <input type="text" class="form-control" id="dpCustomInput"
-                                                data-toggle="flatpickr" data-mode="range" data-disable-mobile="true"
-                                                data-date-format="Y-m-d">
-                                            <!-- /datepicker:range -->
-                                        </div>
-                                    </div><!-- /.custom-control -->
-                                </div><!-- /.dropdown-menu -->
-                            </div><!-- /.dropdown --> --}}
                             </div>
                         </div>
                     </header><!-- /.page-title-bar -->
@@ -87,25 +25,13 @@
                         <div class="section-block">
                             <!-- metric row -->
                             <div class="metric-row">
-                                <!-- metric column -->
-                                {{-- <div class="col-12 col-sm-6 col-lg-3">
-                                    <!-- .metric -->
-                                    <div class="card-metric">
-                                        <div class="metric">
-                                            <p class="metric-value h3">
-                                                <sub><i class="oi oi-people"></i></sub> <span class="value">12</span>
-                                            </p>
-                                            <h2 class="metric-label"> Teams </h2>
-                                        </div>
-                                    </div><!-- /.metric -->
-                                </div><!-- /metric column --> --}}
-                                <!-- metric column -->
                                 <div class="col-12 col-sm-6 col-lg-4">
                                     <!-- .metric -->
                                     <div class="card-metric">
                                         <div class="metric">
                                             <p class="metric-value h3">
-                                                <sub><i class="oi oi-fork"></i></sub> <span class="value">{{$stock_in}}</span>
+                                                <sub><i class="oi oi-fork"></i></sub> <span
+                                                    class="value">{{ $stock_in }}</span>
                                             </p>
                                             <h2 class="metric-label"> Productos no Stock </h2>
                                         </div>
@@ -117,7 +43,8 @@
                                     <div class="card-metric">
                                         <div class="metric">
                                             <p class="metric-value h3">
-                                                <sub><i class="fa fa-tasks"></i></sub> <span class="value">{{$prod}}</span>
+                                                <sub><i class="fa fa-tasks"></i></sub> <span
+                                                    class="value">{{ $prod }}</span>
                                             </p>
                                             <h2 class="metric-label"> Todos Productos </h2>
                                         </div>
@@ -129,14 +56,15 @@
                                     <div class="card-metric">
                                         <div class="metric">
                                             <p class="metric-value h3">
-                                                <sub><i class="oi oi-timer"></i></sub> <span class="value">{{$stock_out}}</span>
+                                                <sub><i class="oi oi-timer"></i></sub> <span
+                                                    class="value">{{ $stock_out }}</span>
                                             </p>
                                             <h2 class="metric-label"> Productos Vendidos </h2>
                                         </div>
                                     </div><!-- /.metric -->
                                 </div><!-- /metric column -->
                             </div>
-                            {{--Fim das cards--}}
+                            {{-- Fim das cards --}}
                         </div>
                         <!-- grid row -->
                         <div class="row">
@@ -144,11 +72,14 @@
                             {{-- Inicio dos graficos de relatorios --}}
                             <div class="col-xl-8">
                                 <div class="card card-fluid">
+                                    <!-- .card-body -->
                                     <div class="card-body">
-                                    <h3 class="card-title mb-4"> Relatorio de Vendas </h3>
-                                    <div class="chartjs" style="height: 292px">
-                                        <canvas id="completion-tasks"></canvas>
-                                    </div>
+                                        <h3 class="card-title mb-4"> Grafico sobre os productos mais vendidos </h3>
+                                        <div class="chartjs" style="height: 300px">
+                                            {{-- <canvas id="completion-tasks"></canvas> --}}
+                                            <canvas id="topSellingProductsChart" width="400" height="200"></canvas>
+
+                                        </div>
                                     </div><!-- /.card-body -->
                                 </div><!-- /.card -->
                             </div><!-- /grid column -->
@@ -162,8 +93,9 @@
                                     <div class="card-body">
                                         <dl class="d-flex justify-content-between">
                                             <dt class="text-left">
-                                                <span class="mr-2">Entrada de Productos</span> <small class="text-success"><i
-                                                        class="fa fa-caret-up"></i> {{$stock_in}}</small>
+                                                <span class="mr-2">Entrada de Productos</span> <small
+                                                    class="text-success"><i class="fa fa-caret-up"></i>
+                                                    {{ $stock_in }}</small>
                                             </dt>
                                             {{-- <dd class="text-right mb-0">
                                                 <strong>17,400</strong> <small class="text-muted">USD</small>
@@ -171,8 +103,9 @@
                                         </dl>
                                         <dl class="d-flex justify-content-between mb-0">
                                             <dt class="text-left">
-                                                <span class="mr-2">Saida de Productos</span> <small class="text-success"><i
-                                                        class="fa fa-caret-up"></i> {{$stock_out}}</small>
+                                                <span class="mr-2">Saida de Productos</span> <small
+                                                    class="text-success"><i class="fa fa-caret-up"></i>
+                                                    {{ $stock_out }}</small>
                                             </dt>
                                             {{-- <dd class="text-right mb-0">
                                                 <strong>5</strong>
@@ -195,12 +128,13 @@
                                     <div class="card-body border-top">
                                         <div class="summary">
                                             <p class="text-left">
-                                                <strong class="mr-2">Valor total de vendas</strong> 
+                                                <strong class="mr-2">Valor total de vendas</strong>
                                                 {{-- <small class="text-success"><i --}}
-                                                        {{-- class="fa fa-caret-up"></i> 24%</small> --}}
+                                                {{-- class="fa fa-caret-up"></i> 24%</small> --}}
                                             </p>
                                             <p class="text-center">
-                                                <strong class="h3">{{$troco}}</strong> <span class="text-muted">MT</span>
+                                                <strong class="h3">{{ $troco }}</strong> <span
+                                                    class="text-muted">MT</span>
                                             </p>
                                         </div>
                                     </div><!-- /.card-body -->
@@ -218,6 +152,5 @@
         <!-- /.wrapper -->
     </main><!-- /.app-main -->
 
-    {{--Fim da view do contabilista--}}
-
+    {{-- Fim da view do contabilista --}}
 @endsection
