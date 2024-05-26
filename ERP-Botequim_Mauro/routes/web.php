@@ -152,6 +152,7 @@ Route::get('/getMonthlySales', [SaleController::class, 'getMonthlySales']);
 
 //*Inicios dos metodos responsaveis por fazer a pesquisa dos dados nas tabelas
 Route::get('/search-products', [productController::class, 'search'])->name('search.products');
+Route::get('/search-sales', [SaleController::class, 'searchSales'])->name('search.sales');
 
 //*Inicio das rotas da parte de perfil
 

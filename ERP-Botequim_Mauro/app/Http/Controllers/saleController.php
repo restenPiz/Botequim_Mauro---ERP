@@ -341,4 +341,17 @@ class saleController extends Controller
             return response()->json(['error' => $e->getMessage()], 500);
         }
     }
+    //*Inicio do metodo responsavel por fazer a pesquisa de todas vendas
+    public function searchSales()
+    {
+        $query = Request::get('query');
+        $sales = Sale_History::with(['stocks', 'payment']) // Adapte os relacionamentos conforme necessário
+                    ->whereHas('product', function ($q) use ($query) {
+                        $q->where('Product_name', 'like', "%{$query}%");
+                    })
+                    ->orWhere('id', 'like', "%{$query}%") // Adapte conforme os campos da sua tabela
+                    ->get();
+
+        return response()->json($sales);
+    }
 }
