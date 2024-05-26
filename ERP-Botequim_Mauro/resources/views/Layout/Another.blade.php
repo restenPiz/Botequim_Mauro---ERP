@@ -182,37 +182,37 @@
                         {{-- Inicio do menu navbar --}}
                         <ul class="menu">
                             <!-- .menu-item -->
-                            <li class="menu-item has-active">
+                            <li class="menu-item {{ request()->routeIs('dashboard') ? 'has-active' : '' }} has-child">
                                 <a href="{{route('dashboard')}}" class="menu-link"><span class="menu-icon fas fa-home"></span>
                                     <span class="menu-text">Inicio</span></a>
                             </li><!-- /.menu-item -->
                             <!-- .menu-item -->
-                            <li class="menu-item has-child">
+                            <li class="menu-item {{ request()->routeIs('addUser','addStockManager','addAcountant') ? 'has-active' : '' }} has-child">
                                 <a href="#" class="menu-link"><span class="menu-icon far fa-user"></span> <span
                                         class="menu-text">Usuarios</span> {{-- <span
                                         class="badge badge-warning">New</span> --}}</a> <!-- child menu -->
                                 <ul class="menu">
-                                    <li class="menu-item">
+                                    <li class="menu-item {{ request()->routeIs('addUser') ? 'has-active' : '' }}">
                                         <a href="{{route('addUser')}}" class="menu-link">Adicionar Atendente</a>
                                     </li>
                                     
-                                    <li class="menu-item">
+                                    <li class="menu-item {{ request()->routeIs('addStockManager') ? 'has-active' : '' }}">
                                         <a href="{{route('addStockManager')}}" class="menu-link">Adicionar Gestor de Stock</a>
                                     </li>
 
-                                    <li class="menu-item">
+                                    <li class="menu-item {{ request()->routeIs('addAcountant') ? 'has-active' : '' }}">
                                         <a href="{{route('addAcountant')}}" class="menu-link">Adicionar Contabilista</a>
                                     </li>
                                 </ul><!-- /child menu -->
                             </li><!-- /.menu-item -->
                             <!-- .menu-item -->
-                            <li class="menu-item has-child">
+                            <li class="menu-item {{ request()->routeIs('addClient') ? 'has-active' : '' }} has-child">
                                 <a href="#" class="menu-link"><span class="menu-icon oi oi-pencil"></span>
                                     <span class="menu-text">Dividas</span> {{-- <span
                                         class="badge badge-warning">New</span> --}}</a>
                                 <!-- child menu -->
                                 <ul class="menu">
-                                    <li class="menu-item">
+                                    <li class="menu-item {{ request()->routeIs('addClient') ? 'has-active' : '' }}">
                                         <a href="{{route('addClient')}}" class="menu-link">Verificar Dividas</a>
                                     </li>
                                 </ul><!-- /child menu -->
@@ -221,66 +221,68 @@
                             <!-- .menu-header -->
                             <li class="menu-header">Stock </li><!-- /.menu-header -->
                             <!-- .menu-item -->
-                            <li class="menu-item has-child">
+                            <li class="menu-item {{ request()->routeIs('allCategories') ? 'has-active' : '' }} has-child">
                                 <a href="#" class="menu-link"><span
                                         class="menu-icon oi oi-puzzle-piece"></span> <span
                                         class="menu-text">Categorias</span> {{-- <span
                                         class="badge badge-warning">New</span> --}}</a>
                                 <!-- child menu -->
                                 <ul class="menu">
-                                    <li class="menu-item">
+                                    <li class="menu-item {{ request()->routeIs('allCategories') ? 'has-active' : '' }}">
                                         <a href="{{route('allCategories')}}" class="menu-link">Verificar Categorias</a>
                                     </li>
                                 </ul><!-- /child menu -->
                             </li><!-- /.menu-item --><!-- .menu-item -->
                            
-                            <li class="menu-item has-child">
+                            <li class="menu-item {{ request()->routeIs('allProduct') ? 'has-active' : '' }} has-child">
                                 <a href="#" class="menu-link"><span class="menu-icon fas fa-table"></span>
                                     <span class="menu-text">Producto</span> {{-- <span
                                         class="badge badge-warning">New</span> --}}</a>
                                 <!-- child menu -->
                                 <ul class="menu">
-                                    <li class="menu-item">
+                                    <li class="menu-item {{ request()->routeIs('allProduct') ? 'has-active' : '' }}">
                                         <a href="{{route('allProduct')}}" class="menu-link">Verificar Productos</a>
                                     </li>
                                 </ul><!-- /child menu -->
                             </li><!-- /.menu-item --><!-- .menu-item -->
-                            <li class="menu-item has-child">
+                            <li class="menu-item {{ request()->routeIs('allStock','allStockOut') ? 'has-active' : '' }} has-child">
                                 <a href="#" class="menu-link"><span class="menu-icon oi oi-list-rich"></span>
                                     <span class="menu-text">Stock</span> {{-- <span
                                         class="badge badge-warning">New</span> --}}</a> <!-- child menu -->
                                 <ul class="menu">
-                                    <li class="menu-item">
+                                    <li class="menu-item {{ request()->routeIs('allStock') ? 'has-active' : '' }}">
                                         <a href="{{route('allStock')}}" class="menu-link">Entrada de Productos</a>
                                     </li>
-                                    <li class="menu-item">
+                                    <li class="menu-item {{ request()->routeIs('allStockOut') ? 'has-active' : '' }}">
                                         <a href="{{route('allStockOut')}}" class="menu-link">Saida de Productos</a>
                                     </li>
                                 </ul><!-- /child menu -->
                             </li>
                             
                             <li class="menu-header">Venda </li><!-- /.menu-header -->
-                            <li class="menu-item">
+                            <li class="menu-item {{ request()->routeIs('allSale') ? 'has-active' : '' }}">
                                 <a href="{{route('allSale')}}" class="menu-link"><span class="menu-icon fas fa-money-check"></span>
                                     <span class="menu-text">Todas Vendas</span></a>
                             </li><!-- /.menu-item -->
-                            <li class="menu-item">
+                            <li class="menu-item {{ request()->routeIs('addPayment') ? 'has-active' : '' }}">
                                 <a href="{{route('addPayment')}}" class="menu-link"><span class="menu-icon fas fa-money-bill"></span>
                                     <span class="menu-text">Tipos de Pagamentos</span></a>
                             </li><!-- /.menu-item -->
                             
                             <li class="menu-header">Relatorio </li><!-- /.menu-header -->
                             
-                            <li class="menu-item has-child">
+                            <li class="menu-item {{ request()->routeIs('saleReport','productReport') ? 'has-active' : '' }} has-child">
                                 <a href="#" class="menu-link"><span
                                         class="menu-icon oi oi-bar-chart"></span> <span
                                         class="menu-text">Relatorios</span> {{-- <span
                                     class="badge badge-warning">New</span> --}}</a>
                                 <!-- child menu -->
                                 <ul class="menu">
-                                    <li class="menu-item">
+                                    <li class="menu-item {{ request()->routeIs('dashboard') ? 'has-active' : '' }}">
                                         <a href="{{ route('saleReport') }}" class="menu-link">
                                         <span class="menu-text">Relatorios de Vendas</span></a>
+                                    </li>
+                                    <li class="menu-item" {{ request()->routeIs('productReport') ? 'has-active' : '' }}>
                                         <a href="{{ route('productReport') }}" class="menu-link">
                                             <span class="menu-text">Relatorios de Productos</span></a>
                                     </li>
@@ -668,32 +670,28 @@
                         {{-- Inicio do menu navbar --}}
                         <ul class="menu">
                             <!-- .menu-item -->
-                            <li class="menu-item has-active">
-                                <a href="{{ route('dashboard') }}" class="menu-link"><span
-                                        class="menu-icon fas fa-home"></span>
+                            <li class="menu-item {{ request()->routeIs('dashboard') ? 'has-active' : '' }}">
+                                <a href="{{route('dashboard')}}" class="menu-link"><span class="menu-icon fas fa-home"></span>
                                     <span class="menu-text">Inicio</span></a>
                             </li><!-- /.menu-item -->
-
-                            <li class="menu-item has-child">
+                            
+                            <li class="menu-item {{ request()->routeIs('addClientRequest') ? 'has-active' : '' }} has-child">
                                 <a href="#" class="menu-link"><span class="menu-icon far fa-user"></span> <span
                                         class="menu-text">Pedidos</span> {{-- <span
-                                    class="badge badge-warning">New</span> --}}</a> <!-- child menu -->
+                                        class="badge badge-warning">New</span> --}}</a> <!-- child menu -->
                                 <ul class="menu">
-                                    <li class="menu-item">
-                                        <a href="{{ route('addClientRequest') }}" class="menu-link">Verificar
-                                            Pedidos</a>
+                                    <li class="menu-item {{ request()->routeIs('addClientRequest') ? 'has-active' : '' }}">
+                                        <a href="{{route('addClientRequest')}}" class="menu-link">Verificar Pedidos</a>
                                     </li>
                                 </ul><!-- /child menu -->
                             </li><!-- /.menu-item -->
-                            <!-- .menu-header -->
-
+                            
                             <li class="menu-header">Venda </li><!-- /.menu-header -->
-                            <li class="menu-item">
-                                <a href="{{route('allSale')}}" class="menu-link"><span
-                                        class="menu-icon fas fa-money-check"></span>
+                            <li class="menu-item" {{ request()->routeIs('allSale') ? 'has-active' : '' }}>
+                                <a href="{{route('allSale')}}" class="menu-link"><span class="menu-icon fas fa-money-check"></span>
                                     <span class="menu-text">Todas Vendas</span></a>
                             </li><!-- /.menu-item -->
-
+                            
                         </ul><!-- /.menu --><!-- /.menu -->
 <!-- /.menu -->
                     </nav><!-- /.stacked-menu -->
@@ -1058,32 +1056,50 @@
                         {{-- Inicio do menu navbar --}}
                         <ul class="menu">
                             <!-- .menu-item -->
-                            <li class="menu-item has-active">
-                                <a href="{{ route('dashboard') }}" class="menu-link"><span
+                            <li class="menu-item {{ request()->routeIs('dashboard') ? 'has-active' : '' }}">
+                                <a href="{{ route('dashboard') }}"   class="menu-link"><span
                                         class="menu-icon fas fa-home"></span>
                                     <span class="menu-text">Inicio</span></a>
-                            </li><!-- /.menu-item -->
-
-                            <li class="menu-item has-child">
-                                <a href="#" class="menu-link"><span class="menu-icon far fa-user"></span> <span
-                                        class="menu-text">Pedidos</span> {{-- <span
-                                    class="badge badge-warning">New</span> --}}</a> <!-- child menu -->
+                            </li>
+                            <li class="menu-item {{ request()->routeIs('allCategories') ? 'has-active' : '' }} has-child">
+                                <a href="#" class="menu-link"><span
+                                        class="menu-icon oi oi-puzzle-piece"></span> <span
+                                        class="menu-text">Categorias</span> {{-- <span
+                                    class="badge badge-warning">New</span> --}}</a>
+                                <!-- child menu -->
                                 <ul class="menu">
-                                    <li class="menu-item">
-                                        <a href="{{ route('addClientRequest') }}" class="menu-link">Verificar
-                                            Pedidos</a>
+                                    <li class="menu-item {{ request()->routeIs('allCategories') ? 'has-active' : '' }}">
+                                        <a href="{{ route('allCategories') }}" class="menu-link">Verificar
+                                            Categorias</a>
                                     </li>
                                 </ul><!-- /child menu -->
-                            </li><!-- /.menu-item -->
-                            <!-- .menu-header -->
+                            </li><!-- /.menu-item --><!-- .menu-item -->
 
-                            <li class="menu-header">Venda </li><!-- /.menu-header -->
-                            <li class="menu-item">
-                                <a href="{{route('allSale')}}" class="menu-link"><span
-                                        class="menu-icon fas fa-money-check"></span>
-                                    <span class="menu-text">Todas Vendas</span></a>
-                            </li><!-- /.menu-item -->
-
+                            <li class="menu-item {{ request()->routeIs('allProduct') ? 'has-active' : '' }} has-child">
+                                <a href="#" class="menu-link"><span class="menu-icon fas fa-table"></span>
+                                    <span class="menu-text">Producto</span> {{-- <span
+                                    class="badge badge-warning">New</span> --}}</a>
+                                <!-- child menu -->
+                                <ul class="menu">
+                                    <li class="menu-item {{ request()->routeIs('allProduct') ? 'has-active' : '' }}">
+                                        <a href="{{ route('allProduct') }}" class="menu-link">Verificar Productos</a>
+                                    </li>
+                                </ul><!-- /child menu -->
+                            </li><!-- /.menu-item --><!-- .menu-item -->
+                            <li class="menu-item {{ request()->routeIs('allStock','allStockOut') ? 'has-active' : '' }} has-child">
+                                <a href="#" class="menu-link"><span class="menu-icon oi oi-list-rich"></span>
+                                    <span class="menu-text">Stock</span> {{-- <span
+                                    class="badge badge-warning">New</span> --}}</a> <!-- child menu -->
+                                <ul class="menu">
+                                    <li class="menu-item {{ request()->routeIs('allStock') ? 'has-active' : '' }}">
+                                        <a href="{{ route('allStock') }}" class="menu-link">Entrada de Productos</a>
+                                    </li>
+                                    <li class="menu-item {{ request()->routeIs('allStockOut') ? 'has-active' : '' }}">
+                                        <a href="{{ route('allStockOut') }}" class="menu-link">Saida de Productos</a>
+                                    </li>
+                                </ul><!-- /child menu -->
+                            </li>
+                        
                         </ul><!-- /.menu --><!-- /.menu -->
 <!-- /.menu -->
                     </nav><!-- /.stacked-menu -->
