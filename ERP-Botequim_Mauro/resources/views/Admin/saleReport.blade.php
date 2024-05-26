@@ -21,38 +21,47 @@
                     <!-- .page-section -->
                     <header class="page-title-bar">
                         <div class="d-flex flex-column flex-md-row">
-                          <p class="lead">
-                            <span class="font-weight-bold">Relatorio sobre vendas</span> <span class="d-block text-muted"></span>
-                          </p>
-                          <div class="ml-auto">
-                            <!-- .dropdown -->
-                            <div class="row">
-                            <div class="dropdown" style="margin-right: 0.3rem">
-                              <button class="btn btn-secondary" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Esta Semana</span> <i class="fa fa-fw fa-caret-down"></i></button> <!-- .dropdown-menu -->
-                              <div class="dropdown-menu dropdown-menu-right dropdown-menu-md stop-propagation">
-                                <div class="dropdown-arrow"></div><!-- .custom-control -->
-                                <div class="custom-control custom-radio">
-                                  <input type="radio" class="custom-control-input" id="dpToday" name="dpFilter" data-start="2019/03/27" data-end="2019/03/27"> <label class="custom-control-label d-flex justify-content-between" for="dpToday"><span>Esta Semana</span> <span class="text-muted">Mar 27</span></label>
-                                </div><!-- /.custom-control -->
-                                <!-- .custom-control -->
-                                <div class="custom-control custom-radio">
-                                  <input type="radio" class="custom-control-input" id="dpYesterday" name="dpFilter" data-start="2019/03/26" data-end="2019/03/26"> <label class="custom-control-label d-flex justify-content-between" for="dpYesterday"><span>Último Mês</span> <span class="text-muted">Mar 26</span></label>
-                                </div><!-- /.custom-control -->
-                                <!-- .custom-control -->
-                                <div class="custom-control custom-radio">
-                                  <input type="radio" class="custom-control-input" id="dpWeek" name="dpFilter" data-start="2019/03/21" data-end="2019/03/27" checked> <label class="custom-control-label d-flex justify-content-between" for="dpWeek"><span>Dados Atuais</span> <span class="text-muted">Mar 21-27</span></label>
-                                </div><!-- /.custom-control -->
-                                
-                              </div><!-- /.dropdown-menu -->
-                            </div><!-- /.dropdown -->
-
-                            {{--Inicio do butao responsavel por baixar o pdf--}}
-                            <div class="dropdown">
-                                <button class="btn btn-secondary" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Exportar</span> <i class="fa fa-fw fa-caret-down"></i></button> <!-- .dropdown-menu -->
+                            <p class="lead">
+                                <span class="font-weight-bold">Relatório sobre vendas</span>
+                                <span class="d-block text-muted"></span>
+                            </p>
+                            <div class="ml-auto">
+                                <div class="row">
+                                    <!-- Dropdown para selecionar o período -->
+                                    <div class="dropdown" style="margin-right: 0.3rem">
+                                        <button class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <span>Esta Semana</span> <i class="fa fa-fw fa-caret-down"></i>
+                                        </button>
+                                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-md stop-propagation">
+                                            <div class="dropdown-arrow"></div>
+                                            <div class="custom-control custom-radio">
+                                                <input type="radio" class="custom-control-input" id="dpToday" name="period" data-period="week">
+                                                <label class="custom-control-label d-flex justify-content-between" for="dpToday">
+                                                    <span>Esta Semana</span> <span class="text-muted"></span>
+                                                </label>
+                                            </div>
+                                            <div class="custom-control custom-radio">
+                                                <input type="radio" class="custom-control-input" id="dpYesterday" name="period" data-period="month">
+                                                <label class="custom-control-label d-flex justify-content-between" for="dpYesterday">
+                                                    <span>Último Mês</span> <span class="text-muted"></span>
+                                                </label>
+                                            </div>
+                                            <div class="custom-control custom-radio">
+                                                <input type="radio" class="custom-control-input" id="dpWeek" name="period" data-period="current" checked>
+                                                <label class="custom-control-label d-flex justify-content-between" for="dpWeek">
+                                                    <span>Dados Atuais</span> <span class="text-muted"></span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Botão para exportar -->
+                                    <div class="dropdown">
+                                        <button class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <span>Exportar</span> <i class="fa fa-fw fa-caret-down"></i>
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
-                            {{--Fim do butao--}}
-                          </div>
-                          </div>
                         </div>
                     </header>
                     <div class="page-section">
@@ -64,9 +73,11 @@
                                 <div class="card card-fluid">
                                     <!-- .card-body -->
                                     <div class="card-body">
-                                        <h3 class="card-title mb-4"> Grafico sobre a quantidade de vendas efectuadas </h3>
+                                        <h3 class="card-title mb-4"> Grafico sobre os productos mais vendidos </h3>
                                         <div class="chartjs" style="height: 300px">
-                                            <canvas id="completion-tasks"></canvas>
+                                            {{-- <canvas id="completion-tasks"></canvas> --}}
+                                            <canvas id="topSellingProductsChart" width="400" height="200"></canvas>
+
                                         </div>
                                     </div><!-- /.card-body -->
                                 </div><!-- /.card -->
@@ -129,67 +140,19 @@
                                 </div><!-- /.card -->
                             </div>
 
-
-                            {{-- Inicio da tabela de productos mais vendidos --}}
                             <div class="col-xl-8">
-                                <!-- .card -->
                                 <div class="card card-fluid">
-                                    <!-- .card-header -->
-                                    <div class="card-header border-0">
-                                        <!-- .d-flex -->
-                                        <div class="d-flex align-items-center">
-                                            <span class="mr-auto">Productos mais vendidos</span>
-                                            <!-- .card-header-control -->
-                                            <div class="card-header-control">
-                                                <!-- .dropdown -->
-                                                <div class="dropdown">
-                                                    <button type="button" class="btn btn-icon btn-light"
-                                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
-                                                            class="fa fa-fw fa-ellipsis-v"></i></button>
-                                                    <div class="dropdown-menu dropdown-menu-right">
-                                                        <div class="dropdown-arrow"></div><a href="#"
-                                                            class="dropdown-item">Actions</a> <a href="#"
-                                                            class="dropdown-item">Goes here</a> <a href="#"
-                                                            class="dropdown-item">Remove</a>
-                                                    </div>
-                                                </div><!-- /.dropdown -->
-                                            </div><!-- /.card-header-control -->
-                                        </div><!-- /.d-flex -->
-                                    </div><!-- /.card-header -->
-                                    <!-- .table-responsive -->
-                                    <div class="table-responsive">
-                                        <!-- .table -->
-                                        <table class="table">
-                                            <!-- thead -->
-                                            <thead>
-                                                <tr>
-                                                    <th style="min-width:260px"> Nome do Producto </th>
-                                                    <th class="text-center"> Quantidade </th>
-                                                    <th class="text-right" style="min-width:142px">  </th>
-                                                </tr>
-                                            </thead><!-- /thead -->
-                                            <!-- tbody -->
-                                            <tbody id="top-selling-products-table">
-                                                <!-- tr -->
-                                                {{-- <tr>
-                                                    <td class="align-middle text-truncate">
-                                                        <a href="#" class="tile bg-blue text-white mr-2">BA</a> <a
-                                                            href="#">Booking App</a>
-                                                    </td>
-                                                    <td class="align-middle text-center">
-                                                        <span class="badge bg-blue text-white">35%</span>
-                                                    </td>
-                                                    <td class="align-middle text-center"> 35:28 </td>
-                                                </tr><!-- /tr --> --}}
-                                                <!-- /tr -->
-                                            </tbody><!-- /tbody -->
-                                        </table><!-- /.table -->
-                                    </div>
+                                    <!-- .card-body -->
+                                    <div class="card-body">
+                                        <h3 class="card-title mb-4"> Grafico de vendas de cada mes </h3>
+                                        <div class="chartjs" style="height: 300px">
+                                            {{-- <canvas id="completion-tasks"></canvas> --}}
+                                            <canvas id="monthlySalesChart" width="400" height="200"></canvas>
+                                        </div>
+                                    </div><!-- /.card-body -->
                                 </div><!-- /.card -->
                             </div>
                         </div>
-                        {{-- Fim da tabela de productos mais vendidos --}}
-
                     </div><!-- /grid row -->
                 </div><!-- /.page-section -->
             </div><!-- /.page-inner -->

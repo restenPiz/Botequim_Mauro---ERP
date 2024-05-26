@@ -265,23 +265,80 @@ class saleController extends Controller
     }
 
     //*Inicio do metodo que retorna os productos mais vendidos
-    public function getTopSellingProducts()
+    public function getTopSellingProducts(\Request $request)
     {   
-        try{
-            $topSellingProducts = Sale_History::select(
-                'products.Product_name as name',
-                DB::raw('SUM(sale__histories.Quantity) as total_quantity')
-            )
-            ->join('stocks', 'sale__histories.Id_stock', '=', 'stocks.id')
+        // try{
+        //     $topSellingProducts = Sale_History::select(
+        //         'products.Product_name as name',
+        //         DB::raw('SUM(sale__histories.Quantity) as total_quantity')
+        //     )
+        //     ->join('stocks', 'sale__histories.Id_stock', '=', 'stocks.id')
+        //     ->join('products', 'stocks.Id_product', '=', 'products.id')
+        //     ->groupBy('products.Product_name')
+        //     ->orderBy('total_quantity', 'desc')
+        //     ->get();
+
+        //     return response()->json($topSellingProducts);
+        // } catch (\Exception $e) {
+        //     \Log::error('Error fetching sales data: ' . $e->getMessage());
+        //     return response()->json(['error' => 'Internal Server Error'], 500);
+        // }
+        $period = Request::query('period', 'current');
+
+        switch ($period) {
+            case 'week':
+                $startDate = now()->subWeek();
+                break;
+            case 'month':
+                $startDate = now()->subMonth();
+                break;
+            case 'current':
+            default:
+                $startDate = now()->startOfYear(); // Exemplo para dados atuais do ano
+                break;
+        }
+
+        $topSellingProducts = Sale_History::join('stocks', 'sale__histories.Id_stock', '=', 'stocks.id')
             ->join('products', 'stocks.Id_product', '=', 'products.id')
+            ->where('sale__histories.created_at', '>=', $startDate)
+            ->select('products.Product_name as name', DB::raw('SUM(sale__histories.Quantity) as total_quantity'))
             ->groupBy('products.Product_name')
-            ->orderBy('total_quantity', 'desc')
+            ->orderByDesc('total_quantity')
             ->get();
 
-            return response()->json($topSellingProducts);
+        return response()->json($topSellingProducts);
+    }
+    public function getBestSellingProducts()
+    {
+        $bestSellingProducts = Sale_History::with('stocks.product')
+            ->select('Id_stock', \DB::raw('SUM(Quantity) as quantity_sold'))
+            ->groupBy('Id_stock')
+            ->orderBy('quantity_sold', 'desc')
+            ->get()
+            ->map(function($sale) {
+                return [
+                    'product_name' => $sale->stocks->product->Product_name,
+                    'quantity_sold' => $sale->quantity_sold
+                ];
+            });
+
+        return response()->json($bestSellingProducts);
+    }
+    public function getMonthlySales()
+    {
+        try {
+            $monthlySales = Sale_History::select(
+                DB::raw('MONTH(created_at) as month_num'),
+                DB::raw('MONTHNAME(created_at) as month'),
+                DB::raw('COUNT(id) as total_sales')
+            )
+            ->groupBy(DB::raw('MONTH(created_at)'), DB::raw('MONTHNAME(created_at)'))
+            ->orderBy('month_num', 'asc')
+            ->get();
+
+            return response()->json($monthlySales);
         } catch (\Exception $e) {
-            \Log::error('Error fetching sales data: ' . $e->getMessage());
-            return response()->json(['error' => 'Internal Server Error'], 500);
+            return response()->json(['error' => $e->getMessage()], 500);
         }
     }
 }

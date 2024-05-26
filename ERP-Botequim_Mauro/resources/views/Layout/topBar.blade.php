@@ -386,7 +386,7 @@
         @include('sweetalert::alert')
         {{-- Fim do link do sweetAlerta --}}
 
-        <script>
+        {{-- <script>
             //?Inicio do metodo que retorna os productos mais vendidos;
             $(document).ready(function() {
                 fetch('/getTopSellingProducts')
@@ -414,8 +414,280 @@
                         console.error('Error fetching top selling products:', error);
                     });
             });
-        </script>
+        </script> --}}
+        <script>
+           async function fetchMonthlySalesData() {
+                try {
+                    const response = await fetch('/getMonthlySales');
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok ' + response.statusText);
+                    }
+                    const data = await response.json();
+                    generateMonthlySalesChart(data);
+                } catch (error) {
+                    console.error('Error fetching monthly sales data:', error);
+                }
+            }
 
+            function generateMonthlySalesChart(data) {
+                var months = [];
+                var sales = [];
+
+                data.forEach(function(sale) {
+                    months.push(sale.month);
+                    sales.push(sale.total_sales);
+                });
+
+                var ctx = document.getElementById('monthlySalesChart').getContext('2d');
+                var monthlySalesChart = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: months,
+                        datasets: [{
+                            label: 'Vendas Mensais',
+                            data: sales,
+                            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                            borderColor: 'rgba(75, 192, 192, 1)',
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+            }
+
+            // Chama a função para buscar e gerar o gráfico
+            fetchMonthlySalesData();
+            
+            $(document).ready(function() {
+                // Função para buscar os dados do servidor
+                function fetchBestSellingProductsData() {
+                    return $.ajax({
+                        url: 'http://127.0.0.1:8000/getBestSellingProducts',
+                        method: 'GET',
+                        dataType: 'json',
+                        success: function(response) {
+                            return response;
+                        },
+                        error: function(error) {
+                            console.error('Erro ao buscar os dados de vendas:', error);
+                        }
+                    });
+                }
+
+                // Inicializa o gráfico Chart.js
+                async function initChart() {
+                    const salesData = await fetchBestSellingProductsData();
+
+                    const labels = salesData.map(item => item.product_name);
+                    const data = salesData.map(item => item.quantity_sold);
+
+                    const ctx = document.getElementById('bestSellingProductsChart').getContext('2d');
+                    new Chart(ctx, {
+                        type: 'line',
+                        data: {
+                            labels: labels,
+                            datasets: [{
+                                label: 'Quantidade que Saiu',
+                                data: data,
+                                backgroundColor: [
+                                    'rgba(255, 99, 132, 0.2)',
+                                    'rgba(54, 162, 235, 0.2)',
+                                    'rgba(255, 206, 86, 0.2)',
+                                    'rgba(75, 192, 192, 0.2)',
+                                    'rgba(153, 102, 255, 0.2)',
+                                    'rgba(255, 159, 64, 0.2)',
+                                    'rgba(199, 199, 199, 0.2)',
+                                    'rgba(83, 102, 255, 0.2)',
+                                    'rgba(255, 99, 255, 0.2)',
+                                    'rgba(99, 255, 132, 0.2)'
+                                ],
+                                borderColor: [
+                                    'rgba(255, 99, 132, 1)',
+                                    'rgba(54, 162, 235, 1)',
+                                    'rgba(255, 206, 86, 1)',
+                                    'rgba(75, 192, 192, 1)',
+                                    'rgba(153, 102, 255, 1)',
+                                    'rgba(255, 159, 64, 1)',
+                                    'rgba(199, 199, 199, 1)',
+                                    'rgba(83, 102, 255, 1)',
+                                    'rgba(255, 99, 255, 1)',
+                                    'rgba(99, 255, 132, 1)'
+                                ],
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            indexAxis: 'y',
+                            responsive: true,
+                            plugins: {
+                                legend: {
+                                    position: 'top',
+                                },
+                                title: {
+                                    display: true,
+                                    text: 'Produtos Com Mais Saidas'
+                                }
+                            }
+                        }
+                    });
+                }
+
+                // Chama a função para inicializar o gráfico
+                initChart();
+            });
+            $(document).ready(function() {
+                // Inicializa o gráfico Chart.js
+                const ctx = document.getElementById('topSellingProductsChart').getContext('2d');
+                let topSellingProductsChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: [],
+                        datasets: [{
+                            label: 'Quantidade Vendida',
+                            data: [],
+                            backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                            borderColor: 'rgba(54, 162, 235, 1)',
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+        
+                // Função para buscar e carregar os dados
+                function loadData(period) {
+                    fetch(`/getTopSellingProducts?period=${period}`)
+                        .then(response => response.json())
+                        .then(data => {
+                            if (Array.isArray(data)) {
+                                const tableBody = $('#top-selling-products-table');
+                                tableBody.empty(); // Limpar quaisquer dados existentes
+        
+                                // Atualiza os dados da tabela
+                                data.forEach(product => {
+                                    const row = `<tr>
+                                                    <td class="align-middle text-truncate">${product.name}</td>
+                                                    <td class="align-middle text-center">${product.total_quantity}</td>
+                                                    <td class="align-middle text-center">
+                                                    </td>
+                                                </tr>`;
+                                    tableBody.append(row);
+                                });
+        
+                                // Atualiza os dados do gráfico
+                                const labels = data.map(product => product.name);
+                                const quantities = data.map(product => product.total_quantity);
+        
+                                topSellingProductsChart.data.labels = labels;
+                                topSellingProductsChart.data.datasets[0].data = quantities;
+                                topSellingProductsChart.update();
+                            } else {
+                                console.error('Data received is not an array');
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Error fetching top selling products:', error);
+                        });
+                }
+        
+                // Carregar dados atuais por padrão
+                loadData('current');
+        
+                // Adicionar event listeners aos botões do dropdown
+                $('.dropdown-menu .custom-control-input').on('click', function() {
+                    const period = $(this).data('period');
+                    loadData(period);
+                });
+            });
+
+            $(document).ready(function() {
+                // Função para buscar os dados do servidor
+                function fetchStockData() {
+                    return $.ajax({
+                        url: 'http://127.0.0.1:8000/getStockQuantities',
+                        method: 'GET',
+                        dataType: 'json',
+                        success: function(response) {
+                            return response;
+                        },
+                        error: function(error) {
+                            console.error('Erro ao buscar os dados do estoque:', error);
+                        }
+                    });
+                }
+
+                // Inicializa o gráfico Chart.js
+                async function initChart() {
+                    const stockData = await fetchStockData();
+
+                    const labels = stockData.map(item => item.product_name);
+                    const data = stockData.map(item => item.quantity);
+
+                    const ctx = document.getElementById('stockQuantityChart').getContext('2d');
+                    new Chart(ctx, {
+                        type: 'doughnut',
+                        data: {
+                            labels: labels,
+                            datasets: [{
+                                label: 'Quantidade em Estoque',
+                                data: data,
+                                backgroundColor: [
+                                    'rgba(255, 99, 132, 0.2)',
+                                    'rgba(54, 162, 235, 0.2)',
+                                    'rgba(255, 206, 86, 0.2)',
+                                    'rgba(75, 192, 192, 0.2)',
+                                    'rgba(153, 102, 255, 0.2)',
+                                    'rgba(255, 159, 64, 0.2)',
+                                    'rgba(199, 199, 199, 0.2)',
+                                    'rgba(83, 102, 255, 0.2)',
+                                    'rgba(255, 99, 255, 0.2)',
+                                    'rgba(99, 255, 132, 0.2)'
+                                ],
+                                borderColor: [
+                                    'rgba(255, 99, 132, 1)',
+                                    'rgba(54, 162, 235, 1)',
+                                    'rgba(255, 206, 86, 1)',
+                                    'rgba(75, 192, 192, 1)',
+                                    'rgba(153, 102, 255, 1)',
+                                    'rgba(255, 159, 64, 1)',
+                                    'rgba(199, 199, 199, 1)',
+                                    'rgba(83, 102, 255, 1)',
+                                    'rgba(255, 99, 255, 1)',
+                                    'rgba(99, 255, 132, 1)'
+                                ],
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            plugins: {
+                                legend: {
+                                    position: 'top',
+                                },
+                                title: {
+                                    display: true,
+                                    text: 'Produtos com Maior Quantidade em Estoque'
+                                }
+                            }
+                        }
+                    });
+                }
+
+                // Chama a função para inicializar o gráfico
+                initChart();
+            });
+        </script>
     </body>
 
     </html>

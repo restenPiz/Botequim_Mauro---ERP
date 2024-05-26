@@ -124,4 +124,20 @@ class stockController extends Controller
 
         return view('Admin.allStockOut',compact('products'));
     }
+    //*Inicio do metodo que retorna os productos com as suas quantidades
+    public function getStockQuantities()
+    {
+        $stockQuantities = Stock::with('product')
+            ->select('Id_product', \DB::raw('SUM(Quantity) as quantity'))
+            ->groupBy('Id_product')
+            ->get()
+            ->map(function($stock) {
+                return [
+                    'product_name' => $stock->product->Product_name,
+                    'quantity' => $stock->quantity
+                ];
+            });
+
+        return response()->json($stockQuantities);
+    }
 }
