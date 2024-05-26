@@ -280,7 +280,6 @@ class saleController extends Controller
 
             return response()->json($topSellingProducts);
         } catch (\Exception $e) {
-            // Log the error for debugging
             \Log::error('Error fetching sales data: ' . $e->getMessage());
             return response()->json(['error' => 'Internal Server Error'], 500);
         }
