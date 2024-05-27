@@ -81,9 +81,6 @@
                                 <div class="d-md-flex align-items-md-start">
                                     <h1 class="page-title mr-sm-auto"> Todos Clientes </h1><!-- .btn-toolbar -->
                                     <div class="btn-toolbar">
-                                        <button type="button" class="btn btn-light"><i
-                                                class="oi oi-data-transfer-download"></i> <span
-                                                class="ml-1">Exportar</span></button> 
                                         {{-- <div class="dropdown">
                                             <button type="button" class="btn btn-light"
                                                 data-toggle="dropdown"><span>Mais</span> <span

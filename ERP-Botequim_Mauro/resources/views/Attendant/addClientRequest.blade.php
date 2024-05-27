@@ -20,25 +20,47 @@
                                         @csrf
                                         <!-- form row -->
                                         <div class="form-row">
-                                            <!-- form column -->
+                                            <!-- Nome do Cliente -->
                                             <div class="col-md-12 mb-3">
-                                                <label for="input01">Nome do Cliente</label> <input type="text"
-                                                    class="form-control" id="input01" placeholder="Nome do Cliente" name="Name_client" required="">
-                                            </div><!-- /form column -->
-                                            <!-- form column -->
+                                                <label for="input01">Nome do Cliente</label>
+                                                <input type="text" class="form-control @error('Name_client') is-invalid @enderror" id="input01" placeholder="Nome do Cliente" name="Name_client" value="{{ old('Name_client') }}" required>
+                                                @error('Name_client')
+                                                    <div class="invalid-feedback">
+                                                        <i class="fa fa-exclamation-circle fa-fw"></i> {{ $message }}
+                                                    </div>
+                                                @enderror
+                                            </div>
+                                            <!-- Apelido -->
                                             <div class="col-md-12 mb-3">
-                                                <label for="input02">Apelido</label> <input type="text"
-                                                class="form-control" placeholder="Apelido" id="input02" name="Surname" required="">
-                                            </div><!-- /form column -->
+                                                <label for="input02">Apelido</label>
+                                                <input type="text" class="form-control @error('Surname') is-invalid @enderror" id="input02" placeholder="Apelido" name="Surname" value="{{ old('Surname') }}" required>
+                                                @error('Surname')
+                                                    <div class="invalid-feedback">
+                                                        <i class="fa fa-exclamation-circle fa-fw"></i> {{ $message }}
+                                                    </div>
+                                                @enderror
+                                            </div>
+                                            <!-- Idade -->
                                             <div class="col-md-12 mb-3">
-                                                <label for="input02">Idade</label> <input type="text"
-                                                class="form-control" placeholder="Idade" id="input02" name="Age" required="">
-                                            </div><!-- /form column -->
+                                                <label for="input03">Idade</label>
+                                                <input type="number" class="form-control @error('Age') is-invalid @enderror" id="input03" placeholder="Idade" name="Age" value="{{ old('Age') }}" required>
+                                                @error('Age')
+                                                    <div class="invalid-feedback">
+                                                        <i class="fa fa-exclamation-circle fa-fw"></i> {{ $message }}
+                                                    </div>
+                                                @enderror
+                                            </div>
+                                            <!-- Morada -->
                                             <div class="col-md-12 mb-3">
-                                                <label for="input02">Morada</label> <input type="text"
-                                                class="form-control" placeholder="Morada" id="input02" name="Household" required="">
-                                            </div><!-- /form column -->
-                                            <input type="hidden" name="client_type" value="request">
+                                                <label for="input04">Morada</label>
+                                                <input type="text" class="form-control @error('Household') is-invalid @enderror" id="input04" placeholder="Morada" name="Household" value="{{ old('Household') }}" required>
+                                                @error('Household')
+                                                    <div class="invalid-feedback">
+                                                        <i class="fa fa-exclamation-circle fa-fw"></i> {{ $message }}
+                                                    </div>
+                                                @enderror
+                                            </div>
+                                             <input type="hidden" name="client_type" value="request">
                                         </div>
                                         <button type="submit"
                                                name="submit" class="btn btn-primary text-nowrap ml-auto">Adicionar Cliente</button>

@@ -99,27 +99,7 @@
                                 <!-- title and toolbar -->
                                 <div class="d-md-flex align-items-md-start">
                                     <h1 class="page-title mr-sm-auto"> Todos Gestores de Stock </h1><!-- .btn-toolbar -->
-                                    <div class="btn-toolbar">
-                                        <button type="button" class="btn btn-light"><i
-                                                class="oi oi-data-transfer-download"></i> <span
-                                                class="ml-1">Exportar</span></button> <button type="button"
-                                            class="btn btn-light"><i class="oi oi-data-transfer-upload"></i> <span
-                                                class="ml-1">Importar</span></button>
-                                        <div class="dropdown">
-                                            <button type="button" class="btn btn-light"
-                                                data-toggle="dropdown"><span>Mais</span> <span
-                                                    class="fa fa-caret-down"></span></button>
-                                            <div class="dropdown-menu dropdown-menu-right">
-                                                <div class="dropdown-arrow"></div><a href="#"
-                                                    class="dropdown-item">Add tasks</a> <a href="#"
-                                                    class="dropdown-item">Invite members</a>
-                                                <div class="dropdown-divider"></div><a href="#"
-                                                    class="dropdown-item">Share</a> <a href="#"
-                                                    class="dropdown-item">Archive</a> <a href="#"
-                                                    class="dropdown-item">Remove</a>
-                                            </div>
-                                        </div>
-                                    </div><!-- /.btn-toolbar -->
+                                    
                                 </div><!-- /title and toolbar -->
                             </header><!-- /.page-title-bar -->
                             <!-- .page-section -->

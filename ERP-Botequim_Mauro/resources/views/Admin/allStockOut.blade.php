@@ -39,12 +39,6 @@
                                             <div class="form-group">
                                                 <!-- .input-group -->
                                                 <div class="input-group input-group-alt">
-                                                    <!-- .input-group-prepend -->
-                                                    <div class="input-group-prepend">
-                                                        <select id="filterBy" class="custom-select">
-                                                            <option value='' selected> Filtrar Por </option>
-                                                        </select>
-                                                    </div><!-- /.input-group-prepend -->
                                                     <!-- .input-group -->
                                                     <div class="input-group has-clearable">
                                                         <button id="clear-search" type="button" class="close"
@@ -143,11 +137,6 @@
                                                 <!-- .input-group -->
                                                 <div class="input-group input-group-alt">
                                                     <!-- .input-group-prepend -->
-                                                    <div class="input-group-prepend">
-                                                        <select id="filterBy" class="custom-select">
-                                                            <option value='' selected> Filtrar Por </option>
-                                                        </select>
-                                                    </div><!-- /.input-group-prepend -->
                                                     <!-- .input-group -->
                                                     <div class="input-group has-clearable">
                                                         <button id="clear-search" type="button" class="close"
@@ -248,11 +237,6 @@
                                                 <!-- .input-group -->
                                                 <div class="input-group input-group-alt">
                                                     <!-- .input-group-prepend -->
-                                                    <div class="input-group-prepend">
-                                                        <select id="filterBy" class="custom-select">
-                                                            <option value='' selected> Filtrar Por </option>
-                                                        </select>
-                                                    </div><!-- /.input-group-prepend -->
                                                     <!-- .input-group -->
                                                     <div class="input-group has-clearable">
                                                         <button id="clear-search" type="button" class="close"

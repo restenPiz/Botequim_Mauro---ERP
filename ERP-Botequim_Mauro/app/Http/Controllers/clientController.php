@@ -10,6 +10,7 @@ use App\Models\ProductRequest;
 use App\Models\Stock;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 use Request;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -172,6 +173,32 @@ class clientController extends Controller
     public function storeClientRequest()
     {
         $productRequest = new ProductRequest();
+
+        $rules = [
+            'Id_client' => 'required|exists:clients,id',
+            'Id_stock' => 'required|exists:stocks,id',
+            'Quantity' => 'required|integer|min:1',
+        ];
+
+        // Mensagens de erro personalizadas
+        $messages = [
+            'Id_client.required' => 'Por favor, selecione um cliente.',
+            'Id_client.exists' => 'O cliente selecionado é inválido.',
+            'Id_stock.required' => 'Por favor, selecione um produto.',
+            'Id_stock.exists' => 'O produto selecionado é inválido.',
+            'Quantity.required' => 'A quantidade é obrigatória.',
+            'Quantity.integer' => 'A quantidade deve ser um número inteiro.',
+            'Quantity.min' => 'A quantidade deve ser pelo menos 1.',
+        ];
+
+        // Executa a validação
+        $validator = Validator::make(Request::all(), $rules, $messages);
+
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
+        }
 
         $productRequest->Id_client = Request::input('Id_client');
         $productRequest->Id_stock = Request::input('Id_stock');

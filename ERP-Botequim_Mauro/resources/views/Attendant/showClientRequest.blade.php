@@ -20,34 +20,50 @@
                                         @csrf
                                         <!-- form row -->
                                         <div class="form-row">
-                                            <!-- form column -->
+                                            <!-- Nome do Cliente -->
                                             <div class="col-md-12 mb-3">
                                                 <label for="input01">Nome do Cliente</label>
-                                                <select name="Id_client" id="Id_client" class="form-control">
-                                                    <option value="{{ $client->id }}" selected>{{ $client->Name_client }}
-                                                        {{ $client->Surname }}</option>
+                                                <select name="Id_client" id="Id_client" class="form-control @error('Id_client') is-invalid @enderror" required>
+                                                    <option value="{{ $client->id }}" selected>{{ $client->Name_client }} {{ $client->Surname }}</option>
                                                 </select>
+                                                @error('Id_client')
+                                                    <div class="invalid-feedback">
+                                                        <i class="fa fa-exclamation-circle fa-fw"></i> {{ $message }}
+                                                    </div>
+                                                @enderror
                                             </div><!-- /form column -->
+                                        
+                                            <!-- Nome do Producto -->
                                             <div class="col-md-12 mb-3">
                                                 <label for="input01">Nome do Producto</label>
-                                                <select class="form-control" name="Id_stock" id="Id_product"
-                                                    onchange="prod(this);">
+                                                <select class="form-control @error('Id_stock') is-invalid @enderror" name="Id_stock" id="Id_product" onchange="prod(this);" required>
                                                     <option>--Selecione o Producto --</option>
                                                     @foreach ($stocks as $product)
-                                                        <option value="{{ $product->product->id }}">
-                                                            {{ $product->product->Product_name }}</option>
+                                                        <option value="{{ $product->product->id }}">{{ $product->product->Product_name }}</option>
                                                     @endforeach
                                                 </select>
+                                                @error('Id_stock')
+                                                    <div class="invalid-feedback">
+                                                        <i class="fa fa-exclamation-circle fa-fw"></i> {{ $message }}
+                                                    </div>
+                                                @enderror
                                             </div>
+                                        
+                                            <!-- Preço do Producto -->
                                             <div class="col-md-12 mb-3">
                                                 <label for="input02">Preco do Producto</label>
-                                                <input type="text" class="form-control" placeholder="Preco do Producto"
-                                                    id="Price" name="Product_price" value="" disabled>
+                                                <input type="text" class="form-control" placeholder="Preco do Producto" id="Price" name="Product_price" value="" disabled>
                                             </div><!-- /form column -->
+                                        
+                                            <!-- Quantidade -->
                                             <div class="col-md-12 mb-3">
-                                                <label for="input02">Quantidade</label> <input type="text"
-                                                    class="form-control" placeholder="Quantidade" id="input02"
-                                                    name="Quantity" required="">
+                                                <label for="input02">Quantidade</label>
+                                                <input type="number" class="form-control @error('Quantity') is-invalid @enderror" placeholder="Quantidade" id="input02" name="Quantity" required>
+                                                @error('Quantity')
+                                                    <div class="invalid-feedback">
+                                                        <i class="fa fa-exclamation-circle fa-fw"></i> {{ $message }}
+                                                    </div>
+                                                @enderror
                                             </div><!-- /form column -->
                                         </div>
                                         <button type="submit" name="submit" class="btn btn-primary text-nowrap ml-auto"

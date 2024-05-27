@@ -9,6 +9,7 @@ use App\Models\Sale_History;
 use App\Models\Stock;
 use Auth;
 use DB;
+use Illuminate\Support\Facades\Validator;
 use RealRashid\SweetAlert\Facades\Alert;
 use Request;
 
@@ -17,6 +18,28 @@ class saleController extends Controller
     public function storeSale()
     {
         $sales=new Sale();
+
+        $rules = [
+            'Id_stock' => 'required|exists:stocks,id',
+            'Quantity' => 'required|integer|min:1',
+        ];
+
+        // Mensagens de erro personalizadas
+        $messages = [
+            'Id_stock.required' => 'Por favor, selecione um produto.',
+            'Id_stock.exists' => 'O produto selecionado é inválido.',
+            'Quantity.required' => 'A quantidade é obrigatória.',
+            'Quantity.integer' => 'A quantidade deve ser um número inteiro.',
+            'Quantity.min' => 'A quantidade deve ser pelo menos 1.',
+        ];
+        
+        $validator = Validator::make(Request::all(), $rules, $messages);
+
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
+        }
 
         $sales->Product_price=Request::input('Product_price');
         $sales->Quantity=Request::input('Quantity');
@@ -267,22 +290,6 @@ class saleController extends Controller
     //*Inicio do metodo que retorna os productos mais vendidos
     public function getTopSellingProducts(\Request $request)
     {   
-        // try{
-        //     $topSellingProducts = Sale_History::select(
-        //         'products.Product_name as name',
-        //         DB::raw('SUM(sale__histories.Quantity) as total_quantity')
-        //     )
-        //     ->join('stocks', 'sale__histories.Id_stock', '=', 'stocks.id')
-        //     ->join('products', 'stocks.Id_product', '=', 'products.id')
-        //     ->groupBy('products.Product_name')
-        //     ->orderBy('total_quantity', 'desc')
-        //     ->get();
-
-        //     return response()->json($topSellingProducts);
-        // } catch (\Exception $e) {
-        //     \Log::error('Error fetching sales data: ' . $e->getMessage());
-        //     return response()->json(['error' => 'Internal Server Error'], 500);
-        // }
         $period = Request::query('period', 'current');
 
         switch ($period) {

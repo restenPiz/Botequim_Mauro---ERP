@@ -69,7 +69,6 @@
                                                     <th> Valor Total </th>
                                                     <th> Valor Pago </th>
                                                     <th> Troco </th>
-                                                    <th> IVA </th>
                                                     <th> Data de Venda </th>
                                                 </tr>
                                             </thead>
@@ -91,7 +90,6 @@
                                                             $troco=$product->Total_price - $product->Amount
                                                             
                                                         }} </td>
-                                                        <td class="align-middle"> {{ $iva }} </td>
                                                         <td class="align-middle"> 
                                                             <span class="badge badge-subtle badge-warning">{{$product->created_at}}</span>
                                                         </td>
@@ -141,14 +139,14 @@
                                 <div class="d-md-flex align-items-md-start">
                                     <h1 class="page-title mr-sm-auto"> Todas Vendas </h1><!-- .btn-toolbar -->
                                     <div class="btn-toolbar">
-                                        <button type="button" class="btn btn-light"><i
+                                        <button type="button" class="btn btn-light" onclick="printPage()"><i
                                                 class="oi oi-data-transfer-download"></i> <span
                                                 class="ml-1">Exportar</span></button> 
                                     </div><!-- /.btn-toolbar -->
                                 </div><!-- /title and toolbar -->
                             </header><!-- /.page-title-bar -->
                             <!-- .page-section -->
-
+                            
                             {{-- Table section --}}
                             <div class="card mt-4" style="margin-top:-4rem">
                                 <!-- .card-body -->
@@ -178,7 +176,6 @@
                                                     <th> Valor Total </th>
                                                     <th> Valor Pago </th>
                                                     <th> Troco </th>
-                                                    <th> IVA </th>
                                                     <th> Data de Venda </th>
                                                     <th></th>
                                                 </tr>
@@ -201,7 +198,6 @@
                                                             $troco=$product->Total_price - $product->Amount
                                                             
                                                         }} </td>
-                                                        <td class="align-middle"> {{ $iva }} </td>
                                                         <td class="align-middle"> 
                                                             <span class="badge badge-subtle badge-warning">{{$product->created_at}}</span>
                                                         </td>

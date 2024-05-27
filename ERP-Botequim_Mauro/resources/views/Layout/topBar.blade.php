@@ -401,6 +401,12 @@
             gtag('config', 'UA-116692175-1');
         </script>
 
+<script>
+    function printPage()
+    {
+        window.print();
+    }
+</script>
         {{-- Inicio do link de sweetAlerta --}}
         @include('sweetalert::alert')
         {{-- Fim do link do sweetAlerta --}}
@@ -1010,6 +1016,14 @@
             });
         </script>
 
+        
+<script>
+    function printPage()
+    {
+        window.print();
+    }
+</script>
+
         <script>
             $(document).ready(function() {
                 var fieldsDisabled = localStorage.getItem('fieldsDisabled');
@@ -1350,6 +1364,12 @@
         </div><!-- /.app -->
         <!-- BEGIN BASE JS -->
 
+        <script>
+            function printPage()
+            {
+                window.print();
+            }
+        </script>
         <script>
             function productos(product) {
 
@@ -1784,6 +1804,13 @@
 
         </div><!-- /.app -->
         <!-- BEGIN BASE JS -->
+
+        <script>
+            function printPage()
+            {
+                window.print();
+            }
+        </script>
 
         <script>
             function productos(product) {

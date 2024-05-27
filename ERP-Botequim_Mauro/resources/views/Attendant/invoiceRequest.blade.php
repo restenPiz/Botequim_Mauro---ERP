@@ -34,7 +34,7 @@
                         <!-- .modal-dialog -->
                         <div class="modal-dialog" role="document">
                             <!-- .modal-content -->
-                            <form action="{{ route('storeSaleRequest') }}"
+                            <form action="{{ route('storeSaleRequest',['id'=>$clients->id]) }}"
                                 method="post">
                                 @csrf
 
@@ -103,10 +103,7 @@
                                                 class="fa fa-caret-down"></span></button>
                                         <div class="dropdown-menu dropdown-menu-right">
                                             <div class="dropdown-arrow mr-1"></div><button type="button" id="download-pdf"
-                                                class="dropdown-item">Download PDF</button> <button type="button"
-                                                class="dropdown-item">Share...</button>
-                                            <div class="dropdown-divider"></div><button type="button"
-                                                class="dropdown-item">Mark as paid</button>
+                                                class="dropdown-item">Download PDF</button> 
                                         </div>
                                     </div>
                                 </div><!-- /.invoice-actions -->

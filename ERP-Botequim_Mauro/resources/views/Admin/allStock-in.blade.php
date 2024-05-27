@@ -25,7 +25,7 @@
                                         <div class="col-md-12 mb-3">
                                             <label>Nome de Producto</label>
                                             {{--Inicio do input de selecao de Productos--}}
-                                            <select class="form-control @error('Id_product') is-invalid @enderror" name="Id_product" id="Product_name" required="" onchange="productos(this);" required="">
+                                            <select class="form-control @error('Id_product') is-invalid @enderror" required name="Id_product" id="Product_name" onchange="productos(this);">
                                                 <option>--Selecione o Produto--</option>
                                                 @foreach ($products as $stock)
                                                     <option value="{{ $stock->id }}">{{ $stock->Product_name }}</option>
@@ -75,13 +75,13 @@
                         {{-- Inicio da tabela de todos eventos --}}
                         <header class="page-title-bar">
                             <!-- floating action -->
+                                        
+                            <button type="button" class="btn btn-success btn-floated"><span class="fa fa-plus"></span></button> <!-- /floating action -->
+                            <!-- title and toolbar -->
                             <!-- title and toolbar -->
                             <div class="d-md-flex align-items-md-start">
                                 <h1 class="page-title mr-sm-auto"> Entrada de Productos </h1><!-- .btn-toolbar -->
                                 <div class="btn-toolbar">
-                                    <button type="button" class="btn btn-light"><i
-                                            class="oi oi-data-transfer-download"></i> <span
-                                            class="ml-1">Exportar</span></button> 
                                             {{-- <button type="button"
                                         class="btn btn-light"><i class="oi oi-data-transfer-upload"></i> <span
                                             class="ml-1">Importar</span></button> --}}
@@ -112,11 +112,6 @@
                                 <div class="table-responsive">
                                     <div class="input-group input-group-alt">
                                         <!-- .input-group-prepend -->
-                                        <div class="input-group-prepend">
-                                          <select id="filterBy" class="custom-select">
-                                            <option value='' selected> Filtrar Por </option>
-                                          </select>
-                                        </div><!-- /.input-group-prepend -->
                                         <!-- .input-group -->
                                         <div class="input-group has-clearable">
                                           <button id="clear-search" type="button" class="close" aria-label="Close"><span aria-hidden="true"><i class="fa fa-times-circle"></i></span></button>
@@ -388,6 +383,9 @@
                                     <button type="button" class="btn btn-light"><i
                                             class="oi oi-data-transfer-download"></i> <span
                                             class="ml-1">Exportar</span></button> 
+                                                                        
+                                            <button type="button" class="btn btn-success btn-floated"><span class="fa fa-plus"></span></button> <!-- /floating action -->
+                                            <!-- title and toolbar -->
                                             {{-- <button type="button"
                                         class="btn btn-light"><i class="oi oi-data-transfer-upload"></i> <span
                                             class="ml-1">Importar</span></button> --}}
