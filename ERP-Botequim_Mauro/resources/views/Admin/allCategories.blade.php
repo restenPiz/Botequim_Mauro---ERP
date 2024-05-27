@@ -88,17 +88,21 @@
                                                                             <div class="col-md-12">
                                                                                 <div class="form-group">
                                                                                     <label for="cnContactName">Nome da Categoria</label>
-                                                                                    <input type="text" id="cnContactName"
-                                                                                        class="form-control"
-                                                                                        name="Category_name"
-                                                                                        placeholder="Nome do Evento">
+                                                                                    <input type="text" id="cnContactName" class="form-control @error('Category_name') is-invalid @enderror" name="Category_name" placeholder="Nome do Evento" value="{{ old('Category_name') }}">
+                                                                                    @error('Category_name')
+                                                                                        <div class="invalid-feedback">
+                                                                                            <i class="fa fa-exclamation-circle fa-fw"></i> {{ $message }}
+                                                                                        </div>
+                                                                                    @enderror
                                                                                 </div>
                                                                                 <div class="form-group">
-                                                                                    <label for="cnContactEmail">Codigo da Categoria</label>
-                                                                                    <input type="text" id="cnContactName"
-                                                                                        class="form-control"
-                                                                                        name="Code" placeholder="Codigo da Categoria"
-                                                                                        value="">
+                                                                                    <label for="cnContactCode">Codigo da Categoria</label>
+                                                                                    <input type="text" id="cnContactCode" class="form-control @error('Code') is-invalid @enderror" name="Code" placeholder="Codigo da Categoria" value="{{ old('Code') }}">
+                                                                                    @error('Code')
+                                                                                        <div class="invalid-feedback">
+                                                                                            <i class="fa fa-exclamation-circle fa-fw"></i> Codigo repetido. Escolha outro codigo
+                                                                                        </div>
+                                                                                    @enderror
                                                                                 </div>
                                                                             </div>
                                                                         </div><!-- /.form-row -->
@@ -252,16 +256,24 @@
                                         @csrf
                                         <!-- form row -->
                                         <div class="form-row">
-                                            <!-- form column -->
                                             <div class="col-md-12 mb-3">
-                                                <label for="input01">Nome da Categoria</label> <input type="text"
-                                                    class="form-control" id="input01" placeholder="Nome da Categoria" name="Category_name" required="">
-                                            </div><!-- /form column -->
-                                            <!-- form column -->
+                                                <label for="input01">Nome da Categoria</label>
+                                                <input type="text" class="form-control @error('Category_name') is-invalid @enderror" id="input01" placeholder="Nome da Categoria" name="Category_name" value="{{ old('Category_name') }}" required>
+                                                @error('Category_name')
+                                                    <div class="invalid-feedback">
+                                                        <i class="fa fa-exclamation-circle fa-fw"></i> {{ $message }}
+                                                    </div>
+                                                @enderror
+                                            </div>
                                             <div class="col-md-12 mb-3">
-                                                <label for="input02">Codigo</label> <input type="text"
-                                                class="form-control" placeholder="Codigo" id="input02" name="Code" required="">
-                                            </div><!-- /form column -->
+                                                <label for="input02">Codigo</label>
+                                                <input type="text" class="form-control @error('Code') is-invalid @enderror" id="input02" placeholder="Codigo" name="Code" value="{{ old('Code') }}" required>
+                                                @error('Code')
+                                                    <div class="invalid-feedback">
+                                                        <i class="fa fa-exclamation-circle fa-fw"></i> {{ $message }}
+                                                    </div>
+                                                @enderror
+                                            </div>
                                         </div>
                                         <button type="submit"
                                                name="submit" class="btn btn-primary text-nowrap ml-auto">Adicionar Categoria</button>

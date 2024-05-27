@@ -26,6 +26,10 @@ class stockController extends Controller
     {
         $stock = Stock::find($id);
 
+        $validatedData = Request::validate([
+            'Id_product' => 'required|string|max:255',
+        ]);
+
         $stock->id=Request::input('id');
         $stock->Quantity=Request::input('Quantity');
         $stock->Code=Request::input('Code');
@@ -44,6 +48,10 @@ class stockController extends Controller
     public function storeStock()
     {
         $stock=new Stock();
+
+        $validatedData = Request::validate([
+            'Id_product' => 'required|string|max:255',
+        ]);
 
         $stock->Quantity=Request::input('Quantity');
         $stock->Code=Request::input('Code');

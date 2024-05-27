@@ -22,6 +22,11 @@ class categoriesController extends Controller
     {
         $table=new Category();
 
+        $validatedData = Request::validate([
+            'Category_name' => 'required|string|max:255',
+            'Code' => 'required|string|max:255|unique:categories,Code',
+        ]);
+
         $table->Category_name=Request::input('Category_name');
         $table->Code=Request::input('Code');
 

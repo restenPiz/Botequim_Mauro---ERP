@@ -28,6 +28,13 @@ class clientController extends Controller
         if (Auth::check()) {
             $client=new Client();
 
+            $validatedData = Request::validate([
+                'Name_client' => 'required|string|max:255',
+                'Surname' => 'required|string|max:255',
+                'Age' => 'required|integer|min:21',
+                'Household' => 'required|string|max:255',
+            ]);
+
             $client->Name_client=Request::input('Name_client');
             $client->Surname=Request::input('Surname');
             $client->Age=Request::input('Age');
@@ -51,6 +58,13 @@ class clientController extends Controller
     public function updateClient($id)
     {
         $client=Client::find($id);
+
+        $validatedData = Request::validate([
+            'Name_client' => 'required|string|max:255',
+            'Surname' => 'required|string|max:255',
+            'Age' => 'required|integer|min:21',
+            'Household' => 'required|string|max:255',
+        ]);
 
         $client->Name_client=Request::input('Name_client');
         $client->Surname=Request::input('Surname');

@@ -26,6 +26,17 @@ class productController extends Controller
     {
         $products = new Product();
 
+        $validatedData = Request::validate([
+            'Product_name' => 'required|string|max:255',
+            'Quantity' => 'required|integer|min:1',
+            'Code' => 'required|string|max:255|unique:products,Code',
+            'Price' => 'required|numeric|min:1',
+            'Sale_price' => 'required|numeric|min:1',
+            'Entry_date' => 'required|date|after_or_equal:today',
+            'Expiry_date' => 'required|date|after:Entry_date',
+            'Id_category' => 'required|exists:categories,id'
+        ]);
+
         $products->Product_name=Request::input('Product_name');
         $products->Quantity=Request::input('Quantity');
         $products->Code=Request::input('Code');
@@ -45,6 +56,17 @@ class productController extends Controller
     public function updateProduct($id)
     {
         $products = Product::findOrFail($id);
+
+        $validatedData = Request::validate([
+            'Product_name' => 'required|string|max:255',
+            'Quantity' => 'required|integer|min:1',
+            'Code' => 'required|string|max:255|unique:products,Code',
+            'Price' => 'required|numeric|min:1',
+            'Sale_price' => 'required|numeric|min:1',
+            'Entry_date' => 'required|date|after_or_equal:today',
+            'Expiry_date' => 'required|date|after:Entry_date',
+            'Id_category' => 'required|exists:categories,id'
+        ]);
 
         $products->Product_name=Request::input('Product_name');
         $products->Quantity=Request::input('Quantity');

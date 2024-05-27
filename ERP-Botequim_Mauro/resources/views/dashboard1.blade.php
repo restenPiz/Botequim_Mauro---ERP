@@ -35,7 +35,7 @@
                                                         <div class="col-md-12 mb-3">
                                                             <label for="input01">Nome do Producto</label>
                                                             <select class="form-control" name="Id_stock" id="Id_product"
-                                                                onchange="prod(this);">
+                                                                onchange="prod(this);" required="">
                                                                 <option>--Selecione o Producto --</option>
                                                                 @foreach ($stocks as $product)
                                                                     <option value="{{ $product->product->id }}">
@@ -47,7 +47,7 @@
                                                             <label for="input02">Preco do Producto</label>
                                                             <input type="text" class="form-control"
                                                                 placeholder="Preco do Producto" id="Price"
-                                                                name="Product_price" value="" disabled>
+                                                                name="Product_price" value="" disabled required>
                                                         </div><!-- /form column -->
                                                         <div class="col-md-12 mb-3">
                                                             <label for="input02">Quantidade</label> <input type="text"

@@ -25,12 +25,15 @@
                                         <div class="col-md-12 mb-3">
                                             <label>Nome de Producto</label>
                                             {{--Inicio do input de selecao de Productos--}}
-                                            <select class="form-control" name="Id_product" id="Product_name" onchange="productos(this);">
+                                            <select class="form-control @error('Id_product') is-invalid @enderror" name="Id_product" id="Product_name" onchange="productos(this);" required="">
                                                 <option>--Selecione o Produto--</option>
                                                 @foreach ($products as $stock)
                                                     <option value="{{ $stock->id }}">{{ $stock->Product_name }}</option>
                                                 @endforeach
                                             </select> 
+                                            @error('Id_product')
+                                                <div class="invalid-feedback">{{ $message }}</div>
+                                            @enderror
                                             {{--Fim do input de selecao--}}
                                         </div>
                                         <div class="col-md-12 mb-3">
