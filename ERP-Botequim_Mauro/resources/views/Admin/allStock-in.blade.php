@@ -38,27 +38,27 @@
                                         </div>
                                         <div class="col-md-12 mb-3">
                                             <label for="input02">Quantidade</label> 
-                                            <input type="text" value="" class="form-control" id="Quantity" placeholder="Quantidade" name="Quantity" disabled>
+                                            <input type="text" value="" class="form-control" id="Quantity" placeholder="Quantidade" name="Quantity" disabled required>
                                         </div><!-- /form column -->
                                         <!-- form column -->
                                         <div class="col-md-12 mb-3">
                                             <label for="input01">Codigo de Barra</label> 
-                                            <input type="text" value="" class="form-control" id="Code" placeholder="Codigo de Barra" name="Code" disabled>
+                                            <input type="text" value="" class="form-control" id="Code" placeholder="Codigo de Barra" name="Code" disabled required>
                                         </div><!-- /form column -->
                                         <!-- form column -->
                                         <div class="col-md-12 mb-3">
                                             <label for="input02">Preco do Produto</label> 
-                                            <input type="text" value="" class="form-control" id="Price" placeholder="Preco do Produto"  name="Price" disabled>
+                                            <input type="text" value="" class="form-control" id="Price" placeholder="Preco do Produto"  name="Price" disabled required>
                                         </div><!-- /form column -->
                                         <!-- form column -->
                                         <div class="col-md-12 mb-3">
                                             <label for="input01">Data de Entrada</label> 
-                                            <input type="date" value="" class="form-control" id="Entry_date" name="Entry_date" disabled>
+                                            <input type="date" value="" class="form-control" id="Entry_date" name="Entry_date" disabled required>
                                         </div><!-- /form column -->
                                         <!-- form column -->
                                         <div class="col-md-12 mb-3">
                                             <label for="input01">Data de Validade</label> 
-                                            <input type="date" value="" class="form-control" id="Expiry_date" name="Expiry_date" disabled>
+                                            <input type="date" value="" class="form-control" id="Expiry_date" name="Expiry_date" disabled required>
                                         </div><!-- /form column -->
                                     </div>
                                     <button type="submit" name="submit" class="btn btn-primary text-nowrap ml-auto" onclick="enableFields()">Adicionar Entrada</button>

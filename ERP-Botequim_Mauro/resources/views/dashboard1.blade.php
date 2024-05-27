@@ -47,7 +47,7 @@
                                                             <label for="input02">Preco do Producto</label>
                                                             <input type="text" class="form-control"
                                                                 placeholder="Preco do Producto" id="Price"
-                                                                name="Product_price" value="" disabled required>
+                                                                name="Product_price" value="" disabled>
                                                         </div><!-- /form column -->
                                                         <div class="col-md-12 mb-3">
                                                             <label for="input02">Quantidade</label> <input type="text"
