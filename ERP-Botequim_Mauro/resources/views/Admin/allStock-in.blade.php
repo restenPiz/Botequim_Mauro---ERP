@@ -103,7 +103,7 @@
                                                 <div class="form-group">
                                                     <label>Nome de Producto</label>
                                                     <select class="form-control" name="Id_product" id="Id_product" onchange="prod(this);">
-                                                        <option>---- ==Selecione== ----</option>
+                                                        <option>===== Selecione ======</option>
                                                         @foreach ($products as $stock)
                                                             <option value="{{ $stock->id }}">{{ $stock->Product_name }}</option>
                                                         @endforeach
