@@ -77,28 +77,66 @@
                             <!-- floating action -->
                                         
                             <button type="button" class="btn btn-success btn-floated"><span class="fa fa-plus"></span></button> <!-- /floating action -->
-                            <!-- title and toolbar -->
-                            <!-- title and toolbar -->
+                            
+                            {{--Inicio do modal de acrescimo da quantidade do producto--}}
+                            <div class="modal fade" id="clientNewModal{{ $stock->id }}"
+                                tabindex="-1" role="dialog" aria-labelledby="clientNewModalLabel"
+                                aria-hidden="true">
+                                <!-- .modal-dialog -->
+                                <div class="modal-dialog" role="document">
+                                    <!-- .modal-content -->
+                                    <form action="{{ route('updateStock', ['id' => $stock->id]) }}"
+                                        method="post">
+                                        @csrf
+
+                                        <div class="modal-content">
+                                            <!-- .modal-header -->
+                                            <div class="modal-header">
+                                                <h6 id="clientNewModalLabel"
+                                                    class="modal-title inline-editable">
+                                                    <span class="sr-only">Formulario de Acrescimo de Productos</span>
+                                                </h6>
+                                            </div><!-- /.modal-header -->
+                                            <!-- .modal-body -->
+                                            <div class="modal-body">
+                                                <!-- .form-row -->
+                                                <div class="form-row">
+                                                    <div class="col-md-12">
+                                                        <div class="form-group">
+                                                            <label for="cnContactName">Quantidade</label>
+                                                            <input type="text" 
+                                                                class="form-control"
+                                                                name="Quantity" id="quantity" value="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <div class="form-group">
+                                                            <label for="cnContactName">Preco</label>
+                                                            <input type="text" id="price"
+                                                                class="form-control"
+                                                                name="Price" value="">
+                                                        </div>
+                                                    </div>
+                                                </div><!-- /.form-row -->
+
+                                            </div><!-- /.modal-body -->
+                                            <!-- .modal-footer -->
+                                            <div class="modal-footer">
+                                                <button type="submit" name="submit"
+                                                    class="btn btn-primary" onclick="enableField()">Fazer Acrescimo no
+                                                    Producto</button>
+                                                <button type="button" class="btn btn-light"
+                                                    data-dismiss="modal">Fechar</button>
+                                            </div><!-- /.modal-footer -->
+                                        </div><!-- /.modal-content -->
+                                    </form>
+                                </div><!-- /.modal-dialog -->
+                            </div>
+                            {{--Fim do modal de acrescimo--}}
+
                             <div class="d-md-flex align-items-md-start">
                                 <h1 class="page-title mr-sm-auto"> Entrada de Productos </h1><!-- .btn-toolbar -->
                                 <div class="btn-toolbar">
-                                            {{-- <button type="button"
-                                        class="btn btn-light"><i class="oi oi-data-transfer-upload"></i> <span
-                                            class="ml-1">Importar</span></button> --}}
-                                    {{-- <div class="dropdown">
-                                        <button type="button" class="btn btn-light"
-                                            data-toggle="dropdown"><span>Mais</span> <span
-                                                class="fa fa-caret-down"></span></button>
-                                        <div class="dropdown-menu dropdown-menu-right">
-                                            <div class="dropdown-arrow"></div><a href="#"
-                                                class="dropdown-item">Add tasks</a> <a href="#"
-                                                class="dropdown-item">Invite members</a>
-                                            <div class="dropdown-divider"></div><a href="#"
-                                                class="dropdown-item">Share</a> <a href="#"
-                                                class="dropdown-item">Archive</a> <a href="#"
-                                                class="dropdown-item">Remove</a>
-                                        </div>
-                                    </div> --}}
                                 </div><!-- /.btn-toolbar -->
                             </div><!-- /title and toolbar -->
                         </header><!-- /.page-title-bar -->

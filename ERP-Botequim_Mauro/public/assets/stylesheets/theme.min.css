@@ -12286,8 +12286,8 @@ td.hljs-ln-code {
     position: fixed;
     right: 1.25rem;
     bottom: 4rem;
-    /* width: 3.5rem; */
-    /* height: 3.5rem; */
+     width: 3.5rem; 
+     height: 3.5rem;
     font-size: 1.25rem;
     line-height: 1;
     border-radius: 3rem;
