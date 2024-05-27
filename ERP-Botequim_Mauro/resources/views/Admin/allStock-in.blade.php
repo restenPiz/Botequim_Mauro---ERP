@@ -76,10 +76,10 @@
                         <header class="page-title-bar">
                             <!-- floating action -->
                                         
-                            <button type="button" class="btn btn-success btn-floated"><span class="fa fa-plus"></span></button> <!-- /floating action -->
+                            <button type="button" data-toggle="modal" data-target="#quantityModal" class="btn btn-success btn-floated"><span class="fa fa-plus"></span></button> <!-- /floating action -->
                             
                             {{--Inicio do modal de acrescimo da quantidade do producto--}}
-                            <div class="modal fade" id="clientNewModal{{ $stock->id }}"
+                            <div class="modal fade" id="quantityModal"
                                 tabindex="-1" role="dialog" aria-labelledby="clientNewModalLabel"
                                 aria-hidden="true">
                                 <!-- .modal-dialog -->
@@ -100,24 +100,23 @@
                                             <!-- .modal-body -->
                                             <div class="modal-body">
                                                 <!-- .form-row -->
-                                                <div class="form-row">
-                                                    <div class="col-md-12">
-                                                        <div class="form-group">
-                                                            <label for="cnContactName">Quantidade</label>
-                                                            <input type="text" 
-                                                                class="form-control"
-                                                                name="Quantity" id="quantity" value="">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-12">
-                                                        <div class="form-group">
-                                                            <label for="cnContactName">Preco</label>
-                                                            <input type="text" id="price"
-                                                                class="form-control"
-                                                                name="Price" value="">
-                                                        </div>
-                                                    </div>
-                                                </div><!-- /.form-row -->
+                                                <div class="form-group">
+                                                    <label>Nome de Producto</label>
+                                                    <select class="form-control" name="Id_product" id="Id_product" onchange="prod(this);">
+                                                        <option>---- ==Selecione== ----</option>
+                                                        @foreach ($products as $stock)
+                                                            <option value="{{ $stock->id }}">{{ $stock->Product_name }}</option>
+                                                        @endforeach
+                                                    </select> 
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="cnContactName">Quantidade</label>
+                                                    <input type="text" 
+                                                        class="form-control"
+                                                        name="Quantity" id="quantity"
+                                                        placeholder="Digite a quantidade desejada">
+                                                </div>
+                                            <!-- /.form-row -->
 
                                             </div><!-- /.modal-body -->
                                             <!-- .modal-footer -->
@@ -128,6 +127,7 @@
                                                 <button type="button" class="btn btn-light"
                                                     data-dismiss="modal">Fechar</button>
                                             </div><!-- /.modal-footer -->
+                                        </div>
                                         </div><!-- /.modal-content -->
                                     </form>
                                 </div><!-- /.modal-dialog -->
