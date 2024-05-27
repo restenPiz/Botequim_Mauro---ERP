@@ -81,32 +81,42 @@
             <!-- .form-group -->
             <div class="form-group">
                 <div class="form-label-group">
-                    <input type="text" id="inputUser" name="email" :value="old('email')" class="form-control"
+                    <input type="text" id="inputUser" name="email" value="{{ old('email') }}" class="form-control @error('email') is-invalid @enderror"
                         placeholder="Nome de Usuario" autofocus="">
                     <label for="inputUser">Nome do Usuario</label>
+                    @error('email')
+                        <div class="invalid-feedback">
+                            <i class="fa fa-exclamation-circle fa-fw"></i> {{ $message }}
+                        </div>
+                    @enderror
                 </div>
             </div><!-- /.form-group -->
             <!-- .form-group -->
             <div class="form-group">
                 <div class="form-label-group">
-                    <input type="password" for="password" :value="__('Password')" name="password" id="inputPassword"
-                        class="form-control" placeholder="Senha"> <label for="inputPassword">Senha</label>
+                    <input type="password" name="password" id="inputPassword"
+                        class="form-control @error('password') is-invalid @enderror" placeholder="Senha">
+                    <label for="inputPassword">Senha</label>
+                    @error('password')
+                        <div class="invalid-feedback">
+                            <i class="fa fa-exclamation-circle fa-fw"></i> {{ $message }}
+                        </div>
+                    @enderror
                 </div>
-            </div><!-- /.form-group -->
-            <!-- .form-group -->
+            </div><!-- /.form-group --><!-- .form-group -->
             <div class="form-group">
                 <button class="btn btn-lg btn-primary btn-block" type="submit" name="submit">Entrar</button>
             </div><!-- /.form-group -->
             <!-- .form-group -->
-            <div class="form-group text-center">
+            {{-- <div class="form-group text-center">
                 <div class="custom-control custom-control-inline custom-checkbox">
                     <input id="remember_me" type="checkbox" type="checkbox" class="custom-control-input"
                         name="remember"> <label class="custom-control-label" for="remember-me">Lembre-me</label>
                 </div>
-            </div><!-- /.form-group -->
+            </div><!-- /.form-group --> --}}
 
             {{-- Inicio do link de registro--}}
-            <a href="{{route('register')}}">Registre-se</a>
+            {{-- <a href="{{route('register')}}">Registre-se</a> --}}
             {{--Fim do link de registro --}}
 
         </form><!-- /.auth-form -->
