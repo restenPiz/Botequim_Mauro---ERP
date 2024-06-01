@@ -80,16 +80,16 @@
                                                         <td class="align-middle"> 
                                                             <span class="badge badge-subtle badge-success">{{$product->payments->Name_payment}}</span>
                                                         </td>
-                                                        <td class="align-middle"> {{ $product->Product_price }} </td>
-                                                        <td class="align-middle"> {{ $product->Amount }} </td>
+                                                        <td class="align-middle"> {{ $product->Product_price }} MZN</td>
+                                                        <td class="align-middle"> {{ $product->Amount }} MZN</td>
                                                         <td class="align-middle"> 
-                                                            <span class="badge badge-subtle badge-primary">{{ $product->Total_price }}
+                                                            <span class="badge badge-subtle badge-primary">{{ $product->Total_price }} MZN
                                                             </span></td>
                                                         <td class="align-middle"> {{
                                                             
                                                             $troco=$product->Total_price - $product->Amount
                                                             
-                                                        }} </td>
+                                                        }} MZN</td>
                                                         <td class="align-middle"> 
                                                             <span class="badge badge-subtle badge-warning">{{$product->created_at}}</span>
                                                         </td>
@@ -188,16 +188,16 @@
                                                         <td class="align-middle"> 
                                                             <span class="badge badge-subtle badge-success">{{$product->payments->Name_payment}}</span>
                                                         </td>
-                                                        <td class="align-middle"> {{ $product->Product_price }} </td>
-                                                        <td class="align-middle"> {{ $product->Amount }} </td>
+                                                        <td class="align-middle"> {{ $product->Product_price }} MZN</td>
+                                                        <td class="align-middle"> {{ $product->Amount }} MZN</td>
                                                         <td class="align-middle"> 
-                                                            <span class="badge badge-subtle badge-primary">{{ $product->Total_price }}
+                                                            <span class="badge badge-subtle badge-primary">{{ $product->Total_price }} MZN
                                                             </span></td>
                                                         <td class="align-middle"> {{
                                                             
                                                             $troco=$product->Total_price - $product->Amount
                                                             
-                                                        }} </td>
+                                                        }} MZN</td>
                                                         <td class="align-middle"> 
                                                             <span class="badge badge-subtle badge-warning">{{$product->created_at}}</span>
                                                         </td>
