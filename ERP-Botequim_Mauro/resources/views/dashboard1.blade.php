@@ -265,6 +265,10 @@
                                                                                                     </select>
                                                                                                 </div>
                                                                                                 <div class="form-group">
+                                                                                                    <label for="totalPrice">Valor Total a Pagar</label>
+                                                                                                    <input type="text" placeholder="Valor a Pagar" class="form-control" id="totalPrice" value="{{ $amount }} MZN" disabled>
+                                                                                                </div>
+                                                                                                <div class="form-group">
                                                                                                     <label for="amountPaid">Valor Recebido</label>
                                                                                                     <input type="text" placeholder="Valor Recebido" class="form-control" name="Total_price" id="amountPaid">
                                                                                                 </div>
@@ -300,7 +304,7 @@
                                                         <div style="text-align: center">
                                                             <td class="align-middle">
                                                                 <button class="btn text-nowrap ml-auto" id="Amount" style="background-color: black; color:white; border-radius:0; width:330%;">
-                                                                    Valor Total: {{$amount}} MT
+                                                                    Valor Total: {{$amount}} MZN
                                                                 </button>
                                                             </td>
                                                         </div>
