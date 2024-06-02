@@ -304,7 +304,7 @@
                                                     <tfoot>
                                                         <div style="text-align: center">
                                                             <td class="align-middle">
-                                                                <button class="btn text-nowrap ml-auto"
+                                                                <button class="btn text-nowrap ml-auto" id="Amount"
                                                                     style="background-color: black;color:white; border-radius:0;
                                                                     width:330%">Valor
                                                                     Total: {{$amount}} MT</button>
