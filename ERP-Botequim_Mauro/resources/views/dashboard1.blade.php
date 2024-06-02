@@ -207,6 +207,7 @@
                                                                                                 name="Quantity" id="quantity"
                                                                                                 placeholder="{{ $sale->Quantity }}" value="{{ $sale->Quantity }}">
                                                                                         </div>
+
                                                                                     </div>
                                                                                     <input type="hidden" name="id"
                                                                                         value="{{ $sale->id }}">
@@ -269,6 +270,15 @@
                                                                                                         class="form-control"
                                                                                                         name="Total_price">
                                                                                                 </div>
+        
+                                                                                                {{--Inicio do campo de troco--}}
+
+                                                                                                <div class="form-group">
+                                                                                                    <label for="change">Troco</label>
+                                                                                                    <input type="text" class="form-control" name="Change" id="change" placeholder="" value="" readonly>
+                                                                                                </div>
+
+                                                                                                {{--Fim do campo de troco--}}
                                                                                             </div>
                                                                                         </div><!-- /.form-row -->
             
