@@ -265,19 +265,14 @@
                                                                                                     </select>
                                                                                                 </div>
                                                                                                 <div class="form-group">
-                                                                                                    <label for="cnContactEmail">Valor a Pagar</label>
-                                                                                                    <input type="text" placeholder="Valor a Pagar"
-                                                                                                        class="form-control"
-                                                                                                        name="Total_price">
+                                                                                                    <label for="amountPaid">Valor Recebido</label>
+                                                                                                    <input type="text" placeholder="Valor Recebido" class="form-control" name="Total_price" id="amountPaid">
                                                                                                 </div>
-        
-                                                                                                {{--Inicio do campo de troco--}}
-
+                                                                                            
                                                                                                 <div class="form-group">
                                                                                                     <label for="change">Troco</label>
                                                                                                     <input type="text" class="form-control" name="Change" id="change" placeholder="" value="" readonly>
                                                                                                 </div>
-
                                                                                                 {{--Fim do campo de troco--}}
                                                                                             </div>
                                                                                         </div><!-- /.form-row -->
@@ -304,10 +299,9 @@
                                                     <tfoot>
                                                         <div style="text-align: center">
                                                             <td class="align-middle">
-                                                                <button class="btn text-nowrap ml-auto" id="Amount"
-                                                                    style="background-color: black;color:white; border-radius:0;
-                                                                    width:330%">Valor
-                                                                    Total: {{$amount}} MT</button>
+                                                                <button class="btn text-nowrap ml-auto" id="Amount" style="background-color: black; color:white; border-radius:0; width:330%;">
+                                                                    Valor Total: {{$amount}} MT
+                                                                </button>
                                                             </td>
                                                         </div>
                                                     </tfoot>
