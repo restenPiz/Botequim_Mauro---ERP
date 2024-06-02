@@ -266,11 +266,11 @@
                                                                                                 </div>
                                                                                                 <div class="form-group">
                                                                                                     <label for="totalPrice">Valor Total a Pagar</label>
-                                                                                                    <input type="text" placeholder="Valor a Pagar" class="form-control" id="totalPrice" value="{{ $amount }} MZN" disabled>
+                                                                                                    <input type="text" placeholder="Valor a Pagar" class="form-control" id="totalPrice" value="{{ $amount }}" disabled>
                                                                                                 </div>
                                                                                                 <div class="form-group">
                                                                                                     <label for="amountPaid">Valor Recebido</label>
-                                                                                                    <input type="number" placeholder="Valor Recebido" class="form-control" name="Total_price" id="amountPaid" oninput="calculateChange()">
+                                                                                                    <input type="number" placeholder="Valor Recebido" class="form-control" name="Total_price" id="amountPaid">
                                                                                                 </div>
                                                                                                 <div class="form-group">
                                                                                                     <label for="change">Troco</label>

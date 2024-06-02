@@ -2010,16 +2010,25 @@
 </script> --}}
         
     {{--Inicio do script responsavel por gerar o valor de troco--}}        
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
-        function calculateChange() {
-            const totalPrice = parseFloat({{ $amount }}); // Certifique-se de que $amount está disponível no contexto
-            const amountPaidInput = document.getElementById('amountPaid');
-            const changeInput = document.getElementById('change');
-    
-            const amountPaid = parseFloat(amountPaidInput.value) || 0;
-            const change = amountPaid - totalPrice;
-            changeInput.value = (change >= 0 ? change.toFixed(2) : '0.00') + ' MZN';
-        }
+        $(document).ready(function () {
+            // Função para calcular o troco
+            function calculateChange() {
+                // Obter o valor total e o valor pago
+                var totalPrice = parseFloat($("#totalPrice").val());
+                var amountPaid = parseFloat($("#amountPaid").val());
+                
+                // Calcular o troco
+                var change = amountPaid - totalPrice;
+
+                // Atualizar o campo de troco
+                $("#change").val(change.toFixed(2));
+            }
+
+            // Adicionar um event listener para o input de valor pago
+            $("#amountPaid").on("input", calculateChange);
+        });
     </script>
     {{--Fim do script responsavel por gerar o troco--}}
 
