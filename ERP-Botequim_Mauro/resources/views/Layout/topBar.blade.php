@@ -2011,23 +2011,15 @@
         
     {{--Inicio do script responsavel por gerar o valor de troco--}}        
     <script>
-        document.addEventListener('DOMContentLoaded', (event) => {
-            const totalPriceInput = document.getElementById('totalPrice');
+        function calculateChange() {
+            const totalPrice = parseFloat({{ $amount }}); // Certifique-se de que $amount está disponível no contexto
             const amountPaidInput = document.getElementById('amountPaid');
             const changeInput = document.getElementById('change');
-
-            // Extract total amount from the input
-            const totalAmount = parseFloat(totalPriceInput.value);
-
-            function calculateChange() {
-                const amountPaid = parseFloat(amountPaidInput.value) || 0;
-                const change = amountPaid - totalAmount;
-
-                changeInput.value = change >= 0 ? change.toFixed(2) : '0.00';
-            }
-
-            amountPaidInput.addEventListener('input', calculateChange);
-        });
+    
+            const amountPaid = parseFloat(amountPaidInput.value) || 0;
+            const change = amountPaid - totalPrice;
+            changeInput.value = (change >= 0 ? change.toFixed(2) : '0.00') + ' MZN';
+        }
     </script>
     {{--Fim do script responsavel por gerar o troco--}}
 

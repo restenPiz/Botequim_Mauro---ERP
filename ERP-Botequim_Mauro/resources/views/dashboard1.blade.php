@@ -270,12 +270,11 @@
                                                                                                 </div>
                                                                                                 <div class="form-group">
                                                                                                     <label for="amountPaid">Valor Recebido</label>
-                                                                                                    <input type="text" placeholder="Valor Recebido" class="form-control" name="Total_price" id="amountPaid">
+                                                                                                    <input type="number" placeholder="Valor Recebido" class="form-control" name="Total_price" id="amountPaid" oninput="calculateChange()">
                                                                                                 </div>
-                                                                                            
                                                                                                 <div class="form-group">
                                                                                                     <label for="change">Troco</label>
-                                                                                                    <input type="text" class="form-control" name="Change" id="change" placeholder="" value="" readonly>
+                                                                                                    <input type="text" class="form-control" name="Change" id="change" placeholder="Valor de troco" disabled>
                                                                                                 </div>
                                                                                                 {{--Fim do campo de troco--}}
                                                                                             </div>
