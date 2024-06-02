@@ -105,10 +105,10 @@
                                                             <tr>
                                                                 <td class="align-middle">
                                                                     {{ $sale->stocks->product->Product_name }} </td>
-                                                                <td class="align-middle"> {{ $sale->Product_price }}
+                                                                <td class="align-middle"> {{ $sale->Product_price }} MZN
                                                                 </td>
                                                                 <td class="align-middle"> {{ $sale->Quantity }}</td>
-                                                                <td class="align-middle"> {{ $sale->Amount }}</td>
+                                                                <td class="align-middle"> {{ $sale->Amount }} MZN</td>
                                                                 <td class="align-middle text-right">
                                                                     <button type="button"
                                                                         class="btn btn-sm btn-icon btn-secondary"
