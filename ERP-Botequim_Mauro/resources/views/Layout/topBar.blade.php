@@ -2021,13 +2021,15 @@
                 
                 // Calcular o troco
                 var change = amountPaid - totalPrice;
-
+    
                 // Atualizar o campo de troco
                 $("#change").val(change.toFixed(2));
             }
-
+    
             // Adicionar um event listener para o input de valor pago
-            $("#amountPaid").on("input", calculateChange);
+            $("#amountPaid").on("input", function() {
+                calculateChange();
+            });
         });
     </script>
     {{--Fim do script responsavel por gerar o troco--}}
