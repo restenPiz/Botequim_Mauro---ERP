@@ -17,8 +17,6 @@ class saleController extends Controller
 {
     public function storeSale()
     {
-        $sales=new Sale();
-
         $rules = [
             'Id_stock' => 'required|exists:stocks,id',
             'Quantity' => 'required|integer|min:1',
@@ -41,7 +39,10 @@ class saleController extends Controller
                 ->withInput();
         }
 
+        $sales=DB::table('sales')->get();
+
         //*Inicio do metodo responsavel por verificar a quantidade dos producto
+
         $insufficientStock = false;
 
         foreach ($sales as $sale) {
