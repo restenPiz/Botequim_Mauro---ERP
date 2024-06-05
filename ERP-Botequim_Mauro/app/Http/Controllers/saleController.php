@@ -93,21 +93,25 @@ class saleController extends Controller
     public function storeSaleHistory()
     {
         //* Calcular o preço total da venda com base nos produtos vendidos
+        // $totalPrice = Sale::sum('Product_price');
         $totalPrice = Sale::sum('Amount');
 
         //* Obter o valor pago pelo cliente (Total_price)
         $valorPago = Request::input('Total_price');
 
         $iva = $totalPrice * 0.17;
+
         $troco = $valorPago - ($totalPrice + $iva);
+
+        $sales = Sale::all();
 
         //* Verificar se o valor pago é suficiente
         if ($valorPago < $totalPrice) {
             Alert::error('Erro','O valor pago é insuficiente para a venda!');
             return back();
         }
-
-        $sales = Sale::all();
+        
+        //*Inicio do metodo responsavel por verificar a quantidade dos producto
         $insufficientStock = false;
 
         foreach ($sales as $sale) {
@@ -128,35 +132,33 @@ class saleController extends Controller
             Alert::error('Erro', 'Quantidade insuficiente no estoque para um ou mais produtos!');
             return back();
         }
+        
+        foreach ($sales as $sale) {
+            Sale_History::create([
+                'Product_price' => $sale->Product_price,
+                'Quantity' => $sale->Quantity,
+                'Id_stock' => $sale->Id_stock,
+                'Amount'=> $sale->Product_price * $sale->Quantity,
+                'Total_price'=> $valorPago,
+                'IVA' => $iva,
+                'Troco' => $troco,
+                'Id_payment'=>Request::input('Id_payment'),
+            ]);
 
-        DB::transaction(function () use ($sales, $valorPago, $iva, $troco) {
-            foreach ($sales as $sale) {
-                Sale_History::create([
-                    'Product_price' => $sale->Product_price,
-                    'Quantity' => $sale->Quantity,
-                    'Id_stock' => $sale->Id_stock,
-                    'Amount' => $sale->Product_price * $sale->Quantity,
-                    'Total_price' => $valorPago,
-                    'IVA' => $iva,
-                    'Troco' => $troco,
-                    'Id_payment' => Request::input('Id_payment'),
-                ]);
-
-                //* Método responsável por reduzir a quantidade de produtos no estoque
-                $stock = Stock::find($sale->Id_stock);
-                if ($stock) {
-                    $stock->Quantity -= $sale->Quantity;
-                    $stock->save();
-                }
+            //*metodo responsavel por reduzir a quantidade de productos no stock
+            $stock = Stock::find($sale->Id_stock);
+            if ($stock) {
+                $stock->Quantity -= $sale->Quantity;
+                $stock->save();
             }
+        }
 
-            Sale::truncate();
-        });
+        Sale::truncate();
 
-        Alert::success('Vendido', 'O produto foi vendido com sucesso!');
+        Alert::success('Vendido','O produto foi vendido com sucesso!');
+
         return back();
     }
-
     //?Fim dos metodos de conclusao de venda
 
     public function allSale()
