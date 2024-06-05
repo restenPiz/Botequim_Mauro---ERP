@@ -255,6 +255,14 @@
                                                                                         <!-- .form-row -->
                                                                                         <div class="form-row">
                                                                                             <div class="col-md-12">
+                                                                                                
+                                                                                                {{--Inicio do valor total--}}
+                                                                                                <div class="form-group">
+                                                                                                    <label for="totalPrice">Valor Total</label>
+                                                                                                    <input type="text" placeholder="Valor a Pagar" class="form-control" id="totalPrice" value="{{ $amount }}" disabled>
+                                                                                                </div>
+                                                                                                {{--Fim do input do valor total--}}
+                                                                                                
                                                                                                 <div class="form-group">
                                                                                                     <label for="input01">Tipo de Pagamento</label> 
                                                                                                     <select class="form-control" name="Id_payment" id="Id_payment">
@@ -263,10 +271,6 @@
                                                                                                         <option value="{{$payment->id}}">{{$payment->Name_payment}}</option>
                                                                                                         @endforeach
                                                                                                     </select>
-                                                                                                </div>
-                                                                                                <div class="form-group">
-                                                                                                    <label for="totalPrice">Valor Total</label>
-                                                                                                    <input type="text" placeholder="Valor a Pagar" class="form-control" id="totalPrice" value="{{ $amount }}" disabled>
                                                                                                 </div>
                                                                                                 <div class="form-group">
                                                                                                     <label for="amountPaid">Valor a Pagar</label>
