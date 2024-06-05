@@ -192,6 +192,10 @@ class saleController extends Controller
                 ->where('Id_client',$id)
                 ->sum('Amount');
 
+            //* Calcular o preço total da venda com base nos produtos vendidos
+            // $totalPrice = Sale::sum('Product_price');
+            $totalPrice = Sale::sum('Amount');
+
             //* Obter o valor pago pelo cliente (Total_price)
             $valorPago = Request::input('Total_price');
 
@@ -199,11 +203,33 @@ class saleController extends Controller
 
             $troco = $valorPago - ($totalPrice + $iva);
 
-            $sales = ProductRequest::all();
+            $sales = Sale::all();
 
             //* Verificar se o valor pago é suficiente
             if ($valorPago < $totalPrice) {
                 Alert::error('Erro','O valor pago é insuficiente para a venda!');
+                return back();
+            }
+            
+            //*Inicio do metodo responsavel por verificar a quantidade dos producto
+            $insufficientStock = false;
+
+            foreach ($sales as $sale) {
+                $stock = Stock::find($sale->Id_stock);
+
+                if ($stock) {
+                    if ($stock->Quantity < $sale->Quantity) {
+                        $insufficientStock = true;
+                        break;
+                    }
+                } else {
+                    Alert::error('Erro', 'Produto não encontrado no estoque!');
+                    return back();
+                }
+            }
+
+            if ($insufficientStock) {
+                Alert::error('Erro', 'Quantidade insuficiente no estoque para um ou mais produtos!');
                 return back();
             }
             
@@ -227,7 +253,7 @@ class saleController extends Controller
                 }
             }
 
-            ProductRequest::truncate();
+            Sale::truncate();
 
             Alert::success('Vendido','O produto foi vendido com sucesso!');
 
@@ -241,6 +267,10 @@ class saleController extends Controller
                 ->where('Id_client',$id)
                 ->sum('Amount');
 
+            //* Calcular o preço total da venda com base nos produtos vendidos
+            // $totalPrice = Sale::sum('Product_price');
+            $totalPrice = Sale::sum('Amount');
+
             //* Obter o valor pago pelo cliente (Total_price)
             $valorPago = Request::input('Total_price');
 
@@ -248,11 +278,33 @@ class saleController extends Controller
 
             $troco = $valorPago - ($totalPrice + $iva);
 
-            $sales = Debit::all();
+            $sales = Sale::all();
 
             //* Verificar se o valor pago é suficiente
             if ($valorPago < $totalPrice) {
                 Alert::error('Erro','O valor pago é insuficiente para a venda!');
+                return back();
+            }
+            
+            //*Inicio do metodo responsavel por verificar a quantidade dos producto
+            $insufficientStock = false;
+
+            foreach ($sales as $sale) {
+                $stock = Stock::find($sale->Id_stock);
+
+                if ($stock) {
+                    if ($stock->Quantity < $sale->Quantity) {
+                        $insufficientStock = true;
+                        break;
+                    }
+                } else {
+                    Alert::error('Erro', 'Produto não encontrado no estoque!');
+                    return back();
+                }
+            }
+
+            if ($insufficientStock) {
+                Alert::error('Erro', 'Quantidade insuficiente no estoque para um ou mais produtos!');
                 return back();
             }
             
@@ -276,7 +328,7 @@ class saleController extends Controller
                 }
             }
 
-            Debit::truncate();
+            Sale::truncate();
 
             Alert::success('Vendido','O produto foi vendido com sucesso!');
 
