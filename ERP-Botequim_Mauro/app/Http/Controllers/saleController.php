@@ -41,6 +41,28 @@ class saleController extends Controller
                 ->withInput();
         }
 
+        //*Inicio do metodo responsavel por verificar a quantidade dos producto
+        $insufficientStock = false;
+
+        foreach ($sales as $sale) {
+            $stock = Stock::find($sale->Id_stock);
+
+            if ($stock) {
+                if ($stock->Quantity < $sale->Quantity) {
+                    $insufficientStock = true;
+                    break;
+                }
+            } else {
+                Alert::error('Erro', 'Produto não encontrado no estoque!');
+                return back();
+            }
+        }
+
+        if ($insufficientStock) {
+            Alert::error('Erro', 'Quantidade insuficiente no estoque para um ou mais produtos!');
+            return back();
+        }
+
         $sales->Product_price=Request::input('Product_price');
         $sales->Quantity=Request::input('Quantity');
         $sales->Id_stock=Request::input('Id_stock');
