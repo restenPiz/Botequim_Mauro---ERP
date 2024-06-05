@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
@@ -76,36 +76,36 @@ class userController extends Controller
     
         return redirect()->back();
     }
-    public function updateUser($id, Request $request)
+    public function updateUser($id)
     {
-        $user = User::find($id);
-
-        $request->validate([
+        Request::validate([
             'name' => 'required|string|max:255',
             'Surname' => 'required|string|max:255',
             'password' => 'required|string|min:8|confirmed',
         ]);
 
-        if ($request->input('user_type') === 'Attendant') {
+        if (Request::input('user_type') === 'Attendant') {
             $role = 'attendant';
             $successMessage = 'O usuário atendente foi adicionado com sucesso!';
-        } elseif ($request->input('user_type') === 'Stock_manager') {
+        } elseif (Request::input('user_type') === 'Stock_manager') {
             $role = 'stock_manager';
             $successMessage = 'O usuário gestor de estoque foi adicionado com sucesso!';
-        } elseif ($request->input('user_type') === 'Accountant') {
+        } elseif (Request::input('user_type') === 'Accountant') {
             $role = 'accountant';
             $successMessage = 'O usuário contabilista foi adicionado com sucesso!';
         } else {
             $role = null;
         }
 
+        $user = User::find($id);
+        
        //?Metodo de insercao
-        $user = $request->input('name');
-        $user= $request->input('email');
-        $user = $request->input('Surname');
-        $user = $request->input('user_type'); 
-        $user= Hash::make($request->password);
-        $user = $request->input('id');
+        $user = Request::input('name');
+        $user= Request::input('email');
+        $user = Request::input('Surname');
+        $user = Request::input('user_type'); 
+        $user= Hash::make(Request::input('password'));
+        $user = Request::input('id');
     
         $user->save();
 
