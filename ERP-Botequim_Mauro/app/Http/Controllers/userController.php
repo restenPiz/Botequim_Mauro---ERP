@@ -80,10 +80,9 @@ class userController extends Controller
     {
         $user = User::find($id);
 
-        $validatedData = $request->validate([
+        $request->validate([
             'name' => 'required|string|max:255',
             'Surname' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8|confirmed',
         ]);
 
@@ -100,12 +99,14 @@ class userController extends Controller
             $role = null;
         }
 
-        $user->name=$request->input('name');
-        $user->email=$request->input('email');
-        $user->Surname=$request->input('Surname');
-        $user->user_type=$request->input('user_type');
-        $user->password=Hash::make($request->password);
-
+       //?Metodo de insercao
+        $user = $request->input('name');
+        $user= $request->input('email');
+        $user = $request->input('Surname');
+        $user = $request->input('user_type'); 
+        $user= Hash::make($request->password);
+        $user = $request->input('id');
+    
         $user->save();
 
         Alert::success('Actualizado', $successMessage);

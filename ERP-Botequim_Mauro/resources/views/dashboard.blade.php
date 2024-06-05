@@ -17,6 +17,36 @@
                                 @endforeach
                             @endif
                         <!-- Your dashboard content here -->
+
+                        {{--Inicio do script responsavel por retornar em json a contagem da quantidade--}}
+                        @section('scripts')
+                            <script>
+                                $(document).ready(function () {
+                                    function checkStockLevels() {
+                                        $.ajax({
+                                            url: "{{ route('checkStockLevels') }}",
+                                            method: 'GET',
+                                            success: function (data) {
+                                                var alertsContainer = $('#stock-alerts');
+                                                alertsContainer.empty();
+                                                if (data.length > 0) {
+                                                    data.forEach(function (product) {
+                                                        var alertHtml = '<div class="alert alert-warning">Aviso: A quantidade do produto ' + product + ' está em 20 unidades.</div>';
+                                                        alertsContainer.append(alertHtml);
+                                                    });
+                                                }
+                                            },
+                                            error: function () {
+                                                console.log('Erro ao verificar os níveis de estoque.');
+                                            }
+                                        });
+                                    }
+
+                                    // Check stock levels on page load
+                                    checkStockLevels();
+                                });
+                            </script>
+                         @endsection
                         <!-- .page-title-bar -->
                         <header class="page-title-bar">
                             <div class="d-flex flex-column flex-md-row">
