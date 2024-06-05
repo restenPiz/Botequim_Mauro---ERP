@@ -13,6 +13,21 @@ use Illuminate\Support\Facades\Auth;
 
 class redirectController extends Controller
 {
+    //?Inicio do metodo responsavel por retornar a contagem de productos no stock
+    public function checkStockLevelsAjax()
+    {
+        $stocks = Stock::all();
+        $lowStockProducts = [];
+
+        foreach ($stocks as $stock) {
+            if ($stock->Quantity == 20) {
+                $lowStockProducts[] = $stock->product->Product_name;
+            }
+        }
+
+        return response()->json($lowStockProducts);
+    }
+
     public function index()
     {
         if(Auth::user()->hasRole('admin'))

@@ -8,6 +8,15 @@
                 <div class="page">
                     <!-- .page-inner -->
                     <div class="page-inner">
+                        {{-- Display Alerts for Low Stock --}}
+                            @if(!empty($lowStockProducts))
+                                @foreach($lowStockProducts as $product)
+                                    <div class="alert alert-warning">
+                                        Aviso: A quantidade do produto {{ $product }} está em 20 unidades.
+                                    </div>
+                                @endforeach
+                            @endif
+                        <!-- Your dashboard content here -->
                         <!-- .page-title-bar -->
                         <header class="page-title-bar">
                             <div class="d-flex flex-column flex-md-row">

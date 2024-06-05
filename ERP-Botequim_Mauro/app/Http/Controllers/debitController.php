@@ -47,6 +47,31 @@ class debitController extends Controller
     {
         $debit=new Debit();
 
+        //*Inicio do metodo responsavel por verificar a quantidade dos producto
+
+        $sales=DB::table('sales')->get();
+        
+        $insufficientStock = false;
+
+        foreach ($sales as $sale) {
+            $stock = Stock::find($sale->Id_stock);
+
+            if ($stock) {
+                if ($stock->Quantity < $sale->Quantity) {
+                    $insufficientStock = true;
+                    break;
+                }
+            } else {
+                Alert::error('Erro', 'Produto não encontrado no estoque!');
+                return back();
+            }
+        }
+
+        if ($insufficientStock) {
+            Alert::error('Erro', 'Quantidade insuficiente no estoque para um ou mais produtos!');
+            return back();
+        }
+
         $debit->Product_price=Request::input('Product_price');
         $debit->Id_stock=Request::input('Id_stock');
         $debit->Id_client=Request::input('Id_client');

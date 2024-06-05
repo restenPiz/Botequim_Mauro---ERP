@@ -22,7 +22,9 @@ Route::get('/', function () {
 });
 
 //*Inicio da rota que redireciona para as diferentes views
-Route::get('/dashboard', [redirectController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');;
+Route::get('/dashboard', [redirectController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
+//*Inicio do metodo responsavel pela contagem da quantidade de cada producto no stock
+Route::get('/check-stock-levels', [redirectController::class,'checkStockLevelsAjax'])->name('checkStockLevels');
 
 //?Inicio das rotas da parte de admin
 Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function() {
