@@ -24,7 +24,7 @@
                                             <!-- form column -->
                                             <div class="col-md-12 mb-3">
                                                 <label for="input01">Nome</label>
-                                                <input type="text" class="form-control @error('name') is-invalid @enderror" id="input01" placeholder="Digite o seu nome" name="name" value="{{ old('name') }}" required>
+                                                <input type="text" class="form-control @error('name') is-invalid @enderror" id="input01" placeholder="Digite o seu nome" name="name" value="{{ old('name') }}">
                                                 @error('name')
                                                     <div class="invalid-feedback">
                                                         <i class="fa fa-exclamation-circle fa-fw"></i> {{ $message }}
@@ -36,7 +36,7 @@
                                             <!-- form column -->
                                             <div class="col-md-12 mb-3">
                                                 <label for="input02">Apelido</label>
-                                                <input type="text" class="form-control @error('Surname') is-invalid @enderror" id="input02" placeholder="Digite o seu apelido" name="Surname" value="{{ old('Surname') }}" required>
+                                                <input type="text" class="form-control @error('Surname') is-invalid @enderror" id="input02" placeholder="Digite o seu apelido" name="Surname" value="{{ old('Surname') }}">
                                                 @error('Surname')
                                                     <div class="invalid-feedback">
                                                         <i class="fa fa-exclamation-circle fa-fw"></i> {{ $message }}
@@ -46,7 +46,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="input03">Email</label>
-                                            <input type="email" class="form-control @error('email') is-invalid @enderror" id="input03" placeholder="Ex: contacto@mauropeniel.info" name="email" value="{{ old('email') }}" required>
+                                            <input type="email" class="form-control @error('email') is-invalid @enderror" id="input03" placeholder="Ex: contacto@mauropeniel.info" name="email" value="{{ old('email') }}">
                                             @error('email')
                                                 <div class="invalid-feedback">
                                                     <i class="fa fa-exclamation-circle fa-fw"></i> {{ $message }}
@@ -56,7 +56,7 @@
                                         <!-- .form-group -->
                                         <div class="form-group">
                                             <label for="input04">Senha</label>
-                                            <input type="password" class="form-control @error('password') is-invalid @enderror" id="input04" placeholder="Digite a sua senha" name="password" required>
+                                            <input type="password" class="form-control @error('password') is-invalid @enderror" id="input04" placeholder="Digite a sua senha" name="password">
                                             @error('password')
                                                 <div class="invalid-feedback">
                                                     <i class="fa fa-exclamation-circle fa-fw"></i> {{ $message }}
@@ -67,7 +67,7 @@
                                         <!-- .form-actions -->
                                         <div class="form-group">
                                             <label for="input05">Senha de Confirmação</label>
-                                            <input type="password" class="form-control @error('password_confirmation') is-invalid @enderror" id="input05" placeholder="Digite novamente a sua senha" name="password_confirmation" required>
+                                            <input type="password" class="form-control @error('password_confirmation') is-invalid @enderror" id="input05" placeholder="Digite novamente a sua senha" name="password_confirmation">
                                             @error('password_confirmation')
                                                 <div class="invalid-feedback">
                                                     <i class="fa fa-exclamation-circle fa-fw"></i> {{ $message }}
