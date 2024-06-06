@@ -76,43 +76,34 @@ class userController extends Controller
     
         return redirect()->back();
     }
-    public function updateUser($id)
+    public function updateUser(Request $request, $id)
     {
-        $errors=Request::validate([
+        $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
             'Surname' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255',
-            'password' => 'required|string|min:8|confirmed',
+            'email' => 'required|email|unique:users,email,' . $id,
+            'password' => 'nullable|string|min:8|confirmed',
         ]);
 
-        if (Request::input('user_type') === 'Attendant') {
-            $role = 'attendant';
-            $successMessage = 'O usuário atendente foi adicionado com sucesso!';
-        } elseif (Request::input('user_type') === 'Stock_manager') {
-            $role = 'stock_manager';
-            $successMessage = 'O usuário gestor de estoque foi adicionado com sucesso!';
-        } elseif (Request::input('user_type') === 'Accountant') {
-            $role = 'accountant';
-            $successMessage = 'O usuário contabilista foi adicionado com sucesso!';
-        } else {
-            $role = null;
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput()
+                ->with(['id' => $id]);
         }
 
-        $user = User::find($id);
-        
-       //?Metodo de insercao
-        $user->name= Request::input('name');
-        $user->email= Request::input('email');
-        $user->Surname = Request::input('Surname');
-        $user->user_type = Request::input('user_type'); 
-        $user->password= Hash::make(Request::input('password'));
-        $user->id = Request::input('id');
-    
+        $user = User::findOrFail($id);
+        $user->name = $request->name;
+        $user->Surname = $request->Surname;
+        $user->email = $request->email;
+
+        if ($request->filled('password')) {
+            $user->password = bcrypt($request->password);
+        }
+
         $user->save();
 
-        Alert::success('Actualizado', $successMessage);
-    
-        return redirect()->back()->withErrors($errors)->withInput();
+        return redirect()->back()->with('success', 'User updated successfully.');
     }
     //?Inicio do metodo para eliminar os usuarios
     public function deleteUser($id)
