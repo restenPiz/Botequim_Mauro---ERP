@@ -206,7 +206,7 @@
                                                                                     <div class="col-md-12">
                                                                                         <div class="form-group">
                                                                                             <label for="cnContactName{{ $user->id }}">Nome do Atendente</label>
-                                                                                            <input type="text" id="cnContactName" class="form-control @error('Name') is-invalid @enderror" name="name" value="{{ old('name', $user->name) }}" required>
+                                                                                            <input type="text" id="cnContactName" class="form-control @error('Name') is-invalid @enderror @if(!$errors->has('Name') && old('Name')) valid @endif" name="name" value="{{ old('Name', $user->name) }}" required>
                                                                                             @error('Name')
                                                                                                 <div class="invalid-feedback">
                                                                                                     <i class="fa fa-exclamation-circle fa-fw"></i> {{ $message }}
@@ -215,7 +215,7 @@
                                                                                         </div>
                                                                                         <div class="form-group">
                                                                                             <label for="cnContactSurname">Apelido</label>
-                                                                                            <input type="text" id="cnContactSurname{{ $user->id }}" class="form-control @error('surname') is-invalid @enderror" name="Surname" value="{{ old('Surname', $user->Surname) }}" required>
+                                                                                            <input type="text" id="cnContactSurname{{ $user->id }}" class="form-control @error('surname') is-invalid : valid @enderror @if(!$errors->has('surname') && old('surname')) valid @endif" name="Surname" value="{{ old('Surname', $user->Surname) }}" required>
                                                                                             @error('surname')
                                                                                                 <div class="invalid-feedback">
                                                                                                     <i class="fa fa-exclamation-circle fa-fw"></i> {{ $message }}
@@ -224,7 +224,7 @@
                                                                                         </div>
                                                                                         <div class="form-group">
                                                                                             <label for="cnContactEmail{{ $user->id }}">Email</label>
-                                                                                            <input type="text" id="cnContactEmail{{ $user->id }}" class="form-control @error('Email') is-invalid @enderror" name="email" value="{{ old('email', $user->email) }}" required>
+                                                                                            <input type="text" id="cnContactEmail{{ $user->id }}" class="form-control @error('Email') is-invalid @enderror @if(!$errors->has('Email') && old('Email')) valid @endif" name="email" value="{{ old('Email', $user->email) }}" required>
                                                                                             @error('Email')
                                                                                                 <div class="invalid-feedback">
                                                                                                     <i class="fa fa-exclamation-circle fa-fw"></i> {{ $message }}
@@ -233,7 +233,7 @@
                                                                                         </div>
                                                                                         <div class="form-group">
                                                                                             <label for="cnContactPassword{{ $user->id }}">Senha</label>
-                                                                                            <input type="password" id="cnContactPassword{{ $user->id }}" class="form-control @error('Password') is-invalid @enderror" name="password" required>
+                                                                                            <input type="password" id="cnContactPassword{{ $user->id }}" class="form-control @error('Password') is-invalid @enderror @if(!$errors->has('Password') && old('Password')) valid @endif" name="password" required>
                                                                                             @error('Password')
                                                                                                 <div class="invalid-feedback">
                                                                                                     <i class="fa fa-exclamation-circle fa-fw"></i> {{ $message }}
@@ -242,7 +242,7 @@
                                                                                         </div>
                                                                                         <div class="form-group">
                                                                                             <label for="cnContactPasswordConfirmation{{ $user->id }}">Senha de Confirmação</label>
-                                                                                            <input type="password" id="cnContactPasswordConfirmation{{ $user->id }}" class="form-control @error('Password_confirmation') is-invalid @enderror" name="password_confirmation" required>
+                                                                                            <input type="password" id="cnContactPasswordConfirmation{{ $user->id }}" class="form-control @error('Password_confirmation') is-invalid @enderror @if(!$errors->has('Password_confirmation') && old('Password_confirmation')) valid @endif" name="password_confirmation" required>
                                                                                             @error('Password_confirmation')
                                                                                                 <div class="invalid-feedback">
                                                                                                     <i class="fa fa-exclamation-circle fa-fw"></i> {{ $message }}
