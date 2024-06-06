@@ -179,7 +179,7 @@
                                                     {{--Inicio do modal de editar--}}
                                                     <div class="modal fade" id="clientNewModal{{ $user->id }}"
                                                         tabindex="-1" role="dialog" aria-labelledby="clientNewModalLabel"
-                                                        aria-hidden="true">
+                                                        aria-hidden="true" data-bs-show="{{$errors->any() ? 'true' : 'false'}}">
                                                         <!-- .modal-dialog -->
                                                         <div class="modal-dialog" role="document">
                                                             <!-- .modal-content -->
@@ -205,37 +205,52 @@
                                                                                 <div class="form-row">
                                                                                     <div class="col-md-12">
                                                                                         <div class="form-group">
-                                                                                            <label for="cnContactName">Nome do Atendente</label>
-                                                                                            <input type="text" id="cnContactName"
-                                                                                                class="form-control"
-                                                                                                name="name"
-                                                                                                value="{{$user->name}}">
+                                                                                            <label for="cnContactName{{ $user->id }}">Nome do Atendente</label>
+                                                                                            <input type="text" id="cnContactName{{ $user->id }}" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name', $user->name) }}">
+                                                                                            @error('name')
+                                                                                                <div class="invalid-feedback">
+                                                                                                    <i class="fa fa-exclamation-circle fa-fw"></i> {{ $message }}
+                                                                                                </div>
+                                                                                            @enderror
                                                                                         </div>
                                                                                         <div class="form-group">
-                                                                                            <label for="cnContactEmail">Apelido</label>
-                                                                                            <input type="text" id="cnContactName"
-                                                                                                class="form-control"
-                                                                                                name="Surname" 
-                                                                                                value="{{$user->Surname}}">
+                                                                                            <label for="cnContactSurname{{ $user->id }}">Apelido</label>
+                                                                                            <input type="text" id="cnContactSurname{{ $user->id }}" class="form-control @error('Surname') is-invalid @enderror" name="Surname" value="{{ old('Surname', $user->Surname) }}">
+                                                                                            @error('Surname')
+                                                                                                <div class="invalid-feedback">
+                                                                                                    <i class="fa fa-exclamation-circle fa-fw"></i> {{ $message }}
+                                                                                                </div>
+                                                                                            @enderror
                                                                                         </div>
                                                                                         <div class="form-group">
-                                                                                            <label for="cnContactEmail">Email</label>
-                                                                                            <input type="text" id="cnContactName"
-                                                                                                class="form-control"
-                                                                                                name="email" 
-                                                                                                value="{{$user->email}}">
+                                                                                            <label for="cnContactEmail{{ $user->id }}">Email</label>
+                                                                                            <input type="text" id="cnContactEmail{{ $user->id }}" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email', $user->email) }}">
+                                                                                            @error('email')
+                                                                                                <div class="invalid-feedback">
+                                                                                                    <i class="fa fa-exclamation-circle fa-fw"></i> {{ $message }}
+                                                                                                </div>
+                                                                                            @enderror
                                                                                         </div>
                                                                                         <div class="form-group">
-                                                                                            <label for="cnContactEmail">Senha</label>
-                                                                                            <input type="password" id="cnContactName" class="form-control" name="password">
+                                                                                            <label for="cnContactPassword{{ $user->id }}">Senha</label>
+                                                                                            <input type="password" id="cnContactPassword{{ $user->id }}" class="form-control @error('password') is-invalid @enderror" name="password">
+                                                                                            @error('password')
+                                                                                                <div class="invalid-feedback">
+                                                                                                    <i class="fa fa-exclamation-circle fa-fw"></i> {{ $message }}
+                                                                                                </div>
+                                                                                            @enderror
                                                                                         </div>
                                                                                         <div class="form-group">
-                                                                                            <label for="cnContactEmail">Senha de Confirmacao</label>
-                                                                                            <input type="password" id="cnContactName" class="form-control" name="password_confirmation">
+                                                                                            <label for="cnContactPasswordConfirmation{{ $user->id }}">Senha de Confirmação</label>
+                                                                                            <input type="password" id="cnContactPasswordConfirmation{{ $user->id }}" class="form-control @error('password_confirmation') is-invalid @enderror" name="password_confirmation">
+                                                                                            @error('password_confirmation')
+                                                                                                <div class="invalid-feedback">
+                                                                                                    <i class="fa fa-exclamation-circle fa-fw"></i> {{ $message }}
+                                                                                                </div>
+                                                                                            @enderror
                                                                                         </div>
                                                                                     </div>
-                                                                                </div><!-- /.form-row -->
-        
+                                                                                </div>
                                                                             </div><!-- /.modal-body -->
                                                                             <input type="hidden" name="id"
                                                                                 value="{{ $user->id }}">
@@ -256,8 +271,6 @@
                                                         </div><!-- /.modal-dialog -->
                                                     </div>
                                                     
-                                                    {{-- Fim do formulario dos modais --}}
-
                                                 @endforeach
                                             </tbody>
                                         </table>

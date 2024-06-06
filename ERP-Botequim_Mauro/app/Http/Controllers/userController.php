@@ -78,9 +78,10 @@ class userController extends Controller
     }
     public function updateUser($id)
     {
-        Request::validate([
+        $errors=Request::validate([
             'name' => 'required|string|max:255',
             'Surname' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255',
             'password' => 'required|string|min:8|confirmed',
         ]);
 
@@ -100,18 +101,18 @@ class userController extends Controller
         $user = User::find($id);
         
        //?Metodo de insercao
-        $user = Request::input('name');
-        $user= Request::input('email');
-        $user = Request::input('Surname');
-        $user = Request::input('user_type'); 
-        $user= Hash::make(Request::input('password'));
-        $user = Request::input('id');
+        $user->name= Request::input('name');
+        $user->email= Request::input('email');
+        $user->Surname = Request::input('Surname');
+        $user->user_type = Request::input('user_type'); 
+        $user->password= Hash::make(Request::input('password'));
+        $user->id = Request::input('id');
     
         $user->save();
 
         Alert::success('Actualizado', $successMessage);
     
-        return redirect()->back();
+        return redirect()->back()->withErrors($errors)->withInput();
     }
     //?Inicio do metodo para eliminar os usuarios
     public function deleteUser($id)

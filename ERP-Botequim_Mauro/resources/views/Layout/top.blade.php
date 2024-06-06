@@ -725,6 +725,7 @@
         } 
     </script>
 
+
     <script src="assets/vendor/jquery/jquery.min.js"></script>
     <script src="assets/vendor/popper.js/umd/popper.min.js"></script>
     <script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script> <!-- END BASE JS -->
@@ -754,6 +755,18 @@
     {{-- Inicio do link de sweetAlerta --}}
     @include('sweetalert::alert')
     {{-- Fim do link do sweetAlerta --}}
+
+    <script>
+        $(document).ready(function() {
+            @if ($errors->any())
+                @foreach ($users as $user)
+                    @if (old('id') == $user->id)
+                        $('#clientNewModal{{ $user->id }}').modal('show');
+                    @endif
+                @endforeach
+            @endif
+        });
+    </script>
 
     <script>
         //Inicio da function que retornar os produtos em json

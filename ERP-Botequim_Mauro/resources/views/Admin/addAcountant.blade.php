@@ -208,35 +208,61 @@
                                                                                         <div class="form-group">
                                                                                             <label for="cnContactName">Nome do Atendente</label>
                                                                                             <input type="text" id="cnContactName"
-                                                                                                class="form-control"
+                                                                                                class="form-control"  @error('name')
                                                                                                 name="name"
                                                                                                 value="{{$user->name}}">
+                                                                                                @error('name')
+                                                                                                    <div class="invalid-feedback">
+                                                                                                        <i class="fa fa-exclamation-circle fa-fw"></i> {{ $message }}
+                                                                                                    </div>
+                                                                                                @enderror
                                                                                         </div>
                                                                                         <div class="form-group">
                                                                                             <label for="cnContactEmail">Apelido</label>
                                                                                             <input type="text" id="cnContactName"
                                                                                                 class="form-control"
-                                                                                                name="Surname" 
+                                                                                                name="Surname" @error('Surname') 
                                                                                                 value="{{$user->Surname}}">
+                                                                                                @error('Surname')
+                                                                                                    <div class="invalid-feedback">
+                                                                                                        <i class="fa fa-exclamation-circle fa-fw"></i> {{ $message }}
+                                                                                                    </div>
+                                                                                                @enderror
                                                                                         </div>
                                                                                         <div class="form-group">
                                                                                             <label for="cnContactEmail">Email</label>
                                                                                             <input type="text" id="cnContactName"
                                                                                                 class="form-control"
-                                                                                                name="email" 
+                                                                                                name="email" @error('email') 
                                                                                                 value="{{$user->email}}">
+                                                                                                @error('email')
+                                                                                                    <div class="invalid-feedback">
+                                                                                                        <i class="fa fa-exclamation-circle fa-fw"></i> {{ $message }}
+                                                                                                    </div>
+                                                                                                @enderror
                                                                                         </div>
                                                                                         <div class="form-group">
                                                                                             <label for="cnContactEmail">Senha</label>
-                                                                                            <input type="password" id="cnContactName" class="form-control" name="password">
+                                                                                            <input type="password" id="cnContactName" class="form-control"
+                                                                                            @error('password') name="password">
+                                                                                            @error('password')
+                                                                                                <div class="invalid-feedback">
+                                                                                                    <i class="fa fa-exclamation-circle fa-fw"></i> {{ $message }}
+                                                                                                </div>
+                                                                                            @enderror
                                                                                         </div>
                                                                                         <div class="form-group">
                                                                                             <label for="cnContactEmail">Senha de Confirmacao</label>
-                                                                                            <input type="password" id="cnContactName" class="form-control" name="password_confirmation">
+                                                                                            <input type="password" id="cnContactName" 
+                                                                                            @error('password_confirmation') class="form-control" name="password_confirmation">
+                                                                                            @error('password_confirmation')
+                                                                                                <div class="invalid-feedback">
+                                                                                                    <i class="fa fa-exclamation-circle fa-fw"></i> {{ $message }}
+                                                                                                </div>
+                                                                                            @enderror
                                                                                         </div>
                                                                                     </div>
                                                                                 </div><!-- /.form-row -->
-        
                                                                             </div><!-- /.modal-body -->
                                                                             <input type="hidden" name="id"
                                                                                 value="{{ $user->id }}">
