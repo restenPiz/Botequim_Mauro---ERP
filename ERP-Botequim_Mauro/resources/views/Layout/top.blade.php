@@ -341,7 +341,14 @@
     {{-- Inicio do link de sweetAlerta --}}
     @include('sweetalert::alert')
     {{-- Fim do link do sweetAlerta --}}
-
+    <script>
+        $(document).ready(function() {
+            @if ($errors->any())
+                var modal= new bootstrap.Modal(document.getElementById('clientNewModal{{ $user->id }}'));
+                modal.show();
+            @endif
+        });
+    </script>
     
     <script>
 
