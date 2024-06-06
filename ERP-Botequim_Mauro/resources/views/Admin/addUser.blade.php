@@ -178,7 +178,7 @@
 
                                                     {{--Inicio do modal de editar--}}
                                                     <div class="modal fade" id="clientNewModal{{ $user->id }}"
-                                                        tabindex="-1" role="dialog" aria-labelledby="clientNewModalLabel"
+                                                        tabindex="-1" role="dialog" aria-labelledby="clientNewModalLabel{{ $user->id }}"
                                                         aria-hidden="true" data-bs-show="{{$errors->any() ? 'true' : 'false'}}">
                                                         <!-- .modal-dialog -->
                                                         <div class="modal-dialog" role="document">
@@ -270,7 +270,7 @@
                                                             </form>
                                                         </div><!-- /.modal-dialog -->
                                                     </div>
-                                                    
+
                                                 @endforeach
                                             </tbody>
                                         </table>
