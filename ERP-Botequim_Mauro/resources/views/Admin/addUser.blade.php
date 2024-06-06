@@ -232,7 +232,7 @@
                                                                                             @enderror
                                                                                         </div>
                                                                                         <div class="form-group">
-                                                                                            <label for="cnContactPassword">Senha</label>
+                                                                                            <label for="cnContactPassword{{ $user->id }}">Senha</label>
                                                                                             <input type="password" id="cnContactPassword{{ $user->id }}" class="form-control @error('Password') is-invalid @enderror" name="password" required>
                                                                                             @error('Password')
                                                                                                 <div class="invalid-feedback">
@@ -241,7 +241,7 @@
                                                                                             @enderror
                                                                                         </div>
                                                                                         <div class="form-group">
-                                                                                            <label for="cnContactPasswordConfirmation">Senha de Confirmação</label>
+                                                                                            <label for="cnContactPasswordConfirmation{{ $user->id }}">Senha de Confirmação</label>
                                                                                             <input type="password" id="cnContactPasswordConfirmation{{ $user->id }}" class="form-control @error('Password_confirmation') is-invalid @enderror" name="password_confirmation" required>
                                                                                             @error('Password_confirmation')
                                                                                                 <div class="invalid-feedback">
