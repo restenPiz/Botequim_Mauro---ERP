@@ -79,13 +79,14 @@ class userController extends Controller
     }
     public function updateUser(Request $request, $id)
     {
-        $validator = Validator::make($request->all(), [
+        $validator = Validator::make(Request::all(), [
             'name' => 'required|string|max:255',
             'Surname' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email,' . $id,
             'password' => 'nullable|string|min:8|confirmed',
         ]);
 
+        //*Inicio do metodo responsavel por redirecionar com o erro
         if ($validator->fails()) {
             return redirect()->back()
                 ->withErrors($validator)
