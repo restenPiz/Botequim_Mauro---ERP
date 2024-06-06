@@ -95,7 +95,7 @@ Route::group(['prefix' => 'attendant', 'middleware' => ['role:attendant']], func
 });
 
 //*Inicio da rota responsavel por eliminar um producto da tabela de vendas
-Route::get('/deleteAllSale', [saleController::class, 'deleteAllSale'])->name('deleteAllSale');
+Route::get('/deleteSaleHistory', [saleController::class, 'deleteSaleHistory'])->name('deleteSaleHistory');
 
 //* Inicio das rotas multiplas */
 Route::post('/storeClient', [clientController::class, 'storeClient'])->name('storeClient');
