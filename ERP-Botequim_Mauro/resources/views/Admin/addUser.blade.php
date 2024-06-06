@@ -223,7 +223,7 @@
                                                                                             @enderror
                                                                                         </div>
                                                                                         <div class="form-group">
-                                                                                            <label for="cnContactEmail">Email</label>
+                                                                                            <label for="cnContactEmail{{ $user->id }}">Email</label>
                                                                                             <input type="text" id="cnContactEmail{{ $user->id }}" class="form-control @error('Email') is-invalid @enderror" name="email" value="{{ old('email', $user->email) }}" required>
                                                                                             @error('Email')
                                                                                                 <div class="invalid-feedback">
