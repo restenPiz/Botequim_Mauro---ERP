@@ -80,11 +80,10 @@ class userController extends Controller
     public function updateUser(Request $request, $id)
     {
         $validator = Validator::make(Request::all(), [
-            'Name' => 'string|max:255',
-            'Surname' => 'string|max:255',
-            'Email' => 'email|unique:users,email,' . $id,
-            'Password' => 'string|min:8|confirmed',
-            'Password_confirmation' => 'string|min:8|confirmed',
+            'name' => 'required|string|max:255',
+            'Surname' => 'required|string|max:255',
+            'email' => 'required|email|unique:users,email,' . $id,
+            'password' => 'required|string|min:8|confirmed',
         ]);
 
         //*Inicio do metodo responsavel por redirecionar com o erro
@@ -100,13 +99,15 @@ class userController extends Controller
         $user->Surname = Request::input('Surname');
         $user->email = Request::input('email');
 
-        if ($request->filled('password')) {
+        if (Request::filled('password')) {
             $user->password = bcrypt(Request::input('password'));
         }
 
         $user->save();
 
-        return redirect()->back()->with('success', 'Usuario actualizado com sucesso!');
+        Alert::success('Actualizado','Os dados do usuario foram actualizados com sucess!');
+
+        return redirect()->back();
     }
     //?Inicio do metodo para eliminar os usuarios
     public function deleteUser($id)
