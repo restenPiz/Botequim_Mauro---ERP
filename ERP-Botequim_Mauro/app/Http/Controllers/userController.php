@@ -80,8 +80,8 @@ class userController extends Controller
     public function updateUser(Request $request, $id)
     {
         $validator = Validator::make(Request::all(), [
-            // 'Name' => 'required|string|max:255',
-            // 'surname' => 'required|string|max:255',
+            'Name' => 'required|string|max:255',
+            'surname' => 'required|string|max:255',
             'Email' => 'required|email|unique:users,email,' . $id,
             'Password' => 'required|string|min:8|confirmed',
             'Password_confirmation' => 'required',
