@@ -206,8 +206,8 @@
                                                                                     <div class="col-md-12">
                                                                                         <div class="form-group">
                                                                                             <label for="cnContactName{{ $user->id }}">Nome do Atendente</label>
-                                                                                            <input type="text" id="cnContactName{{ $user->id }}" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name', $user->name) }}">
-                                                                                            @error('name')
+                                                                                            <input type="text" id="cnContactName{{ $user->id }}" class="form-control @error('Name') is-invalid @enderror" name="name" value="{{ old('name', $user->name) }}">
+                                                                                            @error('Name')
                                                                                                 <div class="invalid-feedback">
                                                                                                     <i class="fa fa-exclamation-circle fa-fw"></i> {{ $message }}
                                                                                                 </div>
@@ -215,8 +215,8 @@
                                                                                         </div>
                                                                                         <div class="form-group">
                                                                                             <label for="cnContactSurname{{ $user->id }}">Apelido</label>
-                                                                                            <input type="text" id="cnContactSurname{{ $user->id }}" class="form-control @error('Surname') is-invalid @enderror" name="Surname" value="{{ old('Surname', $user->Surname) }}">
-                                                                                            @error('Surname')
+                                                                                            <input type="text" id="cnContactSurname{{ $user->id }}" class="form-control @error('surname') is-invalid @enderror" name="Surname" value="{{ old('Surname', $user->Surname) }}">
+                                                                                            @error('surname')
                                                                                                 <div class="invalid-feedback">
                                                                                                     <i class="fa fa-exclamation-circle fa-fw"></i> {{ $message }}
                                                                                                 </div>
@@ -224,8 +224,8 @@
                                                                                         </div>
                                                                                         <div class="form-group">
                                                                                             <label for="cnContactEmail{{ $user->id }}">Email</label>
-                                                                                            <input type="text" id="cnContactEmail{{ $user->id }}" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email', $user->email) }}">
-                                                                                            @error('email')
+                                                                                            <input type="text" id="cnContactEmail{{ $user->id }}" class="form-control @error('Email') is-invalid @enderror" name="email" value="{{ old('email', $user->email) }}">
+                                                                                            @error('Email')
                                                                                                 <div class="invalid-feedback">
                                                                                                     <i class="fa fa-exclamation-circle fa-fw"></i> {{ $message }}
                                                                                                 </div>
@@ -233,8 +233,8 @@
                                                                                         </div>
                                                                                         <div class="form-group">
                                                                                             <label for="cnContactPassword{{ $user->id }}">Senha</label>
-                                                                                            <input type="password" id="cnContactPassword{{ $user->id }}" class="form-control @error('password') is-invalid @enderror" name="password">
-                                                                                            @error('password')
+                                                                                            <input type="password" id="cnContactPassword{{ $user->id }}" class="form-control @error('Password') is-invalid @enderror" name="password">
+                                                                                            @error('Password')
                                                                                                 <div class="invalid-feedback">
                                                                                                     <i class="fa fa-exclamation-circle fa-fw"></i> {{ $message }}
                                                                                                 </div>
@@ -242,8 +242,8 @@
                                                                                         </div>
                                                                                         <div class="form-group">
                                                                                             <label for="cnContactPasswordConfirmation{{ $user->id }}">Senha de Confirmação</label>
-                                                                                            <input type="password" id="cnContactPasswordConfirmation{{ $user->id }}" class="form-control @error('password_confirmation') is-invalid @enderror" name="password_confirmation">
-                                                                                            @error('password_confirmation')
+                                                                                            <input type="password" id="cnContactPasswordConfirmation{{ $user->id }}" class="form-control @error('Password_confirmation') is-invalid @enderror" name="password_confirmation">
+                                                                                            @error('Password_confirmation')
                                                                                                 <div class="invalid-feedback">
                                                                                                     <i class="fa fa-exclamation-circle fa-fw"></i> {{ $message }}
                                                                                                 </div>
