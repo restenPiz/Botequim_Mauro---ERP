@@ -15,6 +15,26 @@ use Request;
 
 class saleController extends Controller
 {
+    public function deleteSaleHistory($saleId)
+    {
+        // Obter a venda e a quantidade vendida
+        $sale = Sale_History::findOrFail($saleId);
+        $productId = $sale->Id_stock;
+        $quantitySold = $sale->Quantity;
+
+        // Atualizar a quantidade de produto no estoque
+        $stock = Stock::where('product_id', $productId)->first();
+        if ($stock) {
+            $stock->quantity += $quantitySold;
+            $stock->save();
+        }
+
+        $sale->delete();
+
+        Alert::success('Eliminado!','Producto eliminado com sucesso da lista de vendas!');
+        
+        return redirect()->back();
+    }
     public function storeSale()
     {
         $rules = [

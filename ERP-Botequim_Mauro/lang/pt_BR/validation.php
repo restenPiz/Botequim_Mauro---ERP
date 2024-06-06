@@ -137,6 +137,10 @@ return [
 
     'attributes' => [
         'name' => 'nome',
+        'nome' => 'nome',
+        'apelido' => 'apelido',
+        'Email' => 'email',
+        'Password_confirmation' => 'Senha de confirmacao',
         'Surname' => 'apelido',
         'email' => 'email',
         'password' => 'senha',

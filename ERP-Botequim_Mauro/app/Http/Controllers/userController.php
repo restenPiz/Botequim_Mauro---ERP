@@ -89,9 +89,9 @@ class userController extends Controller
         //*Inicio do metodo responsavel por redirecionar com o erro
         if ($validator->fails()) {
             return redirect()->back()
-                ->withErrors($validator)
-                ->withInput()
-                ->with(['id' => $id]);
+                ->withErrors($validator, 'updateUser')
+                ->withInput($request::all())
+                ->with(['modal_id' => $id]);
         }
 
         $user = User::findOrFail($id);
@@ -105,7 +105,7 @@ class userController extends Controller
 
         $user->save();
 
-        Alert::success('Actualizado','Os dados do usuario foram actualizados com sucess!');
+        Alert::success('Actualizado','Os dados do usuario foram actualizados com sucesso!');
 
         return redirect()->back();
     }
