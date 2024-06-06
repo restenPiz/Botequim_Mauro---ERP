@@ -83,8 +83,8 @@ class userController extends Controller
             'Name' => 'required|string|max:255',
             'surname' => 'required|string|max:255',
             'Email' => 'required|email|unique:users,email,' . $id,
-            'Password' => 'nullable|string|min:8|confirmed',
-            'password_confirmation' => 'required',
+            'Password' => 'required|string|min:8|confirmed',
+            'Password_confirmation' => 'required',
         ]);
 
         //*Inicio do metodo responsavel por redirecionar com o erro
