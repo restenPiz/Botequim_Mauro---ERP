@@ -342,14 +342,21 @@
     @include('sweetalert::alert')
     {{-- Fim do link do sweetAlerta --}}
     <script>
+        // $(document).ready(function() {
+        //     @if ($errors->any())
+        //         @foreach ($users as $user)
+        //             @if (old('id') == $user->id)
+        //                 var modal = new bootstrap.Modal(document.getElementById('clientNewModal{{ $user->id }}'));
+        //                 modal.show();
+        //             @endif
+        //         @endforeach
+        //     @endif
+        // });
+
         $(document).ready(function() {
             @if ($errors->any())
-                @foreach ($users as $user)
-                    @if (old('id') == $user->id)
-                        var modal = new bootstrap.Modal(document.getElementById('clientNewModal{{ $user->id }}'));
-                        modal.show();
-                    @endif
-                @endforeach
+                var modal = new bootstrap.Modal(document.getElementById('clientNewModal{{ $user->id }}'));
+                modal.show();
             @endif
         });
     </script>
