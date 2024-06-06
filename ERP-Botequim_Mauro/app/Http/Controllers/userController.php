@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Validator;
-use Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
