@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Stock;
 use Request;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -110,18 +111,24 @@ class productController extends Controller
     public function addProductQuantity()
     {
         $validatedData = Request::validate([
-            'Product_name' => 'required|string|max:255',
+            'Id_product' => 'required|string|max:255',
             'Quantity' => 'required|integer|min:1',
         ]);
     
-        $productName = Request::input('Product_name');
+        $productName = Request::input('Id_product');
         $quantityToAdd = Request::input('Quantity');
     
-        // Verificar se o produto já existe no estoque
-        $product = Product::where('Product_name', $productName)->first();
+        //*inicio do metodo de insercao na tabela de mercadorias
+        $product = Product::where('id', $productName)->first();
     
         $product->Quantity += $quantityToAdd;
         $product->save();
+
+        //*Inicio do metodo de insercao na tabela de stock
+        $stock = Stock::where('Id_product', $productName)->first();
+    
+        $stock->Quantity += $quantityToAdd;
+        $stock->save();
 
         Alert::success('Actualizado!','Os dados do producto existente foram actualizados!');
 

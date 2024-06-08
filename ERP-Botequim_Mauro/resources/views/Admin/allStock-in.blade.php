@@ -152,7 +152,6 @@
                             </div><!-- /title and toolbar -->
                             </header><!-- /.page-title-bar -->
                             <!-- .page-section -->
-
                             {{-- Table section --}}
                             <div class="card mt-4" style="margin-top:-4rem">
                                 <!-- .card-body -->
