@@ -1,4 +1,4 @@
-@extends('Layout.topBar')
+@extends('Layout.top')
 @section('content')
 
     {{--Inicio da parte de todas vendas--}}
@@ -205,6 +205,7 @@
                                                                 type="button" class="btn btn-sm btn-icon btn-secondary"><i
                                                                     class="far fa-trash-alt" data-target="#deleteRecordModal{{ $product->id }}" data-toggle="modal"></i> <span
                                                                     class="sr-only">Remove</span></button>
+                                                                    
                                                         </td>
                                                     </tr>
                                                 @endforeach
