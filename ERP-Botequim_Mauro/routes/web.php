@@ -135,6 +135,8 @@ Route::post('/storeSaleRequest/{id}', [saleController::class, 'storeSaleRequest'
 
     //?Inicio das rotas da parte de productos
     Route::get('/addProduct', [productController::class, 'addProduct'])->name('addProduct');
+    //*Inicio da rota responsavel por aumentar a quantidade de producto
+    Route::get('/addProductQuantity', [productController::class, 'addProductQuantity'])->name('addProductQuantity');
     Route::post('/storeProduct', [productController::class, 'storeProduct'])->name('storeProduct');
     Route::get('/allProduct', [productController::class, 'allProduct'])->name('allProduct');
     Route::post('/updateProduct/{id}', [productController::class, 'updateProduct'])->name('updateProduct');

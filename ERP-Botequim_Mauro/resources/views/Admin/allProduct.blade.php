@@ -32,10 +32,9 @@
                                     <div class="card-body">
                                         {{-- Inicio do formulario de adicao da quantidade de um producto --}}
                                         <div class="row">
-                                            
-                                            <form method="post" action="{{ route('storeStock') }}">
-                                                @csrf
-                                                <div class="col">
+                                            <div class="col">
+                                                <form method="post" action="{{ route('addProductoQuantity') }}">
+                                                    @csrf
                                                     <!-- form row -->
                                                     <div class="form-row">
                                                         <!-- form column -->
@@ -58,8 +57,8 @@
                                                             {{-- Fim do input de selecao --}}
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="col">
+                                            </div>
+                                            <div class="col">
                                                     <!-- form row -->
                                                     <div class="form-row">
                                                         <!-- form column -->
@@ -70,9 +69,12 @@
                                                                 required>
                                                         </div><!-- /form column -->
                                                     </div>
-                                                </div>
-                                            </form>
+                                                </form>
+                                            </div>
                                         </div>
+                                        
+                                        <button type="submit" name="submit" class="btn btn-success text-nowrap ml-auto"
+                                        >Adicionar Producto Existente</button>
                                         {{-- Fim do formulario de adicao da quantidade de um producto --}}
                                     </div>
                                 </div>
