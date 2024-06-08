@@ -109,11 +109,36 @@ class productController extends Controller
     //*Inicio do metodo responsavel por fazer acrescimo na quantidade de um producto existente
     public function addProductQuantity()
     {
-        $table = new Product();
+        $validatedData = Request::validate([
+            'name' => 'required|string|max:255',
+            'quantity' => 'required|integer|min:1',
+        ]);
+    
+        $productName = Request::input('Product_name');
+        $quantityToAdd = Request::input('Quantity');
+    
+        // Verificar se o produto já existe no estoque
+        $product = Product::where('Product_name', $productName)->first();
+    
+        if ($product) {
+            // Produto já existe, atualizar a quantidade
+            $product->quantity += $quantityToAdd;
+            $product->save();
+    
+            return response()->json([
+                'message' => 'Quantidade do produto atualizada com sucesso!',
+                'product' => $product
+            ]);
+        } else {
+            // Produto não existe, criar um novo registro
+            $newProduct = Product::create([
+                'name' => $productName,
+                'quantity' => $quantityToAdd
+            ]);
+    
+            Alert::sucess('Actualizado!','Os dados do producto existente foram actualizados!');
 
-        $table->Product_name=Request::input('Product_name');
-        $table->Quantity=Request::input('Quantity');
-
-        //*Inicio da logica do acrescimo da quantidade de um producto
+            return back();
+        }
     }
 }
