@@ -33,7 +33,7 @@
                                         {{-- Inicio do formulario de adicao da quantidade de um producto --}}
                                         <div class="row">
                                             <div class="col">
-                                                <form method="post" action="{{ route('addProductoQuantity') }}">
+                                                <form method="post" action="{{ route('addProductQuantity') }}">
                                                     @csrf
                                                     <!-- form row -->
                                                     <div class="form-row">
