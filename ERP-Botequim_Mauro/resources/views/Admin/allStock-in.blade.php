@@ -84,11 +84,6 @@
 
                                 {{-- Inicio da tabela de todos eventos --}}
                                 <header class="page-title-bar">
-                                    <!-- floating action -->
-
-                                    <button type="button" data-toggle="modal" data-target="#quantityModal"
-                                        class="btn btn-success btn-floated"><span class="fa fa-plus"></span></button>
-                                    <!-- /floating action -->
 
                                     {{-- Inicio do modal de acrescimo da quantidade do producto --}}
                                     <div class="modal fade" id="quantityModal" tabindex="-1" role="dialog"

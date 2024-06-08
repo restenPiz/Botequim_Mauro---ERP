@@ -201,11 +201,8 @@
                                                         <td class="align-middle"> 
                                                             <span class="badge badge-subtle badge-warning">{{$product->created_at}}</span>
                                                         </td>
-                                                        <td class="align-middle text-right"> <button
-                                                                type="button" class="btn btn-sm btn-icon btn-secondary"><i
-                                                                    class="far fa-trash-alt" data-target="#deleteRecordModal{{ $product->id }}" data-toggle="modal"></i> <span
-                                                                    class="sr-only">Remove</span></button>
-                                                                    
+                                                        <td class="align-middle text-right">
+                                                            <button type="button" class="btn btn-sm btn-icon btn-secondary" data-toggle="modal" data-target="#exampleModal{{$product->id}}"> <i class="far fa-trash-alt"></i> <span class="sr-only">Remove</span></button> 
                                                         </td>
                                                     </tr>
                                                 @endforeach
@@ -213,9 +210,8 @@
                                             </tbody>
                                         </table>
 
-                                        {{--Inicio do modal de eliminar producto das vendas--}}
-                                        <div class="modal fade zoomIn" id="deleteRecordModal{{ $product->id }}"
-                                            tabindex="-1" aria-hidden="true">
+                                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel{{$product->id}}" aria-hidden="true">
+                                            <!-- .modal-dialog -->
                                             <div class="modal-dialog modal-dialog-centered">
                                                 <div class="modal-content">
                                                     <form action="{{ route('deleteSaleHistory', ['id' => $product->id]) }}"
@@ -250,9 +246,8 @@
                                                     </form>
                                                 </div>
                                             </div>
-                                        </div>
-                                        {{--Fim do modal de eliminar produto das vendas--}}
-
+                                        </div><!-- /.modal -->
+                                          
                                     </div><!-- /.table-responsive -->
                                     <div class="d-flex justify-content-center">
                                         {{ $products->links('vendor.pagination.simple-bootstrap-4') }}
