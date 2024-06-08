@@ -110,8 +110,8 @@ class productController extends Controller
     public function addProductQuantity()
     {
         $validatedData = Request::validate([
-            'name' => 'required|string|max:255',
-            'quantity' => 'required|integer|min:1',
+            'Product_name' => 'required|string|max:255',
+            'Quantity' => 'required|integer|min:1',
         ]);
     
         $productName = Request::input('Product_name');
@@ -123,7 +123,7 @@ class productController extends Controller
         $product->Quantity += $quantityToAdd;
         $product->save();
 
-        Alert::sucess('Actualizado!','Os dados do producto existente foram actualizados!');
+        Alert::success('Actualizado!','Os dados do producto existente foram actualizados!');
 
         return back();
     }
