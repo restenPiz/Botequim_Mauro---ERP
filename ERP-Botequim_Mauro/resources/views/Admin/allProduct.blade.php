@@ -65,8 +65,8 @@
                                                         <!-- form column -->
                                                         <div class="col-md-12 mb-3">
                                                             <label for="input02">Quantidade</label>
-                                                            <input type="text" value="" class="form-control"
-                                                                id="Quantity" placeholder="Quantidade" name="Quantity" disabled
+                                                            <input type="text" class="form-control"
+                                                                id="Quantity" placeholder="Digite a Quantidade do Producto" name="Quantity"
                                                                 required>
                                                         </div><!-- /form column -->
                                                     </div>
