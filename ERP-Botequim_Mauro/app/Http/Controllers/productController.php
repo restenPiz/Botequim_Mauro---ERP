@@ -111,7 +111,7 @@ class productController extends Controller
     public function addProductQuantity()
     {
         $validatedData = Request::validate([
-            'Id_product' => 'required|string|max:255',
+            'Id_product' => 'required|integer',
             'Quantity' => 'required|integer|min:1',
         ]);
     

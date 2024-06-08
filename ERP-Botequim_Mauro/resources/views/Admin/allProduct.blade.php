@@ -44,7 +44,7 @@
                                                             {{-- Inicio do input de selecao de Productos --}}
                                                             <select
                                                                 class="form-control @error('Id_product') is-invalid @enderror"
-                                                                required name="Product_name" id="Id_product">
+                                                                name="Id_product" id="Id_product" required >
                                                                 <option>--Selecione o Produto--</option>
                                                                 @foreach ($products as $stock)
                                                                     <option value="{{ $stock->id }}">
