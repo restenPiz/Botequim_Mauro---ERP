@@ -105,4 +105,15 @@ class productController extends Controller
 
         return response()->json($products);
     }
+
+    //*Inicio do metodo responsavel por fazer acrescimo na quantidade de um producto existente
+    public function addProductQuantity()
+    {
+        $table = new Product();
+
+        $table->Product_name=Request::input('Product_name');
+        $table->Quantity=Request::input('Quantity');
+
+        //*Inicio da logica do acrescimo da quantidade de um producto
+    }
 }
