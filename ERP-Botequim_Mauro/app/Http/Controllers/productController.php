@@ -120,25 +120,11 @@ class productController extends Controller
         // Verificar se o produto já existe no estoque
         $product = Product::where('Product_name', $productName)->first();
     
-        if ($product) {
-            // Produto já existe, atualizar a quantidade
-            $product->quantity += $quantityToAdd;
-            $product->save();
-    
-            return response()->json([
-                'message' => 'Quantidade do produto atualizada com sucesso!',
-                'product' => $product
-            ]);
-        } else {
-            // Produto não existe, criar um novo registro
-            $newProduct = Product::create([
-                'name' => $productName,
-                'quantity' => $quantityToAdd
-            ]);
-    
-            Alert::sucess('Actualizado!','Os dados do producto existente foram actualizados!');
+        $product->Quantity += $quantityToAdd;
+        $product->save();
 
-            return back();
-        }
+        Alert::sucess('Actualizado!','Os dados do producto existente foram actualizados!');
+
+        return back();
     }
 }
