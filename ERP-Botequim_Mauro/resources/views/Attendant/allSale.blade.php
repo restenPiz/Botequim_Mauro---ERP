@@ -202,52 +202,57 @@
                                                             <span class="badge badge-subtle badge-warning">{{$product->created_at}}</span>
                                                         </td>
                                                         <td class="align-middle text-right">
-                                                            <button type="button" class="btn btn-sm btn-icon btn-secondary" data-toggle="modal" data-target="#exampleModal{{$product->id}}"> <i class="far fa-trash-alt"></i> <span class="sr-only">Remove</span></button> 
+                                                            <button type="button" class="btn btn-sm btn-icon btn-secondary" data-toggle="modal" data-target="#exampleModal{{$product->id}}">
+                                                                <i class="far fa-trash-alt"></i> <span class="sr-only">Remove</span>
+                                                            </button> 
                                                         </td>
                                                     </tr>
+
+                                                    {{--Inicio do modal de eliminar productos--}}
+
+                                                    <div class="modal fade" id="exampleModal{{$product->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                        <!-- .modal-dialog -->
+                                                        <div class="modal-dialog modal-dialog-centered">
+                                                            <div class="modal-content">
+                                                                <form action="{{ route('deleteSaleHistory', ['id' => $product->id]) }}"
+                                                                    method="get">
+                                                                    @csrf
+                                                                    @method('DELETE')
+                                                                    <div class="modal-body">
+                                                                        <div class="mt-2 text-center">
+                                                                            <lord-icon
+                                                                                src="https://cdn.lordicon.com/gsqxdxog.json"
+                                                                                trigger="loop"
+                                                                                colors="primary:#f7b84b,secondary:#f06548"
+                                                                                style="width:100px;height:100px">
+                                                                            </lord-icon>
+                                                                            <div class="mt-4 pt-2 fs-15 mx-4 mx-sm-5">
+                                                                                <h4>Voce tem certeza ?</h4>
+                                                                                <p class="text-muted mx-4 mb-0">Voce pretende
+                                                                                    eliminar
+                                                                                    este Producto da Lista de Vendas ?</p>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div
+                                                                            class="d-flex gap-2 justify-content-center mt-4 mb-2">
+                                                                            <button type="button" class="btn w-sm btn-light"
+                                                                                data-bs-dismiss="modal">Fechar</button>
+                                                                            <button type="submit" name="submit"
+                                                                                class="btn w-sm btn-danger "
+                                                                                id="delete-record">Sim,
+                                                                                elimine!</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div><!-- /.modal -->
+                                                    {{--Fim do modal de eliminar productos--}}
+
                                                 @endforeach
                                                 
                                             </tbody>
-                                        </table>
-
-                                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel{{$product->id}}" aria-hidden="true">
-                                            <!-- .modal-dialog -->
-                                            <div class="modal-dialog modal-dialog-centered">
-                                                <div class="modal-content">
-                                                    <form action="{{ route('deleteSaleHistory', ['id' => $product->id]) }}"
-                                                        method="get">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <div class="modal-body">
-                                                            <div class="mt-2 text-center">
-                                                                <lord-icon
-                                                                    src="https://cdn.lordicon.com/gsqxdxog.json"
-                                                                    trigger="loop"
-                                                                    colors="primary:#f7b84b,secondary:#f06548"
-                                                                    style="width:100px;height:100px">
-                                                                </lord-icon>
-                                                                <div class="mt-4 pt-2 fs-15 mx-4 mx-sm-5">
-                                                                    <h4>Voce tem certeza ?</h4>
-                                                                    <p class="text-muted mx-4 mb-0">Voce pretende
-                                                                        eliminar
-                                                                        este Producto da Lista de Vendas ?</p>
-                                                                </div>
-                                                            </div>
-                                                            <div
-                                                                class="d-flex gap-2 justify-content-center mt-4 mb-2">
-                                                                <button type="button" class="btn w-sm btn-light"
-                                                                    data-bs-dismiss="modal">Fechar</button>
-                                                                <button type="submit" name="submit"
-                                                                    class="btn w-sm btn-danger "
-                                                                    id="delete-record">Sim,
-                                                                    elimine!</button>
-                                                            </div>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div><!-- /.modal -->
-                                          
+                                        </table>                                          
                                     </div><!-- /.table-responsive -->
                                     <div class="d-flex justify-content-center">
                                         {{ $products->links('vendor.pagination.simple-bootstrap-4') }}
