@@ -29,12 +29,13 @@
                                 <!-- .page-section -->
 
                                 <div class="card">
+                                    
+                                    <form method="post" action="{{ route('addProductQuantity') }}">
+                                        @csrf
                                     <div class="card-body">
                                         {{-- Inicio do formulario de adicao da quantidade de um producto --}}
                                         <div class="row">
                                             <div class="col">
-                                                <form method="post" action="{{ route('addProductQuantity') }}">
-                                                    @csrf
                                                     <!-- form row -->
                                                     <div class="form-row">
                                                         <!-- form column -->
@@ -69,7 +70,7 @@
                                                                 required>
                                                         </div><!-- /form column -->
                                                     </div>
-                                                </form>
+                                                
                                             </div>
                                         </div>
                                         
@@ -77,6 +78,7 @@
                                         >Adicionar Producto Existente</button>
                                         {{-- Fim do formulario de adicao da quantidade de um producto --}}
                                     </div>
+                                </form>
                                 </div>
                                 {{-- Table section --}}
                                 <div class="card mt-4" style="margin-top:-4rem">
