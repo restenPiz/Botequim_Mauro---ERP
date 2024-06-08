@@ -95,7 +95,7 @@ Route::group(['prefix' => 'attendant', 'middleware' => ['role:attendant']], func
 });
 
 //*Inicio da rota responsavel por eliminar um producto da tabela de vendas
-Route::get('/deleteSaleHistory', [saleController::class, 'deleteSaleHistory'])->name('deleteSaleHistory');
+Route::get('/deleteSaleHistory/{id}', [saleController::class, 'deleteSaleHistory'])->name('deleteSaleHistory');
 
 //* Inicio das rotas multiplas */
 Route::post('/storeClient', [clientController::class, 'storeClient'])->name('storeClient');
@@ -168,7 +168,6 @@ Route::get('/export/excel', [exportController::class, 'exportExcel'])->name('exp
 
 //*Inicio das rotas da parte de perfil
 
-//*Inicio das rotas da parte de envio de notificacoes
 
 require __DIR__.'/auth.php';
 

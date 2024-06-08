@@ -15,15 +15,16 @@ use Request;
 
 class saleController extends Controller
 {
+    //*Inicio do metodo responsavel por eliminar um producto da tabela de vendas
     public function deleteSaleHistory($saleId)
     {
         $sale = Sale_History::findOrFail($saleId);
         $productId = $sale->Id_stock;
         $quantitySold = $sale->Quantity;
 
-        $stock = Stock::where('product_id', $productId)->first();
+        $stock = Stock::where('id', $productId)->first();
         if ($stock) {
-            $stock->quantity += $quantitySold;
+            $stock->Quantity += $quantitySold;
             $stock->save();
         }
 

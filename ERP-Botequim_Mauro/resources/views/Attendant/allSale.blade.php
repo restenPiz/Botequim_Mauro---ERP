@@ -259,10 +259,6 @@
                                     </div>
                                 </div><!-- /.card-body -->
                                 <!-- .card-footer -->
-                                <div class="card-footer">
-                                    <a href="{{route('dashboard')}}" class="card-footer-item"><i
-                                            class="fa fa-plus-circle mr-1"></i> Adicionar Venda</a>
-                                </div><!-- /.card-footer -->
                             </div>
                             {{-- End of table section --}}
 
