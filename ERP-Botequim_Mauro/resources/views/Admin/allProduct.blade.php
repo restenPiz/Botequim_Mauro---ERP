@@ -34,6 +34,11 @@
                                     <div class="card-body">
                                         {{-- <h2 class="card-title"> Contacts </h2><!-- .table-responsive --> --}}
                                         <div class="table-responsive">
+
+                                            {{--Inicio do formulario de adicao da quantidade de um producto--}}
+
+                                            {{--Fim do formulario de adicao da quantidade de um producto--}}
+
                                             <div class="form-group">
                                                 <div class="input-group input-group-alt">
                                                     <div class="input-group has-clearable">
