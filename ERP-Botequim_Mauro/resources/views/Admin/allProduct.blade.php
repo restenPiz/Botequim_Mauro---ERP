@@ -28,6 +28,54 @@
                                 </header><!-- /.page-title-bar -->
                                 <!-- .page-section -->
 
+                                <div class="card">
+                                    <div class="card-body">
+                                        {{-- Inicio do formulario de adicao da quantidade de um producto --}}
+                                        <div class="row">
+                                            
+                                            <form method="post" action="{{ route('storeStock') }}">
+                                                @csrf
+                                                <div class="col">
+                                                    <!-- form row -->
+                                                    <div class="form-row">
+                                                        <!-- form column -->
+                                                        <div class="col-md-12 mb-3">
+                                                            <label>Nome de Producto</label>
+                                                            {{-- Inicio do input de selecao de Productos --}}
+                                                            <select
+                                                                class="form-control @error('Id_product') is-invalid @enderror"
+                                                                required name="Id_product" id="Product_name">
+                                                                <option>--Selecione o Produto--</option>
+                                                                @foreach ($products as $stock)
+                                                                    <option value="{{ $stock->id }}">
+                                                                        {{ $stock->Product_name }}
+                                                                    </option>
+                                                                @endforeach
+                                                            </select>
+                                                            @error('Id_product')
+                                                                <div class="invalid-feedback">{{ $message }}</div>
+                                                            @enderror
+                                                            {{-- Fim do input de selecao --}}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <!-- form row -->
+                                                    <div class="form-row">
+                                                        <!-- form column -->
+                                                        <div class="col-md-12 mb-3">
+                                                            <label for="input02">Quantidade</label>
+                                                            <input type="text" value="" class="form-control"
+                                                                id="Quantity" placeholder="Quantidade" name="Quantity" disabled
+                                                                required>
+                                                        </div><!-- /form column -->
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        {{-- Fim do formulario de adicao da quantidade de um producto --}}
+                                    </div>
+                                </div>
                                 {{-- Table section --}}
                                 <div class="card mt-4" style="margin-top:-4rem">
                                     <!-- .card-body -->
@@ -35,18 +83,18 @@
                                         {{-- <h2 class="card-title"> Contacts </h2><!-- .table-responsive --> --}}
                                         <div class="table-responsive">
 
-                                            {{--Inicio do formulario de adicao da quantidade de um producto--}}
-
-                                            {{--Fim do formulario de adicao da quantidade de um producto--}}
-
                                             <div class="form-group">
                                                 <div class="input-group input-group-alt">
                                                     <div class="input-group has-clearable">
-                                                        <button id="clear-search" type="button" class="close" aria-label="Close"><span aria-hidden="true"><i class="fa fa-times-circle"></i></span></button>
+                                                        <button id="clear-search" type="button" class="close"
+                                                            aria-label="Close"><span aria-hidden="true"><i
+                                                                    class="fa fa-times-circle"></i></span></button>
                                                         <div class="input-group-prepend">
-                                                            <span class="input-group-text"><span class="oi oi-magnifying-glass"></span></span>
+                                                            <span class="input-group-text"><span
+                                                                    class="oi oi-magnifying-glass"></span></span>
                                                         </div>
-                                                        <input id="table-search" type="text" class="form-control" placeholder="Pesquisar productos">
+                                                        <input id="table-search" type="text" class="form-control"
+                                                            placeholder="Pesquisar productos">
                                                     </div>
                                                 </div>
                                             </div>
@@ -141,8 +189,8 @@
 
                                                         {{-- Inicio do modal de edicao --}}
                                                         <div class="modal fade" id="clientNewModal{{ $product->id }}"
-                                                            tabindex="-1" role="dialog" aria-labelledby="clientNewModalLabel"
-                                                            aria-hidden="true">
+                                                            tabindex="-1" role="dialog"
+                                                            aria-labelledby="clientNewModalLabel" aria-hidden="true">
                                                             <!-- .modal-dialog -->
                                                             <div class="modal-dialog" role="document">
                                                                 <!-- .modal-content -->
@@ -287,41 +335,58 @@
                     </div>
                 </div>
         </main>
-        
+
         <script>
-            $(document).ready(function () {
-                $('#table-search').on('input', function () {
+            $(document).ready(function() {
+                $('#table-search').on('input', function() {
                     var query = $(this).val();
                     if (query.length > 0) {
                         $.ajax({
                             url: "{{ route('search.products') }}",
                             type: "GET",
-                            data: { query: query },
-                            success: function (data) {
+                            data: {
+                                query: query
+                            },
+                            success: function(data) {
                                 $('#product-list').empty();
                                 if (data.length > 0) {
-                                    $.each(data, function (key, product) {
+                                    $.each(data, function(key, product) {
                                         var row = '<tr>' +
-                                            '<td class="align-middle">' + product.Product_name + '</td>' +
-                                            '<td class="align-middle">' + product.Quantity + '</td>' +
-                                            '<td class="align-middle"><span class="badge badge-subtle badge-success">' + product.Code + '</span></td>' +
-                                            '<td class="align-middle">' + product.Price + '</td>' +
-                                            '<td class="align-middle">' + product.Sale_price + '</td>' +
-                                            '<td class="align-middle">' + product.Entry_date + '</td>' +
-                                            '<td class="align-middle">' + product.Expiry_date + '</td>' +
-                                            '<td class="align-middle"><span class="badge badge-subtle badge-warning">' + product.categoria.Category_name + '</span></td>' +
+                                            '<td class="align-middle">' + product
+                                            .Product_name + '</td>' +
+                                            '<td class="align-middle">' + product.Quantity +
+                                            '</td>' +
+                                            '<td class="align-middle"><span class="badge badge-subtle badge-success">' +
+                                            product.Code + '</span></td>' +
+                                            '<td class="align-middle">' + product.Price +
+                                            '</td>' +
+                                            '<td class="align-middle">' + product
+                                            .Sale_price + '</td>' +
+                                            '<td class="align-middle">' + product
+                                            .Entry_date + '</td>' +
+                                            '<td class="align-middle">' + product
+                                            .Expiry_date + '</td>' +
+                                            '<td class="align-middle"><span class="badge badge-subtle badge-warning">' +
+                                            product.categoria.Category_name +
+                                            '</span></td>' +
                                             '<td class="align-middle text-right">' +
-                                            '<button type="button" class="btn btn-sm btn-icon btn-secondary" data-toggle="modal" data-target="#clientNewModal' + product.id + '"><i class="fa fa-pencil-alt"></i> <span class="sr-only">Edit</span></button> ' +
-                                            '<button type="button" class="btn btn-sm btn-icon btn-secondary"><i class="far fa-trash-alt" data-target="#deleteRecordModal' + product.id + '" data-toggle="modal"></i> <span class="sr-only">Remove</span></button>' +
+                                            '<button type="button" class="btn btn-sm btn-icon btn-secondary" data-toggle="modal" data-target="#clientNewModal' +
+                                            product.id +
+                                            '"><i class="fa fa-pencil-alt"></i> <span class="sr-only">Edit</span></button> ' +
+                                            '<button type="button" class="btn btn-sm btn-icon btn-secondary"><i class="far fa-trash-alt" data-target="#deleteRecordModal' +
+                                            product.id +
+                                            '" data-toggle="modal"></i> <span class="sr-only">Remove</span></button>' +
                                             '</td>' +
                                             '</tr>';
                                         $('#product-list').append(row);
                                     });
                                 } else {
-                                    $('#product-list').append('<tr><td colspan="9" class="text-center">Nenhum produto encontrado</td></tr>');
+                                    $('#product-list').append(
+                                        '<tr><td colspan="9" class="text-center">Nenhum produto encontrado</td></tr>'
+                                        );
                                 }
                             },
-                            error: function (xhr, status, error) {
+                            error: function(xhr, status, error) {
                                 console.error("Erro na requisição AJAX: ", status, error);
                             }
                         });
@@ -347,8 +412,7 @@
                     }
                 });
             });
-            </script>
-
+        </script>
     @endrole
 
     @role('stock_manager')
@@ -667,41 +731,58 @@
                 </div>
         </main>
 
-        
+
         <script>
-            $(document).ready(function () {
-                $('#table-search').on('input', function () {
+            $(document).ready(function() {
+                $('#table-search').on('input', function() {
                     var query = $(this).val();
                     if (query.length > 0) {
                         $.ajax({
                             url: "{{ route('search.products') }}",
                             type: "GET",
-                            data: { query: query },
-                            success: function (data) {
+                            data: {
+                                query: query
+                            },
+                            success: function(data) {
                                 $('#product-list').empty();
                                 if (data.length > 0) {
-                                    $.each(data, function (key, product) {
+                                    $.each(data, function(key, product) {
                                         var row = '<tr>' +
-                                            '<td class="align-middle">' + product.Product_name + '</td>' +
-                                            '<td class="align-middle">' + product.Quantity + '</td>' +
-                                            '<td class="align-middle"><span class="badge badge-subtle badge-success">' + product.Code + '</span></td>' +
-                                            '<td class="align-middle">' + product.Price + '</td>' +
-                                            '<td class="align-middle">' + product.Sale_price + '</td>' +
-                                            '<td class="align-middle">' + product.Entry_date + '</td>' +
-                                            '<td class="align-middle">' + product.Expiry_date + '</td>' +
-                                            '<td class="align-middle"><span class="badge badge-subtle badge-warning">' + product.categoria.Category_name + '</span></td>' +
+                                            '<td class="align-middle">' + product
+                                            .Product_name + '</td>' +
+                                            '<td class="align-middle">' + product.Quantity +
+                                            '</td>' +
+                                            '<td class="align-middle"><span class="badge badge-subtle badge-success">' +
+                                            product.Code + '</span></td>' +
+                                            '<td class="align-middle">' + product.Price +
+                                            '</td>' +
+                                            '<td class="align-middle">' + product
+                                            .Sale_price + '</td>' +
+                                            '<td class="align-middle">' + product
+                                            .Entry_date + '</td>' +
+                                            '<td class="align-middle">' + product
+                                            .Expiry_date + '</td>' +
+                                            '<td class="align-middle"><span class="badge badge-subtle badge-warning">' +
+                                            product.categoria.Category_name +
+                                            '</span></td>' +
                                             '<td class="align-middle text-right">' +
-                                            '<button type="button" class="btn btn-sm btn-icon btn-secondary" data-toggle="modal" data-target="#clientNewModal' + product.id + '"><i class="fa fa-pencil-alt"></i> <span class="sr-only">Edit</span></button> ' +
-                                            '<button type="button" class="btn btn-sm btn-icon btn-secondary"><i class="far fa-trash-alt" data-target="#deleteRecordModal' + product.id + '" data-toggle="modal"></i> <span class="sr-only">Remove</span></button>' +
+                                            '<button type="button" class="btn btn-sm btn-icon btn-secondary" data-toggle="modal" data-target="#clientNewModal' +
+                                            product.id +
+                                            '"><i class="fa fa-pencil-alt"></i> <span class="sr-only">Edit</span></button> ' +
+                                            '<button type="button" class="btn btn-sm btn-icon btn-secondary"><i class="far fa-trash-alt" data-target="#deleteRecordModal' +
+                                            product.id +
+                                            '" data-toggle="modal"></i> <span class="sr-only">Remove</span></button>' +
                                             '</td>' +
                                             '</tr>';
                                         $('#product-list').append(row);
                                     });
                                 } else {
-                                    $('#product-list').append('<tr><td colspan="9" class="text-center">Nenhum produto encontrado</td></tr>');
+                                    $('#product-list').append(
+                                        '<tr><td colspan="9" class="text-center">Nenhum produto encontrado</td></tr>'
+                                        );
                                 }
                             },
-                            error: function (xhr, status, error) {
+                            error: function(xhr, status, error) {
                                 console.error("Erro na requisição AJAX: ", status, error);
                             }
                         });
@@ -727,9 +808,7 @@
                     }
                 });
             });
-            </script>
-
-
+        </script>
     @endrole
 
     @role('accountant')
@@ -1046,41 +1125,58 @@
                 </div>
         </main>
 
-        
+
         <script>
-            $(document).ready(function () {
-                $('#table-search').on('input', function () {
+            $(document).ready(function() {
+                $('#table-search').on('input', function() {
                     var query = $(this).val();
                     if (query.length > 0) {
                         $.ajax({
                             url: "{{ route('search.products') }}",
                             type: "GET",
-                            data: { query: query },
-                            success: function (data) {
+                            data: {
+                                query: query
+                            },
+                            success: function(data) {
                                 $('#product-list').empty();
                                 if (data.length > 0) {
-                                    $.each(data, function (key, product) {
+                                    $.each(data, function(key, product) {
                                         var row = '<tr>' +
-                                            '<td class="align-middle">' + product.Product_name + '</td>' +
-                                            '<td class="align-middle">' + product.Quantity + '</td>' +
-                                            '<td class="align-middle"><span class="badge badge-subtle badge-success">' + product.Code + '</span></td>' +
-                                            '<td class="align-middle">' + product.Price + '</td>' +
-                                            '<td class="align-middle">' + product.Sale_price + '</td>' +
-                                            '<td class="align-middle">' + product.Entry_date + '</td>' +
-                                            '<td class="align-middle">' + product.Expiry_date + '</td>' +
-                                            '<td class="align-middle"><span class="badge badge-subtle badge-warning">' + product.categoria.Category_name + '</span></td>' +
+                                            '<td class="align-middle">' + product
+                                            .Product_name + '</td>' +
+                                            '<td class="align-middle">' + product.Quantity +
+                                            '</td>' +
+                                            '<td class="align-middle"><span class="badge badge-subtle badge-success">' +
+                                            product.Code + '</span></td>' +
+                                            '<td class="align-middle">' + product.Price +
+                                            '</td>' +
+                                            '<td class="align-middle">' + product
+                                            .Sale_price + '</td>' +
+                                            '<td class="align-middle">' + product
+                                            .Entry_date + '</td>' +
+                                            '<td class="align-middle">' + product
+                                            .Expiry_date + '</td>' +
+                                            '<td class="align-middle"><span class="badge badge-subtle badge-warning">' +
+                                            product.categoria.Category_name +
+                                            '</span></td>' +
                                             '<td class="align-middle text-right">' +
-                                            '<button type="button" class="btn btn-sm btn-icon btn-secondary" data-toggle="modal" data-target="#clientNewModal' + product.id + '"><i class="fa fa-pencil-alt"></i> <span class="sr-only">Edit</span></button> ' +
-                                            '<button type="button" class="btn btn-sm btn-icon btn-secondary"><i class="far fa-trash-alt" data-target="#deleteRecordModal' + product.id + '" data-toggle="modal"></i> <span class="sr-only">Remove</span></button>' +
+                                            '<button type="button" class="btn btn-sm btn-icon btn-secondary" data-toggle="modal" data-target="#clientNewModal' +
+                                            product.id +
+                                            '"><i class="fa fa-pencil-alt"></i> <span class="sr-only">Edit</span></button> ' +
+                                            '<button type="button" class="btn btn-sm btn-icon btn-secondary"><i class="far fa-trash-alt" data-target="#deleteRecordModal' +
+                                            product.id +
+                                            '" data-toggle="modal"></i> <span class="sr-only">Remove</span></button>' +
                                             '</td>' +
                                             '</tr>';
                                         $('#product-list').append(row);
                                     });
                                 } else {
-                                    $('#product-list').append('<tr><td colspan="9" class="text-center">Nenhum produto encontrado</td></tr>');
+                                    $('#product-list').append(
+                                        '<tr><td colspan="9" class="text-center">Nenhum produto encontrado</td></tr>'
+                                        );
                                 }
                             },
-                            error: function (xhr, status, error) {
+                            error: function(xhr, status, error) {
                                 console.error("Erro na requisição AJAX: ", status, error);
                             }
                         });
@@ -1106,8 +1202,7 @@
                     }
                 });
             });
-            </script>
-
+        </script>
     @endrole
 
 @endsection
