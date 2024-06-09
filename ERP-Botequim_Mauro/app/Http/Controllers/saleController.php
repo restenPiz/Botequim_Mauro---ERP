@@ -200,7 +200,9 @@ class saleController extends Controller
 
     public function showReceipt($id)
     {
-        $sales = Sale_History::with('stocks.product')->where('id', $id)->get();
+        $sales = Sale_History::with('stocks.product')
+            ->where('id', $id)
+            ->get();
 
         $total=DB::table('sale__histories')
             ->where('id',$id)
