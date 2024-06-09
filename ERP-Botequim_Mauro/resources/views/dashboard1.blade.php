@@ -259,7 +259,7 @@
                                                                                                 {{--Inicio do valor total--}}
                                                                                                 <div class="form-group">
                                                                                                     <label for="totalPrice">Valor Total</label>
-                                                                                                    <input type="text" placeholder="Valor a Pagar" class="form-control" id="totalPrice" value="{{ $amount }}" disabled>
+                                                                                                    <input type="text" placeholder="Valor a Pagar" class="form-control" id="total_price" value="{{ $amount }}" disabled>
                                                                                                 </div>
                                                                                                 {{--Fim do input do valor total--}}
                                                                                                 
@@ -274,7 +274,7 @@
                                                                                                 </div>
                                                                                                 <div class="form-group">
                                                                                                     <label for="amountPaid">Valor a Pagar</label>
-                                                                                                    <input type="number" placeholder="Valor a Pagar" class="form-control" name="Total_price" id="amountPaid">
+                                                                                                    <input type="number" placeholder="Valor a Pagar" class="form-control" name="Total_price" id="amount_paid">
                                                                                                 </div>
                                                                                                 <div class="form-group">
                                                                                                     <label for="change">Troco</label>
@@ -283,6 +283,56 @@
                                                                                                 {{--Fim do campo de troco--}}
                                                                                             </div>
                                                                                         </div><!-- /.form-row -->
+
+                                                                                        <script>
+                                                                                        document.addEventListener('DOMContentLoaded', function () {
+                                                                                            const totalPriceInput = document.getElementById('total_price');
+                                                                                            const amountPaidInput = document.getElementById('amount_paid');
+                                                                                            const changeInput = document.getElementById('change');
+                                                                                        
+                                                                                            amountPaidInput.addEventListener('input', function () {
+                                                                                                const totalPrice = parseFloat(totalPriceInput.value);
+                                                                                                const amountPaid = parseFloat(amountPaidInput.value);
+                                                                                        
+                                                                                                if (!isNaN(totalPrice) && !isNaN(amountPaid)) {
+                                                                                                    const change = amountPaid - totalPrice;
+                                                                                                    changeInput.value = change >= 0 ? change.toFixed(2) : 0;
+                                                                                                } else {
+                                                                                                    changeInput.value = 0;
+                                                                                                }
+                                                                                            });
+
+                                                                                            //Inicio do metodo para gerar um recibo de pagamento
+                                                                                            paymentForm.addEventListener('submit', function (event) {
+                                                                                                event.preventDefault();
+
+                                                                                                // Aqui você pode adicionar a lógica para processar o pagamento no backend
+
+                                                                                                // Após processar o pagamento, exiba o botão de impressão do recibo
+                                                                                                printReceiptBtn.style.display = 'inline-block';
+                                                                                            });
+
+                                                                                            printReceiptBtn.addEventListener('click', function () {
+                                                                                                printReceipt();
+                                                                                            });
+
+                                                                                            function printReceipt() {
+                                                                                                const receiptContent = `
+                                                                                                    <h1>Recibo de Venda</h1>
+                                                                                                    <p>Produto: ${totalPriceInput.dataset.productName}</p>
+                                                                                                    <p>Quantidade: ${totalPriceInput.dataset.quantity}</p>
+                                                                                                    <p>Preço de Venda: ${totalPriceInput.value} MZN</p>
+                                                                                                    <p>Valor Pago: ${amountPaidInput.value} MZN</p>
+                                                                                                    <p>Troco: ${changeInput.value} MZN</p>
+                                                                                                    <p>Data de Venda: ${new Date().toLocaleDateString()}</p>
+                                                                                                `;
+                                                                                                const receiptWindow = window.open('', '', 'width=600,height=400');
+                                                                                                receiptWindow.document.write(receiptContent);
+                                                                                                receiptWindow.document.close();
+                                                                                                receiptWindow.print();
+                                                                                            }
+                                                                                        });
+                                                                                        </script>
             
                                                                                     </div>
                                                                                 </div><!-- /.form-row -->

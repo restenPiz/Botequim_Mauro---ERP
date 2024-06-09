@@ -49,7 +49,7 @@ class saleController extends Controller
             'Quantity.integer' => 'A quantidade deve ser um número inteiro.',
             'Quantity.min' => 'A quantidade deve ser pelo menos 1.',
         ];
-        
+
         $validator = Validator::make(Request::all(), $rules, $messages);
 
         if ($validator->fails()) {
@@ -58,42 +58,37 @@ class saleController extends Controller
                 ->withInput();
         }
 
-        $sales=DB::table('sales')->get();
+        $sales = new Sale();
 
-        //*Inicio do metodo responsavel por verificar a quantidade dos producto
+        // Verificar a quantidade no estoque
+        $stock = Stock::find(Request::input('Id_stock'));
 
-        $insufficientStock = false;
-
-        foreach ($sales as $sale) {
-            $stock = Stock::find($sale->Id_stock);
-
-            if ($stock) {
-                if ($stock->Quantity < $sale->Quantity) {
-                    $insufficientStock = true;
-                    break;
-                }
-            } else {
-                Alert::error('Erro', 'Produto não encontrado no estoque!');
+        if ($stock) {
+            if ($stock->Quantity < Request::input('Quantity')) {
+                Alert::error('Erro', 'Quantidade insuficiente no estoque para o produto selecionado!');
                 return back();
             }
-        }
-
-        if ($insufficientStock) {
-            Alert::error('Erro', 'Quantidade insuficiente no estoque para um ou mais produtos!');
+        } else {
+            Alert::error('Erro', 'Produto não encontrado no estoque!');
             return back();
         }
 
-        $sales->Product_price=Request::input('Product_price');
-        $sales->Quantity=Request::input('Quantity');
-        $sales->Id_stock=Request::input('Id_stock');
-        $sales->Amount= $sales->Product_price * $sales->Quantity;
+        $sales->Product_price = Request::input('Product_price');
+        $sales->Quantity = Request::input('Quantity');
+        $sales->Id_stock = Request::input('Id_stock');
+        $sales->Amount = $sales->Product_price * $sales->Quantity;
 
         $sales->save();
 
-        Alert::success('Adicionado!','Producto adicionado na lista de vendas!');
+        // Atualizar a quantidade no estoque
+        $stock->Quantity -= $sales->Quantity;
+        $stock->save();
+
+        Alert::success('Adicionado!', 'Produto adicionado na lista de vendas!');
 
         return back();
     }
+
     public function updateSale($id)
     {
         $sales=Sale::findOrFail($id);
