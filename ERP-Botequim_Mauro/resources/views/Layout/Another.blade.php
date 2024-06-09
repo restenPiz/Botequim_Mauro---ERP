@@ -675,12 +675,12 @@
                                     <span class="menu-text">Inicio</span></a>
                             </li><!-- /.menu-item -->
                             
-                            <li class="menu-item {{ request()->routeIs('addClientRequest','showClientRequest') ? 'has-active' : '' }} has-child">
+                            <li class="menu-item {{ request()->routeIs('addClientRequest','showClientRequest','invoiceRequest') ? 'has-active' : '' }} has-child">
                                 <a href="#" class="menu-link"><span class="menu-icon far fa-user"></span> <span
                                         class="menu-text">Pedidos</span> {{-- <span
                                         class="badge badge-warning">New</span> --}}</a> <!-- child menu -->
                                 <ul class="menu">
-                                    <li class="menu-item {{ request()->routeIs('addClientRequest','showClientRequest') ? 'has-active' : '' }}">
+                                    <li class="menu-item {{ request()->routeIs('addClientRequest','showClientRequest','invoiceRequest') ? 'has-active' : '' }}">
                                         <a href="{{route('addClientRequest')}}" class="menu-link">Verificar Pedidos</a>
                                     </li>
                                 </ul><!-- /child menu -->

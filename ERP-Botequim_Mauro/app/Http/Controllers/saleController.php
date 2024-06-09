@@ -481,7 +481,7 @@ class saleController extends Controller
         $tro=DB::table('sale__histories')
             ->sum('Total_price');
 
-        $troco=$tro * $total;
+        $troco=$tro - $total;
 
         return view('receipt', compact('sales','troco','total'));
     }
