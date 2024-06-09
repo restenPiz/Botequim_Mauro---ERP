@@ -475,7 +475,7 @@ class saleController extends Controller
     //*Inicio do metodo responsavel pelo recibo da parte de vendas
     public function showReceipt($id)
     {
-        $sales = Sale_History::with('stocks')->findOrFail($id);
+        $sales = Sale_History::with('stocks.product')->where('id', $id)->get();
 
         $total=DB::table('sale__histories')
             ->sum('Amount');

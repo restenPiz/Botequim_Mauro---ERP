@@ -29,9 +29,9 @@ class Stock extends Model
     {
         return $this->hasMany(Sale::class,'Id_stock','id');   
     }
-    public function sale_history()
+    public function sale__histories()
     {
-        return $this->hasMany(Sale::class,'Id_stock','id');   
+        return $this->hasMany(Sale_History::class,'Id_stock','id');   
     }
 }
 

@@ -106,26 +106,15 @@
                     <div class="page-inner">
                         <header class="page-title-bar">
                             <div class="d-md-flex">
-                                <h1 class="page-title"> INV-65D9E592 </h1>
-                                <div class="ml-auto">
-                                    <button type="button" data-toggle="modal" data-target="#clientNewModal" class="btn btn-primary">Efectuar Pagamento</button>
-                                </div>
+                                <h1 class="page-title"> Recibo de Pagamento </h1>
+                                
                             </div>
                         </header>
     
                         <div class="page-section">
                             <div class="section-block">
                                 <div class="invoice-wrapper">
-                                    <div class="invoice-actions">
-                                        <div class="dropdown">
-                                            <button type="button" class="btn btn-lg btn-secondary rounded-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="fa fa-caret-down"></span></button>
-                                            <div class="dropdown-menu dropdown-menu-right">
-                                                <div class="dropdown-arrow mr-1"></div>
-                                                <button type="button" id="download-pdf" class="dropdown-item">Download PDF</button>
-                                            </div>
-                                        </div>
-                                    </div>
-    
+                                    
                                     <div id="invoice" class="invoice" data-id="INV-65D9E592">
                                         <div class="invoice-header">
                                             <div class="row">
