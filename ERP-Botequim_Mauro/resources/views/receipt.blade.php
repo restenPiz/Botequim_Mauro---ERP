@@ -94,13 +94,13 @@
             var disabledSkinStylesheet = document.querySelector('link[data-skin]:not([data-skin="' + skin + '"])');
             // Disable unused skin immediately
             disabledSkinStylesheet.setAttribute('rel', '');
-            disabledSkinStylesheet.setAttribute('disabled', true);
+            disabledSkinStylesheet.setAttribute('disabled', false);
             // add loading class to html immediately
         </script><!-- END THEME STYLES -->
     </head>
     <body>
         <main class="app-main">
-            <div class="wrapper" style="width: 50rem;">
+            <div class="wrapper" style="width: 45rem;">
                 <div class="page">
                     <div class="page-inner">
                         <header class="page-title-bar">
