@@ -192,8 +192,6 @@ class saleController extends Controller
 
         Sale::truncate();
 
-        Alert::success('Vendido','O produto foi vendido com sucesso!');
-
         return redirect()->route('showReceipt', ['id' => $last->id]);
     }
     //?Fim dos metodos de conclusao de venda

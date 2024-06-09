@@ -96,7 +96,6 @@
             disabledSkinStylesheet.setAttribute('rel', '');
             disabledSkinStylesheet.setAttribute('disabled', true);
             // add loading class to html immediately
-            document.querySelector('html').classList.add('loading');
         </script><!-- END THEME STYLES -->
     </head>
     <body>
@@ -106,8 +105,7 @@
                     <div class="page-inner">
                         <header class="page-title-bar">
                             <div class="d-md-flex">
-                                <h1 class="page-title"> Recibo de Pagamento </h1>
-                                
+                                <h1 class="page-title"> Recibo de Pagamento </h1>   
                             </div>
                         </header>
     
@@ -171,7 +169,7 @@
                                             </div>
                                             <table class="table table-sm">
                                                 <caption class="invoice-title">
-                                                    <span>Lista de Pedidos - </span><span class="text-primary">Botequim Mauro</span>
+                                                    <span>Lista de Productos - </span><span class="text-primary">Botequim Mauro</span>
                                                 </caption>
                                                 <thead>
                                                     <tr>
@@ -227,6 +225,15 @@
         </main>
     
     </body>
+
+    <script>
+        window.onload = function() {
+            window.print();
+            setTimeout(function() {
+                window.location.href = "{{ route('dashboard') }}";
+            }, 3000); // Redireciona após 2 segundos
+        }
+    </script>
 
     <script src="../assets/vendor/sortablejs/Sortable.min.js"></script> <!-- END PLUGINS JS -->
     <script src="../assets/vendor/jquery/jquery.min.js"></script>
