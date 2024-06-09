@@ -170,6 +170,8 @@ class saleController extends Controller
             return back();
         }
         
+        $last= null;
+
         foreach ($sales as $sale) {
             $last=Sale_History::create([
                 'Product_price' => $sale->Product_price,
@@ -201,9 +203,11 @@ class saleController extends Controller
         $sales = Sale_History::with('stocks.product')->where('id', $id)->get();
 
         $total=DB::table('sale__histories')
+            ->where('id',$id)
             ->sum('Amount');
         
         $tro=DB::table('sale__histories')
+            ->where('id',$id)
             ->sum('Total_price');
 
         $troco=$tro - $total;
