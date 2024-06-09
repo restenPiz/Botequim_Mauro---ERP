@@ -95,23 +95,23 @@ Route::group(['prefix' => 'attendant', 'middleware' => ['role:attendant']], func
 });
 
 //*Inicio da rota responsavel por eliminar um producto da tabela de vendas
-Route::get('/deleteSaleHistory/{id}', [saleController::class, 'deleteSaleHistory'])->name('deleteSaleHistory');
+Route::get('/deleteSaleHistory/{id}', [saleController::class, 'deleteSaleHistory'])->name('deleteSaleHistory')->middleware(['auth', 'verified']);
 
 //* Inicio das rotas multiplas */
-Route::post('/storeClient', [clientController::class, 'storeClient'])->name('storeClient');
-Route::post('/updateClient/{id}', [clientController::class, 'updateClient'])->name('updateClient');
-Route::get('/deleteClient/{id}', [clientController::class, 'deleteClient'])->name('deleteClient');  
+Route::post('/storeClient', [clientController::class, 'storeClient'])->name('storeClient')->middleware(['auth', 'verified']);
+Route::post('/updateClient/{id}', [clientController::class, 'updateClient'])->name('updateClient')->middleware(['auth', 'verified']);
+Route::get('/deleteClient/{id}', [clientController::class, 'deleteClient'])->name('deleteClient')->middleware(['auth', 'verified']);  
 //* Fim das rotas multiplas */
 
 //* Inicio das rotas responsaveis por retornar os dados em json dos inputs */
-Route::get('/getProductDetails', [StockController::class, 'getProductDetails'])->name('getProductDetails');
-Route::get('/getRequest', [StockController::class, 'getRequest'])->name('getRequest');
-Route::get('/getProduct', [StockController::class, 'getProduct'])->name('getProduct');
-Route::get('/getDebit', [debitController::class, 'getDebit'])->name('getDebit');
+Route::get('/getProductDetails', [StockController::class, 'getProductDetails'])->name('getProductDetails')->middleware(['auth', 'verified']);
+Route::get('/getRequest', [StockController::class, 'getRequest'])->name('getRequest')->middleware(['auth', 'verified']);
+Route::get('/getProduct', [StockController::class, 'getProduct'])->name('getProduct')->middleware(['auth', 'verified']);
+Route::get('/getDebit', [debitController::class, 'getDebit'])->name('getDebit')->middleware(['auth', 'verified']);
 //* Fim dos metodos responsaveis pelos metodos JSON */
 
 //*Inicio da rota de todas vendas
-Route::get('/allSale', [saleController::class, 'allSale'])->name('allSale');
+Route::get('/allSale', [saleController::class, 'allSale'])->name('allSale')->middleware(['auth', 'verified']);
 
 //*Inicio da rota responsavel por adicionar as vendas dos pedidos e das dividas
 Route::post('/storeSaleRequest/{id}', [saleController::class, 'storeSaleRequest'])->name('storeSaleRequest');
@@ -143,29 +143,29 @@ Route::post('/storeSaleRequest/{id}', [saleController::class, 'storeSaleRequest'
     Route::get('/deleteProduct/{id}', [productController::class, 'deleteProduct'])->name('deleteProduct');
 
 //*Inicio das rotas de dividas da parte do contabilista
-Route::get('/allDebitAccountant', [debitController::class, 'allDebitAccountant'])->name('allDebitAccountant');
+Route::get('/allDebitAccountant', [debitController::class, 'allDebitAccountant'])->name('allDebitAccountant')->middleware(['auth', 'verified']);
 
 //*Inicio das rotas 
-Route::get('/getSalesDates', [saleController::class, 'getSalesDates'])->name('getSalesDates');
+Route::get('/getSalesDates', [saleController::class, 'getSalesDates'])->name('getSalesDates')->middleware(['auth', 'verified']);
 
 //*Inicio das rotas da parte de relatorios
-Route::get('/saleReport', [reportController::class, 'saleReport'])->name('saleReport');
-Route::get('/productReport', [reportController::class, 'productReport'])->name('productReport');
+Route::get('/saleReport', [reportController::class, 'saleReport'])->name('saleReport')->middleware(['auth', 'verified']);
+Route::get('/productReport', [reportController::class, 'productReport'])->name('productReport')->middleware(['auth', 'verified']);
 
 //*Inicio do metodos que retornam os dados graficos
-Route::get('/getTopSellingProducts', [SaleController::class, 'getTopSellingProducts']);
-Route::get('/getStockQuantities', [StockController::class, 'getStockQuantities']);
-Route::get('/getBestSellingProducts', [saleController::class, 'getBestSellingProducts']);
-Route::get('/getMonthlySales', [SaleController::class, 'getMonthlySales']);
+Route::get('/getTopSellingProducts', [SaleController::class, 'getTopSellingProducts'])->middleware(['auth', 'verified']);
+Route::get('/getStockQuantities', [StockController::class, 'getStockQuantities'])->middleware(['auth', 'verified']);
+Route::get('/getBestSellingProducts', [saleController::class, 'getBestSellingProducts'])->middleware(['auth', 'verified']);
+Route::get('/getMonthlySales', [SaleController::class, 'getMonthlySales'])->middleware(['auth', 'verified']);
 
 //*Inicios dos metodos responsaveis por fazer a pesquisa dos dados nas tabelas
-Route::get('/search-products', [productController::class, 'search'])->name('search.products');
-Route::get('/search-sales', [SaleController::class, 'searchSales'])->name('search.sales');
+Route::get('/search-products', [productController::class, 'search'])->name('search.products')->middleware(['auth', 'verified']);
+Route::get('/search-sales', [SaleController::class, 'searchSales'])->name('search.sales')->middleware(['auth', 'verified']);
 
 //*Inicio das rotas de pdf e scv
-Route::get('/export/pdf', [exportController::class, 'exportPdf'])->name('export.pdf');
-Route::get('/export/excel', [exportController::class, 'exportExcel'])->name('export.excel');
-Route::get('/receipt/{id}', [SaleController::class, 'showReceipt'])->name('showReceipt');
+Route::get('/export/pdf', [exportController::class, 'exportPdf'])->name('export.pdf')->middleware(['auth', 'verified']);
+Route::get('/export/excel', [exportController::class, 'exportExcel'])->name('export.excel')->middleware(['auth', 'verified']);
+Route::get('/receipt/{id}', [SaleController::class, 'showReceipt'])->name('showReceipt')->middleware(['auth', 'verified']);
 
 //*Inicio das rotas da parte de perfil
 
