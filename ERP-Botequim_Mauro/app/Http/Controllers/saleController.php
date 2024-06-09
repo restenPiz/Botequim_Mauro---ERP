@@ -171,7 +171,7 @@ class saleController extends Controller
         }
         
         foreach ($sales as $sale) {
-            Sale_History::create([
+            $last=Sale_History::create([
                 'Product_price' => $sale->Product_price,
                 'Quantity' => $sale->Quantity,
                 'Id_stock' => $sale->Id_stock,
@@ -194,7 +194,7 @@ class saleController extends Controller
 
         Alert::success('Vendido','O produto foi vendido com sucesso!');
 
-        return back();
+        return redirect()->route('showReceipt', ['id' => $last->id]);
     }
     //?Fim dos metodos de conclusao de venda
 
@@ -471,5 +471,20 @@ class saleController extends Controller
                     ->get();
 
         return response()->json($sales);
+    }
+    //*Inicio do metodo responsavel pelo recibo da parte de vendas
+    public function showReceipt($id)
+    {
+        $sales = Sale_History::with('stocks')->findOrFail($id);
+
+        $total=DB::table('sale__histories')
+            ->sum('Amount');
+        
+        $tro=DB::table('sale__histories')
+            ->sum('Total_price');
+
+        $troco=$tro * $total;
+
+        return view('receipt', compact('sales','troco','total'));
     }
 }

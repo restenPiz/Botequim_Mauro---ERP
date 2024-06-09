@@ -16,7 +16,7 @@ class Sale_History extends Model
     //*Inicio da chave estrangeira
     public function stocks()
     {
-        return $this->belongsTo(Stock::class,'Id_stock','id');   
+        return $this->belongsTo(Stock::class,'Id_stock');   
     }
     public function payments()
     {

@@ -165,6 +165,7 @@ Route::get('/search-sales', [SaleController::class, 'searchSales'])->name('searc
 //*Inicio das rotas de pdf e scv
 Route::get('/export/pdf', [exportController::class, 'exportPdf'])->name('export.pdf');
 Route::get('/export/excel', [exportController::class, 'exportExcel'])->name('export.excel');
+Route::get('/receipt/{id}', [SaleController::class, 'showReceipt'])->name('showReceipt');
 
 //*Inicio das rotas da parte de perfil
 
