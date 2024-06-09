@@ -196,6 +196,21 @@ class saleController extends Controller
     }
     //?Fim dos metodos de conclusao de venda
 
+    public function showReceipt($id)
+    {
+        $sales = Sale_History::with('stocks.product')->where('id', $id)->get();
+
+        $total=DB::table('sale__histories')
+            ->sum('Amount');
+        
+        $tro=DB::table('sale__histories')
+            ->sum('Total_price');
+
+        $troco=$tro - $total;
+
+        return view('receipt', compact('sales','troco','total'));
+    }
+
     public function allSale()
     {
         $products=Sale_History::Paginate(8);
@@ -471,18 +486,5 @@ class saleController extends Controller
         return response()->json($sales);
     }
     //*Inicio do metodo responsavel pelo recibo da parte de vendas
-    public function showReceipt($id)
-    {
-        $sales = Sale_History::with('stocks.product')->where('id', $id)->get();
-
-        $total=DB::table('sale__histories')
-            ->sum('Amount');
-        
-        $tro=DB::table('sale__histories')
-            ->sum('Total_price');
-
-        $troco=$tro - $total;
-
-        return view('receipt', compact('sales','troco','total'));
-    }
+    
 }
