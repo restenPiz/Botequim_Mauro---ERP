@@ -100,7 +100,7 @@
     </head>
     <body>
         <main class="app-main">
-            <div class="wrapper" style="width: 55rem;height:150vh">
+            <div class="wrapper" style="width: 50rem;">
                 <div class="page">
                     <div class="page-inner">
                         <header class="page-title-bar">
