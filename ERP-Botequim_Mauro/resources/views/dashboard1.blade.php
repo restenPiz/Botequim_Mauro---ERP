@@ -10,7 +10,7 @@
             <div class="page-section"></br>
                 <div class="container-fluid">
                     <!-- grid row -->
-                    <div class="card">
+                    <div class="car">
                         <div class="card-body">
                             <div class="row">
                                 <!-- grid column -->

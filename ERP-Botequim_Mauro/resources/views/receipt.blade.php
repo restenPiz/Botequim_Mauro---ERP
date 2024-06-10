@@ -226,14 +226,14 @@
     
     </body>
 
-    <script>
+    {{-- <script>
         window.onload = function() {
             window.print();
             setTimeout(function() {
                 window.location.href = "{{ route('dashboard') }}";
             }, 3000); // Redireciona após 2 segundos
         }
-    </script>
+    </script> --}}
 
     <script src="../assets/vendor/sortablejs/Sortable.min.js"></script> <!-- END PLUGINS JS -->
     <script src="../assets/vendor/jquery/jquery.min.js"></script>

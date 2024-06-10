@@ -200,8 +200,15 @@ class saleController extends Controller
 
     public function showReceipt($id)
     {
-        $sales = Sale_History::with('stocks.product')
-            ->where('id', $id)
+        // $sales = Sale_History::with('stocks.product')
+        $sale = Sale_History::with('stocks')
+            ->get();
+
+        $lastSaleDate = Sale_History::max('created_at');
+
+        // Selecionar todas as vendas efetuadas na mesma data de criação
+        $sales = Sale_History::with('stocks')
+            ->where('created_at', $lastSaleDate)
             ->get();
 
         $total=DB::table('sale__histories')
