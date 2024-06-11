@@ -226,14 +226,27 @@
     
     </body>
 
-    <script>
-        window.onload = function() {
-            window.print();
-            setTimeout(function() {
-                window.location.href = "{{ route('dashboard') }}";
-            }, 3000); // Redireciona após 2 segundos
-        }
-    </script>
+    @role('admin')
+        <script>
+            window.onload = function() {
+                window.print();
+                setTimeout(function() {
+                    window.location.href = "{{ route('allClient') }}";
+                }, 3000); // Redireciona após 2 segundos
+            }
+        </script>
+    @endrole
+
+    @role('attendant')
+        <script>
+            window.onload = function() {
+                window.print();
+                setTimeout(function() {
+                    window.location.href = "{{ route('dashboard') }}";
+                }, 3000); // Redireciona após 2 segundos
+            }
+        </script>
+    @endrole
 
     <script src="../assets/vendor/sortablejs/Sortable.min.js"></script> <!-- END PLUGINS JS -->
     <script src="../assets/vendor/jquery/jquery.min.js"></script>
