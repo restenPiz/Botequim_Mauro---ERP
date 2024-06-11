@@ -212,16 +212,20 @@ class saleController extends Controller
             ->get();
 
         $total=DB::table('sale__histories')
-            ->where('id',$id)
+            ->where('created_at', $lastSaleDate)
             ->sum('Amount');
         
+        $lastSale = Sale_History::max('Total_price');
+
         $tro=DB::table('sale__histories')
-            ->where('id',$id)
+            ->where('id', $id)
             ->sum('Total_price');
 
         $troco=$tro - $total;
 
-        return view('receipt', compact('sales','troco','total'));
+        $valor = Sale_History::where('id', $id)->value('Total_price');
+
+        return view('receipt', compact('sales','troco','total','valor'));
     }
 
     public function allSale()

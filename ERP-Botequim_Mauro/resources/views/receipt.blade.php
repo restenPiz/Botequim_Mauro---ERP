@@ -100,7 +100,7 @@
     </head>
     <body>
         <main class="app-main">
-            <div class="wrapper" style="width: 45rem;">
+            <div class="wrapper" style="width: 47rem;height:150vh">
                 <div class="page">
                     <div class="page-inner">
                         <header class="page-title-bar">
@@ -200,8 +200,8 @@
                                                     </tr>
                                                     <tr>
                                                         <th colspan="2"></th>
-                                                        <th>IVA</th>
-                                                        <th class="text-right">19 %</th>
+                                                        <th>Valor Pago</th>
+                                                        <th class="text-right">{{$valor}}</th>
                                                     </tr>
                                                     <tr>
                                                         <th colspan="2"></th>
