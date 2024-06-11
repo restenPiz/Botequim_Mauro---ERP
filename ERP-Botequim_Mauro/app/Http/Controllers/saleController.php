@@ -300,8 +300,10 @@ class saleController extends Controller
                 return back();
             }
             
+            $last= null;
+
             foreach ($sales as $sale) {
-                Sale_History::create([
+                $last=Sale_History::create([
                     'Product_price' => $sale->Product_price,
                     'Quantity' => $sale->Quantity,
                     'Id_stock' => $sale->Id_stock,
@@ -322,9 +324,7 @@ class saleController extends Controller
 
             Sale::truncate();
 
-            Alert::success('Vendido','O produto foi vendido com sucesso!');
-
-            return back();
+            return redirect()->route('showReceipt', ['id' => $last->id]);
         }
         elseif(Auth::user()->hasRole('admin'))
         {
@@ -375,8 +375,10 @@ class saleController extends Controller
                 return back();
             }
             
+            $last= null;
+
             foreach ($sales as $sale) {
-                Sale_History::create([
+                $last=Sale_History::create([
                     'Product_price' => $sale->Product_price,
                     'Quantity' => $sale->Quantity,
                     'Id_stock' => $sale->Id_stock,
@@ -397,9 +399,7 @@ class saleController extends Controller
 
             Sale::truncate();
 
-            Alert::success('Vendido','O produto foi vendido com sucesso!');
-
-            return back();
+            return redirect()->route('showReceipt', ['id' => $last->id]);
         }
     }
 
