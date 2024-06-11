@@ -196,17 +196,17 @@
                                                     <tr>
                                                         <th colspan="2"></th>
                                                         <th>Total</th>
-                                                        <th class="text-right">{{ $total }} MT</th>
+                                                        <th class="text-right">{{ $total }} MZN</th>
                                                     </tr>
                                                     <tr>
                                                         <th colspan="2"></th>
                                                         <th>Valor Pago</th>
-                                                        <th class="text-right">{{$valor}}</th>
+                                                        <th class="text-right">{{$valor}} MZN</th>
                                                     </tr>
                                                     <tr>
                                                         <th colspan="2"></th>
                                                         <th>Troco</th>
-                                                        <th class="text-right">{{ $troco }} MT</th>
+                                                        <th class="text-right">{{ $troco }} MZN</th>
                                                     </tr>
                                                 </tfoot>
                                             </table>
