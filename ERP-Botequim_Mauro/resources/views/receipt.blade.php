@@ -100,7 +100,7 @@
     </head>
     <body>
         <main class="app-main">
-            <div class="wrapper" style="width: 47rem;height:150vh">
+            <div class="wrapper" style="width: 55rem;height:200vh">
                 <div class="page">
                     <div class="page-inner">
                         <header class="page-title-bar">
@@ -226,14 +226,14 @@
     
     </body>
 
-    {{-- <script>
+    <script>
         window.onload = function() {
             window.print();
             setTimeout(function() {
                 window.location.href = "{{ route('dashboard') }}";
             }, 3000); // Redireciona após 2 segundos
         }
-    </script> --}}
+    </script>
 
     <script src="../assets/vendor/sortablejs/Sortable.min.js"></script> <!-- END PLUGINS JS -->
     <script src="../assets/vendor/jquery/jquery.min.js"></script>
