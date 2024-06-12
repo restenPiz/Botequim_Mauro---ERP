@@ -9,6 +9,7 @@ use App\Models\Sale_History;
 use App\Models\Stock;
 use Auth;
 use DB;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 use RealRashid\SweetAlert\Facades\Alert;
 use Request;
@@ -173,6 +174,15 @@ class saleController extends Controller
         $last= null;
 
         foreach ($sales as $sale) {
+
+            Log::info('Product_price: ' . $sale->Product_price);
+            Log::info('Quantity: ' . $sale->Quantity);
+            Log::info('Id_stock: ' . $sale->Id_stock);
+            Log::info('Amount: ' . ($sale->Product_price * $sale->Quantity));
+            Log::info('Total_price: ' . $valorPago);
+            Log::info('IVA: ' . $iva);
+            Log::info('Troco: ' . $troco);
+            Log::info('Id_payment: ' . Request::input('Id_payment'));
             $last=Sale_History::create([
                 'Product_price' => $sale->Product_price,
                 'Quantity' => $sale->Quantity,
@@ -255,7 +265,7 @@ class saleController extends Controller
         {
             //* Calcular o preço total da venda com base nos produtos vendidos
             // $totalPrice = Sale::sum('Product_price');
-            $totalPrice = DB::table('Product_requests')
+            $total_Price = DB::table('Product_requests')
                 ->where('Id_client',$id)
                 ->sum('Amount');
 
@@ -300,7 +310,6 @@ class saleController extends Controller
                 return back();
             }
             
-            $last= null;
 
             foreach ($sales as $sale) {
                 $last=Sale_History::create([
@@ -330,7 +339,7 @@ class saleController extends Controller
         {
             //* Calcular o preço total da venda com base nos produtos vendidos
             // $totalPrice = Sale::sum('Product_price');
-            $totalPrice = DB::table('debits')
+            $total_Price = DB::table('debits')
                 ->where('Id_client',$id)
                 ->sum('Amount');
 
@@ -374,32 +383,37 @@ class saleController extends Controller
                 Alert::error('Erro', 'Quantidade insuficiente no estoque para um ou mais produtos!');
                 return back();
             }
-            
-            $last= null;
 
+            $last=0;
             foreach ($sales as $sale) {
-                $last=Sale_History::create([
+                $last = Sale_History::create([
                     'Product_price' => $sale->Product_price,
                     'Quantity' => $sale->Quantity,
                     'Id_stock' => $sale->Id_stock,
-                    'Amount'=> $sale->Product_price * $sale->Quantity,
-                    'Total_price'=> $valorPago,
+                    'Amount' => $sale->Product_price * $sale->Quantity,
+                    'Total_price' => $valorPago,
                     'IVA' => $iva,
                     'Troco' => $troco,
-                    'Id_payment'=>Request::input('Id_payment'),
+                    'Id_payment' => Request::input('Id_payment'),
                 ]);
-
-                //*metodo responsavel por reduzir a quantidade de productos no stock
+        
+                if (!$last) {
+                    Alert::error('Erro', 'Falha ao registrar a venda no histórico.');
+                    return back();
+                }
+        
+                //* Método responsável por reduzir a quantidade de produtos no estoque
                 $stock = Stock::find($sale->Id_stock);
                 if ($stock) {
                     $stock->Quantity -= $sale->Quantity;
                     $stock->save();
                 }
             }
-
+        
             Sale::truncate();
 
             return redirect()->route('showReceipt', ['id' => $last->id]);
+            
         }
     }
 
@@ -422,7 +436,6 @@ class saleController extends Controller
 
             return response()->json($sales);
         } catch (\Exception $e) {
-            // Log the error for debugging
             \Log::error('Error fetching sales data: ' . $e->getMessage());
             return response()->json(['error' => 'Internal Server Error'], 500);
         }

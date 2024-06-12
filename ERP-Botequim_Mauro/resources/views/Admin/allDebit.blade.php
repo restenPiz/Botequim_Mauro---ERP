@@ -267,7 +267,7 @@
 
                                                 {{--Inicio do modal de conclusao de venda--}}
                                                 {{--Inicio do modal de conclusao de venda--}}
-                                                <div class="modal fade" id="clientNewModal{{$client->id}}"
+                                                <div class="modal fade" id="clientNewModa{{$client->id}}"
                                                 tabindex="-1" role="dialog" aria-labelledby="clientNewModalLabel"
                                                 aria-hidden="true">
                                                 <!-- .modal-dialog -->
@@ -351,7 +351,7 @@
                             <div class="col">
                                 <button type="submit" name="submit"
                                 class="btn btn-success text-nowrap ml-auto"
-                                data-toggle="modal" data-target="#clientNewModal{{$client->id}}">Pagar Divida</button>
+                                data-toggle="modal" data-target="#clientNewModa{{$client->id}}">Pagar Divida</button>
                                 <a href="{{route('deleteAllDebit')}}" type="submit" name="submit"
                                 class="btn btn-danger text-nowrap ml-auto">Eliminar Todos Productos</a>
                             </div>
