@@ -231,7 +231,7 @@
             window.onload = function() {
                 window.print();
                 setTimeout(function() {
-                    window.location.href = "{{ route('allClient') }}";
+                    window.location.href = "{{ route('addClient') }}";
                 }, 3000); // Redireciona após 2 segundos
             }
         </script>

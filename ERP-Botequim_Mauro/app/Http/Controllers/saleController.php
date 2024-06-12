@@ -355,7 +355,9 @@ class saleController extends Controller
 
             $troco = $valorPago - ($totalPrice + $iva);
 
-            $sales = Debit::where('Id_client',$id)->get();
+            $sales = DB::table('debits')
+                ->where('Id_client',$id)
+                ->get();
 
             //* Verificar se o valor pago é suficiente
             if ($valorPago < $totalPrice) {
@@ -407,7 +409,10 @@ class saleController extends Controller
                 }
             }
 
-            Debit::truncate();
+            // Debit::truncate();
+            DB::table('debits')
+                ->where('Id_client', $id)
+                ->delete();
 
             return redirect()->route('showReceipt', ['id' => $last->id]);
         }
