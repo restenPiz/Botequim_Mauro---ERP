@@ -310,6 +310,7 @@ class saleController extends Controller
                 return back();
             }
             
+            $last= null;
 
             foreach ($sales as $sale) {
                 $last=Sale_History::create([
@@ -354,7 +355,7 @@ class saleController extends Controller
 
             $troco = $valorPago - ($totalPrice + $iva);
 
-            $sales = Sale::all();
+            $sales = Debit::where('Id_client',$id)->get();
 
             //* Verificar se o valor pago é suficiente
             if ($valorPago < $totalPrice) {
@@ -383,37 +384,32 @@ class saleController extends Controller
                 Alert::error('Erro', 'Quantidade insuficiente no estoque para um ou mais produtos!');
                 return back();
             }
+            
+            $last= null;
 
-            $last=0;
             foreach ($sales as $sale) {
-                $last = Sale_History::create([
+                $last=Sale_History::create([
                     'Product_price' => $sale->Product_price,
                     'Quantity' => $sale->Quantity,
                     'Id_stock' => $sale->Id_stock,
-                    'Amount' => $sale->Product_price * $sale->Quantity,
-                    'Total_price' => $valorPago,
+                    'Amount'=> $sale->Product_price * $sale->Quantity,
+                    'Total_price'=> $valorPago,
                     'IVA' => $iva,
                     'Troco' => $troco,
-                    'Id_payment' => Request::input('Id_payment'),
+                    'Id_payment'=>Request::input('Id_payment'),
                 ]);
-        
-                if (!$last) {
-                    Alert::error('Erro', 'Falha ao registrar a venda no histórico.');
-                    return back();
-                }
-        
-                //* Método responsável por reduzir a quantidade de produtos no estoque
+
+                //*metodo responsavel por reduzir a quantidade de productos no stock
                 $stock = Stock::find($sale->Id_stock);
                 if ($stock) {
                     $stock->Quantity -= $sale->Quantity;
                     $stock->save();
                 }
             }
-        
-            Sale::truncate();
+
+            Debit::truncate();
 
             return redirect()->route('showReceipt', ['id' => $last->id]);
-            
         }
     }
 
