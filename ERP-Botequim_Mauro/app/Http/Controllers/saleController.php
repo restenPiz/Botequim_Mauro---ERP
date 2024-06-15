@@ -85,9 +85,14 @@ class saleController extends Controller
         $stock->Quantity -= $sales->Quantity;
         $stock->save();
 
-        Alert::success('Adicionado!', 'Produto adicionado na lista de vendas!');
+        // Alert::success('Adicionado!', 'Produto adicionado na lista de vendas!');
 
-        return back();
+        // return back();
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Produto adicionado na lista de vendas!',
+            'sale' => $sales
+        ], 200);
     }
 
     public function updateSale($id)

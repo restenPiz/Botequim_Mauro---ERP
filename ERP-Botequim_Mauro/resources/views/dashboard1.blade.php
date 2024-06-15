@@ -20,7 +20,7 @@
                                     <div class="d-md-flex align-items-md-start">
                                         <h1 class="page-title mr-sm-auto"> Lista de Productos Por Vender</h1>
                                     </div><!-- /title and toolbar -->
-                                    <form method="post" action="{{ route('storeSale') }}">
+                                    <form id="saleForm" method="post" action="{{ route('storeSale') }}">
                                         @csrf
                                         <div class="col">
                                             <!-- .card -->

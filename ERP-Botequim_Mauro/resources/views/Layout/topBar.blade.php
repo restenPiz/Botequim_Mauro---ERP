@@ -401,6 +401,65 @@
             gtag('config', 'UA-116692175-1');
         </script>
 
+        
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Script AJAX -->
+<script>
+$(document).ready(function() {
+    $('#saleForm').on('submit', function(e) {
+        e.preventDefault(); // Evitar o comportamento padrão do formulário
+
+        $.ajax({
+            type: 'POST',
+            url: $(this).attr('action'),
+            data: $(this).serialize(),
+            success: function(response) {
+                if (response.status === 'success') {
+                    alert(response.message);
+
+                    // Adicionar a nova venda à tabela
+                    var newRow = `
+                        <tr>
+                            <td class="align-middle">${response.sale.Product_name}</td>
+                            <td class="align-middle">${response.sale.Product_price} MZN</td>
+                            <td class="align-middle">${response.sale.Quantity}</td>
+                            <td class="align-middle">${response.sale.Amount} MZN</td>
+                            <td class="align-middle text-right">
+                                <button type="button" class="btn btn-sm btn-icon btn-secondary" data-toggle="modal" data-target="#clientNewModal${response.sale.id}">
+                                    <i class="fa fa-pencil-alt"></i> <span class="sr-only">Edit</span>
+                                </button>
+                                <button type="button" class="btn btn-sm btn-icon btn-secondary">
+                                    <i class="far fa-trash-alt" data-target="#deleteRecordModal${response.sale.id}" data-toggle="modal"></i> <span class="sr-only">Remove</span>
+                                </button>
+                            </td>
+                        </tr>`;
+                    
+                    $('#salesTable tbody').append(newRow);
+                } else {
+                    alert(response.message);
+                }
+            },
+            error: function(response) {
+                if (response.status === 400) {
+                    let errors = response.responseJSON.errors;
+                    let message = response.responseJSON.message;
+                    let errorMessage = '';
+
+                    for (let key in errors) {
+                        errorMessage += errors[key][0] + '\n';
+                    }
+
+                    alert(errorMessage);
+                } else {
+                    alert('Ocorreu um erro inesperado.');
+                }
+            }
+        });
+    });
+});
+</script>
+
 <script>
     function printPage()
     {
