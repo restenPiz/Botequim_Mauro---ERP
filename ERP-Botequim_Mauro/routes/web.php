@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Controller;
 use App\Http\Controllers\exportController;
 use App\Http\Controllers\productController;
 use App\Http\Controllers\ProfileController;
@@ -166,6 +167,10 @@ Route::get('/search-sales', [SaleController::class, 'searchSales'])->name('searc
 Route::get('/export/pdf', [exportController::class, 'exportPdf'])->name('export.pdf')->middleware(['auth', 'verified']);
 Route::get('/export/excel', [exportController::class, 'exportExcel'])->name('export.excel')->middleware(['auth', 'verified']);
 Route::get('/receipt/{id}', [SaleController::class, 'showReceipt'])->name('showReceipt')->middleware(['auth', 'verified']);
+
+//*Inicio das rotas da parte de redirecionamento
+Route::get('/lock-screen', [Controller::class, 'show'])->name('lock-screen.show');
+Route::post('/lock-screen', [Controller::class, 'unlock'])->name('lock-screen.unlock');
 
 //*Inicio das rotas da parte de perfil
 
