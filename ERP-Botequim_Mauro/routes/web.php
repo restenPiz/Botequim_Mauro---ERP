@@ -169,8 +169,8 @@ Route::get('/export/excel', [exportController::class, 'exportExcel'])->name('exp
 Route::get('/receipt/{id}', [SaleController::class, 'showReceipt'])->name('showReceipt')->middleware(['auth', 'verified']);
 
 //*Inicio das rotas da parte de redirecionamento
-Route::get('/lock-screen', [Controller::class, 'show'])->name('lock-screen.show');
-Route::post('/lock-screen', [Controller::class, 'unlock'])->name('lock-screen.unlock');
+Route::get('/lock-screen', [redirectController::class, 'show'])->name('lock-screen.show');
+Route::post('/lock-screen', [redirectController::class, 'unlock'])->name('lock-screen.unlock');
 
 //*Inicio das rotas da parte de perfil
 

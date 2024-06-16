@@ -18,7 +18,7 @@
         <script>
             document.addEventListener('DOMContentLoaded', function() {
                 let timeout;
-                const lockScreenTime = 2 * 60 * 1000; // 2 minutos
+                const lockScreenTime = 1 * 60 * 1000; // 2 minutos
     
                 function resetTimeout() {
                     clearTimeout(timeout);

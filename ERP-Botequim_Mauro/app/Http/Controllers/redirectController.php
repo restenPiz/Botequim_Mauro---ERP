@@ -8,11 +8,37 @@ use App\Models\Product;
 use App\Models\Sale;
 use App\Models\Stock;
 use DB;
+use Hash;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class redirectController extends Controller
 {
+
+    //*Inicio dos metodos responsaveis pelo lockscreen da aplicacao
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    public function show()
+    {
+        return view('lock_screen');
+    }
+
+    public function unlock(Request $request)
+    {
+        $request->validate([
+            'password' => 'required',
+        ]);
+
+        if (Hash::check($request->password, Auth::user()->password)) {
+            return redirect()->intended();
+        }
+
+        return back()->withErrors(['password' => 'Senha incorreta']);
+    }
+
     //?Inicio do metodo responsavel por retornar a contagem de productos no stock
     public function checkStockLevelsAjax()
     {
