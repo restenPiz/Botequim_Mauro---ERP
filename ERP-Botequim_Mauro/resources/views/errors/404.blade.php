@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-  
-<!-- Mirrored from uselooper.com/auth-error-v3.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 03 Jan 2024 11:00:23 GMT -->
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -49,10 +47,10 @@
             <h1 class="state-header display-1 font-weight-bold">
               <span>4</span> <i class="far fa-frown text-red"></i> <span>4</span>
             </h1>
-            <h3> Page not found! </h3>
-            <p class="state-description lead"> Sorry, we've misplaced that URL or it's pointing to something that doesn't exist. </p>
+            <h3> Pagina nao encontrada! </h3>
+            <p class="state-description lead"> Desculpe, perdemos esse URL ou ele está apontando para algo que não existe. </p>
             <div class="state-action">
-              <a href="{{route('dashboard')}}" class="btn btn-lg btn-light"><i class="fa fa-angle-right"></i> Go Home</a>
+              <a href="{{route('dashboard')}}" class="btn btn-lg btn-light"><i class="fa fa-angle-right"></i> Voltar</a>
             </div>
           </div>
         </div>
@@ -65,10 +63,6 @@
     <!-- BEGIN PLUGINS JS -->
     <script src="assets/vendor/particles.js/particles.js"></script>
     <script>
-      /**
-       * Keep in mind that your scripts may not always be executed after the theme is completely ready,
-       * you might need to observe the `theme:load` event to make sure your scripts are executed after the theme is ready.
-       */
       $(document).on('theme:init', () =>
       {
         /* particlesJS.load(@dom-id, @path-json, @callback (optional)); */
