@@ -28,10 +28,8 @@
     <script>
       var skin = localStorage.getItem('skin') || 'default';
       var disabledSkinStylesheet = document.querySelector('link[data-skin]:not([data-skin="' + skin + '"])');
-      // Disable unused skin immediately
       disabledSkinStylesheet.setAttribute('rel', '');
       disabledSkinStylesheet.setAttribute('disabled', true);
-      // add loading class to html immediately
       document.querySelector('html').classList.add('loading');
     </script><!-- END THEME STYLES -->
   </head>
@@ -55,14 +53,11 @@
           </div>
         </div>
       </div><!-- /.empty-state-container -->
-    </main><!-- /.empty-state -->
-    <!-- BEGIN BASE JS -->
+    </main>
     <script src="assets/vendor/jquery/jquery.min.js"></script>
     <script src="assets/vendor/popper.js/umd/popper.min.js"></script>
-    <script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script> <!-- END BASE JS -->
-    <!-- BEGIN THEME JS -->
-    <script src="assets/javascript/theme.min.js"></script> <!-- END THEME JS -->
-    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/javascript/theme.min.js"></script> 
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-116692175-1"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
