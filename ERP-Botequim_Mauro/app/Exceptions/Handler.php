@@ -20,6 +20,7 @@ class Handler extends ExceptionHandler
         });
     }
 
+    //*Inicio do metodo que vai renderizar as paginas de erro
     public function render($request, Throwable $exception)
     {
         if ($this->isHttpException($exception)) {
