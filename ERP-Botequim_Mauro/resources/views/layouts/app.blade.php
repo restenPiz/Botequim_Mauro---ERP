@@ -13,6 +13,25 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+        {{--Inicio do script responsavel por colocar o sistema trancado (Modo inativo)--}}
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                let timeout;
+                const lockScreenTime = 2 * 60 * 1000; // 2 minutos
+    
+                function resetTimeout() {
+                    clearTimeout(timeout);
+                    timeout = setTimeout(() => {
+                        window.location.href = '{{ route('lock-screen.show') }}';
+                    }, lockScreenTime);
+                }
+    
+                document.addEventListener('mousemove', resetTimeout);
+                document.addEventListener('keydown', resetTimeout);
+                resetTimeout();
+            });
+        </script>
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
