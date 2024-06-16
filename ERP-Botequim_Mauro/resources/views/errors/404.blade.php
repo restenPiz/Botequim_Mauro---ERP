@@ -52,7 +52,7 @@
             <h3> Page not found! </h3>
             <p class="state-description lead"> Sorry, we've misplaced that URL or it's pointing to something that doesn't exist. </p>
             <div class="state-action">
-              <a href="auth-error-v1.html" class="btn btn-lg btn-light"><i class="fa fa-angle-right"></i> Go Home</a>
+              <a href="{{route('dashboard')}}" class="btn btn-lg btn-light"><i class="fa fa-angle-right"></i> Go Home</a>
             </div>
           </div>
         </div>
