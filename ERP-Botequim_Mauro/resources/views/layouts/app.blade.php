@@ -12,10 +12,7 @@
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
         <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
-
-        {{--Inicio do script responsavel por colocar o sistema trancado (Modo inativo)--}}
-        <script>
+        {{-- <script>
             document.addEventListener('DOMContentLoaded', function() {
                 let timeout;
                 const lockScreenTime = 1 * 60 * 1000; // 2 minutos
@@ -31,7 +28,10 @@
                 document.addEventListener('keydown', resetTimeout);
                 resetTimeout();
             });
-        </script>
+        </script> --}}
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+        {{--Inicio do script responsavel por colocar o sistema trancado (Modo inativo)--}}
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
