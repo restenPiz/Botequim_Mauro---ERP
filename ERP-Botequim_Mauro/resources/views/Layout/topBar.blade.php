@@ -8,7 +8,6 @@
         <!-- Begin SEO tag -->
         <title> ERP - Botequim Mauro</title>
         <meta property="og:title" content="Dashboard">
-        <meta name="author" content="Beni Arisandi">
         <meta property="og:locale" content="en_US">
         <meta name="description" content="Responsive admin theme build on top of Bootstrap 4">
         <meta property="og:description" content="Responsive admin theme build on top of Bootstrap 4">
@@ -152,6 +151,22 @@
                     </div><!-- /.top-bar-list -->
                 </div><!-- /.top-bar -->
             </header><!-- /.app-header -->
+            <div class="modal fade zoomIn" id="RecordModal"
+            tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <form >
+                        
+                        <div class="modal-body">
+                            <div class="mt-2 text-center">
+                                <h2>Contacte-nos:</h2>
+                                <h3>+258 867336817</h3>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
             <!-- .app-aside -->
             <aside class="app-aside app-aside-expand-md 
         app-aside-light">
@@ -873,6 +888,22 @@ $(document).ready(function() {
                     </div><!-- /.top-bar-list -->
                 </div>
             </header><!-- /.app-header -->
+            <div class="modal fade zoomIn" id="RecordModal"
+            tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <form >
+                        
+                        <div class="modal-body">
+                            <div class="mt-2 text-center">
+                                <h2>Contacte-nos:</h2>
+                                <h3>+258 867336817</h3>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
             <!-- .app-aside -->
             <aside class="app-aside app-aside-expand-md 
     app-aside-light">
@@ -1274,6 +1305,22 @@ $(document).ready(function() {
                     </div><!-- /.top-bar-list -->
                 </div>
             </header><!-- /.app-header -->
+            <div class="modal fade zoomIn" id="RecordModal"
+            tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <form >
+                        
+                        <div class="modal-body">
+                            <div class="mt-2 text-center">
+                                <h2>Contacte-nos:</h2>
+                                <h3>+258 867336817</h3>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
             <!-- .app-aside -->
             <aside class="app-aside app-aside-expand-md 
     app-aside-light">
@@ -1693,6 +1740,22 @@ $(document).ready(function() {
                     </div><!-- /.top-bar-list -->
                 </div>
             </header><!-- /.app-header -->
+            <div class="modal fade zoomIn" id="RecordModal"
+            tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <form >
+                        
+                        <div class="modal-body">
+                            <div class="mt-2 text-center">
+                                <h2>Contacte-nos:</h2>
+                                <h3>+258 867336817</h3>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
             <!-- .app-aside -->
             <aside class="app-aside app-aside-expand-md 
     app-aside-light">

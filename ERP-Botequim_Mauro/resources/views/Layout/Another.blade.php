@@ -148,6 +148,22 @@
                 </div><!-- /.top-bar-list -->
             </div><!-- /.top-bar -->
         </header><!-- /.app-header -->
+        <div class="modal fade zoomIn" id="RecordModal"
+            tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <form >
+                        
+                        <div class="modal-body">
+                            <div class="mt-2 text-center">
+                                <h2>Contacte-nos:</h2>
+                                <h3>+258 867336817</h3>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
         <!-- .app-aside -->
         <aside class="app-aside app-aside-expand-md app-aside-light">
             <!-- .aside-content -->
@@ -636,6 +652,22 @@
                 </div><!-- /.top-bar-list -->
             </div><!-- /.top-bar -->
         </header><!-- /.app-header -->
+        <div class="modal fade zoomIn" id="RecordModal"
+            tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <form >
+                        
+                        <div class="modal-body">
+                            <div class="mt-2 text-center">
+                                <h2>Contacte-nos:</h2>
+                                <h3>+258 867336817</h3>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
         <!-- .app-aside -->
         <aside class="app-aside app-aside-expand-md app-aside-light">
             <!-- .aside-content -->
@@ -1022,6 +1054,22 @@
                 </div><!-- /.top-bar-list -->
             </div><!-- /.top-bar -->
         </header><!-- /.app-header -->
+        <div class="modal fade zoomIn" id="RecordModal"
+            tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <form >
+                        
+                        <div class="modal-body">
+                            <div class="mt-2 text-center">
+                                <h2>Contacte-nos:</h2>
+                                <h3>+258 867336817</h3>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
         <!-- .app-aside -->
         <aside class="app-aside app-aside-expand-md app-aside-light">
             <!-- .aside-content -->
