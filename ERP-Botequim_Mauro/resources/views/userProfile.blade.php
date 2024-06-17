@@ -53,7 +53,7 @@
                                                     <!-- form column -->
                                                     <div class="col-md-12 mb-3">
                                                         <label for="input01">Nome</label>
-                                                        <input type="text" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}" id="input01" placeholder="Digite o seu nome" name="name">
+                                                        <input type="text" class="form-control @error('name') is-invalid @enderror" value="{{ Auth::user()->name }}" id="input01" placeholder="Digite o seu nome" name="name">
                                                         @error('name')
                                                             <div class="invalid-feedback">
                                                                 <i class="fa fa-exclamation-circle fa-fw"></i> {{ $message }}
@@ -65,7 +65,7 @@
                                                     <!-- form column -->
                                                     <div class="col-md-12 mb-3">
                                                         <label for="input02">Apelido</label>
-                                                        <input type="text" class="form-control @error('Surname') is-invalid @enderror" value="{{ old('Surname') }}" id="input02" placeholder="Digite o seu apelido" name="Surname">
+                                                        <input type="text" class="form-control @error('Surname') is-invalid @enderror" value="{{ Auth::user()->Surname }}" id="input02" placeholder="Digite o seu apelido" name="Surname">
                                                         @error('Surname')
                                                             <div class="invalid-feedback">
                                                                 <i class="fa fa-exclamation-circle fa-fw"></i> {{ $message }}
@@ -75,7 +75,7 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="input03">Email</label>
-                                                    <input type="email" class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}" id="input03" placeholder="Ex: contacto@mauropeniel.info" name="email" >
+                                                    <input type="email" class="form-control @error('email') is-invalid @enderror" value="{{ Auth::user()->email }}" id="input03" placeholder="Ex: contacto@mauropeniel.info" name="email" >
                                                     @error('email')
                                                         <div class="invalid-feedback">
                                                             <i class="fa fa-exclamation-circle fa-fw"></i> {{ $message }}
@@ -104,7 +104,8 @@
                                                     @enderror
                                                 </div><!-- /.form-group -->
                                             
-                                                <input type="hidden" name="user_type" value="Attendant">
+                                                <input type="hidden" name="id" value="{{Auth::user()->id}}">
+                                                <input type="hidden" name="user_type" value="Admin">
                                                 
                                                 <hr>
                                                 <!-- .form-actions -->
