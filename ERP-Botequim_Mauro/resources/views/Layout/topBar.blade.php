@@ -3,7 +3,6 @@
     <html lang="en">
 
     <head>
-        <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><!-- End Required meta tags -->
         <!-- Begin SEO tag -->
@@ -16,21 +15,7 @@
         <link rel="canonical" href="index.html">
         <meta property="og:url" content="index.html">
         <meta property="og:site_name" content="Looper - Bootstrap 4 Admin Theme">
-        <script type="application/ld+json">
-      {
-        "name": "Looper - Bootstrap 4 Admin Theme",
-        "description": "Responsive admin theme build on top of Bootstrap 4",
-        "author":
-        {
-          "@type": "Person",
-          "name": "Beni Arisandi"
-        },
-        "@type": "WebSite",
-        "url": "",
-        "headline": "Dashboard",
-        "@context": "http://schema.org"
-      }
-    </script><!-- End SEO tag -->
+        
         <!-- FAVICONS -->
         <link rel="apple-touch-icon" sizes="144x144" href="assets/apple-touch-icon.png">
         <link rel="shortcut icon" href="assets/favicon.ico">
@@ -45,6 +30,7 @@
         <link rel="stylesheet" href="assets/stylesheets/theme.min.css" data-skin="default">
         <link rel="stylesheet" href="assets/stylesheets/theme-dark.min.css" data-skin="dark">
         <link rel="stylesheet" href="assets/stylesheets/custom.css">
+
         <script>
             var skin = localStorage.getItem('skin') || 'default';
             var disabledSkinStylesheet = document.querySelector('link[data-skin]:not([data-skin="' + skin + '"])');
@@ -469,35 +455,6 @@ $(document).ready(function() {
         {{-- Inicio do link de sweetAlerta --}}
         @include('sweetalert::alert')
         {{-- Fim do link do sweetAlerta --}}
-        {{-- <script>
-            //?Inicio do metodo que retorna os productos mais vendidos;
-            $(document).ready(function() {
-                fetch('/getTopSellingProducts')
-                    .then(response => response.json())
-                    .then(data => {
-                        if (Array.isArray(data)) {
-                            const tableBody = $('#top-selling-products-table');
-                            tableBody.empty(); // Limpar quaisquer dados existentes
-
-                            data.forEach(product => {
-                                const row = `<tr>
-                                                <td class="align-middle text-truncate">${product.name}</td>
-                                                <td class="align-middle text-center">${product.total_quantity}</td>
-                                                <td class="align-middle text-center">
-                                                    
-                                                </td>
-                                            </tr>`;
-                                tableBody.append(row);
-                            });
-                        } else {
-                            console.error('Data received is not an array');
-                        }
-                    })
-                    .catch(error => {
-                        console.error('Error fetching top selling products:', error);
-                    });
-            });
-        </script> --}}
         <script>
             async function fetchMonthlySalesData() {
                 try {

@@ -40,9 +40,9 @@ class userController extends Controller
 
         return view('Admin.addAcountant',compact('users'));
     }
-    public function storeUser(Request $request)
+    public function storeUser()
     {
-        $validatedData = $request->validate([
+        $validatedData = Request::validate([
             'name' => 'required|string|max:255',
             'Surname' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
@@ -50,13 +50,13 @@ class userController extends Controller
         ]);
         
         //?Inicio da condicao
-        if ($request->input('user_type') === 'Attendant') {
+        if (Request::input('user_type') === 'Attendant') {
             $role = 'attendant';
             $successMessage = 'O usuário atendente foi adicionado com sucesso!';
-        } elseif ($request->input('user_type') === 'Stock_manager') {
+        } elseif (Request::input('user_type') === 'Stock_manager') {
             $role = 'stock_manager';
             $successMessage = 'O usuário gestor de estoque foi adicionado com sucesso!';
-        } elseif ($request->input('user_type') === 'Accountant') {
+        } elseif (Request::input('user_type') === 'Accountant') {
             $role = 'accountant';
             $successMessage = 'O usuário contabilista foi adicionado com sucesso!';
         } else {
@@ -65,11 +65,11 @@ class userController extends Controller
 
         //?Metodo de insercao
         $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'Surname' => $request->Surname,
-            'user_type' => $request->user_type, 
-            'password' => Hash::make($request->password),
+            'name' => Request::input('name'),
+            'email' => Request::input('email'),
+            'Surname' => Request::input('Surname'),
+            'user_type' => Request::input('user_type'), 
+            'password' => Hash::make(Request::input('password')),
         ]);
 
         $user->addRole($role); 
