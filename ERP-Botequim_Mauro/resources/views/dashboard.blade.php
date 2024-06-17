@@ -1,4 +1,4 @@
-@extends('Layout.top')
+@extends('Layout.topBar')
 @section('content')
     @role('admin')
         <main class="app-main">
