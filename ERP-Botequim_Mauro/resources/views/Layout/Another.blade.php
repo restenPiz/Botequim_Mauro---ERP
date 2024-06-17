@@ -140,8 +140,9 @@
                                         class="dropdown-icon oi oi-person"></span> Perfil</a> <a class="dropdown-item"
                                     href="{{ route('logout') }}"><span
                                         class="dropdown-icon oi oi-account-logout"></span> Sair do Sistema</a>
-                                <div class="dropdown-divider"></div><a class="dropdown-item" href="#">Central
-                                    de Ajuda</a>
+                                        <div class="dropdown-divider"></div><a class="dropdown-item" data-target="#RecordModal"
+                                        data-toggle="modal">Central
+                                        de Ajuda</a>
                             </div><!-- /.dropdown-menu -->
                         </div><!-- /.btn-account -->
                     </div><!-- /.top-bar-item -->
@@ -186,8 +187,9 @@
                                     class="dropdown-icon oi oi-person"></span> Perfil</a> <a class="dropdown-item"
                                 href="{{route('logout')}}"><span class="dropdown-icon oi oi-account-logout"></span>
                                 Sair do Sistema</a>
-                            <div class="dropdown-divider"></div><a class="dropdown-item" href="#">Central de
-                                Ajuda</a>
+                                <div class="dropdown-divider"></div><a class="dropdown-item" data-target="#RecordModal"
+                                data-toggle="modal">Central
+                                de Ajuda</a>
                         </div><!-- /dropdown-items -->
                     </div><!-- /.dropdown-aside -->
                 </header><!-- /.aside-header -->
@@ -644,8 +646,9 @@
                                         class="dropdown-icon oi oi-person"></span> Perfil</a> <a class="dropdown-item"
                                     href="{{ route('logout') }}"><span
                                         class="dropdown-icon oi oi-account-logout"></span> Sair do Sistema</a>
-                                <div class="dropdown-divider"></div><a class="dropdown-item" href="#">Central
-                                    de Ajuda</a>
+                                        <div class="dropdown-divider"></div><a class="dropdown-item" data-target="#RecordModal"
+                                        data-toggle="modal">Central
+                                        de Ajuda</a>
                             </div><!-- /.dropdown-menu -->
                         </div><!-- /.btn-account -->
                     </div><!-- /.top-bar-item -->
@@ -690,8 +693,9 @@
                                     class="dropdown-icon oi oi-person"></span> Perfil</a> <a class="dropdown-item"
                                 href="{{route('logout')}}"><span class="dropdown-icon oi oi-account-logout"></span>
                                 Sair do Sistema</a>
-                            <div class="dropdown-divider"></div><a class="dropdown-item" href="#">Central de
-                                Ajuda</a>
+                                <div class="dropdown-divider"></div><a class="dropdown-item" data-target="#RecordModal"
+                                data-toggle="modal">Central
+                                de Ajuda</a>
                         </div><!-- /dropdown-items -->
                     </div><!-- /.dropdown-aside -->
                 </header><!-- /.aside-header -->
@@ -1046,8 +1050,9 @@
                                         class="dropdown-icon oi oi-person"></span> Perfil</a> <a class="dropdown-item"
                                     href="{{ route('logout') }}"><span
                                         class="dropdown-icon oi oi-account-logout"></span> Sair do Sistema</a>
-                                <div class="dropdown-divider"></div><a class="dropdown-item" href="#">Central
-                                    de Ajuda</a>
+                                        <div class="dropdown-divider"></div><a class="dropdown-item" data-target="#RecordModal"
+                                        data-toggle="modal">Central
+                                        de Ajuda</a>
                             </div><!-- /.dropdown-menu -->
                         </div><!-- /.btn-account -->
                     </div><!-- /.top-bar-item -->
@@ -1092,8 +1097,9 @@
                                     class="dropdown-icon oi oi-person"></span> Perfil</a> <a class="dropdown-item"
                                 href="{{route('logout')}}"><span class="dropdown-icon oi oi-account-logout"></span>
                                 Sair do Sistema</a>
-                            <div class="dropdown-divider"></div><a class="dropdown-item" href="#">Central de
-                                Ajuda</a>
+                                <div class="dropdown-divider"></div><a class="dropdown-item" data-target="#RecordModal"
+                                data-toggle="modal">Central
+                                de Ajuda</a>
                         </div><!-- /dropdown-items -->
                     </div><!-- /.dropdown-aside -->
                 </header><!-- /.aside-header -->
