@@ -24,7 +24,7 @@ class ProfileController extends Controller
 
     public function storeProfile(Request $request, $id)
     {
-        $validator = Validator::make(Request::all(), [
+        $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
             'Surname' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email,' . $id,
@@ -40,12 +40,12 @@ class ProfileController extends Controller
         }
 
         $user = User::findOrFail($id);
-        $user->name = Request::input('name');
-        $user->Surname = Request::input('Surname');
-        $user->email = Request::input('email');
+        $user->name = $request->input('name');
+        $user->Surname = $request->input('Surname');
+        $user->email = $request->input('email');
 
-        if (Request::filled('password')) {
-            $user->password = bcrypt(Request::input('password'));
+        if ($request->filled('password')) {
+            $user->password = bcrypt($request->input('password'));
         }
 
         $user->save();

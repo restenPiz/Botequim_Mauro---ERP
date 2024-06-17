@@ -39,6 +39,7 @@
                                                 <!-- .media-body -->
                                                 <div class="media-body pl-3">
                                                     <h3 class="card-title"> {{Auth::user()->name}} </h3>
+                                                    <h6 class="card-subtitle text-muted"> {{Auth::user()->email}} </h6>
                                                     <div id="progress-avatar" class="progress progress-xs fade">
                                                         <div class="progress-bar progress-bar-striped progress-bar-animated bg-success"
                                                             role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>

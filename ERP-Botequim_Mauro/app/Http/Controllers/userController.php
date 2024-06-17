@@ -79,7 +79,7 @@ class userController extends Controller
     }
     public function updateUser(Request $request, $id)
     {
-        $validator = Validator::make(Request::all(), [
+        $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
             'Surname' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email,' . $id,
@@ -90,17 +90,17 @@ class userController extends Controller
         if ($validator->fails()) {
             return redirect()->back()
                 ->withErrors($validator, 'updateUser')
-                ->withInput($request::all())
+                ->withInput($request->all())
                 ->with(['modal_id' => $id]);
         }
 
         $user = User::findOrFail($id);
-        $user->name = Request::input('name');
-        $user->Surname = Request::input('Surname');
-        $user->email = Request::input('email');
+        $user->name = $request->input('name');
+        $user->Surname = $request->input('Surname');
+        $user->email = $request->input('email');
 
-        if (Request::filled('password')) {
-            $user->password = bcrypt(Request::input('password'));
+        if ($request->filled('password')) {
+            $user->password = bcrypt($request->input('password'));
         }
 
         $user->save();
