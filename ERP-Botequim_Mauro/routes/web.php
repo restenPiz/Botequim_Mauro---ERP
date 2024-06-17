@@ -173,7 +173,7 @@ Route::get('/lock-screen', [redirectController::class, 'show'])->name('lock-scre
 Route::post('/lock-screen', [redirectController::class, 'unlock'])->name('lock-screen.unlock');
 
 //*Inicio das rotas da parte de perfil
-Route::post('/updateProfile/{id}', [profileController::class, 'updateProfile'])->name('updateProfile');
+Route::get('/updateProfile/{id}', [profileController::class, 'updateProfile'])->name('updateProfile');
 Route::post('/storeProfile/{id}', [profileController::class, 'storeProfile'])->name('storeProfile');
 
 require __DIR__.'/auth.php';
