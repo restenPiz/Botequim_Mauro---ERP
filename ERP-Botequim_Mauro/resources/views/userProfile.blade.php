@@ -46,7 +46,9 @@
                                                 </div><!-- /.media-body -->
                                             </div><!-- /.media -->
                                             <!-- form -->
-                                            <form method="post" action="{{route('storeProfile')}}">
+                                            <form method="post" action="{{route('storeProfile',[
+                                                'id'=>Auth::user()->id
+                                            ])}}">
                                                 @csrf
                                                 <!-- form row -->
                                                 <div class="form-row">
