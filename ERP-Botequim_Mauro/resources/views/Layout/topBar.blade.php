@@ -171,7 +171,7 @@
                         <div id="dropdown-aside" class="dropdown-aside collapse">
                             <!-- dropdown-items -->
                             <div class="pb-3">
-                                <a class="dropdown-item" href="user-profile.html"><span
+                                <a class="dropdown-item" href="{{route('updateProfile',['id'=>Auth::user()->id])}}"><span
                                         class="dropdown-icon oi oi-person"></span> Perfil</a> <a class="dropdown-item"
                                     href="{{ route('logout') }}"><span class="dropdown-icon oi oi-account-logout"></span>
                                     Sair do Sistema</a>
