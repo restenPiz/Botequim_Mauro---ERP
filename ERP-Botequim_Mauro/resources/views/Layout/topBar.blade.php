@@ -1607,6 +1607,35 @@ $(document).ready(function() {
         @include('sweetalert::alert')
         {{-- Fim do link do sweetAlerta --}}
 
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                // Função para verificar o estoque
+                function checkStock() {
+                    fetch('/check-stock', {
+                        method: 'GET',
+                        headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json'
+                        }
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.length > 0) {
+                            data.forEach(product => {
+                                alert(`Atenção: A quantidade do produto "${product.product.Product_name}" está baixa (${product.Quantity} unidades restantes).`);
+                            });
+                        }
+                    })
+                    .catch(error => console.error('Erro:', error));
+                }
+    
+                // Verificar o estoque ao carregar a página
+                checkStock();
+            });
+    
+        </script>
+    
+
     </body>
 
     </html>
