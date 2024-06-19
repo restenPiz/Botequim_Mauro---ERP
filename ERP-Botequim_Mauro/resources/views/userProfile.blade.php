@@ -1,4 +1,3 @@
-@role('admin')
 
     @extends('Layout.top')
     @section('content')
@@ -144,7 +143,6 @@
             </div>
         </main>
     @endsection
-@endrole
 
 @role('attendant')
     @extends('Layout.topBar')
