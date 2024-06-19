@@ -334,6 +334,10 @@
     <script src="../assets/javascript/theme.min.js"></script> <!-- END THEME JS -->
     <!-- BEGIN PAGE LEVEL JS -->
     <script src="../assets/javascript/pages/dashboard-demo.js"></script> <!-- END PAGE LEVEL JS -->
+    
+
+    <script src="../assets/javascript/pages/profile-demo.js"></script> <!-- END PAGE LEVEL JS -->
+    <!-- BEGIN PAGE LEVEL JS -->
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-116692175-1"></script>
     <script>
@@ -358,6 +362,34 @@
         });
     </script>
     
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Função para verificar o estoque
+            function checkStock() {
+                fetch('/check-stock', {
+                    method: 'GET',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.length > 0) {
+                        data.forEach(product => {
+                            alert(`Atenção: A quantidade do produto "${product.product.Product_name}" está baixa (${product.Quantity} unidades restantes).`);
+                        });
+                    }
+                })
+                .catch(error => console.error('Erro:', error));
+            }
+
+            // Verificar o estoque ao carregar a página
+            checkStock();
+        });
+
+    </script>
+
     <script>
 
         //?Inicio do metodo que retorna os productos mais vendidos

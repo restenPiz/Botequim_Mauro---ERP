@@ -11,6 +11,15 @@ use Request;
 
 class stockController extends Controller
 {
+    //*Inicio do metodo para verificar quantidade de producto no stock
+    public function checkStock()
+    {
+        $lowStockProducts = Stock::with('product')
+            ->where('Quantity', '<=', 10)
+            ->get();
+
+        return response()->json($lowStockProducts);
+    }
     public function allStock()
     {
         $stocks = Stock::all();

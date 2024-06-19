@@ -27,6 +27,9 @@ Route::get('/dashboard', [redirectController::class, 'index'])->middleware(['aut
 //*Inicio do metodo responsavel pela contagem da quantidade de cada producto no stock
 Route::get('/check-stock-levels', [redirectController::class,'checkStockLevelsAjax'])->name('checkStockLevels');
 
+//*Inicio da rota responsavel por verificar a quantidade de productos no stock
+Route::get('/check-stock', [stockController::class, 'checkStock']);
+
 //?Inicio das rotas da parte de admin
 Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function() {
 
