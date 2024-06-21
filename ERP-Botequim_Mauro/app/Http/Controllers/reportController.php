@@ -2,11 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use Barryvdh\DomPDF\Facade\Pdf;
 use DB;
 use Illuminate\Http\Request;
 
 class reportController extends Controller
 {
+    public function generatePdf(Request $request)
+    {
+        $data = $request->all();
+
+        $pdf = Pdf::loadView('pdf.relatorio', compact('data'));
+
+        return $pdf->download('relatorio.pdf');
+    }
     public function saleReport()
     {
         $stock_in=DB::table('stocks')

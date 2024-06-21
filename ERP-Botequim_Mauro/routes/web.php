@@ -155,6 +155,8 @@ Route::get('/getSalesDates', [saleController::class, 'getSalesDates'])->name('ge
 //*Inicio das rotas da parte de relatorios
 Route::get('/saleReport', [reportController::class, 'saleReport'])->name('saleReport')->middleware(['auth', 'verified']);
 Route::get('/productReport', [reportController::class, 'productReport'])->name('productReport')->middleware(['auth', 'verified']);
+Route::post('/generate-pdf', [reportController::class, 'generatePdf']);
+
 
 //*Inicio do metodos que retornam os dados graficos
 Route::get('/getTopSellingProducts', [SaleController::class, 'getTopSellingProducts'])->middleware(['auth', 'verified']);

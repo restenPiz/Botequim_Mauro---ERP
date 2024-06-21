@@ -39,6 +39,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        Barryvdh\DomPDF\ServiceProvider::class,
 
         //*Inicio do import dos alertas do realrashid
         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
@@ -52,6 +53,7 @@ return [
         //*Inicio da extensao do RealRashid Alert
         'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
         'Laratrust'   => Laratrust\LaratrustFacade::class,
+        'PDF' => Barryvdh\DomPDF\Facade::class,
 
     ])->toArray(),
 
