@@ -417,7 +417,7 @@
         });
 
         </script>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
+
         <script>
             window.dataLayer = window.dataLayer || [];
 
@@ -427,9 +427,6 @@
             gtag('js', new Date());
             gtag('config', 'UA-116692175-1');
         </script>
-
-        
-{{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> --}}
 
         <script>
             document.addEventListener('DOMContentLoaded', function() {
