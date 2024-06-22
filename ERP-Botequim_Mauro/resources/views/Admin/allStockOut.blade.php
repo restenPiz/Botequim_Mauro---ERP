@@ -69,7 +69,7 @@
                                                             <td class="align-middle">
                                                                 {{ $product->stocks->product->Product_name }} </td>
                                                             <td class="align-middle"> {{ $product->Quantity }} </td>
-                                                            <td class="align-middle"> {{ $product->Product_price }} </td>
+                                                            <td class="align-middle"> {{ number_format($product->Product_price,2,',','.',).' MZN' }} </td>
                                                             <td class="align-middle">
                                                                 <span
                                                                     class="badge badge-subtle badge-warning">{{ $product->created_at }}</span>
@@ -167,7 +167,7 @@
                                                             <td class="align-middle">
                                                                 {{ $product->stocks->product->Product_name }} </td>
                                                             <td class="align-middle"> {{ $product->Quantity }} </td>
-                                                            <td class="align-middle"> {{ $product->Product_price }} </td>
+                                                            <td class="align-middle"> {{ number_format($product->Product_price,2,',','.',).' MZN' }} </td>
                                                             <td class="align-middle">
                                                                 <span
                                                                     class="badge badge-subtle badge-warning">{{ $product->created_at }}</span>
@@ -266,7 +266,7 @@
                                                             <td class="align-middle">
                                                                 {{ $product->stocks->product->Product_name }} </td>
                                                             <td class="align-middle"> {{ $product->Quantity }} </td>
-                                                            <td class="align-middle"> {{ $product->Product_price }} </td>
+                                                            <td class="align-middle"> {{ number_format($product->Product_price,2,',','.',).' MZN' }} </td>
                                                             <td class="align-middle">
                                                                 <span
                                                                     class="badge badge-subtle badge-warning">{{ $product->created_at }}</span>
