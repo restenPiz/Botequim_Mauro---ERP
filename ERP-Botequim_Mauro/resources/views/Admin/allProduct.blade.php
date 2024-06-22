@@ -639,7 +639,7 @@
                                                                                             id="cnContactName"
                                                                                             class="form-control"
                                                                                             name="Price"
-                                                                                            value="{{ $product->Price }}">
+                                                                                            value="{{ number_format($product->Price,2,',','.',).' MZN' }}">
                                                                                     </div>
                                                                                     <div class="form-group">
                                                                                         <label for="cnContactName">Preco de
@@ -648,7 +648,7 @@
                                                                                             id="cnContactName"
                                                                                             class="form-control"
                                                                                             name="Sale_price"
-                                                                                            value="{{ $product->Sale_price }}">
+                                                                                            value="{{ number_format($product->Sale_price,2,',','.',).' MZN' }}">
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="col-md-12">
