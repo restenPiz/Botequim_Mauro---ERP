@@ -115,7 +115,7 @@
                                                 @foreach ($requests as $request)
                                                 <tr>
                                                     <td class="align-middle"> {{ $request->products->product->Product_name }} </td>
-                                                    <td class="align-middle"> {{ $request->Product_price }} MT</td>
+                                                    <td class="align-middle"> {{ number_format($request->Product_price,2,',','.',).' MZN' }} MT</td>
                                                     <td class="align-middle"> {{ $request->Quantity }} </td>
                                                     <td class="align-middle"> 
                                                         <span class="badge badge-subtle badge-danger">Nao Pago</span>
@@ -323,7 +323,7 @@
                                             <tfoot>
                                                 <tr>
                                                     <td class="align-middle"><h5>Valor Total:</h5></td>
-                                                    <td class="align-middle"><h5>{{$count}} MT</h5></td>
+                                                    <td class="align-middle"><h5>{{number_format($count,2,',','.',).' MZN'}} MT</h5></td>
                                                 </tr>
                                             </tfoot>
                                         </table>
