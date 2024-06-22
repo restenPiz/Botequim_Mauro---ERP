@@ -323,7 +323,7 @@
                                             <tfoot>
                                                 <tr>
                                                     <td class="align-middle"><h5>Valor Total:</h5></td>
-                                                    <td class="align-middle"><h5>{{number_format($count,2,',','.',).' MZN'}} MT</h5></td>
+                                                    <td class="align-middle"><h5>{{number_format($count,2,',','.',).' MZN'}} </h5></td>
                                                 </tr>
                                             </tfoot>
                                         </table>
