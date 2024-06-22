@@ -122,13 +122,13 @@
                                                 @foreach ($debits as $debit)
                                                 <tr>
                                                     <td class="align-middle"> {{ $debit->product->product->Product_name }} </td>
-                                                    <td class="align-middle"> {{ $debit->Product_price }} MT</td>
+                                                    <td class="align-middle"> {{ number_format($debit->Product_price,2,',','.',).' MZN'}}</td>
                                                     <td class="align-middle"> {{ $debit->Date_to_pay }} </td>
                                                     <td class="align-middle"> 
                                                         {{$debit->Quantity}}
                                                     </td>
                                                     <td class="align-middle"> 
-                                                        {{$debit->Amount}}
+                                                        {{number_format($debit->Amount,2,',','.',).' MZN'}}
                                                     </td>
                                                     <td class="align-middle text-right">
                                                         <button type="button" class="btn btn-sm btn-icon btn-secondary"
@@ -234,7 +234,7 @@
                                                                                             id="Priced"
                                                                                             class="form-control"
                                                                                             name="Price"
-                                                                                            value="{{ $debit->Price }}" disabled>
+                                                                                            value="{{number_format($debit->Product_price,2,',','.',).' MZN' }}" disabled>
                                                                                     </div>
                                                                                     <div class="form-group">
                                                                                         <label for="input02">Data de Pagamento</label> <input type="date"
@@ -334,7 +334,7 @@
                                             <tfoot>
                                                 <tr>
                                                     <td class="align-middle"><h5>Valor Total da Divida:</h5></td>
-                                                    <td class="align-middle"><h5>{{$count}} MT</h5></td>
+                                                    <td class="align-middle"><h5>{{number_format($count,2,',','.',).' MZN'}} </h5></td>
                                                 </tr>
                                             </tfoot>
                                         </table>
