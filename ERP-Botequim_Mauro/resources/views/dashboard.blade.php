@@ -177,7 +177,7 @@
                                                             {{-- class="fa fa-caret-up"></i> 24%</small> --}}
                                                 </p>
                                                 <p class="text-center">
-                                                    <strong class="h3">{{number_format($troco,2)}}</strong> <span class="text-muted">MZN</span>
+                                                    <strong class="h3">{{number_format($troco,2,',','.',).' MZN'}}</strong> <span class="text-muted"></span>
                                                 </p>
                                             </div>
                                         </div><!-- /.card-body -->
