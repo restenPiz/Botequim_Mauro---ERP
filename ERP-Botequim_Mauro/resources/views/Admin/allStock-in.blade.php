@@ -189,7 +189,7 @@
                                                         <span
                                                             class="badge badge-subtle badge-success">{{ $stock->Code }}</span>
                                                     </td>
-                                                    <td class="align-middle"> {{ $stock->Price }} </td>
+                                                    <td class="align-middle"> {{ number_format($stock->Price,2,',','.',).' MZN' }} </td>
                                                     <td class="align-middle"> {{ $stock->Entry_date }} </td>
                                                     <td class="align-middle"> {{ $stock->Expiry_date }} </td>
                                                     <td class="align-middle text-right">
