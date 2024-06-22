@@ -518,8 +518,8 @@
                                                                 <span
                                                                     class="badge badge-subtle badge-success">{{ $product->Code }}</span>
                                                             </td>
-                                                            <td class="align-middle"> {{ $product->Price }} </td>
-                                                            <td class="align-middle"> {{ $product->Sale_price }} </td>
+                                                            <td class="align-middle"> {{ number_format($product->Price,2,',','.',).' MZN' }} </td>
+                                                            <td class="align-middle"> {{ number_format($product->Sale_price,2,',','.',).' MZN' }} </td>
                                                             <td class="align-middle"> {{ $product->Entry_date }} </td>
                                                             <td class="align-middle"> {{ $product->Expiry_date }} </td>
                                                             <td class="align-middle">
