@@ -297,7 +297,7 @@
                                                                                 <input type="text" id="price"
                                                                                     class="form-control" name="Price"
                                                                                     value=""
-                                                                                    placeholder="{{ $stock->Price }}"
+                                                                                    placeholder="{{ number_format($stock->Price,2,',','.',).' MZN' }}"
                                                                                     disabled>
                                                                             </div>
                                                                         </div>
@@ -529,7 +529,7 @@
                                                             <span
                                                                 class="badge badge-subtle badge-success">{{ $stock->Code }}</span>
                                                         </td>
-                                                        <td class="align-middle"> {{ $stock->Price }} </td>
+                                                        <td class="align-middle"> {{ number_format($stock->Price,2,',','.',).' MZN' }} </td>
                                                         <td class="align-middle"> {{ $stock->Entry_date }} </td>
                                                         <td class="align-middle"> {{ $stock->Expiry_date }} </td>
                                                         <td class="align-middle text-right">
@@ -643,7 +643,7 @@
                                                                                     <input type="text" id="price"
                                                                                         class="form-control" name="Price"
                                                                                         value=""
-                                                                                        placeholder="{{ $stock->Price }}"
+                                                                                        placeholder="{{ number_format($stock->Price,2,',','.',).' MZN' }}"
                                                                                         disabled>
                                                                                 </div>
                                                                             </div>
@@ -805,7 +805,7 @@
                                                             <span
                                                                 class="badge badge-subtle badge-success">{{ $stock->Code }}</span>
                                                         </td>
-                                                        <td class="align-middle"> {{ $stock->Price }} </td>
+                                                        <td class="align-middle"> {{ number_format($stock->Price,2,',','.',).' MZN' }} </td>
                                                         <td class="align-middle"> {{ $stock->Entry_date }} </td>
                                                         <td class="align-middle"> {{ $stock->Expiry_date }} </td>
                                                     </tr>
