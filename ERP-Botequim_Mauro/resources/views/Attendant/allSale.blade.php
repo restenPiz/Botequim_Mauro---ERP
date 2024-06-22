@@ -80,16 +80,14 @@
                                                         <td class="align-middle"> 
                                                             <span class="badge badge-subtle badge-success">{{$product->payments->Name_payment}}</span>
                                                         </td>
-                                                        <td class="align-middle"> {{ $product->Product_price }} MZN</td>
-                                                        <td class="align-middle"> {{ $product->Amount }} MZN</td>
+                                                        <td class="align-middle"> {{ number_format($product->Product_price,2,',','.',).' MZN' }}</td>
+                                                        <td class="align-middle"> {{ number_format($product->Amount,2,',','.',).' MZN' }}</td>
                                                         <td class="align-middle"> 
-                                                            <span class="badge badge-subtle badge-primary">{{ $product->Total_price }} MZN
+                                                            <span class="badge badge-subtle badge-primary">{{ number_format($product->Total_price,2,',','.',).' MZN' }}
                                                             </span></td>
                                                         <td class="align-middle"> {{
-                                                            
-                                                            $troco=$product->Total_price - $product->Amount
-                                                            
-                                                        }} MZN</td>
+                                                            number_format($troco=$product->Total_price - $product->Amount,2,',','.',).' MZN'
+                                                        }}</td>
                                                         <td class="align-middle"> 
                                                             <span class="badge badge-subtle badge-warning">{{$product->created_at}}</span>
                                                         </td>
@@ -188,16 +186,16 @@
                                                         <td class="align-middle"> 
                                                             <span class="badge badge-subtle badge-success">{{$product->payments->Name_payment}}</span>
                                                         </td>
-                                                        <td class="align-middle"> {{ $product->Product_price }} MZN</td>
-                                                        <td class="align-middle"> {{ $product->Amount }} MZN</td>
+                                                        <td class="align-middle"> {{ number_format($product->Product_price,2,',','.',).' MZN' }}</td>
+                                                        <td class="align-middle"> {{ number_format($product->Amount,2,',','.',).' MZN' }}</td>
                                                         <td class="align-middle"> 
-                                                            <span class="badge badge-subtle badge-primary">{{ $product->Total_price }} MZN
+                                                            <span class="badge badge-subtle badge-primary">{{ number_format($product->Total_price,2,',','.',).' MZN' }}
                                                             </span></td>
                                                         <td class="align-middle"> {{
                                                             
-                                                            $troco=$product->Total_price - $product->Amount
+                                                            number_format($troco=$product->Total_price - $product->Amount,2,',','.',).' MZN'
                                                             
-                                                        }} MZN</td>
+                                                        }}</td>
                                                         <td class="align-middle"> 
                                                             <span class="badge badge-subtle badge-warning">{{$product->created_at}}</span>
                                                         </td>
