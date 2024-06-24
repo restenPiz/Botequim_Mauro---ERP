@@ -386,45 +386,38 @@
         <script>
             function myfunction()
             {
-                window.alert('Ola Mundo')
+                const topSellingProductsChart = document.getElementById('topSellingProductsChart').toDataURL();
+                const stockQuantityChart = document.getElementById('stockQuantityChart').toDataURL();
+                const bestSellingProductsChart = document.getElementById('bestSellingProductsChart').toDataURL();
+
+                const data = {
+                    topSellingProductsChart,
+                    stockQuantityChart,
+                    bestSellingProductsChart
+                };
+
+                fetch('/generate-pdf', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                    },
+                    body: JSON.stringify(data)
+                })
+                .then(response => response.blob())
+                .then(blob => {
+                    const url = window.URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.style.display = 'none';
+                    a.href = url;
+                    a.download = 'relatorio.pdf';
+                    document.body.appendChild(a);
+                    a.click();
+                    window.URL.revokeObjectURL(url);
+                })
+                .catch(error => console.error('Error:', error));
             }
         </script>
-        <script>
-            document.getElementById('exportPdfButton').addEventListener('click', function() {
-            const topSellingProductsChart = document.getElementById('topSellingProductsChart').toDataURL();
-            const stockQuantityChart = document.getElementById('stockQuantityChart').toDataURL();
-            const bestSellingProductsChart = document.getElementById('bestSellingProductsChart').toDataURL();
-
-            const data = {
-                topSellingProductsChart,
-                stockQuantityChart,
-                bestSellingProductsChart
-            };
-
-            fetch('/generate-pdf', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
-                },
-                body: JSON.stringify(data)
-            })
-            .then(response => response.blob())
-            .then(blob => {
-                const url = window.URL.createObjectURL(blob);
-                const a = document.createElement('a');
-                a.style.display = 'none';
-                a.href = url;
-                a.download = 'relatorio.pdf';
-                document.body.appendChild(a);
-                a.click();
-                window.URL.revokeObjectURL(url);
-            })
-            .catch(error => console.error('Error:', error));
-        });
-
-        </script>
-
         <script>
             window.dataLayer = window.dataLayer || [];
 
