@@ -8,13 +8,14 @@
         <!-- Begin SEO tag -->
         <title> ERP - Botequim Mauro</title>
         <meta property="og:title" content="Dashboard">
-        <meta property="og:locale" content="en_US">
+        <meta property="og:locale" content="pt_br">
         <meta name="description" content="Responsive admin theme build on top of Bootstrap 4">
         <meta property="og:description" content="Responsive admin theme build on top of Bootstrap 4">
         <link rel="canonical" href="index.html">
         <meta property="og:url" content="index.html">
         <meta property="og:site_name" content="Looper - Bootstrap 4 Admin Theme">
-        
+        {{-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> --}}
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         <!-- FAVICONS -->
         <link rel="apple-touch-icon" sizes="144x144" href="assets/apple-touch-icon.png">
         <link rel="shortcut icon" href="assets/favicon.ico">
