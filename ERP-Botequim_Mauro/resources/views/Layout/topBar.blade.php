@@ -396,7 +396,7 @@
                     monthlySalesChart
                 };
 
-                fetch('{{ route("generate.pdf") }}', {
+                fetch('{{ route("generateSalePdf") }}', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
