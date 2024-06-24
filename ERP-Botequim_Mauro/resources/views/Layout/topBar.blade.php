@@ -411,9 +411,13 @@
                     return;
                 }
 
-                const stockQuantityChart = stockQuantityChartElement.toDataURL();
-                const bestSellingProductsChart = bestSellingProductsChartElement.toDataURL();
-                const monthlySalesChart = monthlySalesChartElement.toDataURL();
+                const topSellingProductsChart = document.getElementById('topSellingProductsChart').toDataURL();
+                
+                const stockQuantityChartElement = document.getElementById('stockQuantityChartElement').toDataURL();
+                
+                const monthlySalesChartElement = document.getElementById('monthlySalesChartElement').toDataURL();
+                
+                const bestSellingProductsChartElement = document.getElementById('bestSellingProductsChartElement').toDataURL();
 
                 const data = {
                     stockQuantityChart,
