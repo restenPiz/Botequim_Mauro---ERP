@@ -8,11 +8,21 @@ use Illuminate\Http\Request;
 
 class reportController extends Controller
 {
+    //*Inicio do metodo responsavel por gerar os relatorios de vendas e de productos
     public function generatePdf(Request $request)
     {
         $data = $request->all();
 
         $pdf = Pdf::loadView('pdf.relatorio', compact('data'));
+
+        return $pdf->download('relatorio.pdf');
+    }
+    //*Inicio do metodo para gerar o relatorio de vendas
+    public function generatePdf(Request $request)
+    {
+        $data = $request->all();
+
+        $pdf = Pdf::loadView('pdf.saleReport', compact('data'));
 
         return $pdf->download('relatorio.pdf');
     }

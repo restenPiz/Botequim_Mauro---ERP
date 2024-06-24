@@ -59,10 +59,7 @@
                                         <button class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             <span>Exportar</span> <i class="fa fa-fw fa-caret-down"></i>
                                         </button>
-                                        <div class="dropdown-menu dropdown-menu-right">
-                                            <a class="dropdown-item" href="{{ route('export.pdf') }}">Exportar como PDF</a>
-                                            <a class="dropdown-item" href="{{ route('export.excel') }}">Exportar como Excel</a>
-                                        </div>
+                                        <button id="exportPdfButton" onclick="myfunction1()" class="btn btn-secondary">Exportar PDF</button>
                                     </div>
                                 </div>
                             </div>
