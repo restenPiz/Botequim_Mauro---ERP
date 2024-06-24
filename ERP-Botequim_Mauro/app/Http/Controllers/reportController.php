@@ -26,6 +26,7 @@ class reportController extends Controller
 
         return $pdf->download('relatorio_vendas.pdf');
     }
+    //*fim do metodo responsavel por gerar os relatorios em pdf
     public function saleReport()
     {
         $stock_in=DB::table('stocks')
