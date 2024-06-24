@@ -18,7 +18,7 @@ class reportController extends Controller
         return $pdf->download('relatorio.pdf');
     }
     //*Inicio do metodo para gerar o relatorio de vendas
-    public function generatePdf1(Request $request)
+    public function generateSalePdf(Request $request)
     {
         $data = $request->all();
 

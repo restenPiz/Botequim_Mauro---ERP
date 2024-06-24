@@ -56,9 +56,6 @@
                                     </div>
                                     <!-- Botão para exportar -->
                                     <div class="dropdown">
-                                        <button class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <span>Exportar</span> <i class="fa fa-fw fa-caret-down"></i>
-                                        </button>
                                         <button id="exportPdfButton" onclick="myfunction1()" class="btn btn-secondary">Exportar PDF</button>
                                     </div>
                                 </div>
