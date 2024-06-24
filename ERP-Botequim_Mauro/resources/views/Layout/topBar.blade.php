@@ -385,6 +385,7 @@
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-116692175-1"></script>
         <script>
             function myfunction1() {
+            
                 const csrfTokenElement = document.querySelector('meta[name="csrf-token"]');
                 if (!csrfTokenElement) {
                     console.error('CSRF token meta tag not found');
@@ -440,6 +441,55 @@
                     window.URL.revokeObjectURL(url);
                 })
                 .catch(error => console.error('Error:', error));
+            }
+
+            // Função para renderizar os gráficos (exemplo)
+            function renderCharts() {
+                // Renderização dos gráficos aqui (usando Chart.js ou outra biblioteca)
+                // Exemplo com Chart.js:
+                const ctx1 = document.getElementById('stockQuantityChart').getContext('2d');
+                const stockQuantityChart = new Chart(ctx1, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Produto A', 'Produto B', 'Produto C'],
+                        datasets: [{
+                            label: 'Quantidade em Estoque',
+                            data: [10, 20, 30],
+                            backgroundColor: ['red', 'blue', 'green']
+                        }]
+                    }
+                });
+
+                const ctx2 = document.getElementById('bestSellingProductsChart').getContext('2d');
+                const bestSellingProductsChart = new Chart(ctx2, {
+                    type: 'pie',
+                    data: {
+                        labels: ['Produto X', 'Produto Y', 'Produto Z'],
+                        datasets: [{
+                            label: 'Mais Vendidos',
+                            data: [40, 30, 20],
+                            backgroundColor: ['orange', 'yellow', 'pink']
+                        }]
+                    }
+                });
+
+                const ctx3 = document.getElementById('monthlySalesChart').getContext('2d');
+                const monthlySalesChart = new Chart(ctx3, {
+                    type: 'line',
+                    data: {
+                        labels: ['Janeiro', 'Fevereiro', 'Março'],
+                        datasets: [{
+                            label: 'Vendas Mensais',
+                            data: [1000, 2000, 1500],
+                            borderColor: 'blue'
+                        }]
+                    }
+                });
+
+                // Chame a função após a renderização dos gráficos
+                myfunction1();
+
+
             }
 
         </script>
