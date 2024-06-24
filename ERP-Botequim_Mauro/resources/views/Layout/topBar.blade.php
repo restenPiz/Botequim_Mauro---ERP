@@ -391,14 +391,30 @@
                     return;
                 }
                 const csrfToken = csrfTokenElement.getAttribute('content');
-
                 console.log('CSRF Token:', csrfToken);
-                const stockQuantityChart = document.getElementById('stockQuantityChart').toDataURL();
-                const bestSellingProductsChart = document.getElementById('bestSellingProductsChart').toDataURL();
-                const monthlySalesChart = document.getElementById('monthlySalesChart').toDataURL();
+
+                const stockQuantityChartElement = document.getElementById('stockQuantityChart');
+                const bestSellingProductsChartElement = document.getElementById('bestSellingProductsChart');
+                const monthlySalesChartElement = document.getElementById('monthlySalesChart');
+
+                if (!stockQuantityChartElement) {
+                    console.error('Element with ID stockQuantityChart not found');
+                    return;
+                }
+                if (!bestSellingProductsChartElement) {
+                    console.error('Element with ID bestSellingProductsChart not found');
+                    return;
+                }
+                if (!monthlySalesChartElement) {
+                    console.error('Element with ID monthlySalesChart not found');
+                    return;
+                }
+
+                const stockQuantityChart = stockQuantityChartElement.toDataURL();
+                const bestSellingProductsChart = bestSellingProductsChartElement.toDataURL();
+                const monthlySalesChart = monthlySalesChartElement.toDataURL();
 
                 const data = {
-                    topSellingProductsChart,
                     stockQuantityChart,
                     bestSellingProductsChart,
                     monthlySalesChart
@@ -408,7 +424,7 @@
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
-                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                        'X-CSRF-TOKEN': csrfToken
                     },
                     body: JSON.stringify(data)
                 })
@@ -425,6 +441,7 @@
                 })
                 .catch(error => console.error('Error:', error));
             }
+
         </script>
         <script>
             function myfunction() {
