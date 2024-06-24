@@ -382,6 +382,13 @@
         <script src="assets/javascript/pages/dashboard-demo.js"></script> <!-- END PAGE LEVEL JS -->
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-116692175-1"></script>
+
+        <script>
+            function myFunction()
+            {
+                window.alert('Ola Mundo')
+            }
+        </script>
         <script>
             document.getElementById('exportPdfButton').addEventListener('click', function() {
             const topSellingProductsChart = document.getElementById('topSellingProductsChart').toDataURL();

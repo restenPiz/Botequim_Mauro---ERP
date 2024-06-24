@@ -163,9 +163,6 @@
                                                     <span class="mr-2">Total de Usuarios</span> <small class="text-danger"><i
                                                             class="fa fa-caret-down"></i> 4</small>
                                                 </dt>
-                                                {{-- <dd class="text-right mb-0">
-                                                    <strong>1,600</strong> <small class="text-muted">USD</small>
-                                                </dd> --}}
                                             </dl>
                                         </div><!-- /.card-body -->
                                         <!-- .card-body -->
