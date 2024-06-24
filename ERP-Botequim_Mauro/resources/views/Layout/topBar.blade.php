@@ -384,7 +384,7 @@
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-116692175-1"></script>
 
         <script>
-            function myFunction()
+            function myfunction()
             {
                 window.alert('Ola Mundo')
             }
