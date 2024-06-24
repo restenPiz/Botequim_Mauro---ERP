@@ -833,6 +833,7 @@ $(document).ready(function() {
         <meta name="theme-color" content="#3063A0"><!-- End FAVICONS -->
         <link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600" rel="stylesheet">
         <!-- End GOOGLE FONT -->
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         <link rel="stylesheet" href="../assets/vendor/open-iconic/font/css/open-iconic-bootstrap.min.css">
         <link rel="stylesheet" href="../assets/vendor/%40fortawesome/fontawesome-free/css/all.min.css">
         <link rel="stylesheet" href="../assets/vendor/flatpickr/flatpickr.min.css"><!-- END PLUGINS STYLES -->
@@ -1226,8 +1227,8 @@ $(document).ready(function() {
         <!-- End Required meta tags -->
         <!-- Begin SEO tag -->
         <title> ERP - Botequim Mauro</title>
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         <meta property="og:title" content="Dashboard">
-        <meta name="author" content="Beni Arisandi">
         <meta property="og:locale" content="en_US">
         <meta name="description" content="Responsive admin theme build on top of Bootstrap 4">
         <meta property="og:description" content="Responsive admin theme build on top of Bootstrap 4">
@@ -1705,6 +1706,7 @@ $(document).ready(function() {
         <meta name="theme-color" content="#3063A0"><!-- End FAVICONS -->
         <link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600" rel="stylesheet">
         <!-- End GOOGLE FONT -->
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         <link rel="stylesheet" href="../assets/vendor/open-iconic/font/css/open-iconic-bootstrap.min.css">
         <link rel="stylesheet" href="../assets/vendor/%40fortawesome/fontawesome-free/css/all.min.css">
         <link rel="stylesheet" href="../assets/vendor/flatpickr/flatpickr.min.css"><!-- END PLUGINS STYLES -->
