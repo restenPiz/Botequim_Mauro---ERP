@@ -22,13 +22,6 @@ class reportController extends Controller
     {
         $data = $request->all();
 
-        // Decodificar as imagens base64
-        // $topSellingProductsChart = $data['topSellingProductsChart'];
-        // $stockQuantityChart = $data['stockQuantityChart'];
-        // $bestSellingProductsChart = $data['bestSellingProductsChart'];
-        // $monthlySalesChart = $data['monthlySalesChart'];
-
-        // Passar as imagens para a view do PDF
         $pdf = Pdf::loadView('pdf.saleReport', compact('data'));
 
         return $pdf->download('relatorio_vendas.pdf');
