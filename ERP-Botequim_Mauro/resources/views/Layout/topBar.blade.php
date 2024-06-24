@@ -385,8 +385,16 @@
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-116692175-1"></script>
 
         <script>
-            function myfunction()
-            {
+            function myfunction() {
+                const csrfTokenElement = document.querySelector('meta[name="csrf-token"]');
+                if (!csrfTokenElement) {
+                    console.error('CSRF token meta tag not found');
+                    return;
+                }
+                const csrfToken = csrfTokenElement.getAttribute('content');
+
+                console.log('CSRF Token:', csrfToken);
+
                 const topSellingProductsChart = document.getElementById('topSellingProductsChart').toDataURL();
                 const stockQuantityChart = document.getElementById('stockQuantityChart').toDataURL();
                 const bestSellingProductsChart = document.getElementById('bestSellingProductsChart').toDataURL();
@@ -401,7 +409,7 @@
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
-                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                        'X-CSRF-TOKEN': csrfToken
                     },
                     body: JSON.stringify(data)
                 })
