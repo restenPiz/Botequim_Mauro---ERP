@@ -15,7 +15,7 @@ class reportController extends Controller
 
         $pdf = Pdf::loadView('pdf.relatorio', compact('data'));
 
-        return $pdf->download('relatorio.pdf');
+        return $pdf->download('relatorio_productos.pdf');
     }
     //*Inicio do metodo para gerar o relatorio de vendas
     public function generateSalePdf(Request $request)
@@ -23,15 +23,15 @@ class reportController extends Controller
         $data = $request->all();
 
         // Decodificar as imagens base64
-        $topSellingProductsChart = $data['topSellingProductsChart'];
-        $stockQuantityChart = $data['stockQuantityChart'];
-        $bestSellingProductsChart = $data['bestSellingProductsChart'];
-        $monthlySalesChart = $data['monthlySalesChart'];
+        // $topSellingProductsChart = $data['topSellingProductsChart'];
+        // $stockQuantityChart = $data['stockQuantityChart'];
+        // $bestSellingProductsChart = $data['bestSellingProductsChart'];
+        // $monthlySalesChart = $data['monthlySalesChart'];
 
         // Passar as imagens para a view do PDF
-        $pdf = Pdf::loadView('pdf.saleReport', compact('topSellingProductsChart', 'stockQuantityChart', 'bestSellingProductsChart', 'monthlySalesChart'));
+        $pdf = Pdf::loadView('pdf.saleReport', compact('data'));
 
-        return $pdf->download('relatorio.pdf');
+        return $pdf->download('relatorio_vendas.pdf');
     }
     public function saleReport()
     {
