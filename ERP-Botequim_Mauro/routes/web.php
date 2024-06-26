@@ -157,6 +157,8 @@ Route::get('/saleReport', [reportController::class, 'saleReport'])->name('saleRe
 Route::get('/productReport', [reportController::class, 'productReport'])->name('productReport')->middleware(['auth', 'verified']);
 Route::post('/generate-pdf', [reportController::class, 'generatePdf']);
 Route::post('/generate-sale-pdf', [reportController::class, 'generateSalePdf'])->name('generateSalePdf');
+//?Inicio das rotas para exportar pdfs das tabelas
+Route::get('/export-debts-pdf/{client}', [reportController::class, 'exportDebits'])->name('export.debts.pdf');
 
 //*Inicio do metodos que retornam os dados graficos
 Route::get('/getTopSellingProducts', [SaleController::class, 'getTopSellingProducts'])->middleware(['auth', 'verified']);
