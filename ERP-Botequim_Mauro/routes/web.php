@@ -161,6 +161,7 @@ Route::post('/generate-sale-pdf', [reportController::class, 'generateSalePdf'])-
 Route::get('/export-debts-pdf/{client}', [reportController::class, 'exportDebits'])->name('export.debts.pdf')->middleware(['auth', 'verified']);
 Route::get('/export-products-pdf', [reportController::class, 'exportProducts'])->name('export.products.pdf')->middleware(['auth', 'verified']);
 Route::get('/export-sales-pdf', [reportController::class, 'exportSales'])->name('export.sales.pdf')->middleware(['auth', 'verified']);
+Route::get('/export-sale-pdf', [reportController::class, 'exportSale'])->name('export.sale.pdf')->middleware(['auth', 'verified']);
 
 //*Inicio do metodos que retornam os dados graficos
 Route::get('/getTopSellingProducts', [SaleController::class, 'getTopSellingProducts'])->middleware(['auth', 'verified']);
