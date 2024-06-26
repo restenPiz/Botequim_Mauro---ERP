@@ -18,7 +18,7 @@
     </style>
 </head>
 <body>
-    <h1>Lista de Produtos</h1>
+    <h1>Lista de Saidas de Productos</h1>
     <table>
         <thead>
             <tr>
