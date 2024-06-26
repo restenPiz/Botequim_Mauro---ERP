@@ -81,20 +81,6 @@
                                 <div class="d-md-flex align-items-md-start">
                                     <h1 class="page-title mr-sm-auto"> Todos Clientes </h1><!-- .btn-toolbar -->
                                     <div class="btn-toolbar">
-                                        {{-- <div class="dropdown">
-                                            <button type="button" class="btn btn-light"
-                                                data-toggle="dropdown"><span>Mais</span> <span
-                                                    class="fa fa-caret-down"></span></button>
-                                            <div class="dropdown-menu dropdown-menu-right">
-                                                <div class="dropdown-arrow"></div><a href="#"
-                                                    class="dropdown-item">Add tasks</a> <a href="#"
-                                                    class="dropdown-item">Invite members</a>
-                                                <div class="dropdown-divider"></div><a href="#"
-                                                    class="dropdown-item">Share</a> <a href="#"
-                                                    class="dropdown-item">Archive</a> <a href="#"
-                                                    class="dropdown-item">Remove</a>
-                                            </div>
-                                        </div> --}}
                                     </div><!-- /.btn-toolbar -->
                                 </div><!-- /title and toolbar -->
                             </header><!-- /.page-title-bar -->
@@ -107,14 +93,9 @@
                                     {{-- <h2 class="card-title"> Contacts </h2><!-- .table-responsive --> --}}
                                     <div class="table-responsive">
                                         <div class="input-group input-group-alt">
-                                            <!-- .input-group-prepend -->
-                                            <div class="input-group-prepend">
-                                              <select id="filterBy" class="custom-select">
-                                                <option value='' selected> Filtrar Por </option>
-                                              </select>
-                                            </div><!-- /.input-group-prepend -->
                                             <!-- .input-group -->
                                             <div class="input-group has-clearable">
+                                              <button id="clear-search" type="button" class="close" aria-label="Close"><span aria-hidden="true"><i class="fa fa-times-circle"></i></span></button>
                                               <div class="input-group-prepend">
                                                 <span class="input-group-text"><span class="oi oi-magnifying-glass"></span></span>
                                               </div><input id="table-search" type="text" class="form-control" placeholder="Pesquisar clientes">
