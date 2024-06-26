@@ -44,7 +44,7 @@ class reportController extends Controller
     }
     public function exportProducts()
     {
-        $products=Product::all();
+        $products=Product::with('categoria')->get();
 
         $pdf = PDF::loadView('pdf.product', compact('products'));
         return $pdf->download('products.pdf');
