@@ -396,15 +396,10 @@
                     console.log('CSRF Token:', csrfToken);
 
                     const topSellingProductsChart = document.getElementById('topSellingProductsChart');
-                    const stockQuantityChart = document.getElementById('stockQuantityChart');
                     const monthlySalesChart = document.getElementById('monthlySalesChart');
 
                     if (!topSellingProductsChart) {
                         console.error('Element with ID topSellingProductsChart not found');
-                        return;
-                    }
-                    if (!stockQuantityChart) {
-                        console.error('Element with ID stockQuantityChart not found');
                         return;
                     }
                     if (!monthlySalesChart) {
@@ -413,12 +408,10 @@
                     }
 
                     const topSellingProductsChartDataURL = topSellingProductsChart.toDataURL();
-                    const stockQuantityChartDataURL = stockQuantityChart.toDataURL();
                     const monthlySalesChartDataURL = monthlySalesChart.toDataURL();
 
                     const data = {
                         topSellingProductsChart: topSellingProductsChartDataURL,
-                        stockQuantityChart: stockQuantityChartDataURL,
                         monthlySalesChart: monthlySalesChartDataURL
                     };
 
@@ -436,7 +429,7 @@
                         const a = document.createElement('a');
                         a.style.display = 'none';
                         a.href = url;
-                        a.download = 'relatorio.pdf';
+                        a.download = 'relatorio_de_vendas.pdf';
                         document.body.appendChild(a);
                         a.click();
                         window.URL.revokeObjectURL(url);

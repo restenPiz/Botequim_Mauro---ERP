@@ -21,7 +21,7 @@ class reportController extends Controller
     public function generateSalePdf(Request $request)
     {
         $data = $request->all();
-
+        
         $pdf = Pdf::loadView('pdf.saleReport', compact('data'));
 
         return $pdf->download('relatorio_vendas.pdf');
