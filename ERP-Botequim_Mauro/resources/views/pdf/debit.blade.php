@@ -24,7 +24,7 @@
     </style>
 </head>
 <body>
-    <h1>Debts of {{ $client->Name_client }} {{ $client->Surname }}</h1>
+    <h1>Dividas de {{ $client->Name_client }} {{ $client->Surname }}</h1>
     <table>
         <thead>
             <tr>
