@@ -6,6 +6,7 @@ use App\Models\Client;
 use App\Models\Debit;
 use App\Models\Product;
 use App\Models\Sale;
+use App\Models\Sale_History;
 use Barryvdh\DomPDF\Facade\Pdf;
 use DB;
 use Illuminate\Http\Request;
@@ -52,14 +53,14 @@ class reportController extends Controller
     }
     public function exportSales()
     {
-        $products=Sale::with('stocks.product')->get();
+        $products=Sale_History::with('stocks.product')->get();
 
         $pdf = PDF::loadView('pdf.sale', compact('products'));
         return $pdf->download('sale.pdf');   
     }
     public function exportSale()
     {
-        $products=Sale::with('stocks.product')->get();
+        $products=Sale_History::with('stocks.product','payments')->get();
 
         $pdf = PDF::loadView('pdf.sales', compact('products'));
         return $pdf->download('allSale.pdf');   
