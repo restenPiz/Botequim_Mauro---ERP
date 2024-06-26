@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Client;
 use Barryvdh\DomPDF\Facade\Pdf;
 use DB;
 use Illuminate\Http\Request;
@@ -25,6 +26,14 @@ class reportController extends Controller
         $pdf = Pdf::loadView('pdf.saleReport', compact('data'));
 
         return $pdf->download('relatorio_vendas.pdf');
+    }
+    //?Inicio do metodo responsavel por gerar o pdf de tabelas
+    public function exportDebits(Client $client)
+    {
+        $debits = $client->debit; 
+
+        $pdf = PDF::loadView('pdf.debits', compact('client', 'debits'));
+        return $pdf->download('debits.pdf');
     }
     //*fim do metodo responsavel por gerar os relatorios em pdf
     public function saleReport()
