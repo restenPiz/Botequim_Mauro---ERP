@@ -72,7 +72,7 @@
                                                             <td class="align-middle"> {{ number_format($product->Product_price,2,',','.',).' MZN' }} </td>
                                                             <td class="align-middle">
                                                                 <span
-                                                                    class="badge badge-subtle badge-warning"> {{ \Carbon\Carbon::parse($product->created_at)->format('d/m/Y') }}</span>
+                                                                    class="badge badge-subtle badge-warning"> {{ \Carbon\Carbon::parse($product->created_at)->format('Y-m-d') }}</span>
                                                             </td>
                                                             <td class="align-middle text-right"> <button type="button"
                                                                     class="btn btn-sm btn-icon btn-secondary"><i
