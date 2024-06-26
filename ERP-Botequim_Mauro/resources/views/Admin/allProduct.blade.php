@@ -20,9 +20,9 @@
                                     <div class="d-md-flex align-items-md-start">
                                         <h1 class="page-title mr-sm-auto"> Todos os Productos </h1><!-- .btn-toolbar -->
                                         <div class="btn-toolbar">
-                                            <button type="button" class="btn btn-light"><i
+                                            <a href="{{route('export.products.pdf')}}" type="button" class="btn btn-light"><i
                                                     class="oi oi-data-transfer-download"></i> <span
-                                                    class="ml-1">Exportar</span></button>
+                                                    class="ml-1">Exportar</span></a>
                                         </div><!-- /.btn-toolbar -->
                                     </div><!-- /title and toolbar -->
                                 </header><!-- /.page-title-bar -->
