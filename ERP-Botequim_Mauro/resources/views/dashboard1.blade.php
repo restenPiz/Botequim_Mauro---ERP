@@ -105,10 +105,10 @@
                                                             <tr>
                                                                 <td class="align-middle">
                                                                     {{ $sale->stocks->product->Product_name }} </td>
-                                                                <td class="align-middle"> {{ $sale->Product_price }} MZN
+                                                                <td class="align-middle"> {{ number_format($sale->Product_price,2,',','.',).' MZN' }}
                                                                 </td>
                                                                 <td class="align-middle"> {{ $sale->Quantity }}</td>
-                                                                <td class="align-middle"> {{ $sale->Amount }} MZN</td>
+                                                                <td class="align-middle"> {{ number_format($sale->Amount,2,',','.',).' MZN' }}</td>
                                                                 <td class="align-middle text-right">
                                                                     <button type="button"
                                                                         class="btn btn-sm btn-icon btn-secondary"
@@ -357,7 +357,7 @@
                                                         <div style="text-align: center">
                                                             <td class="align-middle">
                                                                 <button class="btn text-nowrap ml-auto" id="Amount" style="background-color: rgb(142, 142, 142); color:white; border-radius:0; width:330%;">
-                                                                    Valor Total: {{$amount}} MZN
+                                                                    Valor Total: {{ number_format($amount,2,',','.',).' MZN' }}
                                                                 </button>
                                                             </td>
                                                         </div>
