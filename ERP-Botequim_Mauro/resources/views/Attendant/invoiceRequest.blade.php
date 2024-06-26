@@ -193,12 +193,12 @@
                                                         </tr>
                                                         <tr>
                                                             <td>
-                                                                <small>Invoice No</small><br>
+                                                                <small>Numero de Pedido</small><br>
                                                                 <h5> INV-65D9E592 </h5>
                                                             </td>
                                                             <td>
-                                                                <small>Due Date</small><br>
-                                                                <h5> Jan 18, 2019 </h5>
+                                                                <small>Data</small><br>
+                                                                <h5>{{ \Carbon\Carbon::now()->format('M d, Y') }} </h5>
                                                             </td>
                                                         </tr>
                                                     </tbody>
@@ -281,8 +281,7 @@
                                     <!-- .invoice-footer -->
                                     <div class="invoice-footer">
                                         <p>
-                                            <strong>Thanks for buying or notes</strong>. Please click button with caret down
-                                            icon above to generate and download this invoice in pdf format.
+                                            <strong>Obrigado pelo seu pedido</strong>. Por favor clique no botão com o cursor para baixo ícone acima para gerar e baixar esta fatura em formato pdf.
                                         </p>
                                     </div><!-- /.invoice-footer -->
                                 </div><!-- /.invoice -->
