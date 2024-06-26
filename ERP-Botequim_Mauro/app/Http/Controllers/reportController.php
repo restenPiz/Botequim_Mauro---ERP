@@ -52,7 +52,7 @@ class reportController extends Controller
     }
     public function exportSales()
     {
-        $products=Sale::with('product.product')->get();
+        $products=Sale::with('stocks.product')->get();
 
         $pdf = PDF::loadView('pdf.sale', compact('products'));
         return $pdf->download('sale.pdf');   
