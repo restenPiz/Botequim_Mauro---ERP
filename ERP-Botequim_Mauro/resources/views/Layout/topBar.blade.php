@@ -385,45 +385,67 @@
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-116692175-1"></script>
         <script>
             function saleFunction() {
-                const csrfTokenElement = document.querySelector('meta[name="csrf-token"]');
-                if (!csrfTokenElement) {
-                    console.error('CSRF token meta tag not found');
-                    return;
-                }
-                const csrfToken = csrfTokenElement.getAttribute('content');
+                
+                    const csrfTokenElement = document.querySelector('meta[name="csrf-token"]');
+                    if (!csrfTokenElement) {
+                        console.error('CSRF token meta tag not found');
+                        return;
+                    }
+                    const csrfToken = csrfTokenElement.getAttribute('content');
 
-                console.log('CSRF Token:', csrfToken);
+                    console.log('CSRF Token:', csrfToken);
 
-                const topSellingProductsChart = document.getElementById('topSellingProductsChart').toDataURL();
-                const stockQuantityChart = document.getElementById('stockQuantityChart').toDataURL();
-                const monthlySalesChart = document.getElementById('monthlySalesChart').toDataURL();
+                    const topSellingProductsChart = document.getElementById('topSellingProductsChart');
+                    const stockQuantityChart = document.getElementById('stockQuantityChart');
+                    const monthlySalesChart = document.getElementById('monthlySalesChart');
 
-                const data = {
-                    topSellingProductsChart,
-                    stockQuantityChart,
-                    monthlySalesChart
-                };
+                    if (!topSellingProductsChart) {
+                        console.error('Element with ID topSellingProductsChart not found');
+                        return;
+                    }
+                    if (!stockQuantityChart) {
+                        console.error('Element with ID stockQuantityChart not found');
+                        return;
+                    }
+                    if (!monthlySalesChart) {
+                        console.error('Element with ID monthlySalesChart not found');
+                        return;
+                    }
 
-                fetch('/generate-sale-pdf', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-CSRF-TOKEN': csrfToken
-                    },
-                    body: JSON.stringify(data)
-                })
-                .then(response => response.blob())
-                .then(blob => {
-                    const url = window.URL.createObjectURL(blob);
-                    const a = document.createElement('a');
-                    a.style.display = 'none';
-                    a.href = url;
-                    a.download = 'relatorio.pdf';
-                    document.body.appendChild(a);
-                    a.click();
-                    window.URL.revokeObjectURL(url);
-                })
-                .catch(error => console.error('Error:', error));
+                    const topSellingProductsChartDataURL = topSellingProductsChart.toDataURL();
+                    const stockQuantityChartDataURL = stockQuantityChart.toDataURL();
+                    const monthlySalesChartDataURL = monthlySalesChart.toDataURL();
+
+                    const data = {
+                        topSellingProductsChart: topSellingProductsChartDataURL,
+                        stockQuantityChart: stockQuantityChartDataURL,
+                        monthlySalesChart: monthlySalesChartDataURL
+                    };
+
+                    fetch('/generate-sale-pdf', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': csrfToken
+                        },
+                        body: JSON.stringify(data)
+                    })
+                    .then(response => response.blob())
+                    .then(blob => {
+                        const url = window.URL.createObjectURL(blob);
+                        const a = document.createElement('a');
+                        a.style.display = 'none';
+                        a.href = url;
+                        a.download = 'relatorio.pdf';
+                        document.body.appendChild(a);
+                        a.click();
+                        window.URL.revokeObjectURL(url);
+                    })
+                    .catch(error => console.error('Error:', error));
+                
+
+                // Chame sua função para renderizar gráficos
+                renderCharts();
             }
 
         </script>

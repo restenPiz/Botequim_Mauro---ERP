@@ -83,7 +83,7 @@
                             <!-- grid column -->
                             <div class="col-xl-4">
                                 <!-- .card -->
-                                <div class="card card-fluid" id="stockQuantityChart">
+                                <div class="card card-fluid">
                                     <!-- .card-header -->
                                     <div class="card-header"> Relatorios </div><!-- /.card-header -->
                                     <!-- .card-body -->
