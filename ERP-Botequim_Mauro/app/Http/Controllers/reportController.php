@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Client;
 use App\Models\Debit;
+use App\Models\Product;
 use Barryvdh\DomPDF\Facade\Pdf;
 use DB;
 use Illuminate\Http\Request;
@@ -41,6 +42,14 @@ class reportController extends Controller
         $pdf = PDF::loadView('pdf.debit', compact('clients', 'debits'));
         return $pdf->download('debits.pdf');
     }
+    public function exportProducts()
+    {
+        $products=Product::all();
+
+        $pdf = PDF::loadView('pdf.product', compact('products'));
+        return $pdf->download('products.pdf');
+    }
+    
     //*fim do metodo responsavel por gerar os relatorios em pdf
     public function saleReport()
     {
