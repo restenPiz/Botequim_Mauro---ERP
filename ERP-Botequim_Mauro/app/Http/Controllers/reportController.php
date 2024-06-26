@@ -35,9 +35,8 @@ class reportController extends Controller
             ->where('Id_client',$client)
             ->get();
 
-        $clients=DB::table('clients')
-            ->where('id',$client)
-            ->get();
+        $clients=client::where('id',$client)
+            ->first();
 
         $pdf = PDF::loadView('pdf.debit', compact('clients', 'debits'));
         return $pdf->download('debits.pdf');
