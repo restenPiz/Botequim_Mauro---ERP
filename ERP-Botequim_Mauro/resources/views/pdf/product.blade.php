@@ -4,18 +4,23 @@
 <head>
     <title>Relatório de Produtos</title>
     <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
         table {
             width: 100%;
             border-collapse: collapse;
+            margin-bottom: 20px;
         }
-
         table, th, td {
             border: 1px solid black;
         }
-
         th, td {
-            padding: 10px;
+            padding: 8px;
             text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
         }
     </style>
 </head>
