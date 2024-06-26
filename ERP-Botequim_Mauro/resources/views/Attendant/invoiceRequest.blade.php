@@ -188,7 +188,7 @@
                                                         <tr>
                                                             <td colspan="2">
                                                                 <small>Total (MT)</small>
-                                                                <h5> {{$count}} MT </h5>
+                                                                <h5> {{ number_format($count,2,',','.',).' MZN' }}</h5>
                                                             </td>
                                                         </tr>
                                                         <tr>
@@ -251,8 +251,8 @@
                                                     <tr>
                                                         <td> {{ $request->products->product->Product_name }} </td>
                                                         <td class="text-right"> {{ $request->Quantity }} </td>
-                                                        <td> {{ $request->Product_price }} MT </td>
-                                                        <td class="text-right"> {{ $request->Product_price * $request->Quantity }} MT </td>
+                                                        <td>{{ number_format($request->Product_price,2,',','.',).' MZN' }}</td>
+                                                        <td class="text-right"> {{ number_format($request->Product_price * $request->Quantity,2,',','.',).' MZN' }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td colspan="4"></td>
@@ -263,7 +263,7 @@
                                                 <tr>
                                                     <th colspan="2"></th>
                                                     <th> Total </th>
-                                                    <th class="text-right"> {{$count}} MT </th>
+                                                    <th class="text-right"> {{ number_format($count,2,',','.',).' MZN' }}</th>
                                                 </tr>
                                                 {{-- <tr>
                                                     <th colspan="2"></th>
