@@ -396,7 +396,7 @@
 
                 const topSellingProductsChart = document.getElementById('topSellingProductsChart').toDataURL();
                 const stockQuantityChart = document.getElementById('stockQuantityChart').toDataURL();
-                const bestSellingProductsChart = document.getElementById('bestSellingProductsChart').toDataURL();
+                const bestSellingProductsChart = document.getElementById('monthlySalesChart').toDataURL();
 
                 const data = {
                     topSellingProductsChart,

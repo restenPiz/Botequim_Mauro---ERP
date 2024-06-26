@@ -81,7 +81,7 @@
                                 </div><!-- /.card -->
                             </div><!-- /grid column -->
                             <!-- grid column -->
-                            <div class="col-xl-4">
+                            <div class="col-xl-4" id="stockQuantityChart">
                                 <!-- .card -->
                                 <div class="card card-fluid">
                                     <!-- .card-header -->
