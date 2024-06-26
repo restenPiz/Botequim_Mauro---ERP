@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Client;
 use App\Models\Debit;
 use App\Models\Product;
+use App\Models\Sale;
 use Barryvdh\DomPDF\Facade\Pdf;
 use DB;
 use Illuminate\Http\Request;
@@ -51,6 +52,8 @@ class reportController extends Controller
     }
     public function exportSales()
     {
+        $products=Sale::with('product.product')->get();
+
         $pdf = PDF::loadView('pdf.sale', compact('products'));
         return $pdf->download('sale.pdf');   
     }
