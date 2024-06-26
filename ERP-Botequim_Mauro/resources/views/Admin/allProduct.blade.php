@@ -1079,12 +1079,7 @@
                                         <div class="d-flex justify-content-center">
                                             {{ $products->links('vendor.pagination.simple-bootstrap-4') }}
                                         </div>
-                                    </div><!-- /.card-body -->
-                                    <!-- .card-footer -->
-                                    {{-- <div class="card-footer">
-                                <a href="{{route('addProduct')}}" class="card-footer-item"><i
-                                        class="fa fa-plus-circle mr-1"></i> Adicionar Producto</a>
-                            </div><!-- /.card-footer --> --}}
+                                    </div>
                                 </div>
                                 {{-- End of table section --}}
 
