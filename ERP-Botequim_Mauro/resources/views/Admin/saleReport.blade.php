@@ -56,7 +56,7 @@
                                     </div>
                                     <!-- Botão para exportar -->
                                     <div class="dropdown">
-                                        <button id="exportPdfButton" onclick="myfunction1()" class="btn btn-secondary">Exportar PDF</button>
+                                        <button id="exportPdfButton" onclick="saleFunction()" class="btn btn-secondary">Exportar PDF</button>
                                     </div>
                                 </div>
                             </div>

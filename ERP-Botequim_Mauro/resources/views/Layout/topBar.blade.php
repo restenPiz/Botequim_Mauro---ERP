@@ -384,7 +384,7 @@
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-116692175-1"></script>
         <script>
-            function myfunction1() {
+            function saleFunction() {
                 const csrfTokenElement = document.querySelector('meta[name="csrf-token"]');
                 if (!csrfTokenElement) {
                     console.error('CSRF token meta tag not found');
