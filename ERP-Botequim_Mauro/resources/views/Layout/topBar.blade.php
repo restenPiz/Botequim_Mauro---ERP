@@ -396,12 +396,12 @@
 
                 const topSellingProductsChart = document.getElementById('topSellingProductsChart').toDataURL();
                 const stockQuantityChart = document.getElementById('stockQuantityChart').toDataURL();
-                const bestSellingProductsChart = document.getElementById('monthlySalesChart').toDataURL();
+                const monthlySalesChart = document.getElementById('monthlySalesChart').toDataURL();
 
                 const data = {
                     topSellingProductsChart,
                     stockQuantityChart,
-                    bestSellingProductsChart
+                    monthlySalesChart
                 };
 
                 fetch('/generate-sale-pdf', {
