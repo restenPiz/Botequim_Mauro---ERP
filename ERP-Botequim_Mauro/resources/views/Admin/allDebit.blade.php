@@ -280,7 +280,7 @@
                                                                                 {{--Inicio do valor total--}}
                                                                                 <div class="form-group">
                                                                                     <label for="totalPrice">Valor Total</label>
-                                                                                    <input type="text" placeholder="Valor a Pagar" class="form-control" id="total_price" value="{{ $amount }}" disabled>
+                                                                                    <input type="text" placeholder="Valor a Pagar" class="form-control" id="total_price" value="{{ $count }}" disabled>
                                                                                 </div>
                                                                                 {{--Fim do input do valor total--}}
                                                                                 

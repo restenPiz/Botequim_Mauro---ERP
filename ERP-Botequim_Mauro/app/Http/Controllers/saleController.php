@@ -370,7 +370,7 @@ class saleController extends Controller
                 ->get();
 
             //* Verificar se o valor pago é suficiente
-            if ($valorPago < $totalPrice) {
+            if ($valorPago < $total_Price) {
                 Alert::error('Erro','O valor pago é insuficiente para a venda!');
                 return back();
             }
