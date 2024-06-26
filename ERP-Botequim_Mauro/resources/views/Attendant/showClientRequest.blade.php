@@ -115,12 +115,12 @@
                                                 @foreach ($requests as $request)
                                                 <tr>
                                                     <td class="align-middle"> {{ $request->products->product->Product_name }} </td>
-                                                    <td class="align-middle"> {{ number_format($request->Product_price,2,',','.',).' MZN' }} MT</td>
+                                                    <td class="align-middle"> {{ number_format($request->Product_price,2,',','.',).' MZN' }}</td>
                                                     <td class="align-middle"> {{ $request->Quantity }} </td>
                                                     <td class="align-middle"> 
                                                         <span class="badge badge-subtle badge-danger">Nao Pago</span>
                                                     </td>
-                                                    <td class="align-middle">{{$request->Amount}}</td>
+                                                    <td class="align-middle">{{number_format($request->Amount,2,',','.',).' MZN'}}</td>
                                                     <td class="align-middle text-right">
                                                         <button type="button" class="btn btn-sm btn-icon btn-secondary"
                                                             data-toggle="modal"
