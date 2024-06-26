@@ -25,10 +25,10 @@ Route::get('/', function () {
 //*Inicio da rota que redireciona para as diferentes views
 Route::get('/dashboard', [redirectController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 //*Inicio do metodo responsavel pela contagem da quantidade de cada producto no stock
-Route::get('/check-stock-levels', [redirectController::class,'checkStockLevelsAjax'])->name('checkStockLevels');
+Route::get('/check-stock-levels', [redirectController::class,'checkStockLevelsAjax'])->name('checkStockLevels')->middleware(['auth', 'verified']);
 
 //*Inicio da rota responsavel por verificar a quantidade de productos no stock
-Route::get('/check-stock', [stockController::class, 'checkStock']);
+Route::get('/check-stock', [stockController::class, 'checkStock'])->middleware(['auth', 'verified']);
 
 //?Inicio das rotas da parte de admin
 Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function() {
@@ -118,33 +118,33 @@ Route::get('/getDebit', [debitController::class, 'getDebit'])->name('getDebit')-
 Route::get('/allSale', [saleController::class, 'allSale'])->name('allSale')->middleware(['auth', 'verified']);
 
 //*Inicio da rota responsavel por adicionar as vendas dos pedidos e das dividas
-Route::post('/storeSaleRequest/{id}', [saleController::class, 'storeSaleRequest'])->name('storeSaleRequest');
+Route::post('/storeSaleRequest/{id}', [saleController::class, 'storeSaleRequest'])->name('storeSaleRequest')->middleware(['auth', 'verified']);
 
 //*Inicio das rotas da parte de stock tanto para o administrador como para o gestor de stock
     //?Inicio das rotas de categoria
-    Route::get('/addCategories', [categoriesController::class, 'addCategories'])->name('addCategories');
-    Route::post('/storeCategories', [categoriesController::class, 'storeCategories'])->name('storeCategories');
-    Route::get('/allCategories', [categoriesController::class, 'allCategories'])->name('allCategories');
-    Route::post('/updateCategories/{id}', [categoriesController::class, 'updateCategories'])->name('updateCategories');
-    Route::get('/deleteCategories/{id}', [categoriesController::class, 'deleteCategories'])->name('deleteCategories');
+    Route::get('/addCategories', [categoriesController::class, 'addCategories'])->name('addCategories')->middleware(['auth', 'verified']);
+    Route::post('/storeCategories', [categoriesController::class, 'storeCategories'])->name('storeCategories')->middleware(['auth', 'verified']);
+    Route::get('/allCategories', [categoriesController::class, 'allCategories'])->name('allCategories')->middleware(['auth', 'verified']);
+    Route::post('/updateCategories/{id}', [categoriesController::class, 'updateCategories'])->name('updateCategories')->middleware(['auth', 'verified']);
+    Route::get('/deleteCategories/{id}', [categoriesController::class, 'deleteCategories'])->name('deleteCategories')->middleware(['auth', 'verified']);
 
     //?Inicio das rotas da parte de stock de entrada e saida
-    Route::get('/addStock', [stockController::class, 'addStock'])->name('addStock');
-    Route::post('/storeStock', [stockController::class, 'storeStock'])->name('storeStock');
-    Route::get('/allStock', [stockController::class, 'allStock'])->name('allStock');
-    Route::post('/updateStock/{id}', [stockController::class, 'updateStock'])->name('updateStock');
-    Route::get('/deleteStock/{id}', [stockController::class, 'deleteStock'])->name('deleteStock');
+    Route::get('/addStock', [stockController::class, 'addStock'])->name('addStock')->middleware(['auth', 'verified']);
+    Route::post('/storeStock', [stockController::class, 'storeStock'])->name('storeStock')->middleware(['auth', 'verified']);
+    Route::get('/allStock', [stockController::class, 'allStock'])->name('allStock')->middleware(['auth', 'verified']);
+    Route::post('/updateStock/{id}', [stockController::class, 'updateStock'])->name('updateStock')->middleware(['auth', 'verified']);
+    Route::get('/deleteStock/{id}', [stockController::class, 'deleteStock'])->name('deleteStock')->middleware(['auth', 'verified']);
     //*Inicio da rota de stock de saida
-    Route::get('/allStockOut', [stockController::class, 'allStockOut'])->name('allStockOut');
+    Route::get('/allStockOut', [stockController::class, 'allStockOut'])->name('allStockOut')->middleware(['auth', 'verified']);
 
     //?Inicio das rotas da parte de productos
-    Route::get('/addProduct', [productController::class, 'addProduct'])->name('addProduct');
+    Route::get('/addProduct', [productController::class, 'addProduct'])->name('addProduct')->middleware(['auth', 'verified']);
     //*Inicio da rota responsavel por aumentar a quantidade de producto
-    Route::post('/addProductQuantity', [productController::class, 'addProductQuantity'])->name('addProductQuantity');
-    Route::post('/storeProduct', [productController::class, 'storeProduct'])->name('storeProduct');
-    Route::get('/allProduct', [productController::class, 'allProduct'])->name('allProduct');
-    Route::post('/updateProduct/{id}', [productController::class, 'updateProduct'])->name('updateProduct');
-    Route::get('/deleteProduct/{id}', [productController::class, 'deleteProduct'])->name('deleteProduct');
+    Route::post('/addProductQuantity', [productController::class, 'addProductQuantity'])->name('addProductQuantity')->middleware(['auth', 'verified']);
+    Route::post('/storeProduct', [productController::class, 'storeProduct'])->name('storeProduct')->middleware(['auth', 'verified']);
+    Route::get('/allProduct', [productController::class, 'allProduct'])->name('allProduct')->middleware(['auth', 'verified']);
+    Route::post('/updateProduct/{id}', [productController::class, 'updateProduct'])->name('updateProduct')->middleware(['auth', 'verified']);
+    Route::get('/deleteProduct/{id}', [productController::class, 'deleteProduct'])->name('deleteProduct')->middleware(['auth', 'verified']);
 
 //*Inicio das rotas de dividas da parte do contabilista
 Route::get('/allDebitAccountant', [debitController::class, 'allDebitAccountant'])->name('allDebitAccountant')->middleware(['auth', 'verified']);
@@ -155,11 +155,11 @@ Route::get('/getSalesDates', [saleController::class, 'getSalesDates'])->name('ge
 //*Inicio das rotas da parte de relatorios
 Route::get('/saleReport', [reportController::class, 'saleReport'])->name('saleReport')->middleware(['auth', 'verified']);
 Route::get('/productReport', [reportController::class, 'productReport'])->name('productReport')->middleware(['auth', 'verified']);
-Route::post('/generate-pdf', [reportController::class, 'generatePdf']);
-Route::post('/generate-sale-pdf', [reportController::class, 'generateSalePdf'])->name('generateSalePdf');
+Route::post('/generate-pdf', [reportController::class, 'generatePdf'])->middleware(['auth', 'verified']);
+Route::post('/generate-sale-pdf', [reportController::class, 'generateSalePdf'])->name('generateSalePdf')->middleware(['auth', 'verified']);
 //?Inicio das rotas para exportar pdfs das tabelas
-Route::get('/export-debts-pdf/{client}', [reportController::class, 'exportDebits'])->name('export.debts.pdf');
-Route::get('/export-products-pdf', [reportController::class, 'exportProducts'])->name('export.products.pdf');
+Route::get('/export-debts-pdf/{client}', [reportController::class, 'exportDebits'])->name('export.debts.pdf')->middleware(['auth', 'verified']);
+Route::get('/export-products-pdf', [reportController::class, 'exportProducts'])->name('export.products.pdf')->middleware(['auth', 'verified']);
 
 //*Inicio do metodos que retornam os dados graficos
 Route::get('/getTopSellingProducts', [SaleController::class, 'getTopSellingProducts'])->middleware(['auth', 'verified']);
@@ -177,12 +177,12 @@ Route::get('/export/excel', [exportController::class, 'exportExcel'])->name('exp
 Route::get('/receipt/{id}', [SaleController::class, 'showReceipt'])->name('showReceipt')->middleware(['auth', 'verified']);
 
 //*Inicio das rotas da parte de redirecionamento
-Route::get('/lock-screen', [redirectController::class, 'show'])->name('lock-screen.show');
-Route::post('/lock-screen', [redirectController::class, 'unlock'])->name('lock-screen.unlock');
+Route::get('/lock-screen', [redirectController::class, 'show'])->name('lock-screen.show')->middleware(['auth', 'verified']);
+Route::post('/lock-screen', [redirectController::class, 'unlock'])->name('lock-screen.unlock')->middleware(['auth', 'verified']);
 
 //*Inicio das rotas da parte de perfil
-Route::get('/updateProfile/{id}', [profileController::class, 'updateProfile'])->name('updateProfile');
-Route::post('/storeProfile/{id}', [profileController::class, 'storeProfile'])->name('storeProfile');
+Route::get('/updateProfile/{id}', [profileController::class, 'updateProfile'])->name('updateProfile')->middleware(['auth', 'verified']);
+Route::post('/storeProfile/{id}', [profileController::class, 'storeProfile'])->name('storeProfile')->middleware(['auth', 'verified']);
 
 require __DIR__.'/auth.php';
 
