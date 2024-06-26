@@ -29,13 +29,17 @@ class reportController extends Controller
         return $pdf->download('relatorio_vendas.pdf');
     }
     //?Inicio do metodo responsavel por gerar o pdf de tabelas
-    public function exportDebits(Client $client)
+    public function exportDebits($client)
     {
-        $debits=DB::table('debits')
+        $debits=Debit::with('product')
             ->where('Id_client',$client)
             ->get();
 
-        $pdf = PDF::loadView('pdf.debit', compact('client', 'debits'));
+        $clients=DB::table('clients')
+            ->where('id',$client)
+            ->get();
+
+        $pdf = PDF::loadView('pdf.debit', compact('clients', 'debits'));
         return $pdf->download('debits.pdf');
     }
     //*fim do metodo responsavel por gerar os relatorios em pdf

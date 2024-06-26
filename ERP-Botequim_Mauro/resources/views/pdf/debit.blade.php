@@ -24,7 +24,7 @@
     </style>
 </head>
 <body>
-    <h1>Dividas de {{ $client->Name_client }} {{ $client->Surname }}</h1>
+    <h1>Tabela de Dividas {{ $clients->Name_client }} {{ $clients->Surname }}</h1>
     <table>
         <thead>
             <tr>
