@@ -89,7 +89,7 @@
                                                             number_format($troco=$product->Total_price - $product->Amount,2,',','.',).' MZN'
                                                         }}</td>
                                                         <td class="align-middle"> 
-                                                            <span class="badge badge-subtle badge-warning">{{$product->created_at}}</span>
+                                                            <span class="badge badge-subtle badge-warning">{{ \Carbon\Carbon::parse($product->created_at)->format('Y-m-d') }}</span>
                                                         </td>
                                                     </tr>
 
@@ -197,7 +197,7 @@
                                                             
                                                         }}</td>
                                                         <td class="align-middle"> 
-                                                            <span class="badge badge-subtle badge-warning">{{$product->created_at}}</span>
+                                                            <span class="badge badge-subtle badge-warning">{{ \Carbon\Carbon::parse($product->created_at)->format('Y-m-d') }}</span>
                                                         </td>
                                                         <td class="align-middle text-right">
                                                             <button type="button" class="btn btn-sm btn-icon btn-secondary" data-toggle="modal" data-target="#exampleModal{{$product->id}}">
