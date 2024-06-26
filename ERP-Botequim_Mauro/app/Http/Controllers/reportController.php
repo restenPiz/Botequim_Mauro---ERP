@@ -49,6 +49,11 @@ class reportController extends Controller
         $pdf = PDF::loadView('pdf.product', compact('products'));
         return $pdf->download('products.pdf');
     }
+    public function exportSales()
+    {
+        $pdf = PDF::loadView('pdf.sale', compact('products'));
+        return $pdf->download('sale.pdf');   
+    }
     //*fim do metodo responsavel por gerar os relatorios em pdf
     public function saleReport()
     {
