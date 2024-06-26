@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Client;
+use App\Models\Debit;
 use Barryvdh\DomPDF\Facade\Pdf;
 use DB;
 use Illuminate\Http\Request;
@@ -30,9 +31,11 @@ class reportController extends Controller
     //?Inicio do metodo responsavel por gerar o pdf de tabelas
     public function exportDebits(Client $client)
     {
-        $debits = $client->debit; 
+        $debits=DB::table('debits')
+            ->where('Id_client',$client)
+            ->get();
 
-        $pdf = PDF::loadView('pdf.debits', compact('client', 'debits'));
+        $pdf = PDF::loadView('pdf.debit', compact('client', 'debits'));
         return $pdf->download('debits.pdf');
     }
     //*fim do metodo responsavel por gerar os relatorios em pdf
