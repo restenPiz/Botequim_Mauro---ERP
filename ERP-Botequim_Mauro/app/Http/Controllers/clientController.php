@@ -140,7 +140,9 @@ class clientController extends Controller
 
             $payments=Payment::all();
 
-            $amount=$product_price->Product_price * $product_price->Quantity;
+            // $amount=$product_price->Product_price * $product_price->Quantity;
+            $amount=DB::table('product_requests')
+            ->sum('Amount');
 
             $count=DB::table('product_requests')
                 ->where('Id_client', $id)

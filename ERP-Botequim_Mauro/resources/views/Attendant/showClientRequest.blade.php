@@ -213,10 +213,7 @@
                                                                                 paymentForm.addEventListener('submit', function (event) {
                                                                                     event.preventDefault();
 
-                                                                                    // Aqui você pode adicionar a lógica para processar o pagamento no backend
-
-                                                                                    // Após processar o pagamento, exiba o botão de impressão do recibo
-                                                                                    printReceiptBtn.style.display = 'inline-block';
+                                                                                printReceiptBtn.style.display = 'inline-block';
                                                                                 });
 
                                                                                 printReceiptBtn.addEventListener('click', function () {
