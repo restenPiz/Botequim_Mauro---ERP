@@ -4,7 +4,7 @@
 
     <main class="app-main">
         <!-- .wrapper -->
-        <div class="wrapper" style="width: 55rem;height:150vh">
+        <div class="wrapper" style="width: 55rem;height:200vh">
             <!-- .page -->
             <div class="page ">
                 <!-- .page-inner -->

@@ -225,11 +225,14 @@ class clientController extends Controller
 
         $payments=Payment::all();
 
+        $amount=DB::table('product_requests')
+        ->sum('Amount');
+
         $count=DB::table('product_requests')
         ->where('Id_client', $id)
         ->sum('Product_price');
 
-        return view('Attendant.invoiceRequest',compact('requests','clients','stocks','count','payments'));
+        return view('Attendant.invoiceRequest',compact('requests','clients','stocks','count','payments','amount'));
     }
 }
 
