@@ -339,6 +339,7 @@ class saleController extends Controller
                 }
             }
 
+            //?Metodos para eliminar tantos os productos como o cliente 
             // Debit::truncate();
             DB::table('Product_requests')
                 ->where('Id_client', $id)
