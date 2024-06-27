@@ -419,9 +419,14 @@ class saleController extends Controller
                 }
             }
 
+            //?Inicio dos metodos responsaveis por eliminar o producto e o cliente
             // Debit::truncate();
             DB::table('debits')
                 ->where('Id_client', $id)
+                ->delete();
+
+            DB::table('clients')
+                ->where('id',$id)
                 ->delete();
 
             return redirect()->route('showReceipt', ['id' => $last->id]);
