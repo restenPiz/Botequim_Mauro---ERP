@@ -21,12 +21,12 @@
     <link rel="shortcut icon" href="assets/favicon.ico">
     <meta name="theme-color" content="#3063A0"><!-- End FAVICONS -->
     <link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600" rel="stylesheet"><!-- End GOOGLE FONT -->
-    <link rel="stylesheet" href="/../assets/vendor/open-iconic/font/css/open-iconic-bootstrap.min.css">
-    <link rel="stylesheet" href="/../assets/vendor/%40fortawesome/fontawesome-free/css/all.min.css">
-    <link rel="stylesheet" href="/../assets/vendor/flatpickr/flatpickr.min.css"><!-- END PLUGINS STYLES -->
-    <link rel="stylesheet" href="/../assets/stylesheets/theme.min.css" data-skin="default">
-    <link rel="stylesheet" href="/../assets/stylesheets/theme-dark.min.css" data-skin="dark">
-    <link rel="stylesheet" href="/../assets/stylesheets/custom.css">
+    <link rel="stylesheet" href="/assets/vendor/open-iconic/font/css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/vendor/%40fortawesome/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="/assets/vendor/flatpickr/flatpickr.min.css"><!-- END PLUGINS STYLES -->
+    <link rel="stylesheet" href="/../../assets/stylesheets/theme.min.css" data-skin="default">
+    <link rel="stylesheet" href="/assets/stylesheets/theme-dark.min.css" data-skin="dark">
+    <link rel="stylesheet" href="/../../assets/stylesheets/custom.css">
     <script>
         var skin = localStorage.getItem('skin') || 'default';
         var disabledSkinStylesheet = document.querySelector('link[data-skin]:not([data-skin="' + skin + '"])');
@@ -225,7 +225,7 @@
                             </li><!-- /.menu-item -->
                             <!-- .menu-item -->
                             <li class="menu-item {{ request()->routeIs('addClient','showClient') ? 'has-active' : '' }} has-child">
-                                <a href="#" class="menu-link"><span class="menu-icon oi oi-pencil"></span>
+                                <a href="" class="menu-link"><span class="menu-icon oi oi-pencil"></span>
                                     <span class="menu-text">Dividas</span> {{-- <span
                                         class="badge badge-warning">New</span> --}}</a>
                                 <!-- child menu -->
@@ -327,6 +327,34 @@
         {{-- Fim do MainContent --}}
 
     </div><!-- /.app -->
+
+    
+    <script src="/../../assets/vendor/sortablejs/Sortable.min.js"></script> <!-- END PLUGINS JS -->
+    <script src="/../../assets/vendor/jquery/jquery.min.js"></script>
+    <script src="/../../assets/vendor/popper.js/umd/popper.min.js"></script>
+    <script src="/../../assets/vendor/bootstrap/js/bootstrap.min.js"></script> <!-- END BASE JS -->
+    <!-- BEGIN PLUGINS JS -->
+    <script src="/../../assets/vendor/pace-progress/pace.min.js"></script>
+    <script src="/../../assets/vendor/stacked-menu/js/stacked-menu.min.js"></script>
+    <script src="/../../assets/vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <script src="/../../assets/vendor/flatpickr/flatpickr.min.js"></script>
+    <script src="/../../assets/vendor/easy-pie-chart/jquery.easypiechart.min.js"></script>
+    <script src="/../../assets/vendor/chart.js/Chart.min.js"></script> <!-- END PLUGINS JS -->
+    <!-- BEGIN THEME JS -->
+    <script src="../../assets/javascript/theme.min.js"></script> <!-- END THEME JS -->
+    <!-- BEGIN PAGE LEVEL JS -->
+    <script src="../../assets/javascript/pages/dashboard-demo.js"></script> <!-- END PAGE LEVEL JS -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-116692175-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'UA-116692175-1');
+    </script>
 
     <script>
         //?Inicio do metodo que retorna os productos mais vendidos
@@ -466,33 +494,6 @@
                 $('#Priced').val(JSON.parse(fieldsDisabled).Code).prop('disabled', true);
             }
         });
-    </script>
-
-    <script src="/../assets/vendor/sortablejs/Sortable.min.js"></script> <!-- END PLUGINS JS -->
-    <script src="/../assets/vendor/jquery/jquery.min.js"></script>
-    <script src="/../assets/vendor/popper.js/umd/popper.min.js"></script>
-    <script src="/../assets/vendor/bootstrap/js/bootstrap.min.js"></script> <!-- END BASE JS -->
-    <!-- BEGIN PLUGINS JS -->
-    <script src="/../assets/vendor/pace-progress/pace.min.js"></script>
-    <script src="/../assets/vendor/stacked-menu/js/stacked-menu.min.js"></script>
-    <script src="/../assets/vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-    <script src="/../assets/vendor/flatpickr/flatpickr.min.js"></script>
-    <script src="/../assets/vendor/easy-pie-chart/jquery.easypiechart.min.js"></script>
-    <script src="/../assets/vendor/chart.js/Chart.min.js"></script> <!-- END PLUGINS JS -->
-    <!-- BEGIN THEME JS -->
-    <script src="/../assets/javascript/theme.min.js"></script> <!-- END THEME JS -->
-    <!-- BEGIN PAGE LEVEL JS -->
-    <script src="/../assets/javascript/pages/dashboard-demo.js"></script> <!-- END PAGE LEVEL JS -->
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-116692175-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
-        gtag('config', 'UA-116692175-1');
     </script>
 
     {{-- Inicio do link de sweetAlerta --}}
