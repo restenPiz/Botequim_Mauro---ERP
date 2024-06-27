@@ -343,6 +343,10 @@ class saleController extends Controller
             DB::table('Product_requests')
                 ->where('Id_client', $id)
                 ->delete();
+            
+            DB::table('clients')
+                ->where('id',$id)
+                ->delete();
 
             return redirect()->route('showReceipt', ['id' => $last->id]);
         }
