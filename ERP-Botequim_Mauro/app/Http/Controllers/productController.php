@@ -69,6 +69,8 @@ class productController extends Controller
             'Id_category' => 'required|exists:categories,id'
         ]);
 
+        //?Operador de condicao
+
         $products->Product_name=Request::input('Product_name');
         $products->Quantity=Request::input('Quantity');
         $products->Code=Request::input('Code');
