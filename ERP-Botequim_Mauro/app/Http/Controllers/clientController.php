@@ -131,7 +131,7 @@ class clientController extends Controller
         {
             $client=Client::where('id',$id)->first();
             
-            $stocks=Stock::orderBy('Id_product','asc')->get();
+            $stocks=Stock::with('product')->orderBy('Id_product','asc')->get();
 
             //?(Acessando a tabela intermediaria)
             $requests=ProductRequest::where('Id_client',$id)->get();
@@ -218,7 +218,7 @@ class clientController extends Controller
     {
         $clients=Client::where('id',$id)->first();
             
-        $stocks=Stock::orderBy('Id_product','asc')->get();
+        $stocks=Stock::with('product')->orderBy('Id_product','asc')->get();
 
         //?(Acessando a tabela intermediaria)
         $requests=ProductRequest::where('Id_client',$id)->get();
