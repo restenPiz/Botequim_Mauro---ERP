@@ -23,7 +23,7 @@ class saleController extends Controller
         $productId = $sale->Id_stock;
         $quantitySold = $sale->Quantity;
 
-        $stock = Stock::where('id', $productId)->first();
+        $stock = Stock::with('product')->where('id', $productId)->first();
         if ($stock) {
             $stock->Quantity += $quantitySold;
             $stock->save();
