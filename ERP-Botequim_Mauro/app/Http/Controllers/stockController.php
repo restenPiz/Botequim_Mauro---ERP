@@ -22,7 +22,7 @@ class stockController extends Controller
     }
     public function allStock()
     {
-        $stocks = Stock::all();
+        $stocks = Stock::wiht('product')->get();
         $products=Product::all();
         
         return view('Admin.allStock-in',compact('stocks','products'));
@@ -33,7 +33,7 @@ class stockController extends Controller
     }
     public function updateStock($id)
     {
-        $stock = Stock::find($id);
+        $stock = Stock::with('product')->find($id);
 
         $validatedData = Request::validate([
             'Id_product' => 'required|string|max:255',
