@@ -145,9 +145,7 @@
                                 <div class="btn-toolbar">
                                 </div><!-- /.btn-toolbar -->
                             </div><!-- /title and toolbar -->
-                            </header><!-- /.page-title-bar -->
-                            <!-- .page-section -->
-                            {{-- Table section --}}
+                            </header>
                             <div class="card mt-4" style="margin-top:-4rem">
                                 <!-- .card-body -->
                                 <div class="card-body">
