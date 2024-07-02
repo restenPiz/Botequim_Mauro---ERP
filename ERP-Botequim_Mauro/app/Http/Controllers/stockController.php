@@ -21,17 +21,33 @@ class stockController extends Controller
         return response()->json($lowStockProducts);
     }
     //?Inicio do metodo responsavel por fazer a pesquisa dos dados
-    public function search()
+    public function search(Request $request)
     {
         $query = Request::get('query');
-
-        $stocks = Stock::whereHas('products', function($q) use ($query) {
-                $q->where('Product_name', 'LIKE', "%{$query}%");
-            })
-            ->orWhere('Code', 'LIKE', "%{$query}%")
-            ->get();
-            
-
+        
+        $query = $request->get('query');
+        $stocks = Stock::whereHas('product', function($q) use ($query) {
+                        $q->where('Product_name', 'LIKE', "%{$query}%");
+                    })
+                    ->orWhere('Code', 'LIKE', "%{$query}%")
+                    ->with('product')
+                    ->get();
+    
+        $data = [];
+        foreach ($stocks as $stock) {
+            if ($stock->product) {
+                $data[] = [
+                    'Product_name' => $stock->product->Product_name,
+                    'Quantity' => $stock->Quantity,
+                    'Code' => $stock->Code,
+                    'Price' => number_format($stock->Price, 2, ',', '.',) . ' MZN',
+                    'Entry_date' => $stock->Entry_date,
+                    'Expiry_date' => $stock->Expiry_date,
+                    'id' => $stock->id
+                ];
+            }
+        }
+    
         return response()->json($stocks);
     }
     public function allStock()
