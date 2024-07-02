@@ -25,12 +25,14 @@ class stockController extends Controller
     {
         $query = Request::get('query');
 
-        $products = Product::with('categoria') 
-                            ->where('Product_name', 'like', "%{$query}%")
-                            ->orWhere('Code', 'like', "%{$query}%")
-                            ->get();
+        $stocks = Stock::whereHas('products', function($q) use ($query) {
+                $q->where('Product_name', 'LIKE', "%{$query}%");
+            })
+            ->orWhere('Code', 'LIKE', "%{$query}%")
+            ->get();
+            
 
-        return response()->json($products);
+        return response()->json($stocks);
     }
     public function allStock()
     {
