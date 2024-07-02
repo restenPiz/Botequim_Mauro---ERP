@@ -163,7 +163,7 @@
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text"><span
                                                             class="oi oi-magnifying-glass"></span></span>
-                                                </div><input id="table-search" type="text" class="form-control"
+                                                </div><input id="stock-search" type="text" class="form-control"
                                                     placeholder="Pesquisar productos">
                                             </div><!-- /.input-group -->
                                         </div><!-- /.input-group -->
