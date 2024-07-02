@@ -91,7 +91,7 @@ class clientController extends Controller
     }
     public function showClient($id)
     {
-        $products=Stock::with('product');
+        $products=Stock::with('product')->get();
         
         $debits=Debit::where('Id_client',$id)->get();
 
