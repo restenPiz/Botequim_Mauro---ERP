@@ -172,6 +172,9 @@ Route::get('/getMonthlySales', [SaleController::class, 'getMonthlySales'])->midd
 //*Inicios dos metodos responsaveis por fazer a pesquisa dos dados nas tabelas
 Route::get('/search-products', [productController::class, 'search'])->name('search.products');
 Route::get('/search-sales', [SaleController::class, 'searchSales'])->name('search.sales')->middleware(['auth', 'verified']);
+    //?Inicio da rota de pesquisa de stock de entrada
+Route::get('/search-stock-in', [productController::class, 'search'])->name('search.stock');
+//*Fim das rotas responsaveis por fazer a pesquisa de dados nas tabelas
 
 //*Inicio das rotas de pdf e scv
 Route::get('/export/pdf', [exportController::class, 'exportPdf'])->name('export.pdf')->middleware(['auth', 'verified']);
