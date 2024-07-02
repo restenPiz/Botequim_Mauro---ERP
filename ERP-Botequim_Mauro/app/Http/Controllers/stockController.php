@@ -20,6 +20,18 @@ class stockController extends Controller
 
         return response()->json($lowStockProducts);
     }
+    //?Inicio do metodo responsavel por fazer a pesquisa dos dados
+    public function search()
+    {
+        $query = Request::get('query');
+
+        $products = Product::with('categoria') 
+                            ->where('Product_name', 'like', "%{$query}%")
+                            ->orWhere('Code', 'like', "%{$query}%")
+                            ->get();
+
+        return response()->json($products);
+    }
     public function allStock()
     {
         $stocks = Stock::with('product')->get();
