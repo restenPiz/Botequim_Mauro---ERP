@@ -22,7 +22,7 @@ class stockController extends Controller
     }
     public function allStock()
     {
-        $stocks = Stock::wiht('product')->get();
+        $stocks = Stock::with('product')->get();
         $products=Product::all();
         
         return view('Admin.allStock-in',compact('stocks','products'));
