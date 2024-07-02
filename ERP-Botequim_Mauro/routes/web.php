@@ -170,7 +170,7 @@ Route::get('/getBestSellingProducts', [saleController::class, 'getBestSellingPro
 Route::get('/getMonthlySales', [SaleController::class, 'getMonthlySales'])->middleware(['auth', 'verified']);
 
 //*Inicios dos metodos responsaveis por fazer a pesquisa dos dados nas tabelas
-Route::get('/search-products', [productController::class, 'search'])->name('search.products')->middleware(['auth', 'verified']);
+Route::get('/search-products', [productController::class, 'search'])->name('search.products');
 Route::get('/search-sales', [SaleController::class, 'searchSales'])->name('search.sales')->middleware(['auth', 'verified']);
 
 //*Inicio das rotas de pdf e scv
