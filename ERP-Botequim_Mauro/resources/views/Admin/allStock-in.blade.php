@@ -178,7 +178,7 @@
                                                 <th></th>
                                             </tr>
                                         </thead>
-                                        <tbody>
+                                        <tbody id="stock-list">
                                             @foreach ($stocks as $stock)
                                                 <tr>
                                                     <td class="align-middle"> {{ $stock->product->Product_name }}</td>

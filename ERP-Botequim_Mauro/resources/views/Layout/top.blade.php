@@ -443,6 +443,71 @@
     </script>
     {{-- Fim do script responsavel por fazer a pesquisa --}}
 
+    {{-- Inicio do script responsavel por fazer a pesquisa do stock de entrada --}}
+    <script>
+        $(document).ready(function() {
+            $('#stock-search').on('input', function() {
+                var query = $(this).val();
+                if (query.length > 0) {
+                    $.ajax({
+                        url: "{{ route('search.stock') }}",
+                        type: "GET",
+                        data: {
+                            query: query
+                        },
+                        success: function(data) {
+                            $('#stock-list').empty();
+                            if (data.length > 0) {
+                                $.each(data, function(key, stock) {
+                                    var row = '<tr>' +
+                                        '<td class="align-middle">' + stock.product.Product_name + '</td>' +
+                                        '<td class="align-middle">' + stock.Quantity + '</td>' +
+                                        '<td class="align-middle"><span class="badge badge-subtle badge-success">' +
+                                        stock.Code + '</span></td>' +
+                                        '<td class="align-middle">' + stock.Price + '</td>' +
+                                        '<td class="align-middle">' + stock.Entry_date + '</td>' +
+                                        '<td class="align-middle">' + stock.Expiry_date + '</td>' +
+                                        '<td class="align-middle text-right">' +
+                                        '<button type="button" class="btn btn-sm btn-icon btn-secondary" data-toggle="modal" data-target="#clientNewModal' + stock.id +
+                                        '"><i class="fa fa-pencil-alt"></i> <span class="sr-only">Edit</span></button> ' +
+                                        '<button type="button" class="btn btn-sm btn-icon btn-secondary"><i class="far fa-trash-alt" data-target="#deleteRecordModal' + stock.id +
+                                        '" data-toggle="modal"></i> <span class="sr-only">Remove</span></button>' +
+                                        '</td>' +
+                                        '</tr>';
+                                    $('#stock-list').append(row);
+                                });
+                            } else {
+                                $('#stock-list').append('<tr><td colspan="7" class="text-center">Nenhum produto encontrado</td></tr>');
+                            }
+                        },
+                        error: function(xhr, status, error) {
+                            console.error("Erro na requisição AJAX: ", status, error);
+                        }
+                    });
+                } else {
+                    $('#stock-list').empty();
+                    @foreach ($stocks as $stock)
+                        var row = '<tr>' +
+                            '<td class="align-middle"> {{ $stock->product->Product_name }} </td>' +
+                            '<td class="align-middle"> {{ $stock->Quantity }} </td>' +
+                            '<td class="align-middle"><span class="badge badge-subtle badge-success"> {{ $stock->Code }} </span></td>' +
+                            '<td class="align-middle"> {{ number_format($stock->Price, 2, ',', '.',) . ' MZN' }} </td>' +
+                            '<td class="align-middle"> {{ $stock->Entry_date }} </td>' +
+                            '<td class="align-middle"> {{ $stock->Expiry_date }} </td>' +
+                            '<td class="align-middle text-right">' +
+                            '<button type="button" class="btn btn-sm btn-icon btn-secondary" data-toggle="modal" data-target="#clientNewModal{{ $stock->id }}"><i class="fa fa-pencil-alt"></i> <span class="sr-only">Edit</span></button> ' +
+                            '<button type="button" class="btn btn-sm btn-icon btn-secondary"><i class="far fa-trash-alt" data-target="#deleteRecordModal{{ $stock->id }}" data-toggle="modal"></i> <span class="sr-only">Remove</span></button>' +
+                            '</td>' +
+                            '</tr>';
+                        $('#stock-list').append(row);
+                    @endforeach
+                }
+            });
+        });
+    </script>
+
+    {{--Fim do script de pesquisa (Stock - in)--}}
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Função para verificar o estoque
