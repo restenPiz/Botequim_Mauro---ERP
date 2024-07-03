@@ -31,9 +31,11 @@ class stockController extends Controller
                 $q->where('Product_name', 'LIKE', "%{$query}%");
             })
             ->orWhere('Code', 'LIKE', "%{$query}%")
-            ->get(); 
+            ->get();
 
+        //?Inicio do array
         $data = [];
+        
         foreach ($stocks as $stock) {
             if ($stock->product) {
                 $data[] = [
