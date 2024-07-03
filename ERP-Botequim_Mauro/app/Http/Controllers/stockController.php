@@ -35,7 +35,7 @@ class stockController extends Controller
 
         //?Inicio do array
         $data = [];
-        
+
         foreach ($stocks as $stock) {
             if ($stock->product) {
                 $data[] = [
@@ -49,6 +49,7 @@ class stockController extends Controller
                 ];
             }
         }
+        //*Fim do foreach
 
         return response()->json($data);
     }
