@@ -26,17 +26,18 @@ class stockController extends Controller
     {
         $query = $request->input('query');
 
-        $stocks = Stock::with('product')
-            ->whereHas('product', function ($q) use ($query) {
-                $q->where('Product_name', 'LIKE', "%{$query}%");
-            })
-            ->orWhere('Code', 'LIKE', "%{$query}%")
+        $stocks = DB::table('stocks')
+            ->join('products', 'stocks.Id_product', '=', 'products.id')
+            ->where('products.Product_name', 'LIKE', "%{$query}%")
+            ->orWhere('stocks.Code', 'LIKE', "%{$query}%")
+            ->select('stocks.*', 'products.Product_name')
             ->get();
 
-        //?Inicio do array
+        //*Inicio do array
         $data = [];
 
         foreach ($stocks as $stock) {
+            //?Inicio do operador 
             if ($stock->product) {
                 $data[] = [
                     'Product_name' => $stock->product->Product_name,
