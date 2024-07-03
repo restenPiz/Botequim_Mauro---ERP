@@ -23,16 +23,15 @@ class stockController extends Controller
     //?Inicio do metodo responsavel por fazer a pesquisa dos dados
     public function search(Request $request)
     {
-        $query = Request::get('query');
-        
-        $query = $request->get('query');
-        $stocks = Stock::whereHas('product', function($q) use ($query) {
-                        $q->where('Product_name', 'LIKE', "%{$query}%");
-                    })
-                    ->orWhere('Code', 'LIKE', "%{$query}%")
-                    ->with('product')
-                    ->get();
-    
+        $query = $request->input('query');
+
+        $stocks = Stock::with('product')
+            ->whereHas('product', function ($q) use ($query) {
+                $q->where('Product_name', 'LIKE', "%{$query}%");
+            })
+            ->orWhere('Code', 'LIKE', "%{$query}%")
+            ->get();
+
         $data = [];
         foreach ($stocks as $stock) {
             if ($stock->product) {
@@ -47,9 +46,10 @@ class stockController extends Controller
                 ];
             }
         }
-    
-        return response()->json($stocks);
+
+        return response()->json($data);
     }
+
     public function allStock()
     {
         $stocks = Stock::with('product')->get();

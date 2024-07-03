@@ -460,7 +460,7 @@
                             if (data.length > 0) {
                                 $.each(data, function(key, stock) {
                                     var row = '<tr>' +
-                                        '<td class="align-middle">' + stock.product.Product_name + '</td>' +
+                                        '<td class="align-middle">' + stock.Product_name + '</td>' +
                                         '<td class="align-middle">' + stock.Quantity + '</td>' +
                                         '<td class="align-middle"><span class="badge badge-subtle badge-success">' +
                                         stock.Code + '</span></td>' +
@@ -488,7 +488,7 @@
                     $('#stock-list').empty();
                     @foreach ($stocks as $stock)
                         var row = '<tr>' +
-                            '<td class="align-middle"> {{ $stock->product->Product_name }} </td>' +
+                            '<td class="align-middle"> {{ $stock->product ? $stock->product->Product_name : '' }} </td>' +
                             '<td class="align-middle"> {{ $stock->Quantity }} </td>' +
                             '<td class="align-middle"><span class="badge badge-subtle badge-success"> {{ $stock->Code }} </span></td>' +
                             '<td class="align-middle"> {{ number_format($stock->Price, 2, ',', '.',) . ' MZN' }} </td>' +
