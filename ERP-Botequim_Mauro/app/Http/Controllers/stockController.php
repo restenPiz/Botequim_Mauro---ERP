@@ -20,6 +20,7 @@ class stockController extends Controller
 
         return response()->json($lowStockProducts);
     }
+
     //?Inicio do metodo responsavel por fazer a pesquisa dos dados
     public function search(Request $request)
     {
@@ -30,7 +31,7 @@ class stockController extends Controller
                 $q->where('Product_name', 'LIKE', "%{$query}%");
             })
             ->orWhere('Code', 'LIKE', "%{$query}%")
-            ->get();
+            ->get(); 
 
         $data = [];
         foreach ($stocks as $stock) {
