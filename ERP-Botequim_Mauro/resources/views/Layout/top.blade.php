@@ -1489,10 +1489,11 @@
                                     class="badge badge-warning">New</span> --}}</a>
                                 <!-- child menu -->
                                 <ul class="menu">
-                                    <li class="menu-item {{ request()->routeIs('allDebitAccountant') ? 'has-active' : '' }}">
-                                        <a href="{{ route('allDebitAccountant') }}" class="menu-link">Verificar
+                                    <li
+                                        class="menu-item {{ request()->routeIs('allDebitAccountant','allClient') ? 'has-active' : '' }}">
+                                        <a href="{{ route('allClient') }}" class="menu-link">Verificar
                                             Dividas</a>
-                                    </li>
+                                        </li>
                                 </ul><!-- /child menu -->
                             </li><!-- /.menu-item --><!-- .menu-item -->
 
