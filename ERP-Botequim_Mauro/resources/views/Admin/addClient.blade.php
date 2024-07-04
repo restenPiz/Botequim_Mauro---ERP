@@ -1,5 +1,7 @@
 @extends('Layout.top')
 @section('content')
+
+    @role('admin')
     {{-- Inicio da parte contendo o conteudo dos usuarios --}}
     <main class="app-main">
         <!-- .wrapper -->
@@ -268,4 +270,93 @@
         </div>
 
         {{-- Fim do conteudo da parte de adicao de usuarios --}}
-    @endsection
+
+    @endrole
+
+    @role('accountant')
+    {{-- Inicio da parte contendo o conteudo dos usuarios --}}
+    <main class="app-main">
+        <!-- .wrapper -->
+        <div class="wrapper">
+            <!-- .page -->
+            <div class="page-section"></br>
+                <!-- grid row -->
+                <div class="row">
+                    {{--Inicio da tabela de todos clientes--}}
+
+                    <div class="col-lg-12">
+                        <div class="col">
+
+                            {{-- Inicio da tabela de todos eventos --}}
+                            <header class="page-title-bar">
+                                <!-- title and toolbar -->
+                                <div class="d-md-flex align-items-md-start">
+                                    <h1 class="page-title mr-sm-auto"> Todos Clientes </h1><!-- .btn-toolbar -->
+                                    <div class="btn-toolbar">
+                                    </div><!-- /.btn-toolbar -->
+                                </div><!-- /title and toolbar -->
+                            </header><!-- /.page-title-bar -->
+                            <!-- .page-section -->
+
+                            {{-- Table section --}}
+                            <div class="card mt-4" style="margin-top:-4rem">
+                                <!-- .card-body -->
+                                <div class="card-body">
+                                    {{-- <h2 class="card-title"> Contacts </h2><!-- .table-responsive --> --}}
+                                    <div class="table-responsive">
+                                        <div class="input-group input-group-alt">
+                                            <!-- .input-group -->
+                                            {{-- <div class="input-group has-clearable">
+                                              <button id="clear-search" type="button" class="close" aria-label="Close"><span aria-hidden="true"><i class="fa fa-times-circle"></i></span></button>
+                                              <div class="input-group-prepend">
+                                                <span class="input-group-text"><span class="oi oi-magnifying-glass"></span></span>
+                                              </div><input id="table-search" type="text" class="form-control" placeholder="Pesquisar clientes">
+                                            </div><!-- /.input-group --> --}}
+                                          </div><!-- /.input-group -->
+                                        </div><!-- /.form-group -->
+
+                                        <table id="stock-table" class="table table-striped" style="min-width: 678px">
+                                            <thead>
+                                                <tr>
+                                                    <th> Nome do Cliente </th>
+                                                    <th> Apelido </th>
+                                                    <th> Idade </th>
+                                                    <th> Morada </th>
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach ($clients as $client)
+                                                    <tr>
+                                                        <td class="align-middle"> {{ $client->Name_client }}</td>
+                                                        <td class="align-middle"> {{ $client->Surname }} </td>
+                                                        <td class="align-middle"> {{ $client->Age }} </td>
+                                                        <td class="align-middle"> {{ $client->Household }} </td>
+                                                        <td class="align-middle text-right">
+                                                           <a class="btn btn-sm btn-icon btn-secondary" href="showClient/{{$client->id}}"><i
+                                                            class="fa fa-eye"></i> <span
+                                                            class="sr-only">Show</span></a>
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="d-flex justify-content-center">
+                                        {{ $clients->links('vendor.pagination.simple-bootstrap-4') }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+
+                    {{--Fim da tabela de todos clientes--}}
+                </div>
+            </div>
+        </div>
+
+        {{-- Fim do conteudo da parte de adicao de usuarios --}}
+
+    @endrole
+@endsection
