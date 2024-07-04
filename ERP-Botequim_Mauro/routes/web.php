@@ -7,7 +7,6 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\saleController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\userController;
-use App\Http\Controllers\eventController;
 use App\Http\Controllers\categoriesController;
 use App\Http\Controllers\stockController;
 use App\Http\Controllers\debitController;
