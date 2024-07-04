@@ -1,4 +1,4 @@
-@extends('Layout.topBar')
+@extends('Layout.top')
 @section('content')
     {{-- inicio da view do contabilista --}}
     <main class="app-main">

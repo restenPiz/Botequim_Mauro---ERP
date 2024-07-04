@@ -1814,7 +1814,7 @@ $(document).ready(function() {
         <link rel="stylesheet" href="../assets/stylesheets/theme-dark.min.css" data-skin="dark">
         <link rel="stylesheet" href="../assets/stylesheets/custom.css">
 
-        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">
+        {{-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css"> --}}
 
         <script>
             var skin = localStorage.getItem('skin') || 'default';
@@ -2095,7 +2095,6 @@ $(document).ready(function() {
         <script src="assets/javascript/theme.min.js"></script> <!-- END THEME JS -->
         <!-- BEGIN PAGE LEVEL JS -->
         <script src="assets/javascript/pages/dashboard-demo.js"></script> <!-- END PAGE LEVEL JS -->
-        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-116692175-1"></script>
         <script>

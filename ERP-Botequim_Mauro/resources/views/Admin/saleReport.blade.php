@@ -130,7 +130,7 @@
                                                 {{-- class="fa fa-caret-up"></i> 24%</small> --}}
                                             </p>
                                             <p class="text-center">
-                                                <strong class="h3">{{ number_format($troco, 2) }}</strong> <span
+                                                <strong class="h3"> {{ number_format($troco,2,',','.',)}}</strong> <span
                                                     class="text-muted">MZN</span>
                                             </p>
                                         </div>
