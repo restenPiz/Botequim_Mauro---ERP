@@ -36,7 +36,7 @@
                                         {{-- <h2 class="card-title"> Contacts </h2><!-- .table-responsive --> --}}
                                         <div class="table-responsive">
 
-                                            <div class="form-group">
+                                            {{-- <div class="form-group">
                                                 <!-- .input-group -->
                                                 <div class="input-group input-group-alt">
                                                     <!-- .input-group -->
@@ -51,9 +51,9 @@
                                                             placeholder="Pesquisar productos">
                                                     </div><!-- /.input-group -->
                                                 </div><!-- /.input-group -->
-                                            </div><!-- /.form-group -->
+                                            </div><!-- /.form-group --> --}}
 
-                                            <table class="table table-striped" style="min-width: 678px">
+                                            <table id="stock-table" class="table table-striped" style="min-width: 678px">
                                                 <thead>
                                                     <tr>
                                                         <th> Nome do Producto </th>
