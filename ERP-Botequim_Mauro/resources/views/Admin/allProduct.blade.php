@@ -22,7 +22,7 @@
                                         <div class="btn-toolbar">
                                             <a href="{{route('export.products.pdf')}}" type="button" class="btn btn-light"><i
                                                     class="oi oi-data-transfer-download"></i> <span
-                                                    class="ml-1">Exportar</span></a>
+                                                    class="ml-1">Exportar</span>    </a>
                                         </div><!-- /.btn-toolbar -->
                                     </div><!-- /title and toolbar -->
                                 </header><!-- /.page-title-bar -->
@@ -87,7 +87,7 @@
                                         {{-- <h2 class="card-title"> Contacts </h2><!-- .table-responsive --> --}}
                                         <div class="table-responsive">
 
-                                            <div class="form-group">
+                                            {{-- <div class="form-group">
                                                 <div class="input-group input-group-alt">
                                                     <div class="input-group has-clearable">
                                                         <button id="clear-search" type="button" class="close"
@@ -101,9 +101,9 @@
                                                             placeholder="Pesquisar productos">
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div> --}}
 
-                                            <table class="table table-striped" style="min-width: 678px">
+                                            <table id="stock-table" class="table table-striped" style="min-width: 678px">
                                                 <thead>
                                                     <tr>
                                                         <th> Nome do Producto </th>
@@ -377,7 +377,7 @@
                                         {{-- <h2 class="card-title"> Contacts </h2><!-- .table-responsive --> --}}
                                         <div class="table-responsive">
 
-                                            <div class="form-group">
+                                            {{-- <div class="form-group">
                                                 <!-- .input-group -->
                                                 <div class="input-group input-group-alt">
                                                     <!-- .input-group-prepend -->
@@ -398,9 +398,9 @@
                                                         placeholder="Pesquisar productos">
                                                     </div><!-- /.input-group -->
                                                 </div><!-- /.input-group -->
-                                            </div><!-- /.form-group -->
+                                            </div><!-- /.form-group --> --}}
 
-                                            <table class="table table-striped" style="min-width: 678px">
+                                            <table id="stock-table" class="table table-striped" style="min-width: 678px">
                                                 <thead>
                                                     <tr>
                                                         <th> Nome do Producto </th>
@@ -675,7 +675,7 @@
                                         {{-- <h2 class="card-title"> Contacts </h2><!-- .table-responsive --> --}}
                                         <div class="table-responsive">
 
-                                            <div class="form-group">
+                                            {{-- <div class="form-group">
                                                 <!-- .input-group -->
                                                 <div class="input-group input-group-alt">
                                                     <!-- .input-group-prepend -->
@@ -696,9 +696,9 @@
                                                         placeholder="Pesquisar productos">
                                                     </div><!-- /.input-group -->
                                                 </div><!-- /.input-group -->
-                                            </div><!-- /.form-group -->
+                                            </div><!-- /.form-group --> --}}
 
-                                            <table class="table table-striped" style="min-width: 678px">
+                                            <table id="stock-table" class="table table-striped" style="min-width: 678px">
                                                 <thead>
                                                     <tr>
                                                         <th> Nome do Producto </th>

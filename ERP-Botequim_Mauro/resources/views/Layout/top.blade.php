@@ -793,6 +793,16 @@
         } 
     </script>
 
+<script>
+    $(document).ready(function() {
+        var table = $('#stock-table').DataTable();
+
+        $('#stock-search').on('keyup', function() {
+            table.search(this.value).draw();
+        });
+    });
+</script>
+
 
     <script src="assets/vendor/jquery/jquery.min.js"></script>
     <script src="assets/vendor/popper.js/umd/popper.min.js"></script>
@@ -1198,6 +1208,17 @@
     {{-- Inicio do link de sweetAlerta --}}
     @include('sweetalert::alert')
     {{-- Fim do link do sweetAlerta --}}
+
+
+    <script>
+        $(document).ready(function() {
+            var table = $('#stock-table').DataTable();
+
+            $('#stock-search').on('keyup', function() {
+                table.search(this.value).draw();
+            });
+        });
+    </script>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -1626,6 +1647,17 @@
             }
         });
     </script>
+
+<script>
+    $(document).ready(function() {
+        var table = $('#stock-table').DataTable();
+
+        $('#stock-search').on('keyup', function() {
+            table.search(this.value).draw();
+        });
+    });
+</script>
+
 
 
 </body>

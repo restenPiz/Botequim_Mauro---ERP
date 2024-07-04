@@ -31,6 +31,8 @@
         <link rel="stylesheet" href="assets/stylesheets/theme-dark.min.css" data-skin="dark">
         <link rel="stylesheet" href="assets/stylesheets/custom.css">
 
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">
+
         <script>
             var skin = localStorage.getItem('skin') || 'default';
             var disabledSkinStylesheet = document.querySelector('link[data-skin]:not([data-skin="' + skin + '"])');
@@ -382,7 +384,19 @@
         <!-- BEGIN PAGE LEVEL JS -->
         <script src="assets/javascript/pages/dashboard-demo.js"></script> <!-- END PAGE LEVEL JS -->
         <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
+
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-116692175-1"></script>
+        <script>
+            $(document).ready(function() {
+                var table = $('#stock-table').DataTable();
+    
+                $('#stock-search').on('keyup', function() {
+                    table.search(this.value).draw();
+                });
+            });
+        </script>
+    
         <script>
             function saleFunction() {
                 
@@ -898,6 +912,8 @@ $(document).ready(function() {
         <link rel="stylesheet" href="../assets/stylesheets/theme.min.css" data-skin="default">
         <link rel="stylesheet" href="../assets/stylesheets/theme-dark.min.css" data-skin="dark">
         <link rel="stylesheet" href="../assets/stylesheets/custom.css">
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">
+
         <script>
             var skin = localStorage.getItem('skin') || 'default';
             var disabledSkinStylesheet = document.querySelector('link[data-skin]:not([data-skin="' + skin + '"])');
@@ -1247,7 +1263,7 @@ $(document).ready(function() {
         <script src="../assets/vendor/chart.js/Chart.min.js"></script> <!-- END PLUGINS JS -->
         <!-- BEGIN THEME JS -->
         <script src="../assets/javascript/theme.min.js"></script> <!-- END THEME JS -->
-
+        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
         <script src="../assets/javascript/pages/profile-demo.js"></script> <!-- END PAGE LEVEL JS -->
         <!-- BEGIN PAGE LEVEL JS -->
         <script src="./assets/javascript/pages/dashboard-demo.js"></script> <!-- END PAGE LEVEL JS -->
@@ -1263,6 +1279,17 @@ $(document).ready(function() {
             gtag('js', new Date());
             gtag('config', 'UA-116692175-1');
         </script>
+
+        <script>
+            $(document).ready(function() {
+                var table = $('#stock-table').DataTable();
+    
+                $('#stock-search').on('keyup', function() {
+                    table.search(this.value).draw();
+                });
+            });
+        </script>
+    
 
         {{-- Inicio do link de sweetAlerta --}}
         @include('sweetalert::alert')
@@ -1304,6 +1331,9 @@ $(document).ready(function() {
         <link rel="stylesheet" href="../assets/stylesheets/theme.min.css" data-skin="default">
         <link rel="stylesheet" href="../assets/stylesheets/theme-dark.min.css" data-skin="dark">
         <link rel="stylesheet" href="../assets/stylesheets/custom.css">
+
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">
+
         <script>
             var skin = localStorage.getItem('skin') || 'default';
             var disabledSkinStylesheet = document.querySelector('link[data-skin]:not([data-skin="' + skin + '"])');
@@ -1691,6 +1721,7 @@ $(document).ready(function() {
         <script src="./assets/javascript/pages/dashboard-demo.js"></script> <!-- END PAGE LEVEL JS -->
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-116692175-1"></script>
+        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
 
         <script>
             window.dataLayer = window.dataLayer || [];
@@ -1733,6 +1764,17 @@ $(document).ready(function() {
             });
     
         </script>
+
+<script>
+    $(document).ready(function() {
+        var table = $('#stock-table').DataTable();
+
+        $('#stock-search').on('keyup', function() {
+            table.search(this.value).draw();
+        });
+    });
+</script>
+
     
 
     </body>
@@ -1771,6 +1813,9 @@ $(document).ready(function() {
         <link rel="stylesheet" href="../assets/stylesheets/theme.min.css" data-skin="default">
         <link rel="stylesheet" href="../assets/stylesheets/theme-dark.min.css" data-skin="dark">
         <link rel="stylesheet" href="../assets/stylesheets/custom.css">
+
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">
+
         <script>
             var skin = localStorage.getItem('skin') || 'default';
             var disabledSkinStylesheet = document.querySelector('link[data-skin]:not([data-skin="' + skin + '"])');
@@ -2194,6 +2239,7 @@ $(document).ready(function() {
         <script src="assets/javascript/theme.min.js"></script> <!-- END THEME JS -->
         <!-- BEGIN PAGE LEVEL JS -->
         <script src="assets/javascript/pages/dashboard-demo.js"></script> <!-- END PAGE LEVEL JS -->
+        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-116692175-1"></script>
         <script>
@@ -2539,6 +2585,17 @@ $(document).ready(function() {
                 initChart();
             });
         </script>
+
+        <script>
+            $(document).ready(function() {
+                var table = $('#stock-table').DataTable();
+
+                $('#stock-search').on('keyup', function() {
+                    table.search(this.value).draw();
+                });
+            });
+        </script>
+
     </body>
 
     </html>
