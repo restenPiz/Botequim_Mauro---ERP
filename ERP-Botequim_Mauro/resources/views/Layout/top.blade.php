@@ -26,6 +26,10 @@
         <link rel="stylesheet" href="../assets/stylesheets/theme.min.css" data-skin="default">
         <link rel="stylesheet" href="../assets/stylesheets/theme-dark.min.css" data-skin="dark">
         <link rel="stylesheet" href="../assets/stylesheets/custom.css">
+          
+        <!-- DataTables CSS -->
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">
+
         <script>
             var skin = localStorage.getItem('skin') || 'default';
             var disabledSkinStylesheet = document.querySelector('link[data-skin]:not([data-skin="' + skin + '"])');
@@ -334,7 +338,8 @@
     <script src="../assets/javascript/theme.min.js"></script> <!-- END THEME JS -->
     <!-- BEGIN PAGE LEVEL JS -->
     <script src="../assets/javascript/pages/dashboard-demo.js"></script> <!-- END PAGE LEVEL JS -->
-    
+  
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
 
     <script src="../assets/javascript/pages/profile-demo.js"></script> <!-- END PAGE LEVEL JS -->
     <!-- BEGIN PAGE LEVEL JS -->
@@ -362,146 +367,13 @@
         });
     </script>
 
-    {{-- Inicio do script responsavel por fazer a pesquisa dos dados --}}
-
-    <script>
-        $(document).ready(function() {
-            $('#table-search').on('input', function() {
-                var query = $(this).val();
-                if (query.length > 0) {
-                    $.ajax({
-                        url: "{{ route('search.products') }}",
-                        type: "GET",
-                        data: {
-                            query: query
-                        },
-                        success: function(data) {
-                            $('#product-list').empty();
-                            if (data.length > 0) {
-                                $.each(data, function(key, product) {
-                                    var row = '<tr>' +
-                                        '<td class="align-middle">' + product
-                                        .Product_name + '</td>' +
-                                        '<td class="align-middle">' + product.Quantity +
-                                        '</td>' +
-                                        '<td class="align-middle"><span class="badge badge-subtle badge-success">' +
-                                        product.Code + '</span></td>' +
-                                        '<td class="align-middle">' + product.Price +
-                                        '</td>' +
-                                        '<td class="align-middle">' + product
-                                        .Sale_price + '</td>' +
-                                        '<td class="align-middle">' + product
-                                        .Entry_date + '</td>' +
-                                        '<td class="align-middle">' + product
-                                        .Expiry_date + '</td>' +
-                                        '<td class="align-middle"><span class="badge badge-subtle badge-warning">' +
-                                        product.categoria.Category_name +
-                                        '</span></td>' +
-                                        '<td class="align-middle text-right">' +
-                                        '<button type="button" class="btn btn-sm btn-icon btn-secondary" data-toggle="modal" data-target="#clientNewModal' +
-                                        product.id +
-                                        '"><i class="fa fa-pencil-alt"></i> <span class="sr-only">Edit</span></button> ' +
-                                        '<button type="button" class="btn btn-sm btn-icon btn-secondary"><i class="far fa-trash-alt" data-target="#deleteRecordModal' +
-                                        product.id +
-                                        '" data-toggle="modal"></i> <span class="sr-only">Remove</span></button>' +
-                                        '</td>' +
-                                        '</tr>';
-                                    $('#product-list').append(row);
-                                });
-                            } else {
-                                $('#product-list').append(
-                                    '<tr><td colspan="9" class="text-center">Nenhum produto encontrado</td></tr>'
-                                    );
-                            }
-                        },
-                        error: function(xhr, status, error) {
-                            console.error("Erro na requisição AJAX: ", status, error);
-                        }
-                    });
-                } else {
-                    $('#product-list').empty();
-                    @foreach ($products as $product)
-                        var row = '<tr>' +
-                            '<td class="align-middle"> {{ $product->Product_name }} </td>' +
-                            '<td class="align-middle"> {{ $product->Quantity }} </td>' +
-                            '<td class="align-middle"><span class="badge badge-subtle badge-success"> {{ $product->Code }} </span></td>' +
-                            '<td class="align-middle"> {{ $product->Price }} </td>' +
-                            '<td class="align-middle"> {{ $product->Sale_price }} </td>' +
-                            '<td class="align-middle"> {{ $product->Entry_date }} </td>' +
-                            '<td class="align-middle"> {{ $product->Expiry_date }} </td>' +
-                            '<td class="align-middle"><span class="badge badge-subtle badge-warning"> {{ $product->categoria->Category_name }} </span></td>' +
-                            '<td class="align-middle text-right">' +
-                            '<button type="button" class="btn btn-sm btn-icon btn-secondary" data-toggle="modal" data-target="#clientNewModal{{ $product->id }}"><i class="fa fa-pencil-alt"></i> <span class="sr-only">Edit</span></button> ' +
-                            '<button type="button" class="btn btn-sm btn-icon btn-secondary"><i class="far fa-trash-alt" data-target="#deleteRecordModal{{ $product->id }}" data-toggle="modal"></i> <span class="sr-only">Remove</span></button>' +
-                            '</td>' +
-                            '</tr>';
-                        $('#product-list').append(row);
-                    @endforeach
-                }
-            });
-        });
-    </script>
-    {{-- Fim do script responsavel por fazer a pesquisa --}}
-
     {{-- Inicio do script responsavel por fazer a pesquisa do stock de entrada --}}
     <script>
         $(document).ready(function() {
-            $('#stock-search').on('input', function() {
-                var query = $(this).val();
-                if (query.length > 0) {
-                    $.ajax({
-                        url: "{{ route('search.stock') }}",
-                        type: "GET",
-                        data: {
-                            query: query
-                        },
-                        success: function(data) {
-                            $('#stock-list').empty();
-                            if (data.length > 0) {
-                                $.each(data, function(key, stock) {
-                                    var row = '<tr>' +
-                                        '<td class="align-middle">' + stock.Product_name + '</td>' +
-                                        '<td class="align-middle">' + stock.Quantity + '</td>' +
-                                        '<td class="align-middle"><span class="badge badge-subtle badge-success">' +
-                                        stock.Code + '</span></td>' +
-                                        '<td class="align-middle">' + stock.Price + '</td>' +
-                                        '<td class="align-middle">' + stock.Entry_date + '</td>' +
-                                        '<td class="align-middle">' + stock.Expiry_date + '</td>' +
-                                        '<td class="align-middle text-right">' +
-                                        '<button type="button" class="btn btn-sm btn-icon btn-secondary" data-toggle="modal" data-target="#clientNewModal' + stock.id +
-                                        '"><i class="fa fa-pencil-alt"></i> <span class="sr-only">Edit</span></button> ' +
-                                        '<button type="button" class="btn btn-sm btn-icon btn-secondary"><i class="far fa-trash-alt" data-target="#deleteRecordModal' + stock.id +
-                                        '" data-toggle="modal"></i> <span class="sr-only">Remove</span></button>' +
-                                        '</td>' +
-                                        '</tr>';
-                                    $('#stock-list').append(row);
-                                });
-                            } else {
-                                $('#stock-list').append('<tr><td colspan="7" class="text-center">Nenhum produto encontrado</td></tr>');
-                            }
-                        },
-                        error: function(xhr, status, error) {
-                            console.error("Erro na requisição AJAX: ", status, error);
-                        }
-                    });
-                } else {
-                    $('#stock-list').empty();
-                    @foreach ($stocks as $stock)
-                        var row = '<tr>' +
-                            '<td class="align-middle"> {{ $stock->product ? $stock->product->Product_name : '' }} </td>' +
-                            '<td class="align-middle"> {{ $stock->Quantity }} </td>' +
-                            '<td class="align-middle"><span class="badge badge-subtle badge-success"> {{ $stock->Code }} </span></td>' +
-                            '<td class="align-middle"> {{ number_format($stock->Price, 2, ',', '.',) . ' MZN' }} </td>' +
-                            '<td class="align-middle"> {{ $stock->Entry_date }} </td>' +
-                            '<td class="align-middle"> {{ $stock->Expiry_date }} </td>' +
-                            '<td class="align-middle text-right">' +
-                            '<button type="button" class="btn btn-sm btn-icon btn-secondary" data-toggle="modal" data-target="#clientNewModal{{ $stock->id }}"><i class="fa fa-pencil-alt"></i> <span class="sr-only">Edit</span></button> ' +
-                            '<button type="button" class="btn btn-sm btn-icon btn-secondary"><i class="far fa-trash-alt" data-target="#deleteRecordModal{{ $stock->id }}" data-toggle="modal"></i> <span class="sr-only">Remove</span></button>' +
-                            '</td>' +
-                            '</tr>';
-                        $('#stock-list').append(row);
-                    @endforeach
-                }
+            var table = $('#stock-table').DataTable();
+
+            $('#stock-search').on('keyup', function() {
+                table.search(this.value).draw();
             });
         });
     </script>
@@ -696,6 +568,7 @@
         <link rel="stylesheet" href="../assets/stylesheets/theme.min.css" data-skin="default">
         <link rel="stylesheet" href="../assets/stylesheets/theme-dark.min.css" data-skin="dark">
         <link rel="stylesheet" href="../assets/stylesheets/custom.css">
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">
         <script>
             var skin = localStorage.getItem('skin') || 'default';
             var disabledSkinStylesheet = document.querySelector('link[data-skin]:not([data-skin="' + skin + '"])');
@@ -1028,6 +901,7 @@
         <link rel="stylesheet" href="../assets/stylesheets/theme.min.css" data-skin="default">
         <link rel="stylesheet" href="../assets/stylesheets/theme-dark.min.css" data-skin="dark">
         <link rel="stylesheet" href="../assets/stylesheets/custom.css">
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">
         <script>
             var skin = localStorage.getItem('skin') || 'default';
             var disabledSkinStylesheet = document.querySelector('link[data-skin]:not([data-skin="' + skin + '"])');
@@ -1404,6 +1278,7 @@
         <link rel="stylesheet" href="../assets/stylesheets/theme.min.css" data-skin="default"> 
         <link rel="stylesheet" href="../assets/stylesheets/theme-dark.min.css" data-skin="dark"> 
         <link rel="stylesheet" href="../assets/stylesheets/custom.css"> 
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">
         <script>
             var skin = localStorage.getItem('skin') || 'default';
             var disabledSkinStylesheet = document.querySelector('link[data-skin]:not([data-skin="' + skin + '"])');
