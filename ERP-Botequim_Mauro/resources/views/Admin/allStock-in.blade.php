@@ -455,8 +455,8 @@
                                                     class="oi oi-data-transfer-download"></i> <span
                                                     class="ml-1">Exportar</span></button>
 
-                                            <button type="button" class="btn btn-success btn-floated"><span
-                                                    class="fa fa-plus"></span></button> <!-- /floating action -->
+                                            {{-- <button type="button" class="btn btn-success btn-floated"><span
+                                                    class="fa fa-plus"></span></button> <!-- /floating action --> --}}
                                             <!-- title and toolbar -->
                                             {{-- <button type="button"
                                         class="btn btn-light"><i class="oi oi-data-transfer-upload"></i> <span
