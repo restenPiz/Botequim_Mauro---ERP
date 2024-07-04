@@ -141,7 +141,10 @@ class debitController extends Controller
         $count=DB::table('debits')
             ->sum('Amount');
         
+        $client=DB::table('clients')
+            ->where('client_type','debit')
+            ->get();
 
-        return view('Accountant.allDebit',compact('debits','count'));
+        return view('Accountant.allDebit',compact('debits','count','client'));
     }
 }

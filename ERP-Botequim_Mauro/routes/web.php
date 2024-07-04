@@ -46,13 +46,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function() {
     Route::get('/deleteUser/{id}', [userController::class, 'deleteUser'])->name('deleteUser');
     Route::post('/storeUser', [userController::class, 'storeUser'])->name('storeUser');
 
-    //?Inicio das rotas de evento
-    Route::get('/addEvent', [eventController::class, 'addEvent'])->name('addEvent');
-    Route::get('/allEvent', [eventController::class, 'allEvent'])->name('allEvent');
-    Route::post('/updateEvent/{id}', [eventController::class, 'updateEvent'])->name('updateEvent');
-    Route::get('/deleteEvent/{id}', [eventController::class, 'deleteEvent'])->name('deleteEvent');
-    Route::post('/storeEvent', [eventController::class, 'storeEvent'])->name('storeEvent');
-
     //?Inicio das rotas da parte de dividas
     Route::post('/storeDebit', [debitController::class, 'storeDebit'])->name('storeDebit');
     Route::get('/allDebit/{id}', [debitController::class, 'allDebit'])->name('allDebit');
