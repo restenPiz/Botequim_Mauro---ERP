@@ -1775,12 +1775,11 @@ $(document).ready(function() {
     });
 </script>
 
-    
-
     </body>
 
     </html>
 @endrole
+
 
 @role('accountant')
     <!DOCTYPE html>
@@ -2079,7 +2078,25 @@ $(document).ready(function() {
             {{-- Fim do MainContent --}}
 
         </div><!-- /.app -->
-        
+
+        <script>
+            function productos(product) {
+
+                var Product_name = product.value;
+
+                $.get('http://127.0.0.1:8000/admin/getProductDetails?Product_name=' + Product_name, function(data) {
+                    console.log(data);
+
+                    // Atualiza os campos do formulário com os detalhes do produto
+                    $('#Quantity').val(data.Quantity);
+                    $('#Price').val(data.Price);
+                    $('#Code').val(data.Code);
+                    $('#Entry_date').val(data.Entry_date);
+                    $('#Expiry_date').val(data.Expiry_date);
+                });
+            }
+        </script>
+
         <script src="assets/vendor/jquery/jquery.min.js"></script>
         <script src="assets/vendor/popper.js/umd/popper.min.js"></script>
         <script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script> <!-- END BASE JS -->
@@ -2095,7 +2112,121 @@ $(document).ready(function() {
         <!-- BEGIN PAGE LEVEL JS -->
         <script src="assets/javascript/pages/dashboard-demo.js"></script> <!-- END PAGE LEVEL JS -->
         <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
+
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-116692175-1"></script>
+        <script>
+            $(document).ready(function() {
+                var table = $('#stock-table').DataTable();
+    
+                $('#stock-search').on('keyup', function() {
+                    table.search(this.value).draw();
+                });
+            });
+        </script>
+    
+        <script>
+            function saleFunction() {
+                
+                    const csrfTokenElement = document.querySelector('meta[name="csrf-token"]');
+                    if (!csrfTokenElement) {
+                        console.error('CSRF token meta tag not found');
+                        return;
+                    }
+                    const csrfToken = csrfTokenElement.getAttribute('content');
+
+                    console.log('CSRF Token:', csrfToken);
+
+                    const topSellingProductsChart = document.getElementById('topSellingProductsChart');
+                    const monthlySalesChart = document.getElementById('monthlySalesChart');
+
+                    if (!topSellingProductsChart) {
+                        console.error('Element with ID topSellingProductsChart not found');
+                        return;
+                    }
+                    if (!monthlySalesChart) {
+                        console.error('Element with ID monthlySalesChart not found');
+                        return;
+                    }
+
+                    const topSellingProductsChartDataURL = topSellingProductsChart.toDataURL();
+                    const monthlySalesChartDataURL = monthlySalesChart.toDataURL();
+
+                    const data = {
+                        topSellingProductsChart: topSellingProductsChartDataURL,
+                        monthlySalesChart: monthlySalesChartDataURL
+                    };
+
+                    fetch('/generate-sale-pdf', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': csrfToken
+                        },
+                        body: JSON.stringify(data)
+                    })
+                    .then(response => response.blob())
+                    .then(blob => {
+                        const url = window.URL.createObjectURL(blob);
+                        const a = document.createElement('a');
+                        a.style.display = 'none';
+                        a.href = url;
+                        a.download = 'relatorio_de_vendas.pdf';
+                        document.body.appendChild(a);
+                        a.click();
+                        window.URL.revokeObjectURL(url);
+                    })
+                    .catch(error => console.error('Error:', error));
+                
+
+                // Chame sua função para renderizar gráficos
+                renderCharts();
+            }
+
+        </script>
+        <script>
+            function myfunction() {
+                const csrfTokenElement = document.querySelector('meta[name="csrf-token"]');
+                if (!csrfTokenElement) {
+                    console.error('CSRF token meta tag not found');
+                    return;
+                }
+                const csrfToken = csrfTokenElement.getAttribute('content');
+
+                console.log('CSRF Token:', csrfToken);
+
+                const topSellingProductsChart = document.getElementById('topSellingProductsChart').toDataURL();
+                const stockQuantityChart = document.getElementById('stockQuantityChart').toDataURL();
+                const bestSellingProductsChart = document.getElementById('bestSellingProductsChart').toDataURL();
+
+                const data = {
+                    topSellingProductsChart,
+                    stockQuantityChart,
+                    bestSellingProductsChart
+                };
+
+                fetch('/generate-pdf', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': csrfToken
+                    },
+                    body: JSON.stringify(data)
+                })
+                .then(response => response.blob())
+                .then(blob => {
+                    const url = window.URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.style.display = 'none';
+                    a.href = url;
+                    a.download = 'relatorio.pdf';
+                    document.body.appendChild(a);
+                    a.click();
+                    window.URL.revokeObjectURL(url);
+                })
+                .catch(error => console.error('Error:', error));
+            }
+        </script>
         <script>
             window.dataLayer = window.dataLayer || [];
 
@@ -2106,209 +2237,99 @@ $(document).ready(function() {
             gtag('config', 'UA-116692175-1');
         </script>
 
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                // Função para verificar o estoque
+                function checkStock() {
+                    fetch('/check-stock', {
+                        method: 'GET',
+                        headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json'
+                        }
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.length > 0) {
+                            data.forEach(product => {
+                                alert(`Atenção: A quantidade do produto "${product.product.Product_name}" está baixa (${product.Quantity} unidades restantes).`);
+                            });
+                        }
+                    })
+                    .catch(error => console.error('Erro:', error));
+                }
+
+                // Verificar o estoque ao carregar a página
+                checkStock();
+            });
+
+        </script>
+
+<!-- Script AJAX -->
+<script>
+$(document).ready(function() {
+    $('#saleForm').on('submit', function(e) {
+        e.preventDefault(); // Evitar o comportamento padrão do formulário
+
+        $.ajax({
+            type: 'POST',
+            url: $(this).attr('action'),
+            data: $(this).serialize(),
+            success: function(response) {
+                if (response.status === 'success') {
+                    alert(response.message);
+
+                    // Adicionar a nova venda à tabela
+                    var newRow = `
+                        <tr>
+                            <td class="align-middle">${response.sale.Product_name}</td>
+                            <td class="align-middle">${response.sale.Product_price} MZN</td>
+                            <td class="align-middle">${response.sale.Quantity}</td>
+                            <td class="align-middle">${response.sale.Amount} MZN</td>
+                            <td class="align-middle text-right">
+                                <button type="button" class="btn btn-sm btn-icon btn-secondary" data-toggle="modal" data-target="#clientNewModal${response.sale.id}">
+                                    <i class="fa fa-pencil-alt"></i> <span class="sr-only">Edit</span>
+                                </button>
+                                <button type="button" class="btn btn-sm btn-icon btn-secondary">
+                                    <i class="far fa-trash-alt" data-target="#deleteRecordModal${response.sale.id}" data-toggle="modal"></i> <span class="sr-only">Remove</span>
+                                </button>
+                            </td>
+                        </tr>`;
+                    
+                    $('#salesTable tbody').append(newRow);
+                } else {
+                    alert(response.message);
+                }
+            },
+            error: function(response) {
+                if (response.status === 400) {
+                    let errors = response.responseJSON.errors;
+                    let message = response.responseJSON.message;
+                    let errorMessage = '';
+
+                    for (let key in errors) {
+                        errorMessage += errors[key][0] + '\n';
+                    }
+
+                    alert(errorMessage);
+                } else {
+                    alert('Ocorreu um erro inesperado.');
+                }
+            }
+        });
+    });
+});
+</script>
+
+<script>
+    function printPage()
+    {
+        window.print();
+    }
+</script>
         {{-- Inicio do link de sweetAlerta --}}
         @include('sweetalert::alert')
         {{-- Fim do link do sweetAlerta --}}
-        <script>
-            function printPage()
-            {
-                window.print();
-            }
-        </script>
-
-        <script>
-            function productos(product) {
-
-                var Product_name = product.value;
-
-                $.get('http://127.0.0.1:8000/admin/getProductDetails?Product_name=' + Product_name, function(data) {
-                    console.log(data);
-
-                    // Atualiza os campos do formulário com os detalhes do produto
-                    $('#Quantity').val(data.Quantity);
-                    $('#Price').val(data.Price);
-                    $('#Code').val(data.Code);
-                    $('#Entry_date').val(data.Entry_date);
-                    $('#Expiry_date').val(data.Expiry_date);
-                });
-            }
-        </script>
-        <script>
-            //Inicio da function que retornar os produtos em json
-            function prod(product) {
-                var Id_product = product.value;
-
-                $.get('http://127.0.0.1:8000/getDebit?id=' + Id_product, function(data) {
-                    console.log(data);
-
-                    $('#Price').val(data.Price);
-                });
-            }
-
-            function enableFields() {
-                $('#Price').prop('disabled', false);
-
-                setTimeout(function() {
-                    $('#Price').prop('disabled', true);
-                }, 1000);
-            }
-
-            $(document).ready(function() {
-                var fieldsDisabled = localStorage.getItem('fieldsDisabled');
-                if (fieldsDisabled) {
-                    // Desabilita os campos
-                    $('#Price').val(JSON.parse(fieldsDisabled).Code).prop('disabled', true);
-                }
-            });
-        </script>
-
-        <script>
-            //Inicio da function que retornar os produtos em json
-            function pro(product) {
-                var Id_product = product.value;
-
-                $.get('http://127.0.0.1:8000/getDebit?id=' + Id_product, function(data) {
-                    console.log(data);
-
-                    $('#Pric').val(data.Price);
-                });
-            }
-
-            function enable() {
-                $('#Pric').prop('disabled', false);
-
-                setTimeout(function() {
-                    $('#Pric').prop('disabled', true);
-                }, 1000);
-            }
-
-            $(document).ready(function() {
-                var fieldsDisabled = localStorage.getItem('fieldsDisabled');
-                if (fieldsDisabled) {
-                    // Desabilita os campos
-                    $('#Pric').val(JSON.parse(fieldsDisabled).Code).prop('disabled', true);
-                }
-            });
-        </script>
-
-        <script>
-            $(document).ready(function() {
-                var fieldsDisabled = localStorage.getItem('fieldsDisabled');
-                if (fieldsDisabled) {
-                    // Desabilita os campos
-                    $('#Quantity').val(JSON.parse(fieldsDisabled).Quantity).prop('disabled', true);
-                    $('#Code').val(JSON.parse(fieldsDisabled).Code).prop('disabled', true);
-                    $('#Price').val(JSON.parse(fieldsDisabled).Price).prop('disabled', true);
-                    $('#Entry_date').val(JSON.parse(fieldsDisabled).Entry_date).prop('disabled', true);
-                    $('#Expiry_date').val(JSON.parse(fieldsDisabled).Expiry_date).prop('disabled', true);
-                }
-            });
-        </script>
-
-        <script>
-            //Inicio do script para editar o modal de editar o producto na divida
-            function prodi(product) {
-                var Id_product = product.value;
-
-                $.get('http://127.0.0.1:8000/admin/getDebit?Id_product=' + Id_product, function(data) {
-                    console.log(data);
-
-                    $('#Priced').val(data.Price);
-                });
-            }
-
-            function enableField() {
-                $('#Priced').prop('disabled', false);
-
-                setTimeout(function() {
-                    $('#Priced').prop('disabled', true);
-                }, 1000);
-            }
-        </script>
-        <script>
-            $(document).ready(function() {
-                var fieldsDisabled = localStorage.getItem('fieldsDisabled');
-                if (fieldsDisabled) {
-                    // Desabilita os campos
-                    $('#Priced').val(JSON.parse(fieldsDisabled).Code).prop('disabled', true);
-                }
-            });
-        </script>
-
-        <script>
-            function productos(product) {
-
-                var Product_name = product.value;
-
-                $.get('http://127.0.0.1:8000/admin/getProductDetails?Product_name=' + Product_name, function(data) {
-                    console.log(data);
-
-                    // Atualiza os campos do formulário com os detalhes do produto
-                    $('#Quantity').val(data.Quantity);
-                    $('#Price').val(data.Price);
-                    $('#Code').val(data.Code);
-                    $('#Entry_date').val(data.Entry_date);
-                    $('#Expiry_date').val(data.Expiry_date);
-                });
-            }
-        </script>
-
-
-        {{-- <script>
-    //?Inicio do metodo que retorna os productos mais vendidos;
-    $(document).ready(function() {
-        fetch('/getTopSellingProducts')
-            .then(response => response.json())
-            .then(data => {
-                if (Array.isArray(data)) {
-                    const tableBody = $('#top-selling-products-table');
-                    tableBody.empty(); // Limpar quaisquer dados existentes
-
-                    data.forEach(product => {
-                        const row = `<tr>
-                                        <td class="align-middle text-truncate">${product.name}</td>
-                                        <td class="align-middle text-center">${product.total_quantity}</td>
-                                        <td class="align-middle text-center">
-                                            
-                                        </td>
-                                    </tr>`;
-                        tableBody.append(row);
-                    });
-                } else {
-                    console.error('Data received is not an array');
-                }
-            })
-            .catch(error => {
-                console.error('Error fetching top selling products:', error);
-            });
-    });
-</script> --}}
-        
-    {{--Inicio do script responsavel por gerar o valor de troco--}}        
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            // Função para calcular o troco
-            function calculateChange() {
-                // Obter o valor total e o valor pago
-                var totalPrice = parseFloat($("#totalPrice").val());
-                var amountPaid = parseFloat($("#amountPaid").val());
-                
-                // Calcular o troco
-                var change = amountPaid - totalPrice;
-    
-                // Atualizar o campo de troco
-                $("#change").val(change.toFixed(2));
-            }
-    
-            // Adicionar um event listener para o input de valor pago
-            $("#amountPaid").on("input", function() {
-                calculateChange();
-            });
-        });
-    </script>
-    {{--Fim do script responsavel por gerar o troco--}}
-
         <script>
             async function fetchMonthlySalesData() {
                 try {
@@ -2472,11 +2493,11 @@ $(document).ready(function() {
                                 // Atualiza os dados da tabela
                                 data.forEach(product => {
                                     const row = `<tr>
-                                            <td class="align-middle text-truncate">${product.name}</td>
-                                            <td class="align-middle text-center">${product.total_quantity}</td>
-                                            <td class="align-middle text-center">
-                                            </td>
-                                        </tr>`;
+                                                    <td class="align-middle text-truncate">${product.name}</td>
+                                                    <td class="align-middle text-center">${product.total_quantity}</td>
+                                                    <td class="align-middle text-center">
+                                                    </td>
+                                                </tr>`;
                                     tableBody.append(row);
                                 });
 
@@ -2583,7 +2604,6 @@ $(document).ready(function() {
                 initChart();
             });
         </script>
-
         <script>
             $(document).ready(function() {
                 var table = $('#stock-table').DataTable();
