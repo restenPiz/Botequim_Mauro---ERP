@@ -2004,8 +2004,8 @@ $(document).ready(function() {
                                     <!-- child menu -->
                                     <ul class="menu">
                                         <li
-                                            class="menu-item {{ request()->routeIs('allDebitAccountant','allClient') ? 'has-active' : '' }}">
-                                            <a href="{{ route('allClient') }}" class="menu-link">Verificar
+                                            class="menu-item {{ request()->routeIs('allDebitAccountant','addClient') ? 'has-active' : '' }}">
+                                            <a href="{{ route('addClient') }}" class="menu-link">Verificar
                                                 Dividas</a>
                                         </li>
                                     </ul><!-- /child menu -->
