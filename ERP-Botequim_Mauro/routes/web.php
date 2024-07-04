@@ -54,7 +54,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function() {
     Route::get('/deleteAllDebit', [debitController::class, 'deleteAllDebit'])->name('deleteAllDebit');
 
     //?Inicio das rotas da parte de clientes
-    Route::get('/allClient', [clientController::class, 'addClient'])->name('addClient'); 
     Route::get('/showClient/{id}', [clientController::class, 'showClient'])->name('showClient');   
     
     //?Inicio das rotas da parte de pagamento
@@ -67,6 +66,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function() {
     Route::get('/allReport', [reportController::class, 'addReport'])->name('addReport');
 });
 //?Fim das rotas da parte de administrador
+
+//*Inicio da rota responsavel por retornar a view de adicao de clientes nas dividas
+Route::get('/allClient', [clientController::class, 'addClient'])->name('addClient'); 
 
 //?Inicio das rotas da parte do atendente
 Route::group(['prefix' => 'attendant', 'middleware' => ['role:attendant']], function() {
@@ -87,7 +89,6 @@ Route::group(['prefix' => 'attendant', 'middleware' => ['role:attendant']], func
     //*Inicio da rota de insercao na tabela de vendas
     Route::post('/storeSaleHistory', [saleController::class, 'storeSaleHistory'])->name('storeSaleHistory');
     //*Fim das rotas de insercao na tabela de vendas
-
 });
 
 //*Inicio da rota responsavel por eliminar um producto da tabela de vendas
