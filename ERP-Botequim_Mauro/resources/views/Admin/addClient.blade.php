@@ -291,7 +291,7 @@
                             <header class="page-title-bar">
                                 <!-- title and toolbar -->
                                 <div class="d-md-flex align-items-md-start">
-                                    <h1 class="page-title mr-sm-auto"> Todos Clientes </h1><!-- .btn-toolbar -->
+                                    <h1 class="page-title mr-sm-auto"> Todos clientes com dividas</h1><!-- .btn-toolbar -->
                                     <div class="btn-toolbar">
                                     </div><!-- /.btn-toolbar -->
                                 </div><!-- /title and toolbar -->
@@ -333,7 +333,7 @@
                                                         <td class="align-middle"> {{ $client->Age }} </td>
                                                         <td class="align-middle"> {{ $client->Household }} </td>
                                                         <td class="align-middle text-right">
-                                                           <a class="btn btn-sm btn-icon btn-secondary" href="showClient/{{$client->id}}"><i
+                                                           <a class="btn btn-sm btn-icon btn-secondary" href="allDebitAccountant/{{$client->id}}"><i
                                                             class="fa fa-eye"></i> <span
                                                             class="sr-only">Show</span></a>
                                                         </td>
