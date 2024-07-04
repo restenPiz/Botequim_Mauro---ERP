@@ -92,7 +92,7 @@
                                 <div class="card-body">
                                     {{-- <h2 class="card-title"> Contacts </h2><!-- .table-responsive --> --}}
                                     <div class="table-responsive">
-                                        <table class="table table-striped" style="min-width: 678px">
+                                        <table id="stock-table" class="table table-striped" style="min-width: 678px">
                                             <thead>
                                                 <tr>
                                                     <th> Nome do Cliente </th>

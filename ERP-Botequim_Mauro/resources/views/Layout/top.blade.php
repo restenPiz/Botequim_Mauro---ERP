@@ -793,17 +793,6 @@
         } 
     </script>
 
-<script>
-    $(document).ready(function() {
-        var table = $('#stock-table').DataTable();
-
-        $('#stock-search').on('keyup', function() {
-            table.search(this.value).draw();
-        });
-    });
-</script>
-
-
     <script src="assets/vendor/jquery/jquery.min.js"></script>
     <script src="assets/vendor/popper.js/umd/popper.min.js"></script>
     <script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script> <!-- END BASE JS -->
@@ -832,6 +821,15 @@
         gtag('config', 'UA-116692175-1');
     </script>
 
+<script>
+    $(document).ready(function() {
+        var table = $('#stock-table').DataTable();
+
+        $('#stock-search').on('keyup', function() {
+            table.search(this.value).draw();
+        });
+    });
+</script>
     {{-- Inicio do link de sweetAlerta --}}
     @include('sweetalert::alert')
     {{-- Fim do link do sweetAlerta --}}

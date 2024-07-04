@@ -1,4 +1,4 @@
-@extends('Layout.TopBar')
+@extends('Layout.topBar')
 @section('content')
     {{-- Inicio do conteudo da parte do gestor de stock --}}
 
