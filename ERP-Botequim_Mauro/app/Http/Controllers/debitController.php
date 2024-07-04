@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Client;
 use App\Models\Debit;
 use App\Models\Product;
 use App\Models\Stock;
@@ -134,16 +135,17 @@ class debitController extends Controller
 
         return view('Admin.allDebit',compact('debits','count'));
     }
-    public function allDebitAccountant()
+    public function allDebitAccountant($id)
     {
-        $debits=Debit::all();
+        $debits=DB::table('debits')
+            ->where('id',$id)
+            ->get();
         
         $count=DB::table('debits')
+            ->where('Id_client', $id)
             ->sum('Amount');
-        
-        $client=DB::table('clients')
-            ->where('client_type','debit')
-            ->get();
+
+        $client=Client::findOrFail($id);
 
         return view('Accountant.allDebit',compact('debits','count','client'));
     }

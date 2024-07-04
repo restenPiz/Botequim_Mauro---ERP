@@ -1,4 +1,4 @@
-@extends('Layout.topBar')
+@extends('Layout.Another')
 @section('content')
     {{-- Inicio da parte contendo o conteudo dos usuarios --}}
     <main class="app-main">

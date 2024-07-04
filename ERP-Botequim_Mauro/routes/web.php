@@ -140,7 +140,7 @@ Route::post('/storeSaleRequest/{id}', [saleController::class, 'storeSaleRequest'
     Route::get('/deleteProduct/{id}', [productController::class, 'deleteProduct'])->name('deleteProduct')->middleware(['auth', 'verified']);
 
 //*Inicio das rotas de dividas da parte do contabilista
-Route::get('/allDebitAccountant', [debitController::class, 'allDebitAccountant'])->name('allDebitAccountant')->middleware(['auth', 'verified']);
+Route::get('/allDebitAccountant/{id}', [debitController::class, 'allDebitAccountant'])->name('allDebitAccountant')->middleware(['auth', 'verified']);
 
 //*Inicio das rotas 
 Route::get('/getSalesDates', [saleController::class, 'getSalesDates'])->name('getSalesDates')->middleware(['auth', 'verified']);
