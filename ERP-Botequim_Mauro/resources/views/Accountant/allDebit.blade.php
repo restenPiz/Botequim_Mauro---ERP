@@ -77,11 +77,6 @@
                                     </div>
                                 </div>
 
-                                {{-- <div class="card-footer">
-                                    <a href="{{route('addProduct')}}" class="card-footer-item"><i
-                                            class="fa fa-plus-circle mr-1"></i> Adicionar Producto</a>
-                                </div> --}}
-
                             </div>
                         </div>
                     </div>
