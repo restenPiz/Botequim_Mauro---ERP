@@ -954,7 +954,7 @@ $(document).ready(function() {
                         {{-- Inicio da classe dos icones acima --}}
                         <div class="top-bar-item top-bar-item-right px-0 d-none d-sm-flex">
                             <!-- .nav -->
-                            <ul class="header-nav nav">
+                            {{-- <ul class="header-nav nav">
                                 <!-- .nav-item -->
                                 <!-- .nav-item -->
                                 <li class="nav-item dropdown header-nav-dropdown">
@@ -997,7 +997,7 @@ $(document).ready(function() {
                                         </div><!-- .dropdown-sheets -->
                                     </div><!-- .dropdown-menu -->
                                 </li><!-- /.nav-item -->
-                            </ul><!-- /.nav -->
+                            </ul><!-- /.nav --> --}}
                             <!-- .btn-account -->
                             <div class="dropdown d-none d-md-flex">
                                 <button class="btn-account" type="button" data-toggle="dropdown" aria-haspopup="true"
@@ -1387,7 +1387,7 @@ $(document).ready(function() {
                         {{-- Inicio da classe dos icones acima --}}
                         <div class="top-bar-item top-bar-item-right px-0 d-none d-sm-flex">
                             <!-- .nav -->
-                            <ul class="header-nav nav">
+                            {{-- <ul class="header-nav nav">
                                 <!-- .nav-item -->
                                 <!-- .nav-item -->
                                 <li class="nav-item dropdown header-nav-dropdown">
@@ -1430,7 +1430,7 @@ $(document).ready(function() {
                                         </div><!-- .dropdown-sheets -->
                                     </div><!-- .dropdown-menu -->
                                 </li><!-- /.nav-item -->
-                            </ul><!-- /.nav -->
+                            </ul><!-- /.nav --> --}}
                             <!-- .btn-account -->
                             <div class="dropdown d-none d-md-flex">
                                 <button class="btn-account" type="button" data-toggle="dropdown" aria-haspopup="true"
@@ -1868,7 +1868,7 @@ $(document).ready(function() {
                         {{-- Inicio da classe dos icones acima --}}
                         <div class="top-bar-item top-bar-item-right px-0 d-none d-sm-flex">
                             <!-- .nav -->
-                            <ul class="header-nav nav">
+                            {{-- <ul class="header-nav nav">
                                 <!-- .nav-item -->
                                 <!-- .nav-item -->
                                 <li class="nav-item dropdown header-nav-dropdown">
@@ -1911,7 +1911,7 @@ $(document).ready(function() {
                                         </div><!-- .dropdown-sheets -->
                                     </div><!-- .dropdown-menu -->
                                 </li><!-- /.nav-item -->
-                            </ul><!-- /.nav -->
+                            </ul><!-- /.nav --> --}}
                             <!-- .btn-account -->
                             <div class="dropdown d-none d-md-flex">
                                 <button class="btn-account" type="button" data-toggle="dropdown" aria-haspopup="true"
