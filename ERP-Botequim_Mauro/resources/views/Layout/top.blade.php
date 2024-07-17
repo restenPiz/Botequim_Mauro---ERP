@@ -1233,7 +1233,7 @@
                 $('#Expiry_date').val(data.Expiry_date);
             });
         }
-        function enableFields() {
+        function enableFieldss() {
             // Habilita temporariamente os campos antes de enviar o formulário
             $('#Quantity').prop('disabled', false);
             $('#Code').prop('disabled', false);

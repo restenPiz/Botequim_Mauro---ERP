@@ -432,7 +432,7 @@
                                                 </div><!-- /form column -->
                                             </div>
                                             <button type="submit" name="submit" class="btn btn-primary text-nowrap ml-auto"
-                                                onclick="enableFields()">Adicionar Entrada</button>
+                                                onclick="enableFieldss()">Adicionar Entrada</button>
                                             <a href="{{ route('allStock') }}" type="button" class="btn btn-light"
                                                 data-dismiss="modal">Voltar</a>
                                         </form><!-- /form -->
