@@ -182,7 +182,7 @@
                                                                         <h6 id="clientNewModalLabel"
                                                                             class="modal-title inline-editable">
                                                                             <span class="sr-only">Formulario de Actualizacao
-                                                                                de Clientes</span>
+                                                                                de Mesas</span>
                                                                         </h6>
                                                                     </div><!-- /.modal-header -->
                                                                     <!-- .modal-body -->
@@ -194,33 +194,41 @@
                                                                                 <div class="form-row">
                                                                                     <div class="col-md-12">
                                                                                         <div class="form-group">
-                                                                                            <label for="cnContactName">Nome do Cliente</label>
+                                                                                            <label for="cnContactName">Nome da Mesa</label>
                                                                                             <input type="text" id="cnContactName"
                                                                                                 class="form-control"
                                                                                                 name="Name_client"
                                                                                                 value="{{$client->Name_client}}">
                                                                                         </div>
-                                                                                        <div class="form-group">
+                                                                                        {{-- <div class="form-group">
                                                                                             <label for="cnContactEmail">Apelido</label>
                                                                                             <input type="text" id="cnContactName"
                                                                                                 class="form-control"
                                                                                                 name="Surname" 
                                                                                                 value="{{$client->Surname}}">
-                                                                                        </div>
+                                                                                        </div> --}}
                                                                                         <div class="form-group">
-                                                                                            <label for="cnContactEmail">Idade</label>
+                                                                                            <label for="cnContactEmail">Numero de Mesa</label>
                                                                                             <input type="text" id="cnContactName"
                                                                                                 class="form-control"
                                                                                                 name="Age" 
                                                                                                 value="{{$client->Age}}">
                                                                                         </div>
-                                                                                        <div class="form-group">
+                                                                                        {{-- <div class="form-group">
                                                                                             <label for="cnContactEmail">Morada</label>
                                                                                             <input type="text" id="cnContactName"
                                                                                                 class="form-control"
                                                                                                 name="Household" 
                                                                                                 value="{{$client->Household}}">
-                                                                                        </div>
+                                                                                        </div> --}}
+                                                                                        <input type="hidden" id="cnContactName"
+                                                                                                class="form-control"
+                                                                                                name="Surname" 
+                                                                                                value="{{$client->Surname}}">
+                                                                                                <input type="hidden" id="cnContactName"
+                                                                                                class="form-control"
+                                                                                                name="Household" 
+                                                                                                value="{{$client->Household}}">
                                                                                         <input type="hidden" name="client_type" value="request">
                                                                                     </div>
                                                                                 </div><!-- /.form-row -->
