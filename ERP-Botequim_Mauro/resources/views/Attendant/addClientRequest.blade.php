@@ -23,20 +23,29 @@
                                             <!-- Nome do Cliente -->
                                             <div class="col-md-12 mb-3">
                                                 <label for="input01">Nome da Mesa</label>
-                                                <input type="text" class="form-control @error('Name_client') is-invalid @enderror" id="input01" placeholder="Nome do Cliente" name="Name_client" value="{{ old('Name_client') }}" required>
+                                                <input type="text" class="form-control @error('Name_client') is-invalid @enderror" id="input01" placeholder="Nome da Mesa" name="Name_client" value="{{ old('Name_client') }}" required>
                                                 @error('Name_client')
                                                     <div class="invalid-feedback">
                                                         <i class="fa fa-exclamation-circle fa-fw"></i> {{ $message }}
                                                     </div>
                                                 @enderror
                                             </div>
+                                            <div class="col-md-12 mb-3">
+                                                <label for="input03">Numero da Mesa</label>
+                                                <input type="number" class="form-control @error('Age') is-invalid @enderror" id="input03" placeholder="Numero da Mesa" name="Age" value="{{ old('Age') }}" required>
+                                                @error('Age')
+                                                    <div class="invalid-feedback">
+                                                        <i class="fa fa-exclamation-circle fa-fw"></i> {{ $message }}
+                                                    </div>
+                                                @enderror
+                                            </div>
                                             {{--Inicios dos campos hidden do sistema--}}
-                                            <input type="text" class="form-control @error('Surname') is-invalid @enderror" id="input02" placeholder="Apelido" name="Surname" value="{{ old('Surname') }}" required>
-                                            <input type="number" class="form-control @error('Age') is-invalid @enderror" id="input03" placeholder="Idade" name="Age" value="{{ old('Age') }}" required>
-                                            <input type="text" class="form-control @error('Household') is-invalid @enderror" id="input04" placeholder="Morada" name="Household" value="{{ old('Household') }}" required>
+                                            <input type="hidden" class="form-control" id="input02" name="Surname" value="Mesa" required>
+                                            {{-- <input type="hidden" class="form-control"  id="input03" name="Age" value="0" required> --}}
+                                            <input type="hidden" class="form-control" id="input04" name="Household" value="Mossurize" required>
                                             <input type="hidden" name="client_type" value="request">
                                             {{--Fim dos campos hidden do sistema--}}
-                                            
+
                                             <!-- Apelido -->
                                             {{-- <div class="col-md-12 mb-3">
                                                 <label for="input02">Apelido</label>
@@ -48,15 +57,7 @@
                                                 @enderror
                                             </div> --}}
                                             <!-- Idade -->
-                                            {{-- <div class="col-md-12 mb-3">
-                                                <label for="input03">Idade</label>
-                                                <input type="number" class="form-control @error('Age') is-invalid @enderror" id="input03" placeholder="Idade" name="Age" value="{{ old('Age') }}" required>
-                                                @error('Age')
-                                                    <div class="invalid-feedback">
-                                                        <i class="fa fa-exclamation-circle fa-fw"></i> {{ $message }}
-                                                    </div>
-                                                @enderror
-                                            </div> --}}
+                                            
                                             <!-- Morada -->
                                             {{-- <div class="col-md-12 mb-3">
                                                 <label for="input04">Morada</label>
@@ -101,10 +102,10 @@
                                         <table id="stock-table" class="table table-striped" style="min-width: 678px">
                                             <thead>
                                                 <tr>
-                                                    <th> Nome do Cliente </th>
-                                                    <th> Apelido </th>
-                                                    <th> Idade </th>
-                                                    <th> Morada </th>
+                                                    <th> Nome da Mesa </th>
+                                                    {{-- <th> Apelido </th> --}}
+                                                    <th> Numero de Mesa </th>
+                                                    {{-- <th> Morada </th> --}}
                                                     <th></th>
                                                 </tr>
                                             </thead>
@@ -112,9 +113,9 @@
                                                 @foreach ($clients as $client)
                                                     <tr>
                                                         <td class="align-middle"> {{ $client->Name_client }}</td>
-                                                        <td class="align-middle"> {{ $client->Surname }} </td>
+                                                        {{-- <td class="align-middle"> {{ $client->Surname }} </td> --}}
                                                         <td class="align-middle"> {{ $client->Age }} </td>
-                                                        <td class="align-middle"> {{ $client->Household }} </td>
+                                                        {{-- <td class="align-middle"> {{ $client->Household }} </td> --}}
                                                         <td class="align-middle text-right">
                                                            <a class="btn btn-sm btn-icon btn-secondary" href="showClientRequest/{{$client->id}}"><i
                                                             class="fa fa-eye"></i> <span
