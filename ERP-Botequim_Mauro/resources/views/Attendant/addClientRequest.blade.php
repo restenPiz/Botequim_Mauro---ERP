@@ -22,7 +22,7 @@
                                         <div class="form-row">
                                             <!-- Nome do Cliente -->
                                             <div class="col-md-12 mb-3">
-                                                <label for="input01">Nome do Cliente</label>
+                                                <label for="input01">Nome da Mesa</label>
                                                 <input type="text" class="form-control @error('Name_client') is-invalid @enderror" id="input01" placeholder="Nome do Cliente" name="Name_client" value="{{ old('Name_client') }}" required>
                                                 @error('Name_client')
                                                     <div class="invalid-feedback">
@@ -30,8 +30,15 @@
                                                     </div>
                                                 @enderror
                                             </div>
+                                            {{--Inicios dos campos hidden do sistema--}}
+                                            <input type="text" class="form-control @error('Surname') is-invalid @enderror" id="input02" placeholder="Apelido" name="Surname" value="{{ old('Surname') }}" required>
+                                            <input type="number" class="form-control @error('Age') is-invalid @enderror" id="input03" placeholder="Idade" name="Age" value="{{ old('Age') }}" required>
+                                            <input type="text" class="form-control @error('Household') is-invalid @enderror" id="input04" placeholder="Morada" name="Household" value="{{ old('Household') }}" required>
+                                            <input type="hidden" name="client_type" value="request">
+                                            {{--Fim dos campos hidden do sistema--}}
+                                            
                                             <!-- Apelido -->
-                                            <div class="col-md-12 mb-3">
+                                            {{-- <div class="col-md-12 mb-3">
                                                 <label for="input02">Apelido</label>
                                                 <input type="text" class="form-control @error('Surname') is-invalid @enderror" id="input02" placeholder="Apelido" name="Surname" value="{{ old('Surname') }}" required>
                                                 @error('Surname')
@@ -39,9 +46,9 @@
                                                         <i class="fa fa-exclamation-circle fa-fw"></i> {{ $message }}
                                                     </div>
                                                 @enderror
-                                            </div>
+                                            </div> --}}
                                             <!-- Idade -->
-                                            <div class="col-md-12 mb-3">
+                                            {{-- <div class="col-md-12 mb-3">
                                                 <label for="input03">Idade</label>
                                                 <input type="number" class="form-control @error('Age') is-invalid @enderror" id="input03" placeholder="Idade" name="Age" value="{{ old('Age') }}" required>
                                                 @error('Age')
@@ -49,9 +56,9 @@
                                                         <i class="fa fa-exclamation-circle fa-fw"></i> {{ $message }}
                                                     </div>
                                                 @enderror
-                                            </div>
+                                            </div> --}}
                                             <!-- Morada -->
-                                            <div class="col-md-12 mb-3">
+                                            {{-- <div class="col-md-12 mb-3">
                                                 <label for="input04">Morada</label>
                                                 <input type="text" class="form-control @error('Household') is-invalid @enderror" id="input04" placeholder="Morada" name="Household" value="{{ old('Household') }}" required>
                                                 @error('Household')
@@ -59,11 +66,10 @@
                                                         <i class="fa fa-exclamation-circle fa-fw"></i> {{ $message }}
                                                     </div>
                                                 @enderror
-                                            </div>
-                                             <input type="hidden" name="client_type" value="request">
+                                            </div> --}}
                                         </div>
                                         <button type="submit"
-                                               name="submit" class="btn btn-primary text-nowrap ml-auto">Adicionar Cliente</button>
+                                               name="submit" class="btn btn-primary text-nowrap ml-auto">Adicionar Mesa</button>
                                     </form><!-- /form -->
                                 </div><!-- /.card-body -->
                             </div><!-- /.card -->
