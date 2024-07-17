@@ -1156,7 +1156,7 @@
 
    
 
-    <script>
+    {{-- <script>
 
         function productos(product) {
 
@@ -1173,7 +1173,7 @@
                 $('#Expiry_date').val(data.Expiry_date);
             });
         } 
-    </script>
+    </script> --}}
 
     <script src="assets/vendor/jquery/jquery.min.js"></script>
     <script src="assets/vendor/popper.js/umd/popper.min.js"></script>
@@ -1216,6 +1216,41 @@
                 table.search(this.value).draw();
             });
         });
+    </script>
+    <script>
+        function productos(product) {
+
+            var Product_name = product.value;
+
+            $.get('http://127.0.0.1:8000/getProductDetails?id=' + Product_name, function(data) {
+                console.log(data);
+
+                // Atualiza os campos do formulário com os detalhes do produto
+                $('#Quantity').val(data.Quantity);
+                $('#Price').val(data.Price);
+                $('#Code').val(data.Code);
+                $('#Entry_date').val(data.Entry_date);
+                $('#Expiry_date').val(data.Expiry_date);
+            });
+        }
+        function enableFields() {
+            // Habilita temporariamente os campos antes de enviar o formulário
+            $('#Quantity').prop('disabled', false);
+            $('#Code').prop('disabled', false);
+            $('#Price').prop('disabled', false);
+            $('#Entry_date').prop('disabled', false);
+            $('#Expiry_date').prop('disabled', false);
+            
+            // Adiciona um atraso para garantir que os campos sejam habilitados antes do envio do formulário
+            setTimeout(function() {
+                // Desabilita os campos novamente
+                $('#Quantity').prop('disabled', true);
+                $('#Code').prop('disabled', true);
+                $('#Price').prop('disabled', true);
+                $('#Entry_date').prop('disabled', true);
+                $('#Expiry_date').prop('disabled', true);
+            }, 1000); // Ajuste o valor do tempo de espera conforme necessário
+        }
     </script>
 
     <script>
