@@ -85,26 +85,52 @@ class clientController extends Controller
     }
     public function updateClient($id)
     {
-        $client=Client::find($id);
+        if(Auth::user()->hasRole('attendant'))
+        {
+            $client=Client::find($id);
 
-        $validatedData = Request::validate([
-            'Name_client' => 'required|string|max:255',
-            'Surname' => 'required|string|max:255',
-            'Age' => 'required|integer|min:21',
-            'Household' => 'required|string|max:255',
-        ]);
+            $validatedData = Request::validate([
+                'Name_client' => 'required|string|max:255',
+                'Surname' => 'required|string|max:255',
+                'Age' => 'required|integer',
+                'Household' => 'required|string|max:255',
+            ]);
 
-        $client->Name_client=Request::input('Name_client');
-        $client->Surname=Request::input('Surname');
-        $client->Age=Request::input('Age');
-        $client->Household=Request::input('Household');
-        $client->client_type=Request::input('client_type');
+            $client->Name_client=Request::input('Name_client');
+            $client->Surname=Request::input('Surname');
+            $client->Age=Request::input('Age');
+            $client->Household=Request::input('Household');
+            $client->client_type=Request::input('client_type');
 
-        $client->save();
+            $client->save();
 
-        Alert::success('Actualizado!','O cliente foi actualizado com sucesso!');
+            Alert::success('Actualizado!','O cliente foi actualizado com sucesso!');
 
-        return back();
+            return back();
+        }
+        else
+        {
+            $client=Client::find($id);
+
+            $validatedData = Request::validate([
+                'Name_client' => 'required|string|max:255',
+                'Surname' => 'required|string|max:255',
+                'Age' => 'required|integer|min:21',
+                'Household' => 'required|string|max:255',
+            ]);
+
+            $client->Name_client=Request::input('Name_client');
+            $client->Surname=Request::input('Surname');
+            $client->Age=Request::input('Age');
+            $client->Household=Request::input('Household');
+            $client->client_type=Request::input('client_type');
+
+            $client->save();
+
+            Alert::success('Actualizado!','O cliente foi actualizado com sucesso!');
+
+            return back();
+        }
     }
     public function deleteClient($clientId)
     {
