@@ -748,7 +748,7 @@
                                                         <th> Data de Entrada </th>
                                                         <th> Data de Validade </th>
                                                         <th> Categoria </th>
-                                                        <th></th>
+                                                        {{-- <th></th> --}}
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -768,7 +768,7 @@
                                                                 <span
                                                                     class="badge badge-subtle badge-warning">{{ $product->categoria->Category_name }}</span>
                                                             </td>
-                                                            <td class="align-middle text-right">
+                                                            {{-- <td class="align-middle text-right">
                                                                 <button type="button"
                                                                     class="btn btn-sm btn-icon btn-secondary"
                                                                     data-toggle="modal"
@@ -781,11 +781,11 @@
                                                                         data-target="#deleteRecordModal{{ $product->id }}"
                                                                         data-toggle="modal"></i> <span
                                                                         class="sr-only">Remove</span></button>
-                                                            </td>
+                                                            </td> --}}
                                                         </tr>
 
                                                         {{-- Inicio do modal de eliminar --}}
-                                                        <div class="modal fade zoomIn"
+                                                        {{-- <div class="modal fade zoomIn"
                                                             id="deleteRecordModal{{ $product->id }}" tabindex="-1"
                                                             aria-hidden="true">
                                                             <div class="modal-dialog modal-dialog-centered">
@@ -824,11 +824,11 @@
                                                                     </form>
                                                                 </div>
                                                             </div>
-                                                        </div>
+                                                        </div> --}}
                                                         {{-- Fim do modal de eliminar --}}
 
                                                         {{-- Inicio do modal de edicao --}}
-                                                        <div class="modal fade" id="clientNewModal{{ $product->id }}"
+                                                        {{-- <div class="modal fade" id="clientNewModal{{ $product->id }}"
                                                             tabindex="-1" role="dialog"
                                                             aria-labelledby="clientNewModalLabel" aria-hidden="true">
                                                             <!-- .modal-dialog -->
@@ -952,7 +952,7 @@
                                                                     </div><!-- /.modal-content -->
                                                                 </form>
                                                             </div><!-- /.modal-dialog -->
-                                                        </div>
+                                                        </div> --}}
                                                         {{-- Fim do formulario dos modais --}}
                                                     @endforeach
                                                 </tbody>
