@@ -104,7 +104,7 @@ class clientController extends Controller
 
             $client->save();
 
-            Alert::success('Actualizado!','O cliente foi actualizado com sucesso!');
+            Alert::success('Actualizado!','A mesa foi actualizado com sucesso!');
 
             return back();
         }
