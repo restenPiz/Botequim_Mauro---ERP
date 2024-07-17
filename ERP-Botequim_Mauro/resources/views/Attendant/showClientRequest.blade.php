@@ -84,7 +84,7 @@
                                 <!-- floating action -->
                                 <!-- title and toolbar -->
                                 <div class="d-md-flex align-items-md-start">
-                                    <h1 class="page-title mr-sm-auto"> Todos Pedidos de {{$client->Name_client}} {{$client->Surname}} </h1><!-- .btn-toolbar -->
+                                    <h1 class="page-title mr-sm-auto"> Todos Pedidos de {{$client->Name_client}} </h1><!-- .btn-toolbar -->
                                     <div class="btn-toolbar">
                                         <a href="{{route('invoiceRequest',['id'=>$client->id])}}" type="button" class="btn btn-light"><i
                                                 class="oi oi-data-transfer-download"></i> <span
