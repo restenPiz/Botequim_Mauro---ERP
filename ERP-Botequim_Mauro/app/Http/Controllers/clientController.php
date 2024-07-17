@@ -27,27 +27,54 @@ class clientController extends Controller
     public function storeClient()
     {
         if (Auth::check()) {
-            $client=new Client();
+            if(Auth::user()->hasRole('attendant'))
+            {
+                $client=new Client();
 
-            $validatedData = Request::validate([
-                'Name_client' => 'required|string|max:255',
-                'Surname' => 'required|string|max:255',
-                'Age' => 'required|integer|min:21',
-                'Household' => 'required|string|max:255',
-            ]);
+                $validatedData = Request::validate([
+                    'Name_client' => 'required|string|max:255',
+                    'Surname' => 'required|string|max:255',
+                    'Age' => 'required|integer',
+                    'Household' => 'required|string|max:255',
+                ]);
 
-            $client->Name_client=Request::input('Name_client');
-            $client->Surname=Request::input('Surname');
-            $client->Age=Request::input('Age');
-            $client->Household=Request::input('Household');
-            $client->client_type=Request::input('client_type');
+                $client->Name_client=Request::input('Name_client');
+                $client->Surname=Request::input('Surname');
+                $client->Age=Request::input('Age');
+                $client->Household=Request::input('Household');
+                $client->client_type=Request::input('client_type');
 
-            $client->save();
+                $client->save();
 
-            $message=$client->Name_client;
-            Alert::success('Adicionado!',$message.' foi adicionado com sucesso!');
+                $message=$client->Name_client;
+                Alert::success('Adicionado!',$message.' foi adicionado com sucesso!');
 
-            return back();
+                return back();
+            }
+            else
+            {
+                $client=new Client();
+
+                $validatedData = Request::validate([
+                    'Name_client' => 'required|string|max:255',
+                    'Surname' => 'required|string|max:255',
+                    'Age' => 'required|integer|min:21',
+                    'Household' => 'required|string|max:255',
+                ]);
+
+                $client->Name_client=Request::input('Name_client');
+                $client->Surname=Request::input('Surname');
+                $client->Age=Request::input('Age');
+                $client->Household=Request::input('Household');
+                $client->client_type=Request::input('client_type');
+
+                $client->save();
+
+                $message=$client->Name_client;
+                Alert::success('Adicionado!',$message.' foi adicionado com sucesso!');
+
+                return back();
+            }
        } 
        else
        {
