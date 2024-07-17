@@ -354,22 +354,71 @@
                             <div class="col">
 
                                 {{-- Inicio da tabela de todos eventos --}}
-                                <header class="page-title-bar"><!-- /.breadcrumb -->
-                                    <!-- floating action -->
-                                    {{-- <button type="button" class="btn btn-success btn-floated"><span
-                                            class="fa fa-plus"></span></button> <!-- /floating action --> --}}
+                                <header class="page-title-bar">
                                     <!-- title and toolbar -->
                                     <div class="d-md-flex align-items-md-start">
                                         <h1 class="page-title mr-sm-auto"> Todos os Productos </h1><!-- .btn-toolbar -->
                                         <div class="btn-toolbar">
                                             <a href="{{route('export.products.pdf')}}" type="button" class="btn btn-light"><i
-                                                class="oi oi-data-transfer-download"></i> <span
-                                                class="ml-1">Exportar</span></a>
+                                                    class="oi oi-data-transfer-download"></i> <span
+                                                    class="ml-1">Exportar</span>    </a>
                                         </div><!-- /.btn-toolbar -->
                                     </div><!-- /title and toolbar -->
                                 </header><!-- /.page-title-bar -->
                                 <!-- .page-section -->
 
+                                <div class="card">
+                                    
+                                    <form method="post" action="{{ route('addProductQuantity') }}">
+                                        @csrf
+                                    <div class="card-body">
+                                        {{-- Inicio do formulario de adicao da quantidade de um producto --}}
+                                        <div class="row">
+                                            <div class="col">
+                                                    <!-- form row -->
+                                                    <div class="form-row">
+                                                        <!-- form column -->
+                                                        <div class="col-md-12 mb-3">
+                                                            <label>Nome de Producto</label>
+                                                            {{-- Inicio do input de selecao de Productos --}}
+                                                            <select
+                                                                class="form-control @error('Id_product') is-invalid @enderror"
+                                                                name="Id_product" id="Id_product" required >
+                                                                <option>--Selecione o Produto--</option>
+                                                                @foreach ($products as $stock)
+                                                                    <option value="{{ $stock->id }}">
+                                                                        {{ $stock->Product_name }}
+                                                                    </option>
+                                                                @endforeach
+                                                            </select>
+                                                            @error('Id_product')
+                                                                <div class="invalid-feedback">{{ $message }}</div>
+                                                            @enderror
+                                                            {{-- Fim do input de selecao --}}
+                                                        </div>
+                                                    </div>
+                                            </div>
+                                            <div class="col">
+                                                    <!-- form row -->
+                                                    <div class="form-row">
+                                                        <!-- form column -->
+                                                        <div class="col-md-12 mb-3">
+                                                            <label for="input02">Quantidade</label>
+                                                            <input type="text" class="form-control"
+                                                                id="Quantity" placeholder="Digite a Quantidade do Producto" name="Quantity"
+                                                                required>
+                                                        </div><!-- /form column -->
+                                                    </div>
+                                                
+                                            </div>
+                                        </div>
+                                        
+                                        <button type="submit" name="submit" class="btn btn-success text-nowrap ml-auto"
+                                        >Adicionar Producto Existente</button>
+                                        {{-- Fim do formulario de adicao da quantidade de um producto --}}
+                                    </div>
+                                </form>
+                                </div>
                                 {{-- Table section --}}
                                 <div class="card mt-4" style="margin-top:-4rem">
                                     <!-- .card-body -->
@@ -378,15 +427,7 @@
                                         <div class="table-responsive">
 
                                             {{-- <div class="form-group">
-                                                <!-- .input-group -->
                                                 <div class="input-group input-group-alt">
-                                                    <!-- .input-group-prepend -->
-                                                    <div class="input-group-prepend">
-                                                        <select id="filterBy" class="custom-select">
-                                                            <option value='' selected> Filtrar Por </option>
-                                                        </select>
-                                                    </div><!-- /.input-group-prepend -->
-                                                    <!-- .input-group -->
                                                     <div class="input-group has-clearable">
                                                         <button id="clear-search" type="button" class="close"
                                                             aria-label="Close"><span aria-hidden="true"><i
@@ -394,11 +435,12 @@
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text"><span
                                                                     class="oi oi-magnifying-glass"></span></span>
-                                                        </div><input id="table-search" type="text" class="form-control"
-                                                        placeholder="Pesquisar productos">
-                                                    </div><!-- /.input-group -->
-                                                </div><!-- /.input-group -->
-                                            </div><!-- /.form-group --> --}}
+                                                        </div>
+                                                        <input id="table-search" type="text" class="form-control"
+                                                            placeholder="Pesquisar productos">
+                                                    </div>
+                                                </div>
+                                            </div> --}}
 
                                             <table id="stock-table" class="table table-striped" style="min-width: 678px">
                                                 <thead>
@@ -414,17 +456,16 @@
                                                         <th></th>
                                                     </tr>
                                                 </thead>
-                                                <tbody>
+                                                <tbody id="product-list">
                                                     @foreach ($products as $product)
                                                         <tr>
                                                             <td class="align-middle"> {{ $product->Product_name }} </td>
                                                             <td class="align-middle"> {{ $product->Quantity }} </td>
                                                             <td class="align-middle">
-                                                                <span
-                                                                    class="badge badge-subtle badge-success">{{ $product->Code }}</span>
+                                                                <span class="badge badge-subtle badge-success">{{ $product->Code }}</span>
                                                             </td>
                                                             <td class="align-middle"> {{ number_format($product->Price,2,',','.',).' MZN' }} </td>
-                                                            <td class="align-middle"> {{ number_format($product->Sale_price,2,',','.',).' MZN' }} </td>
+                                                            <td class="align-middle"> {{ number_format( $product->Sale_price, 2,',','.',) .'MZN' }} </td>
                                                             <td class="align-middle"> {{ $product->Entry_date }} </td>
                                                             <td class="align-middle"> {{ $product->Expiry_date }} </td>
                                                             <td class="align-middle">
@@ -432,14 +473,12 @@
                                                                     class="badge badge-subtle badge-warning">{{ $product->categoria->Category_name }}</span>
                                                             </td>
                                                             <td class="align-middle text-right">
-                                                                <button type="button"
-                                                                    class="btn btn-sm btn-icon btn-secondary"
+                                                                <button type="button" class="btn btn-sm btn-icon btn-secondary"
                                                                     data-toggle="modal"
                                                                     data-target="#clientNewModal{{ $product->id }}"><i
                                                                         class="fa fa-pencil-alt"></i> <span
                                                                         class="sr-only">Edit</span></button> <button
-                                                                    type="button"
-                                                                    class="btn btn-sm btn-icon btn-secondary"><i
+                                                                    type="button" class="btn btn-sm btn-icon btn-secondary"><i
                                                                         class="far fa-trash-alt"
                                                                         data-target="#deleteRecordModal{{ $product->id }}"
                                                                         data-toggle="modal"></i> <span
