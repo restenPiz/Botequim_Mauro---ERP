@@ -106,11 +106,11 @@ class clientController extends Controller
 
         return back();
     }
-    public function deleteClient($id)
+    public function deleteClient($clientId)
     {
-        $clients=Client::findOrFail($id);
+        ProductRequest::where('Id_client', $clientId)->delete();
 
-        $clients->delete();
+        Client::find($clientId)->delete();
 
         Alert::success('Eliminado!','O cliente foi eliminado com sucesso.');
 
