@@ -13,7 +13,7 @@
                         <div class="col">
                             <!-- .card -->
                             <div class="card card-fluid">
-                                <h6 class="card-header"> Adicionar Cliente </h6><!-- .card-body -->
+                                <h6 class="card-header"> Adicionar Mesa </h6><!-- .card-body -->
                                 <div class="card-body">
                                     <!-- form -->
                                     <form method="post" action="{{route('storeClient')}}">
@@ -79,7 +79,7 @@
                             <header class="page-title-bar">
                                 <!-- title and toolbar -->
                                 <div class="d-md-flex align-items-md-start">
-                                    <h1 class="page-title mr-sm-auto"> Todos Clientes </h1><!-- .btn-toolbar -->
+                                    <h1 class="page-title mr-sm-auto"> Todos Mesas </h1><!-- .btn-toolbar -->
                                     <div class="btn-toolbar">
                                     </div><!-- /.btn-toolbar -->
                                 </div><!-- /title and toolbar -->
