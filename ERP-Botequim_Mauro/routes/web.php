@@ -29,6 +29,9 @@ Route::get('/check-stock-levels', [redirectController::class,'checkStockLevelsAj
 //*Inicio da rota responsavel por verificar a quantidade de productos no stock
 Route::get('/check-stock', [stockController::class, 'checkStock'])->middleware(['auth', 'verified']);
 
+//?Inicio das rotas da parte de clientes
+Route::get('/showClient/{id}', [clientController::class, 'showClient'])->name('showClient');   
+    
 //?Inicio das rotas da parte de admin
 Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function() {
 
@@ -53,9 +56,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function() {
     //*Inicio da rota para eliminar todos os productos na tabela de dividas
     Route::get('/deleteAllDebit', [debitController::class, 'deleteAllDebit'])->name('deleteAllDebit');
 
-    //?Inicio das rotas da parte de clientes
-    Route::get('/showClient/{id}', [clientController::class, 'showClient'])->name('showClient');   
-    
     //?Inicio das rotas da parte de pagamento
     Route::post('/storePayment', [paymentController::class, 'storePayment'])->name('storePayment');
     Route::get('/allPayment', [paymentController::class, 'addPayment'])->name('addPayment');
