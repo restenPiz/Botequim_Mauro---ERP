@@ -116,7 +116,7 @@
             </div><!-- /.form-group --> --}}
 
             {{-- Inicio do link de registro--}}
-            <a href="{{route('register')}}">Registre-se</a>
+            {{-- <a href="{{route('register')}}">Registre-se</a> --}}
             {{--Fim do link de registro --}}
 
         </form><!-- /.auth-form -->

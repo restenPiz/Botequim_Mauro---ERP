@@ -41,7 +41,7 @@ class stockController extends Controller
             if ($stock->product) {
                 $data[] = [
                     'Product_name' => $stock->product->Product_name,
-                    'Quantity' => $stock->Quantity,
+                    'Quantity' => $stock->Quantity, 
                     'Code' => $stock->Code,
                     'Price' => number_format($stock->Price, 2, ',', '.',) . ' MZN',
                     'Entry_date' => $stock->Entry_date,
