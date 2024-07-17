@@ -91,24 +91,55 @@ class stockController extends Controller
     }
     public function storeStock()
     {
-        $stock=new Stock();
-
         $validatedData = Request::validate([
             'Id_product' => 'required|string|max:255',
+            'Quantity' => 'required|integer',
+            'Code' => 'required|string|max:255',
+            'Price' => 'required|numeric',
+            'Entry_date' => 'required|date',
+            'Expiry_date' => 'required|date',
         ]);
-
-        $stock->Quantity=Request::input('Quantity');
-        $stock->Code=Request::input('Code');
-        $stock->Price=Request::input('Price');
-        $stock->Entry_date=Request::input('Entry_date');
-        $stock->Expiry_date=Request::input('Expiry_date');
-        $stock->Id_product=Request::input('Id_product');
+    
+        // Verificar se o produto já existe no estoque
+        $existingStock = Stock::where('Id_product', Request::input('Id_product'))->first();
+    
+        if ($existingStock) {
+            // Se o produto já existe, retornar mensagem de erro
+            Alert::error('Erro', 'O produto já existe no estoque!');
+            return back();
+        }
+    
+        // Se o produto não existe, criar um novo registro
+        $stock = new Stock();
+        $stock->Quantity = Request::input('Quantity');
+        $stock->Code = Request::input('Code');
+        $stock->Price = Request::input('Price');
+        $stock->Entry_date = Request::input('Entry_date');
+        $stock->Expiry_date = Request::input('Expiry_date');
+        $stock->Id_product = Request::input('Id_product');
         
         $stock->save();
-
-        Alert::success('Adicionado','O producto foi adicionado com sucesso!');
-
+    
+        Alert::success('Adicionado', 'O produto foi adicionado com sucesso!');
         return back();
+        // $stock=new Stock();
+
+        // $validatedData = Request::validate([
+        //     'Id_product' => 'required|string|max:255',
+        // ]);
+
+        // $stock->Quantity=Request::input('Quantity');
+        // $stock->Code=Request::input('Code');
+        // $stock->Price=Request::input('Price');
+        // $stock->Entry_date=Request::input('Entry_date');
+        // $stock->Expiry_date=Request::input('Expiry_date');
+        // $stock->Id_product=Request::input('Id_product');
+        
+        // $stock->save();
+
+        // Alert::success('Adicionado','O producto foi adicionado com sucesso!');
+
+        // return back();
     }
     //?Inicio do metodo responsavel por eliminar o producto
     public function deleteStock($id)
