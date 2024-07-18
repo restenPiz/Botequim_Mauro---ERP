@@ -1143,6 +1143,33 @@ $(document).ready(function() {
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-116692175-1"></script>
 
+
+        <script>
+            $(document).ready(function() {
+                $('#saleForm').on('submit', function(e) {
+                    e.preventDefault();
+            
+                    $.ajax({
+                        url: $(this).attr('action'),
+                        type: 'POST',
+                        data: $(this).serialize(),
+                        success: function(response) {
+                            if (response.status === 'success') {
+                                alert(response.message);
+                                // Atualizar a tabela de vendas ou realizar outras ações com a resposta
+                            } else {
+                                alert('Erro ao adicionar produto');
+                            }
+                        },
+                        error: function(xhr, status, error) {
+                            console.error('Erro na requisição AJAX:', status, error);
+                            alert('Erro ao processar a requisição.');
+                        }
+                    });
+                });
+            });
+            </script>
+
         <script>
             window.dataLayer = window.dataLayer || [];
 
