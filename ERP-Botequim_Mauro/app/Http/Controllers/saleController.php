@@ -87,11 +87,17 @@ class saleController extends Controller
 
         // Alert::success('Adicionado!', 'Produto adicionado na lista de vendas!');
         $sales->load('stocks.product');
+        $formatted_price = number_format($sales->Product_price, 2, ',', '.') . ' MZN';
+        $formatted_amount = number_format($sales->Amount, 2, ',', '.') . ' MZN';
+    
         // return back();
         return response()->json([
             'status' => 'success',
             'message' => 'Produto adicionado na lista de vendas!',
-            'sale' => $sales
+            'sale' => $sales,
+            'formatted_price' => $formatted_price,
+            'formatted_amount' => $formatted_amount,
+            'product_name' => $stock->product->Product_name
         ], 200);
     }
 

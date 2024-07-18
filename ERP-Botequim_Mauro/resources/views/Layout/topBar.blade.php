@@ -1159,15 +1159,15 @@ $(document).ready(function() {
                                 // add loading class to html immediatel
                                 // Adicionar novo produto à tabela
                                 var newRow = '<tr>' +
-                                    '<td class="align-middle">' + response.sale.stocks.product.Product_name + '</td>' +
-                                    '<td class="align-middle">' + new Intl.NumberFormat('pt-MZ', { style: 'currency', currency: 'MZN' }).format(response.sale.Product_price) + '</td>' +
+                                    '<td class="align-middle">' + response.product_name + '</td>' +
+                                    '<td class="align-middle">' + response.formatted_price + '</td>' +
                                     '<td class="align-middle">' + response.sale.Quantity + '</td>' +
-                                    '<td class="align-middle">' + new Intl.NumberFormat('pt-MZ', { style: 'currency', currency: 'MZN' }).format(response.sale.Amount) + '</td>' +
+                                    '<td class="align-middle">' + response.formatted_amount + '</td>' +
                                     '<td class="align-middle text-right">' +
-                                        '<button type="button" class="btn btn-sm btn-icon btn-secondary" data-toggle="modal" data-target="#clientNewModal' + response.sale.id + '"><i class="fa fa-pencil-alt"></i> <span class="sr-only">Edit</span></button> ' +
+                                        '<button type="button" class="btn btn-sm btn-icon btn-secondary" data-toggle="modal" data-target="#clientNewModal' + response.sale.id + '"><i class="fa fa-pencil-alt"></i> <span class="sr-only">Edit</span></button>' +
                                         '<button type="button" class="btn btn-sm btn-icon btn-secondary"><i class="far fa-trash-alt" data-target="#deleteRecordModal' + response.sale.id + '" data-toggle="modal"></i> <span class="sr-only">Remove</span></button>' +
                                     '</td>' +
-                                '</tr>';
+                                    '</tr>';
                                 $('#salesTableBody').append(newRow);
                             } else {
                                 alert('Erro ao adicionar produto');
