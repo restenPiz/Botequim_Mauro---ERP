@@ -261,7 +261,7 @@
                                                     tabindex="-1" aria-hidden="true">
                                                     <div class="modal-dialog modal-dialog-centered">
                                                         <div class="modal-content">
-                                                            <form action="{{ route('deleteDebit', ['id' => $request->id]) }}"
+                                                            <form action="{{ route('deleteRequest', ['id' => $request->id]) }}"
                                                                 method="get">
                                                                 @csrf
                                                                 @method('DELETE')

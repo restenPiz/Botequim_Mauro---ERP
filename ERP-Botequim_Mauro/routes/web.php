@@ -52,7 +52,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function() {
     Route::post('/storeDebit', [debitController::class, 'storeDebit'])->name('storeDebit');
     Route::get('/allDebit/{id}', [debitController::class, 'allDebit'])->name('allDebit');
     Route::post('/updateDebit/{id}', [debitController::class, 'updateDebit'])->name('updateDebit');
-    Route::get('/deleteDebit/{id}', [debitController::class, 'deleteDebit'])->name('deleteDebit');
     //*Inicio da rota para eliminar todos os productos na tabela de dividas
     Route::get('/deleteAllDebit', [debitController::class, 'deleteAllDebit'])->name('deleteAllDebit');
 
@@ -69,6 +68,11 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function() {
 
 //*Inicio da rota responsavel por retornar a view de adicao de clientes nas dividas
 Route::get('/allClient', [clientController::class, 'addClient'])->name('addClient'); 
+
+//*inicio da rota para eliminar divida
+
+Route::get('/deleteDebit/{id}', [debitController::class, 'deleteDebit'])->name('deleteDebit');
+Route::get('/deleteRequest/{id}', [debitController::class, 'deleteRequest'])->name('deleteRequest');
 
 //?Inicio das rotas da parte do atendente
 Route::group(['prefix' => 'attendant', 'middleware' => ['role:attendant']], function() {

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Client;
 use App\Models\Debit;
 use App\Models\Product;
+use App\Models\ProductRequest;
 use App\Models\Stock;
 use Auth;
 use Illuminate\Support\Facades\DB;
@@ -110,6 +111,16 @@ class debitController extends Controller
         $debit->delete();
 
         Alert::success('Eliminado!','A sua divida foi eliminada com sucesso!');
+
+        return back();
+    }
+     public function deleteRequest($id)
+    {
+        $debit=ProductRequest::findOrFail($id);
+
+        $debit->delete();
+
+        Alert::success('Eliminado!','O seu pedido foi eliminado com sucesso!');
 
         return back();
     }
