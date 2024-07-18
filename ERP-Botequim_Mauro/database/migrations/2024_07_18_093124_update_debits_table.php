@@ -8,11 +8,27 @@ return new class extends Migration
 {
     public function up()
     {
+        // Atualizar a tabela 'debits'
         Schema::table('debits', function (Blueprint $table) {
-            // Primeiro, remova a chave estrangeira existente
             $table->dropForeign(['Id_stock']);
-            
-            // Em seguida, adicione a nova chave estrangeira com CASCADE na deleção
+            $table->foreign('Id_stock')
+                  ->references('id')
+                  ->on('stocks')
+                  ->onDelete('cascade');
+        });
+
+        // Atualizar a tabela 'sale_histories'
+        Schema::table('sale_histories', function (Blueprint $table) {
+            $table->dropForeign(['Id_stock']);
+            $table->foreign('Id_stock')
+                  ->references('id')
+                  ->on('stocks')
+                  ->onDelete('cascade');
+        });
+
+        // Atualizar a tabela 'sales'
+        Schema::table('sales', function (Blueprint $table) {
+            $table->dropForeign(['Id_stock']);
             $table->foreign('Id_stock')
                   ->references('id')
                   ->on('stocks')
@@ -22,8 +38,24 @@ return new class extends Migration
 
     public function down()
     {
+        // Reverter a alteração na tabela 'debits'
         Schema::table('debits', function (Blueprint $table) {
-            // Reverter a alteração caso a migração seja revertida
+            $table->dropForeign(['Id_stock']);
+            $table->foreign('Id_stock')
+                  ->references('id')
+                  ->on('stocks');
+        });
+
+        // Reverter a alteração na tabela 'sale_histories'
+        Schema::table('sale_histories', function (Blueprint $table) {
+            $table->dropForeign(['Id_stock']);
+            $table->foreign('Id_stock')
+                  ->references('id')
+                  ->on('stocks');
+        });
+
+        // Reverter a alteração na tabela 'sales'
+        Schema::table('sales', function (Blueprint $table) {
             $table->dropForeign(['Id_stock']);
             $table->foreign('Id_stock')
                   ->references('id')
