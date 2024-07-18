@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Sale;
+use App\Models\Sale_History;
 use App\Models\Stock;
 use Request;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -89,14 +91,24 @@ class productController extends Controller
     }
     public function deleteProduct($id)
     {
-        $products = Product::findOrFail($id);
+         // Busca o produto pelo ID ou retorna um erro 404 se não encontrado
+        $product = Product::findOrFail($id);
 
-        $products->delete();
+        // Deleta todas as vendas associadas ao produto
+        $product->stock()->each(function ($stock) {
+            $stock->sales()->delete(); // Deleta todas as vendas relacionadas ao estoque
+            $stock->delete(); // Deleta o estoque associado ao produto
+        });
+
+        // Deleta o produto
+        $product->delete();
 
         Alert::success('Eliminado!','O producto foi eliminado com sucesso!');
+        // Redireciona de volta com uma mensagem de sucesso
+        return back()->with('success', 'O produto foi eliminado com sucesso!');
 
-        return back();
     }
+
     //*Inicio do metodo responsavel por fazer a pesquisa dos dados
     public function search()
     {

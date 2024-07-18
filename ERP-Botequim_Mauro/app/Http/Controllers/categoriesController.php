@@ -58,6 +58,9 @@ class categoriesController extends Controller
 
         $category->delete();
 
+        Alert::success('Eliminado!','A categoria foi eliminada com sucesso!');
+
         return back();
+
     }
 }

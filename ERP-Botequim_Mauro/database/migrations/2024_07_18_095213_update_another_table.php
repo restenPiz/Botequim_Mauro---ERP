@@ -34,6 +34,11 @@ return new class extends Migration
                   ->on('stocks')
                   ->onDelete('cascade');
         });
+
+        Schema::table('products', function (Blueprint $table) {
+            $table->dropForeign(['Id_category']); // Remova a chave estrangeira existente
+            $table->foreign('Id_category')->references('id')->on('categories')->onDelete('cascade'); // Adicione a chave estrangeira com 'cascade'
+        });
     }
 
     public function down()
@@ -44,6 +49,11 @@ return new class extends Migration
             $table->foreign('Id_stock')
                   ->references('id')
                   ->on('stocks');
+        });
+
+        Schema::table('products', function (Blueprint $table) {
+            $table->dropForeign(['Id_category']); // Remova a chave estrangeira 'cascade'
+            $table->foreign('Id_category')->references('id')->on('categories'); // Adicione a chave estrangeira original
         });
 
         // Reverter a alteração na tabela 'sale_histories'
