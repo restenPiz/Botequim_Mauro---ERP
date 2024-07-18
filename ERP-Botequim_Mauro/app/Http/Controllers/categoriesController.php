@@ -51,9 +51,12 @@ class categoriesController extends Controller
     }
     public function deleteCategories($id)
     {
-        $categories=Category::findOrFail($id);
+        $category = Category::findOrFail($id);
 
-        $categories->delete();
+        // Remover todos os produtos associados à categoria
+        $category->products()->delete();
+
+        $category->delete();
 
         return back();
     }

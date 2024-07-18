@@ -158,7 +158,7 @@
                                                         <th> Quantidade </th>
                                                         <th> Preco de Venda </th>
                                                         <th> Data de Saida </th>
-                                                        <th></th>
+                                                        {{-- <th></th> --}}
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -172,13 +172,13 @@
                                                                 <span
                                                                     class="badge badge-subtle badge-warning">{{ $product->created_at }}</span>
                                                             </td>
-                                                            <td class="align-middle text-right"> <button type="button"
+                                                            {{-- <td class="align-middle text-right"> <button type="button"
                                                                     class="btn btn-sm btn-icon btn-secondary"><i
                                                                         class="far fa-trash-alt"
                                                                         data-target="#deleteRecordModal{{ $product->id }}"
                                                                         data-toggle="modal"></i> <span
                                                                         class="sr-only">Remove</span></button>
-                                                            </td>
+                                                            </td> --}}
                                                         </tr>
                                                     @endforeach
                                                 </tbody>
