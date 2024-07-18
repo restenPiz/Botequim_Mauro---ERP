@@ -86,7 +86,7 @@ class saleController extends Controller
         $stock->save();
 
         // Alert::success('Adicionado!', 'Produto adicionado na lista de vendas!');
-
+        $sales->load('stocks.product');
         // return back();
         return response()->json([
             'status' => 'success',
@@ -112,22 +112,19 @@ class saleController extends Controller
     }
     public function deleteSale($id)
     {
-        $sales=Sale::findOrFail($id);
+        $sale=Sale::findOrFail($id);
 
-        foreach ($sales as $sale) {
-            
-            $sale->delete();
+        $sale->delete();
 
-            //*metodo responsavel por acrescentar a quantidade de productos no stock
-            $stock = Stock::find($sale->Id_stock);
-            if ($stock) {
-                $stock->Quantity += $sale->Quantity;
-                $stock->save();
-            }
+        // Método responsável por acrescentar a quantidade de produtos no estoque
+        $stock = Stock::find($sale->Id_stock);
+        if ($stock) {
+            $stock->Quantity += $sale->Quantity;
+            $stock->save();
         }
-
-        Alert::success('Eliminado!','O producto foi eliminado com sucesso!');
-
+    
+        Alert::success('Eliminado!', 'O produto foi eliminado com sucesso!');
+    
         return back();
     }
 

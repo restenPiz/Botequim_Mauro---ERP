@@ -1148,15 +1148,27 @@ $(document).ready(function() {
             $(document).ready(function() {
                 $('#saleForm').on('submit', function(e) {
                     e.preventDefault();
-            
+
                     $.ajax({
                         url: $(this).attr('action'),
                         type: 'POST',
                         data: $(this).serialize(),
                         success: function(response) {
                             if (response.status === 'success') {
-                                alert(response.message);
-                                // Atualizar a tabela de vendas ou realizar outras ações com a resposta
+                                // alert(response.message);
+                                // add loading class to html immediatel
+                                // Adicionar novo produto à tabela
+                                var newRow = '<tr>' +
+                                    '<td class="align-middle">' + response.sale.stocks.product.Product_name + '</td>' +
+                                    '<td class="align-middle">' + new Intl.NumberFormat('pt-MZ', { style: 'currency', currency: 'MZN' }).format(response.sale.Product_price) + '</td>' +
+                                    '<td class="align-middle">' + response.sale.Quantity + '</td>' +
+                                    '<td class="align-middle">' + new Intl.NumberFormat('pt-MZ', { style: 'currency', currency: 'MZN' }).format(response.sale.Amount) + '</td>' +
+                                    '<td class="align-middle text-right">' +
+                                        '<button type="button" class="btn btn-sm btn-icon btn-secondary" data-toggle="modal" data-target="#clientNewModal' + response.sale.id + '"><i class="fa fa-pencil-alt"></i> <span class="sr-only">Edit</span></button> ' +
+                                        '<button type="button" class="btn btn-sm btn-icon btn-secondary"><i class="far fa-trash-alt" data-target="#deleteRecordModal' + response.sale.id + '" data-toggle="modal"></i> <span class="sr-only">Remove</span></button>' +
+                                    '</td>' +
+                                '</tr>';
+                                $('#salesTableBody').append(newRow);
                             } else {
                                 alert('Erro ao adicionar produto');
                             }
@@ -1168,6 +1180,29 @@ $(document).ready(function() {
                     });
                 });
             });
+            // $(document).ready(function() {
+            //     $('#saleForm').on('submit', function(e) {
+            //         e.preventDefault();
+            
+            //         $.ajax({
+            //             url: $(this).attr('action'),
+            //             type: 'POST',
+            //             data: $(this).serialize(),
+            //             success: function(response) {
+            //                 if (response.status === 'success') {
+            //                     alert(response.message);
+            //                     // Atualizar a tabela de vendas ou realizar outras ações com a resposta
+            //                 } else {
+            //                     alert('Erro ao adicionar produto');
+            //                 }
+            //             },
+            //             error: function(xhr, status, error) {
+            //                 console.error('Erro na requisição AJAX:', status, error);
+            //                 alert('Erro ao processar a requisição.');
+            //             }
+            //         });
+            //     });
+            // });
             </script>
 
         <script>
