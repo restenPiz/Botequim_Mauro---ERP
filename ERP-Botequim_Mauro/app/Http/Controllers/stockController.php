@@ -144,12 +144,20 @@ class stockController extends Controller
     //?Inicio do metodo responsavel por eliminar o producto
     public function deleteStock($id)
     {
-        $stock=Stock::find($id);
+        $stock = Stock::find($id);
 
-        $stock->delete();
-
-        Alert::success('Eliminado','O producto foi eliminado com sucesso!');
-
+        if ($stock) {
+            // Delete associated debits
+            DB::table('debits')->where('Id_stock', $id)->delete();
+    
+            // Delete the stock
+            $stock->delete();
+    
+            Alert::success('Eliminado','O producto foi eliminado com sucesso!');
+        } else {
+            Alert::error('Erro','Produto não encontrado!');
+        }
+    
         return back();
     }
     //?Inicio do metodo que retorna os dados do select

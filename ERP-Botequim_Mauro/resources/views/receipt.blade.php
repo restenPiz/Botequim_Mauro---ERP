@@ -238,14 +238,17 @@
     @endrole
 
     @role('attendant')
-        <script>
-            window.onload = function() {
-                window.print();
-                setTimeout(function() {
-                    window.location.href = "{{ route('dashboard') }}";
-                }, 3000); // Redireciona após 2 segundos
-            }
-        </script>
+    <script>
+        window.onload = function() {
+            window.print();
+        };
+
+        window.onafterprint = function() {
+            setTimeout(function() {
+                window.location.href = "{{ route('dashboard') }}";
+            }, 1000); // Redireciona após 1 segundo (ajuste conforme necessário)
+        };
+    </script>
     @endrole
 
     <script src="../assets/vendor/sortablejs/Sortable.min.js"></script> <!-- END PLUGINS JS -->
