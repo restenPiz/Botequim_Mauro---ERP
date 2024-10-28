@@ -426,22 +426,6 @@
                                         {{-- <h2 class="card-title"> Contacts </h2><!-- .table-responsive --> --}}
                                         <div class="table-responsive">
 
-                                            {{-- <div class="form-group">
-                                                <div class="input-group input-group-alt">
-                                                    <div class="input-group has-clearable">
-                                                        <button id="clear-search" type="button" class="close"
-                                                            aria-label="Close"><span aria-hidden="true"><i
-                                                                    class="fa fa-times-circle"></i></span></button>
-                                                        <div class="input-group-prepend">
-                                                            <span class="input-group-text"><span
-                                                                    class="oi oi-magnifying-glass"></span></span>
-                                                        </div>
-                                                        <input id="table-search" type="text" class="form-control"
-                                                            placeholder="Pesquisar productos">
-                                                    </div>
-                                                </div>
-                                            </div> --}}
-
                                             <table id="stock-table" class="table table-striped" style="min-width: 678px">
                                                 <thead>
                                                     <tr>
